@@ -1,0 +1,25 @@
+i {
+    font-size: 1.5rem;
+    color: #34a853;
+    margin: 0 5px 0 10px;
+    transition: font-size 1s;
+}
+i:hover {
+    font-size: 1.7rem;
+}
+
+.NavLinkItems {
+    font-size: 1.5rem;
+    color: #575755
+
+}
+
+.NavLinkItems:hover {
+    font-size: 1.5rem;
+    color: #34a853;
+    transition: color ease-in-out .5s;
+}
+
+.NavBarBackground {
+    box-shadow: 0 5px 5px  #575755;
+}
