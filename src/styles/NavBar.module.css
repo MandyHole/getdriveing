@@ -1,7 +1,7 @@
 i {
     font-size: 1.5rem;
     color: #34a853;
-    margin: 0 5px 0 10px;
+    margin: 0 10px 0 35px;
     transition: font-size 1s;
 }
 i:hover {
@@ -10,7 +10,8 @@ i:hover {
 
 .NavLinkItems {
     font-size: 1.5rem;
-    color: #575755
+    color: #575755;
+    text-decoration: none;
 
 }
 
@@ -18,8 +19,14 @@ i:hover {
     font-size: 1.5rem;
     color: #34a853;
     transition: color ease-in-out .5s;
+
 }
 
 .NavBarBackground {
     box-shadow: 0 5px 5px  #575755;
+    background-color: #fff;
+}
+
+.Active i {
+    color: #4285f4;
 }

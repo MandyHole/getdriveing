@@ -21,7 +21,7 @@ const HeroBox = () => {
         </Row>
         <Row>
           <Col md={{ span: 8, offset: 2 }} className={styles.HeroButtonBox}>
-            <Button variant="primary" size="lg" className={styles.HeroButtons}>Sign Up</Button> <Button variant="primary" size="lg" className={styles.HeroButtons}>Sign In</Button>
+            <Button size="lg" variant="dark" className={styles.HeroButtons}>Sign Up</Button> <Button size="lg" variant="dark" className={styles.HeroButtons}>Sign In</Button>
           </Col>
         </Row>
       </Container>
