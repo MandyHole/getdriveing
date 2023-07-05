@@ -16,33 +16,6 @@
     font-style: italic;
 }
 
-.HeroButtons {
-
-    margin: 15px 30px;
-    border: none;
-    padding: 5px 25px;
-    font-size: 24px;
-    text-align: center;
-    cursor: pointer;
-    outline: none;
-    color: #fff;
-    background-color: #575755;
-    border-radius: 15px;
-    box-shadow: 0 9px #34a853;
-}
-
-.HeroButtons:hover {
-    background-color: #000;
-}
-
-.HeroButtons:active {
-    background-color: #575755;
-    box-shadow: 0 5px #666;
-    transform: translateY(4px);
-    background: #575755;
-}
-
-.HeroButtonBox {
-    display:flex;
-    justify-content:center;
+.FullHeight {
+    height: 100vh;
 }

@@ -3,6 +3,9 @@ import NavBar from "./components/NavBar";
 import HeroBox from "./components/HeroBox";
 import { Container } from "react-bootstrap";
 import { Route, Switch } from "react-router-dom";
+import './api/axiosDefaults';
+import SignUpPage from "./pages/auth/SignUpPage";
+import SignInPage from "./pages/auth/SignInPage";
 
 function App() {
   return (
@@ -38,8 +41,7 @@ function App() {
           path="/sign-in"
           render={() => (
             <>
-              <HeroBox />
-              <h1>Sign In</h1>
+              <SignInPage />
             </>
           )}
         />
@@ -48,8 +50,7 @@ function App() {
           path="/sign-up"
           render={() => (
             <>
-              <HeroBox />
-              <h1>Sign Up</h1>
+              <SignUpPage />
             </>
           )}
         />

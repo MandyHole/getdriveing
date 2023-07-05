@@ -1,0 +1,38 @@
+.Buttons {
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    color: #fff;
+    background-color: #575755;
+    border-radius: 15px;
+    box-shadow: 0 9px #34a853;
+    border: none;
+}
+
+.Buttons:hover {
+    background-color: #000;
+}
+
+.Buttons:active {
+    background-color: #575755;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+    background: #575755;
+}
+
+.HeroButtonBox {
+    display:flex;
+    justify-content:center;
+}
+
+.HeroButtons {
+
+    margin: 15px 30px;
+    padding: 5px 25px;
+    font-size: 24px;
+}
+
+.Width {
+    width: 100%;
+    font-size: 1.3rem;
+}
