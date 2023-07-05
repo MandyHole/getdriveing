@@ -6,6 +6,9 @@ import { Route, Switch } from "react-router-dom";
 import './api/axiosDefaults';
 import SignUpPage from "./pages/auth/SignUpPage";
 import SignInPage from "./pages/auth/SignInPage";
+import MyProfilePage from "./pages/MyProfilePage";
+import CreateTipPage from "./pages/CreateTipPage";
+
 
 function App() {
   return (
@@ -54,6 +57,25 @@ function App() {
             </>
           )}
         />
+        <Route
+          exact
+          path="/my-profile"
+          render={() => (
+            <>
+              <MyProfilePage />
+            </>
+          )}
+        />
+         <Route
+          exact
+          path="/create-tip"
+          render={() => (
+            <>
+              <CreateTipPage />
+            </>
+          )}
+        />
+
         <Route
           render={() => (
             <>
