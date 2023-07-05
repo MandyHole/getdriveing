@@ -7,7 +7,7 @@ import './api/axiosDefaults';
 import SignUpPage from "./pages/auth/SignUpPage";
 import SignInPage from "./pages/auth/SignInPage";
 import MyProfilePage from "./pages/MyProfilePage";
-import CreateTipPage from "./pages/CreateTipPage";
+import CreateTipForm from "./pages/tips/CreateTipForm";
 
 
 function App() {
@@ -68,10 +68,10 @@ function App() {
         />
          <Route
           exact
-          path="/create-tip"
+          path="/tips/create"
           render={() => (
             <>
-              <CreateTipPage />
+              <CreateTipForm />
             </>
           )}
         />

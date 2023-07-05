@@ -7,7 +7,7 @@ import Button from "react-bootstrap/Button";
 import btnStyles from "../../styles/Buttons.module.css";
 import Alert from "react-bootstrap/Alert";
 import Form from "react-bootstrap/Form";
-import styles from "../../styles/SignUpPage.module.css";
+import styles from "../../styles/SignInUpPages.module.css";
 import { Link, useHistory } from "react-router-dom";
 import axios from "axios";
 import { useSetCurrentUser } from "../../contexts/CurrentUserContext";

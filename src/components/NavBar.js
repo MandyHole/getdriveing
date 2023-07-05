@@ -33,19 +33,19 @@ const NavBar = () => {
   const signedInMenu = (
     <>
       {" "}
-      <NavLink to="/create-tip" activeClassName={styles.Active}>
+      <NavLink exact to="/tips/create" activeClassName={styles.Active}>
         <i class="fa-solid fa-circle-plus"></i>
         <span className={styles.NavLinkItems} activeClassName={styles.Active}>
           Create a Tip
         </span>
       </NavLink>
-      <NavLink to="/my-info" activeClassName={styles.Active}>
+      <NavLink exact to="/my-info" activeClassName={styles.Active}>
         <i class="fa-solid fa-user"></i>
         <span className={styles.NavLinkItems} activeClassName={styles.Active}>
           My Info
         </span>
       </NavLink>
-      <NavLink to="/" onClick={handleSignOut}>
+      <NavLink exact to="/" onClick={handleSignOut}>
         <i class="fa-solid fa-right-from-bracket"></i>
         <span className={styles.NavLinkItems} activeClassName={styles.Active}>
           Logout
@@ -57,13 +57,13 @@ const NavBar = () => {
   const loggedOutMenu = (
     <>
       {" "}
-      <NavLink to="/sign-in" activeClassName={styles.Active}>
+      <NavLink exact to="/sign-in" activeClassName={styles.Active}>
         <i class="fa-solid fa-user"></i>
         <span className={styles.NavLinkItems} activeClassName={styles.Active}>
           Sign In
         </span>
       </NavLink>
-      <NavLink to="/sign-up" activeClassName={styles.Active}>
+      <NavLink exact to="/sign-up" activeClassName={styles.Active}>
         <i class="fa-solid fa-users"></i>
         <span className={styles.NavLinkItems} activeClassName={styles.Active}>
           Sign Up
@@ -100,7 +100,7 @@ const NavBar = () => {
                 <i class="fa-solid fa-house"></i>
                 <span className={styles.NavLinkItems}>Home</span>
               </NavLink>
-              <NavLink to="/tips" activeClassName={styles.Active}>
+              <NavLink exact to="/tips" activeClassName={styles.Active}>
                 <i class="fa-sharp fa-solid fa-circle-check"></i>
                 <span className={styles.NavLinkItems}>Tips</span>
               </NavLink>

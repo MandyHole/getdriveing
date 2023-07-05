@@ -8,41 +8,28 @@ import btnStyles from "../styles/Buttons.module.css";
 import { useCurrentUser } from "../contexts/CurrentUserContext";
 import { Link } from "react-router-dom";
 
-const HeroBox = () => {
+const CreateTipHero = () => {
   const currentUser = useCurrentUser();
 
   const loggedInContent = (
-    <>
-      <Row>
-        <Col md={{ span: 10, offset: 1 }}>
-          <h2>Welcome, {currentUser?.username}</h2>
-        </Col>
-      </Row>
-      <Row>
-        <Col md={{ span: 8, offset: 2 }} className={btnStyles.HeroButtonBox}>
-          <Link to="/tips/create">
-          <Button
-            size="lg"
-            variant="dark"
-            className={`${btnStyles.HeroButtons} ${btnStyles.Buttons}`}
-          >
-            Create a Tip
-          </Button></Link>
-          <Link to="/my-info">
-          <Button
-            size="lg"
-            variant="dark"
-            className={`${btnStyles.HeroButtons} ${btnStyles.Buttons}`}
-          >
-            My Info
-          </Button></Link>
-        </Col>
-      </Row>
-    </>
+      <Container>
+        <Row>
+          <Col md={{ span: 8, offset: 2 }}>
+            <h1>Create a Tip, {currentUser?.username}</h1>
+          </Col>
+        </Row>
+
+      </Container>
   );
 
   const loggedOutContent = (
     <>
+     <Container>
+        <Row>
+          <Col md={{ span: 8, offset: 2 }}>
+            <h1>Make the most of Google Drive Workplace</h1>
+          </Col>
+        </Row>
       <Row>
         <Col md={{ span: 10, offset: 1 }}>
           <h2>Create a free account to create, save and rate content!</h2>
@@ -68,20 +55,14 @@ const HeroBox = () => {
           </Button></Link>
         </Col>
       </Row>
+      </Container>
     </>
   );
   return (
     <div className={styles.BoxBackground}>
-      <Container>
-        <Row>
-          <Col md={{ span: 8, offset: 2 }}>
-            <h1>Make the most of Google Drive Workplace</h1>
-          </Col>
-        </Row>
         {currentUser ? loggedInContent : loggedOutContent}
-      </Container>
     </div>
   );
 };
 
-export default HeroBox;
+export default CreateTipHero;
