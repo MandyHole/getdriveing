@@ -59,7 +59,7 @@ function App() {
         />
         <Route
           exact
-          path="/my-profile"
+          path="/my-info"
           render={() => (
             <>
               <MyProfilePage />

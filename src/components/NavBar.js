@@ -5,28 +5,48 @@ import Navbar from "react-bootstrap/Navbar";
 import logo from "../assets/get-driveing-logo.png";
 import styles from "../styles/NavBar.module.css";
 import { NavLink } from "react-router-dom";
-import { useCurrentUser } from "../contexts/CurrentUserContext";
+import {
+  useCurrentUser,
+  useSetCurrentUser,
+} from "../contexts/CurrentUserContext";
+import axios from "axios";
+import ClickOutsideToggle from "../hooks/ClickOutsideToggle";
 
 const NavBar = () => {
   const currentUser = useCurrentUser();
+  const setCurrentUser = useSetCurrentUser();
+
+  const handleSignOut = async () => {
+    try {
+      await axios.post("dj-rest-auth/logout/");
+      setCurrentUser(null);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const {expanded, setExpanded, ref} = ClickOutsideToggle();
+
+
+
 
   const signedInMenu = (
     <>
       {" "}
       <NavLink to="/create-tip" activeClassName={styles.Active}>
-      <i class="fa-solid fa-circle-plus"></i>
+        <i class="fa-solid fa-circle-plus"></i>
         <span className={styles.NavLinkItems} activeClassName={styles.Active}>
           Create a Tip
         </span>
       </NavLink>
-      <NavLink to="/my-profile" activeClassName={styles.Active}>
-      <i class="fa-solid fa-user"></i>
+      <NavLink to="/my-info" activeClassName={styles.Active}>
+        <i class="fa-solid fa-user"></i>
         <span className={styles.NavLinkItems} activeClassName={styles.Active}>
-          My Profile
+          My Info
         </span>
       </NavLink>
-      <NavLink to="/sign-up" activeClassName={styles.Active}>
-      <i class="fa-solid fa-right-from-bracket"></i>
+      <NavLink to="/" onClick={handleSignOut}>
+        <i class="fa-solid fa-right-from-bracket"></i>
         <span className={styles.NavLinkItems} activeClassName={styles.Active}>
           Logout
         </span>
@@ -49,20 +69,28 @@ const NavBar = () => {
           Sign Up
         </span>
       </NavLink>
-      
     </>
   );
 
   return (
     <div>
-      <Navbar expand="lg" fixed="top" className={styles.NavBarBackground}>
+      <Navbar
+        expanded={expanded}
+        expand="lg"
+        fixed="top"
+        className={styles.NavBarBackground}
+      >
         <Container>
           <NavLink to="/">
             <Navbar.Brand>
               <img src={logo} alt="logo" height="50" />
             </Navbar.Brand>
           </NavLink>
-          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Toggle
+            aria-controls="basic-navbar-nav"
+            onClick={() => setExpanded(!expanded)}
+            ref={ref}
+          />
           <Navbar.Collapse
             id="basic-navbar-nav"
             className="justify-content-end"

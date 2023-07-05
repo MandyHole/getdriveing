@@ -28,13 +28,13 @@ const HeroBox = () => {
           >
             Create a Tip
           </Button></Link>
-          <Link to="/my-profile">
+          <Link to="/my-info">
           <Button
             size="lg"
             variant="dark"
             className={`${btnStyles.HeroButtons} ${btnStyles.Buttons}`}
           >
-            My Profile
+            My Info
           </Button></Link>
         </Col>
       </Row>
