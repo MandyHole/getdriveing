@@ -6,7 +6,7 @@ import Col from 'react-bootstrap/Col';
 
 const Footer = () => {
   return (
-    <div>
+    <div className={styles.Margin}>
         <Container fluid className={styles.Footer}>
             <Row >
                 <Col md={{ span: 12}}>
