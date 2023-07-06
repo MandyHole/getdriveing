@@ -8,6 +8,8 @@ import SignUpPage from "./pages/auth/SignUpPage";
 import SignInPage from "./pages/auth/SignInPage";
 import MyProfilePage from "./pages/MyProfilePage";
 import CreateTipForm from "./pages/tips/CreateTipForm";
+import TipDetailPage from "./pages/TipDetailPage";
+import Footer from "./components/Footer";
 
 
 function App() {
@@ -33,13 +35,32 @@ function App() {
           path="/tips"
           render={() => (
             <>
-              {" "}
-              <HeroBox />
+       <HeroBox />
               <h1>Tips</h1>
+              
+            </>
+          )}
+        />
+        <Route
+          exact
+          path="/tips/create"
+          render={() => (
+            <>
+              <CreateTipForm />
             </>
           )}
         />
 
+<Route
+          exact
+          path="/tips/:id"
+          render={() => (
+            <>
+              {" "}
+              <TipDetailPage />
+            </>
+          )}
+        />
 
         
         <Route
@@ -69,16 +90,7 @@ function App() {
             </>
           )}
         />
-         <Route
-          exact
-          path="/tips/create"
-          render={() => (
-            <>
-              <CreateTipForm />
-            </>
-          )}
-        />
-
+ 
         <Route
           render={() => (
             <>
@@ -91,6 +103,7 @@ function App() {
       </Switch>
 
       <Container></Container>
+      <Footer />
     </div>
   );
 }

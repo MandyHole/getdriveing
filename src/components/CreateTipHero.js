@@ -17,7 +17,7 @@ const CreateTipHero = () => {
       <Container>
         <Row>
           <Col md={{ span: 8, offset: 2 }}>
-            <h1>Create a Tip, {currentUser?.username}</h1>
+            <h1>Create a Tip, {currentUser?.username.charAt(0).toUpperCase()}{currentUser?.username.slice(1)}</h1>
           </Col>
         </Row>
 
