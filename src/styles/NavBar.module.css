@@ -30,3 +30,7 @@ i:hover {
 .Active i {
     color: #4285f4;
 }
+
+.Active span {
+    color: #4285f4;
+}

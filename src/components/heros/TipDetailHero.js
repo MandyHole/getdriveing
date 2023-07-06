@@ -65,9 +65,42 @@ const CreateTipHero = () => {
     </>
   );
   return (
-   <>
-        {currentUser ? loggedInContent : loggedOutContent}
-        </>
+<>
+     <div className={`${styles.BoxBackground} ${styles.FullHeight}`}>
+     <Container>
+        <Row>
+          <Col md={{ span: 8, offset: 2 }}>
+            <h1>You need to sign in before you can create a tip</h1>
+          </Col>
+        </Row>
+      <Row>
+        <Col md={{ span: 10, offset: 1 }}>
+          <h2>Create a free account to create, save and rate content!</h2>
+        </Col>
+      </Row>
+      <Row>
+        <Col md={{ span: 8, offset: 2 }} className={btnStyles.HeroButtonBox}>
+          <Link to="/sign-up">
+          <Button
+            size="lg"
+            variant="dark"
+            className={`${btnStyles.HeroButtons} ${btnStyles.Buttons}`}
+          >
+            Sign Up
+          </Button></Link>
+          <Link to="/sign-in">
+          <Button
+            size="lg"
+            variant="dark"
+            className={`${btnStyles.HeroButtons} ${btnStyles.Buttons}`}
+          >
+            Sign In
+          </Button></Link>
+        </Col>
+      </Row>
+      </Container>
+      </div>
+    </>
   );
 };
 

@@ -1,5 +1,4 @@
 .FormMargin {
-    margin-top: 25px;
     margin-bottom: 50px;
 }
 
@@ -25,6 +24,14 @@
     color: #34a853;
 }
 
+.Center {
+    text-align: center;
+}
+.FileUpload {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+}
+
 .Radio {
     margin-left: 2rem;
 }
@@ -45,4 +52,10 @@
     display: block;
     font-size: 1.3rem;
     font-weight: 600;
+    text-align: center;
+    margin-top: 35px;
+}
+
+.Image {
+    width: 300px;
 }
