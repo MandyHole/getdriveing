@@ -15,7 +15,7 @@ const HeroBox = () => {
     <>
       <Row>
         <Col md={{ span: 10, offset: 1 }}>
-          <h2>Welcome, {currentUser?.username}</h2>
+          <h2>Welcome, {currentUser?.username.charAt(0).toUpperCase()}{currentUser?.username.slice(1)}</h2>
         </Col>
       </Row>
       <Row>

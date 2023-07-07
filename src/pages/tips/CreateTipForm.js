@@ -101,7 +101,7 @@ const CreateTipForm = () => {
     <>
       <Container fluid="lg">
         <Row>
-          <Col lg="8">
+          <Col lg={{ span: 8, offset: 2 }}>
             <Form onSubmit={handleSubmit} className={styles.FormMargin}>
               <Form.Group className="mb-3" controlId="title">
                 <Form.Label className={styles.Labels}>Title</Form.Label>

@@ -84,3 +84,43 @@
     width: 100%;
 
 }
+
+.DropdownText {
+    color: #575755;
+    background-color: #fff;
+    border: 2px solid #575755;
+    font-weight: 500;
+    font-size: 1.2rem;
+}
+
+.DropdownText:hover,.DropdownText:active, .DropdownText:disabled {
+    color: #575755;
+    background-color: #fff;
+    border: 2px solid #575755;
+}
+
+
+.DropdownArrow {
+    color: #000;
+    background-color: #34a853;
+    border: 2px solid #575755;
+}
+
+.DropdownArrow:hover {
+    color: #575755;
+    background-color: #fff;
+    border: 2px solid #575755;
+}
+
+
+.DropdownMenu {
+    background-color: #34a853;
+    border: 2px solid #34a853;
+    font-size: 1.3rem;
+    color: #000;
+
+}
+.DropdownButton {
+    margin: 0 20px 20px 20px
+
+}

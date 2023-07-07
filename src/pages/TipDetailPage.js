@@ -54,7 +54,6 @@ const TipDetailPage = () => {
       </div>
       <Row>
         <Col md={{ span: 8, offset: 1 }} className={styles.TipContent}>
-        {/* <Image src={AuthorImage} className={styles.Screenshot}></Image> */}
 <Row><Col lg={{ span: 4 }}>
         <Figure>
       <Figure.Image className={styles.Screenshot}
