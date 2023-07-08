@@ -34,19 +34,19 @@ const NavBar = () => {
     <>
       {" "}
       <NavLink exact to="/tips/create" activeClassName={styles.Active}>
-        <i class="fa-solid fa-circle-plus"></i>
+        <i className="fa-solid fa-circle-plus"></i>
         <span className={styles.NavLinkItems}>
           Create a Tip
         </span>
       </NavLink>
       <NavLink exact to="/my-info" activeClassName={styles.Active}>
-        <i class="fa-solid fa-user"></i>
+        <i className="fa-solid fa-user"></i>
         <span className={styles.NavLinkItems}>
           My Info
         </span>
       </NavLink>
       <NavLink exact to="/" onClick={handleSignOut}>
-        <i class="fa-solid fa-right-from-bracket"></i>
+        <i className="fa-solid fa-right-from-bracket"></i>
         <span className={styles.NavLinkItems}>
           Logout
         </span>
@@ -58,13 +58,13 @@ const NavBar = () => {
     <>
       {" "}
       <NavLink exact to="/sign-in" activeClassName={styles.Active}>
-        <i class="fa-solid fa-user"></i>
+        <i className="fa-solid fa-user"></i>
         <span className={styles.NavLinkItems}>
           Sign In
         </span>
       </NavLink>
       <NavLink exact to="/sign-up" activeClassName={styles.Active}>
-        <i class="fa-solid fa-users"></i>
+        <i className="fa-solid fa-users"></i>
         <span className={styles.NavLinkItems}>
           Sign Up
         </span>
@@ -97,11 +97,11 @@ const NavBar = () => {
           >
             <Nav className="mr-auto">
               <NavLink exact to="/" activeClassName={styles.Active}>
-                <i class="fa-solid fa-house"></i>
+                <i className="fa-solid fa-house"></i>
                 <span className={styles.NavLinkItems}>Home</span>
               </NavLink>
               <NavLink exact to="/tips" activeClassName={styles.Active}>
-                <i class="fa-sharp fa-solid fa-circle-check"></i>
+                <i className="fa-sharp fa-solid fa-circle-check"></i>
                 <span className={styles.NavLinkItems}>Tips</span>
               </NavLink>
               {currentUser ? signedInMenu : loggedOutMenu}

@@ -99,7 +99,7 @@ const MyProfilePage = () => {
           </div>
           <InputGroup className={styles.Search} size="lg">
             <InputGroup.Text id="search">
-              <i class="fa-solid fa-magnifying-glass"></i>
+              <i className="fa-solid fa-magnifying-glass"></i>
             </InputGroup.Text>
             <Form.Control
               placeholder="Search all tips"
@@ -169,7 +169,7 @@ const MyProfilePage = () => {
           </div>
           <InputGroup className={styles.Search} size="lg">
             <InputGroup.Text id="search">
-              <i class="fa-solid fa-magnifying-glass"></i>
+              <i className="fa-solid fa-magnifying-glass"></i>
             </InputGroup.Text>
             <Form.Control
               placeholder="Search all tips"
@@ -260,7 +260,7 @@ const MyProfilePage = () => {
     </>
   );
 
-  return <>{currentUser ? loggedInContent : loggedOutContent}</>;
+  return <>{currentUser ? loggedInContent : loggedInContent}</>;
 };
 
 export default MyProfilePage;

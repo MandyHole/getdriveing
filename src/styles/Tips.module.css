@@ -1,6 +1,6 @@
 .TipContent {
     padding: 3%;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
 
 }
 
@@ -99,5 +99,11 @@
 
 .Card {
     border: solid 2px #4285f4;
+
+}
+
+.UpdatedDate {
+    font-weight: 500;
+    text-align: right;
 
 }

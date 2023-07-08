@@ -8,6 +8,7 @@ import btnStyles from "../styles/Buttons.module.css";
 import { useCurrentUser } from "../contexts/CurrentUserContext";
 import { Link } from "react-router-dom";
 
+
 const HeroBox = () => {
   const currentUser = useCurrentUser();
 

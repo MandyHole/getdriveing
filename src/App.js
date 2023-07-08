@@ -10,6 +10,7 @@ import MyProfilePage from "./pages/MyProfilePage";
 import CreateTipForm from "./pages/tips/CreateTipForm";
 import TipDetailPage from "./pages/TipDetailPage";
 import Footer from "./components/Footer";
+import HeroBoxComponent from "./components/HeroBoxComponent";
 
 
 function App() {

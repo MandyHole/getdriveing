@@ -1,7 +1,8 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
 import Rating from "@mui/material/Rating";
-export default function StarRating() {
+
+export default function StarRating({startingValue}) {
   const [value, setValue] = React.useState(0);
   return (
     <Box
@@ -11,7 +12,7 @@ export default function StarRating() {
     >
       <Rating
         name="simple-controlled"
-        value={value}
+        value={startingValue}
         size="large"
         onChange={(event, newValue) => {
           setValue(newValue);
