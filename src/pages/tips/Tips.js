@@ -8,9 +8,9 @@ import StarRating from "../../components/StarRating";
 import Button from "react-bootstrap/Button";
 import btnStyles from "../../styles/Buttons.module.css";
 import HeroBoxComponent from "../../components/HeroBoxComponent";
-import axios from "axios";
 import { axiosRes } from "../../api/axiosDefaults";
-// import { data } from "msw/lib/types/context";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import axios from "axios";
 
 const Tips = (props) => {
   const {
@@ -33,27 +33,29 @@ const Tips = (props) => {
   } = props;
   const currentUser = useCurrentUser();
   const ownsTip = currentUser?.username === owner;
+  const history = useHistory()
 
-//   handleSaveRequest = async () => {
-//     try {
-//         const { data } = await axiosRes.post('/saved_tips/', { post:id });
-//         setTip((prevTips) => ({
-//             ...prevTips, 
-//             results: prevTips.results.map((tip) => {
-//                 return tip.id === id ? 
-//                 {...tip, number_times_saved: tip.number_times_saved + 1, saved_tips_id: data.id} 
-//                 : tip;
-//             }),
-//         }));
+  const handleSaveRequest = async () => {
+    try {
+        const { data } = await axiosRes.post('/saved_tips/', { tip:id });
+        setTip((prevTips) => ({
+            ...prevTips, 
+            results: prevTips.results.map((tip) => {
+                return tip.id === id ? 
+                {...tip, number_times_saved: tip.number_times_saved + 1, saved_tips_id: data.id} 
+                : tip;
+            }),
+        }));
+        // window.location.reload(true);
 
-//     } catch (err){
-//         console.log(err)
-//     }
-//   }
+    } catch (err){
+        console.log(err)
+    }
+  }
 
   const handleUnsave = async () => {
     try {
-      await axiosRes.delete(`/saved_tips/${saved_tips_id}/`);
+      await axiosRes.delete(`/saved_tips/${saved_tips_id}`);
       setTip((prevTips) => ({
         ...prevTips,
         results: prevTips.results.map((tip) => {
@@ -62,10 +64,23 @@ const Tips = (props) => {
             : tip;
         }),
       }));
+      // window.location.reload(true);
     } catch (err) {
       console.log(err);
     }
   };
+
+  const handleEditTip = () => {
+    history.push(`/tips/${id}/edit`)
+  }
+
+  const handleDeleteTip = async () => {
+    try {
+      await axiosRes.delete(`/tips/${id}/`)
+      history.goBack();
+  } catch (err) {
+    console.log(err)
+  }};
 
 
   return (
@@ -79,7 +94,7 @@ const Tips = (props) => {
               ? "No ratings yet"
               : `${average_rating}'/5 stars'`
           }`}
-          h3_2={`Saved ${number_times_saved} Times`}
+          h3_2={`Saved ${number_times_saved} Time${number_times_saved === 1 ? (""): ("s")}`}
         />
       ) : (
         <></>
@@ -104,14 +119,20 @@ const Tips = (props) => {
                 </div>
               </Figure>
 
-              { ownsTip && tipDetail && <Button
-                className={`${btnStyles.Buttons} ${btnStyles.RightFloat}`}
+              { ownsTip && tipDetail && <><Button
+                className={`${btnStyles.Buttons} ${btnStyles.RightFloat}`} onClick={handleEditTip}
               >
 
                 Edit this tip
-              </Button>}
+              </Button>
+              <Button
+                className={`${btnStyles.Buttons} ${btnStyles.RightFloat}`} onClick={handleDeleteTip}
+              >
 
-              { !ownsTip && <><div className={styles.Rating}>
+                Delete this tip
+              </Button></>}
+
+              { !ownsTip && currentUser && <><div className={styles.Rating}>
                 <StarRating startingValue={average_rating} />
               </div>
 
@@ -121,7 +142,7 @@ const Tips = (props) => {
 
 {!ownsTip && currentUser && !saved_tips_id &&<><Button
                 className={`${btnStyles.Buttons} ${btnStyles.RightFloat}`}
-                // onClick={handleSaveRequest}
+                onClick={handleSaveRequest}
               >
                 Save this tip
               </Button> </>}
@@ -143,8 +164,7 @@ const Tips = (props) => {
             </Col>
           </Row>
         </Col>{" "}
-      </Row>
-    </>
+      </Row></>
   );
 };
 
