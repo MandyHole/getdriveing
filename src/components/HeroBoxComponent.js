@@ -7,9 +7,9 @@ import btnStyles from "../styles/Buttons.module.css";
 import { Link } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 
-const HeroBoxComponent = ({fullheight, h1, h2, h3, h3_2, buttonrow=false}) => {
+const HeroBoxComponent = ({additional_class, h1, h2, h3, h3_2, buttonrow=false}) => {
   return (
-    <div className={`${styles.BoxBackground} ${fullheight}`}>
+    <div className={`${styles.BoxBackground} ${additional_class}`}>
       <Container>
         <Row>
           <Col md={{ span: 8, offset: 2 }}>

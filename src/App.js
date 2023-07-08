@@ -11,6 +11,7 @@ import CreateTipForm from "./pages/tips/CreateTipForm";
 import TipDetailPage from "./pages/TipDetailPage";
 import Footer from "./components/Footer";
 import HeroBoxComponent from "./components/HeroBoxComponent";
+import EditTipForm from "./pages/tips/EditTipForm";
 
 
 function App() {
@@ -51,6 +52,16 @@ function App() {
             </>
           )}
         />
+ <Route
+          exact
+          path="/tips/:id/edit"
+          render={() => (
+            <>
+              <EditTipForm />
+            </>
+          )}
+        />
+
 
 <Route
           exact

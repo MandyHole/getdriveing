@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import styles from "../../styles/CreateUpdateTipForms.module.css";
 import Form from "react-bootstrap/Form";
 import { Image } from "react-bootstrap";
@@ -15,10 +15,32 @@ import {
 import { useHistory } from "react-router-dom";
 import btnStyles from "../../styles/Buttons.module.css";
 import { axiosReq } from "../../api/axiosDefaults";
+import { useParams } from "react-router-dom/cjs/react-router-dom";
+import HeroBoxComponent from "../../components/HeroBoxComponent";
 
-const CreateTipForm = () => {
+const EditTipForm = () => {
   const setCurrentUser = useSetCurrentUser();
   const currentUser = useCurrentUser();
+  const { id } = useParams();
+  const history = useHistory();
+
+  useEffect(() => {
+    const handleMount = async () => {
+        try {
+            const {data} = await axiosReq.get(`/tips/${id}`)
+            const {title, ability, category, screenshot, tip_content, is_owner} = data;
+            is_owner ? setCreateTipData({title, ability, category, screenshot, tip_content}) : (history.push("/"))
+        } catch(err) {
+            console.log(err)
+        }
+        
+    }
+    handleMount()
+    
+  }
+  , [history, id])
+
+
 
   const [createTipData, setCreateTipData] = useState({
     title: "",
@@ -29,7 +51,7 @@ const CreateTipForm = () => {
   });
   const [errors, setErrors] = useState({});
 
-  const history = useHistory();
+
 
   const { title, ability, category, screenshot, tip_content } = createTipData;
 
@@ -45,6 +67,7 @@ const CreateTipForm = () => {
       [event.target.name]: event.target.value,
     });
   };
+
 
   const handleChangeScreenshot = (event) => {
     if (event.target.files.length) {
@@ -287,12 +310,11 @@ const CreateTipForm = () => {
                   className={`${btnStyles.Buttons} ${btnStyles.HeroButtons}`}
                   type="submit"
                 >
-                  Create
+                  Edit
                 </Button>
                 <Button
                   className={`${btnStyles.Buttons} ${btnStyles.HeroButtons}`}
-                  onClick={() => history.goBack()}      
-                >
+                onClick={() => history.goBack()}                >
                   Cancel
                 </Button>
               </div>
@@ -309,10 +331,13 @@ const CreateTipForm = () => {
   );
   return (
     <div>
-      <CreateTipHero />
+      {/* <CreateTipHero /> */}
+      <HeroBoxComponent  h1= {`Edit your tip, ${currentUser?.username.charAt(0).toUpperCase()}${currentUser?.username.slice(1)}`} />
+
+
       {currentUser ? tipForm : <></>}
     </div>
   );
 };
 
-export default CreateTipForm;
+export default EditTipForm;
