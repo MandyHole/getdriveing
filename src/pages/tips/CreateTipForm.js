@@ -7,7 +7,6 @@ import Button from "react-bootstrap/Button";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
-import CreateTipHero from "../../components/CreateTipHero";
 import {
   useCurrentUser,
   useSetCurrentUser,
@@ -16,7 +15,7 @@ import { useHistory } from "react-router-dom";
 import btnStyles from "../../styles/Buttons.module.css";
 import { axiosReq } from "../../api/axiosDefaults";
 import HeroComponent from "../../components/HeroComponent";
-import boxStyles from "../../styles/HeroBox.module.css"
+import boxStyles from "../../styles/HeroBox.module.css";
 
 const CreateTipForm = () => {
   const setCurrentUser = useSetCurrentUser();
@@ -39,8 +38,6 @@ const CreateTipForm = () => {
   const categoryInput = useRef(null);
   const abilityInput = useRef(null);
 
-
-
   const handleChange = (event) => {
     setCreateTipData({
       ...createTipData,
@@ -57,7 +54,6 @@ const CreateTipForm = () => {
       });
     }
   };
-  
 
   const handleChangeCategory = (event) => {
     if (event.target.ref !== null) {
@@ -135,7 +131,6 @@ const CreateTipForm = () => {
                     value="drive_pdf"
                     onChange={handleChangeCategory}
                     ref={categoryInput}
-
                   />
                   <Form.Check
                     inline
@@ -144,10 +139,9 @@ const CreateTipForm = () => {
                     name="category"
                     className={styles.Radio}
                     value="sheets"
-                    onChange={handleChangeCategory}     
+                    onChange={handleChangeCategory}
                     ref={categoryInput}
-    
-                    />
+                  />
                   <Form.Check
                     inline
                     type="radio"
@@ -157,7 +151,6 @@ const CreateTipForm = () => {
                     value="docs"
                     onChange={handleChangeCategory}
                     ref={categoryInput}
-
                   />
                   <Form.Check
                     inline
@@ -168,7 +161,6 @@ const CreateTipForm = () => {
                     value="slides"
                     onChange={handleChangeCategory}
                     ref={categoryInput}
-
                   />
                   <Form.Check
                     inline
@@ -179,11 +171,9 @@ const CreateTipForm = () => {
                     value="forms"
                     onChange={handleChangeCategory}
                     ref={categoryInput}
-
-
                   />
                 </div>
-              </Form.Group> 
+              </Form.Group>
               {errors.category?.map((message, idx) => (
                 <Alert variant="warning" key={idx}>
                   {message}
@@ -203,8 +193,6 @@ const CreateTipForm = () => {
                     value="beginner"
                     onChange={handleChangeAbility}
                     ref={abilityInput}
-                   
-
                   />
                   <Form.Check
                     inline
@@ -215,8 +203,6 @@ const CreateTipForm = () => {
                     value="intermediate"
                     onChange={handleChangeAbility}
                     ref={abilityInput}
-                   
-
                   />
                   <Form.Check
                     inline
@@ -227,7 +213,6 @@ const CreateTipForm = () => {
                     className={styles.Radio}
                     onChange={handleChangeAbility}
                     ref={abilityInput}
-
                   />
                 </div>
               </Form.Group>
@@ -293,7 +278,7 @@ const CreateTipForm = () => {
                 </Button>
                 <Button
                   className={`${btnStyles.Buttons} ${btnStyles.HeroButtons}`}
-                  onClick={() => history.goBack()}      
+                  onClick={() => history.goBack()}
                 >
                   Cancel
                 </Button>
@@ -311,7 +296,40 @@ const CreateTipForm = () => {
   );
   return (
     <div>
-      {currentUser ? <HeroComponent h1={`Create a Tip, ${currentUser?.username.charAt(0).toUpperCase()}${currentUser?.username.slice(1)}`} /> : <HeroComponent h1="Login" additional_class={boxStyles.FullHeight}/>}
+      {currentUser ? (
+        <HeroComponent
+          h1={`Create a Tip, ${currentUser?.username
+            .charAt(0)
+            .toUpperCase()}${currentUser?.username.slice(1)}`}
+        />
+      ) : (
+        <HeroComponent
+          h1="You need to sign in before you can create a tip"
+          additional_class={boxStyles.FullHeight}
+          h2="Create a free account to create, save and rate content!"
+          link1="/sign-up"
+          button1={
+            <Button
+              size="lg"
+              variant="dark"
+              className={`${btnStyles.HeroButtons} ${btnStyles.Buttons}`}
+            >
+              Sign Up
+            </Button>
+          }
+
+          link2="/sign-in"
+          button2={
+            <Button
+              size="lg"
+              variant="dark"
+              className={`${btnStyles.HeroButtons} ${btnStyles.Buttons}`}
+            >
+              Sign In
+            </Button>
+          }
+        />
+      )}
       {currentUser ? tipForm : null}
     </div>
   );

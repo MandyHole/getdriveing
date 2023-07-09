@@ -1,31 +1,25 @@
 import React from "react";
-import boxStyles from "../../styles/HeroBox.module.css";
-import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
 import styles from "../../styles/Tips.module.css";
-import Image from "react-bootstrap/Image";
 import Button from "react-bootstrap/Button";
-import Alert from "react-bootstrap/Alert";
 import AuthorImage from "../../assets/blank-profile-picture-gb6ded336d_640.png";
 import btnStyles from "../../styles/Buttons.module.css";
-import { Link } from "react-router-dom/cjs/react-router-dom.min";
-import { useState } from "react";
 import InputGroup from "react-bootstrap/InputGroup";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import heroStyles from "../../styles/HeroBox.module.css";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
 import Dropdown from "react-bootstrap/Dropdown";
 import Card from "react-bootstrap/Card";
-import profilePicStyles from "../../styles/ProfilePic.module.css"
 import ProfilePic from "../../components/ProfilePic";
+import HeroComponent from "../../components/HeroComponent"
 
 const MyProfilePage = () => {
   const currentUser = useCurrentUser();
-  const [errors, setErrors] = useState({});
-  const handleSubmit = async (event) => {
-    event.preventDefault();
+  // const [errors, setErrors] = useState({});
+  // const handleSubmit = async (event) => {
+  //   event.preventDefault();
     // const formData = new FormData();
 
     // formData.append("title", title);
@@ -44,22 +38,11 @@ const MyProfilePage = () => {
     //     setErrors(err.response?.data);
     //   }
     // }
-  };
+  // };
 
   const loggedInContent = (
     <>
-      <div className={boxStyles.BoxBackground}>
-        <Container>
-          <Row>
-            <Col md={{ span: 8, offset: 2 }}>
-              <h1>
-                {currentUser?.username.charAt(0).toUpperCase()}
-                {currentUser?.username.slice(1)}'s Information
-              </h1>
-            </Col>
-          </Row>
-        </Container>
-      </div>
+    <HeroComponent h1={`${currentUser?.username.charAt(0).toUpperCase()}${currentUser?.username.slice(1)}'s Information`} />
       <Row>
         <Col md={{ span: 8, offset: 1 }} className={styles.TipContent}>
           <h3 className={styles.CommentHeader}>Saved Tips</h3>
@@ -216,49 +199,30 @@ const MyProfilePage = () => {
 
   const loggedOutContent = (
     <>
-      <div className={`${heroStyles.BoxBackground} ${heroStyles.FullHeight}`}>
-        <Container>
-          <Row>
-            <Col md={{ span: 8, offset: 2 }}>
-              <h1>You need to sign in before you can see your information</h1>
-            </Col>
-          </Row>
-          <Row>
-            <Col md={{ span: 10, offset: 1 }}>
-              <h2>Create a free account to create, save and rate content!</h2>
-            </Col>
-          </Row>
-          <Row>
-            <Col
-              md={{ span: 8, offset: 2 }}
-              className={btnStyles.HeroButtonBox}
+        <HeroComponent h1="You need to sign in before you can see your information" additional_class={heroStyles.FullHeight} h2="Create a free account to create, save and rate content!" link1="/sign-up"
+          button1={
+            <Button
+              size="lg"
+              variant="dark"
+              className={`${btnStyles.HeroButtons} ${btnStyles.Buttons}`}
             >
-              <Link to="/sign-up">
-                <Button
-                  size="lg"
-                  variant="dark"
-                  className={`${btnStyles.HeroButtons} ${btnStyles.Buttons}`}
-                >
-                  Sign Up
-                </Button>
-              </Link>
-              <Link to="/sign-in">
-                <Button
-                  size="lg"
-                  variant="dark"
-                  className={`${btnStyles.HeroButtons} ${btnStyles.Buttons}`}
-                >
-                  Sign In
-                </Button>
-              </Link>
-            </Col>
-          </Row>
-        </Container>
-      </div>
+              Sign Up
+            </Button>
+          }
+
+          link2="/sign-in"
+          button2={
+            <Button
+              size="lg"
+              variant="dark"
+              className={`${btnStyles.HeroButtons} ${btnStyles.Buttons}`}
+            >
+              Sign In
+            </Button>} />
     </>
   );
 
-  return <>{currentUser ? loggedInContent : loggedInContent}</>;
+  return <>{currentUser ? loggedInContent : loggedOutContent}</>;
 };
 
 export default MyProfilePage;

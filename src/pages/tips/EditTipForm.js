@@ -14,7 +14,7 @@ import { useHistory } from "react-router-dom";
 import btnStyles from "../../styles/Buttons.module.css";
 import { axiosReq } from "../../api/axiosDefaults";
 import { useParams } from "react-router-dom/cjs/react-router-dom";
-import HeroBoxComponent from "../../components/HeroBoxComponent";
+import HeroComponent from "../../components/HeroComponent";
 
 const EditTipForm = () => {
   const currentUser = useCurrentUser();
@@ -101,7 +101,7 @@ const EditTipForm = () => {
 
   return (
     <div>
-      <HeroBoxComponent  h1= {`Edit your tip, ${currentUser?.username.charAt(0).toUpperCase()}${currentUser?.username.slice(1)}`} />
+      <HeroComponent  h1= {`Edit your tip, ${currentUser?.username.charAt(0).toUpperCase()}${currentUser?.username.slice(1)}`} />
       <>
       <Container fluid="lg">
         <Row>

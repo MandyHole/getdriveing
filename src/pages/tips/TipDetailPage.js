@@ -1,38 +1,25 @@
 import React, { useEffect } from "react";
-import boxStyles from "../../styles/HeroBox.module.css";
-import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import Form from "react-bootstrap/Form";
 import styles from "../../styles/Tips.module.css";
 import Image from "react-bootstrap/Image";
 import Button from "react-bootstrap/Button";
-import Alert from "react-bootstrap/Alert";
 import AuthorImage from "../../assets/blank-profile-picture-gb6ded336d_640.png";
 import btnStyles from "../../styles/Buttons.module.css"
-import StarRating from "../../components/StarRating";
-import { Link, useParams } from "react-router-dom/cjs/react-router-dom.min";
+import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 import { useState } from "react";
-import Figure from "react-bootstrap/Figure";
 import { axiosReq } from "../../api/axiosDefaults";
-import HeroComponent from "../../components/HeroBoxComponent";
-import SignInSignUpButtons from "../../components/SignInSignUpButtons";
 import Tips from "../tips/Tips"
 import TipHeroes from "./TipHeroes"
-
-
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import CommentForm from "../comments/CommentForm";
-
-
 
 
 function TipDetailPage() {
   const currentUser = useCurrentUser();
   const author_image = currentUser?.author_image;
   const [comments, setComments] = useState({ results: [] });
-
-  const [errors, setErrors] = useState({});
+  // const [errors, setErrors] = useState({});
   const { id } = useParams();
   const [tip, setTip] = useState({ results: [] });
   // useEffect(() => {
@@ -69,8 +56,8 @@ function TipDetailPage() {
   }, [id]);
 
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
+  // const handleSubmit = async (event) => {
+  //   event.preventDefault();
     // const formData = new FormData();
 
     // formData.append("title", title);
@@ -89,7 +76,7 @@ function TipDetailPage() {
     //     setErrors(err.response?.data);
     //   }
     // }
-  };
+  // };
   return (
     <>
 
@@ -141,9 +128,6 @@ function TipDetailPage() {
           </p>
           <hr className={styles.HrThin} />
         </Col>
- 
-
-
         <Col md={{ span: 3 }} className={styles.AuthorContent}>
           <h1>Author's Profile</h1>
           <Image
@@ -155,7 +139,6 @@ function TipDetailPage() {
           <p className={styles.AuthorBody}>Member since: xxx</p>
           <p className={styles.AuthorBody}>Bio text</p>
           <p className={styles.AuthorBody}>Number of Tips</p>
-
           <Button className={btnStyles.GreenButtons}>Author's tips</Button>
         </Col>
         </Row>
