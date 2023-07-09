@@ -10,7 +10,7 @@ import btnStyles from "../../styles/Buttons.module.css";
 import HeroBoxComponent from "../../components/HeroBoxComponent";
 import { axiosRes } from "../../api/axiosDefaults";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
-import axios from "axios";
+
 
 const Tips = (props) => {
   const {
@@ -85,7 +85,7 @@ const Tips = (props) => {
 
   return (
     <>
-      {tipDetail ? (
+      {/* {tipDetail ? (
         <HeroBoxComponent
           h1={title}
           h2={`Category: ${category}, Ability: ${ability}`}
@@ -98,10 +98,9 @@ const Tips = (props) => {
         />
       ) : (
         <></>
-      )}
+      )} */}
 
-      <Row>
-        <Col md={{ span: 8, offset: 1 }} className={styles.TipContent}>
+
           <Row>
             <Col lg={{ span: 4 }}>
               <Figure>
@@ -163,8 +162,7 @@ const Tips = (props) => {
               </p>
             </Col>
           </Row>
-        </Col>{" "}
-      </Row></>
+</>
   );
 };
 

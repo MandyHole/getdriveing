@@ -15,6 +15,8 @@ import {
 import { useHistory } from "react-router-dom";
 import btnStyles from "../../styles/Buttons.module.css";
 import { axiosReq } from "../../api/axiosDefaults";
+import HeroComponent from "../../components/HeroComponent";
+import boxStyles from "../../styles/HeroBox.module.css"
 
 const CreateTipForm = () => {
   const setCurrentUser = useSetCurrentUser();
@@ -309,8 +311,8 @@ const CreateTipForm = () => {
   );
   return (
     <div>
-      <CreateTipHero />
-      {currentUser ? tipForm : <></>}
+      {currentUser ? <HeroComponent h1={`Create a Tip, ${currentUser?.username.charAt(0).toUpperCase()}${currentUser?.username.slice(1)}`} /> : <HeroComponent h1="Login" additional_class={boxStyles.FullHeight}/>}
+      {currentUser ? tipForm : null}
     </div>
   );
 };
