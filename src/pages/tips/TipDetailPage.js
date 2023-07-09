@@ -1,38 +1,46 @@
 import React, { useEffect } from "react";
-import boxStyles from "../styles/HeroBox.module.css";
+import boxStyles from "../../styles/HeroBox.module.css";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
-import styles from "../styles/Tips.module.css";
+import styles from "../../styles/Tips.module.css";
 import Image from "react-bootstrap/Image";
 import Button from "react-bootstrap/Button";
 import Alert from "react-bootstrap/Alert";
-import AuthorImage from "../assets/blank-profile-picture-gb6ded336d_640.png";
-import btnStyles from "../styles/Buttons.module.css";
-import StarRating from "../components/StarRating";
+import AuthorImage from "../../assets/blank-profile-picture-gb6ded336d_640.png";
+import btnStyles from "../../styles/Buttons.module.css"
+import StarRating from "../../components/StarRating";
 import { Link, useParams } from "react-router-dom/cjs/react-router-dom.min";
 import { useState } from "react";
 import Figure from "react-bootstrap/Figure";
-import { axiosReq } from "../api/axiosDefaults";
-import HeroBoxComponent from "../components/HeroBoxComponent";
-import SignInSignUpButtons from "../components/SignInSignUpButtons";
-import Tips from "./tips/Tips";
-import { useCurrentUser } from "../contexts/CurrentUserContext";
+import { axiosReq } from "../../api/axiosDefaults";
+import HeroBoxComponent from "../../components/HeroBoxComponent";
+import SignInSignUpButtons from "../../components/SignInSignUpButtons";
+import Tips from "../tips/Tips"
+
+import { useCurrentUser } from "../../contexts/CurrentUserContext";
+import CommentForm from "../comments/CommentForm";
+
+
 
 
 function TipDetailPage() {
   const currentUser = useCurrentUser();
+  const author_image = currentUser?.author_image;
+  const [comments, setComments] = useState({ results: [] });
+
   const [errors, setErrors] = useState({});
   const { id } = useParams();
   const [tip, setTip] = useState({ results: [] });
   useEffect(() => {
     const handleMount = async () => {
       try {
-        const [{ data: tip }] = await Promise.all([
+        const [{ data: tip }, {data : comments}] = await Promise.all([
           axiosReq.get(`/tips/${id}`),
         ]);
         setTip({ results: [tip] });
+        setComments({ results: [comments]})
         console.log(tip);
         console.log(tip.title)
         console.log(tip.category)
@@ -68,9 +76,24 @@ function TipDetailPage() {
     <>
               <Tips {...tip.results[0]} setTips = {setTip} tipDetail/>
 <Row>
+
+
+
+
         <Col md={{ span: 8, offset: 1 }} className={styles.TipContent}>
           <hr className={styles.HR} />
           <h3 className={styles.CommentHeader}>Add a Comment</h3>
+          {currentUser ? (
+  <CommentForm
+  author_id={currentUser.author_id}
+  authorImage={author_image}
+  tip={id}
+  setTip={setTip}
+  setComments={setComments}
+/>
+) : comments.results.length ? (
+  "Comments"
+) : null}
           <Image
             src={AuthorImage}
             className={styles.AuthorComment}

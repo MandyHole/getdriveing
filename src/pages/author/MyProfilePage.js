@@ -1,23 +1,25 @@
 import React from "react";
-import boxStyles from "../styles/HeroBox.module.css";
+import boxStyles from "../../styles/HeroBox.module.css";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
-import styles from "../styles/Tips.module.css";
+import styles from "../../styles/Tips.module.css";
 import Image from "react-bootstrap/Image";
 import Button from "react-bootstrap/Button";
 import Alert from "react-bootstrap/Alert";
-import AuthorImage from "../assets/blank-profile-picture-gb6ded336d_640.png";
-import btnStyles from "../styles/Buttons.module.css";
+import AuthorImage from "../../assets/blank-profile-picture-gb6ded336d_640.png";
+import btnStyles from "../../styles/Buttons.module.css";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
 import { useState } from "react";
 import InputGroup from "react-bootstrap/InputGroup";
-import { useCurrentUser } from "../contexts/CurrentUserContext";
-import heroStyles from "../styles/HeroBox.module.css";
+import { useCurrentUser } from "../../contexts/CurrentUserContext";
+import heroStyles from "../../styles/HeroBox.module.css";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
 import Dropdown from "react-bootstrap/Dropdown";
 import Card from "react-bootstrap/Card";
+import profilePicStyles from "../../styles/ProfilePic.module.css"
+import ProfilePic from "../../components/ProfilePic";
 
 const MyProfilePage = () => {
   const currentUser = useCurrentUser();
@@ -200,11 +202,7 @@ const MyProfilePage = () => {
 
         <Col md={{ span: 3 }} className={styles.AuthorContent}>
           <h1>My Profile</h1>
-          <Image
-            src={AuthorImage}
-            roundedCircle
-            className={styles.Image}
-          ></Image>
+          <ProfilePic src={AuthorImage} size = "150px"/>
           <p className={styles.Name}>Name</p>
           <p className={styles.AuthorBody}>Member since: xxx</p>
           <p className={styles.AuthorBody}>Bio text</p>

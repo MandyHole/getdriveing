@@ -25,45 +25,7 @@
     font-weight: 400;
 }
 
-.HR {
-    border-top: 4px solid #4285f4;
-    margin-top: 20px;
-}
 
-.AuthorComment {
-    width: 50px;
-    display: inline-block;
-    float: left;
-}
-
-.Input {
-    text-align: center;
-    font-weight: 500;
-    border: solid 1px #34a853;
-    font-size: 1.3rem;
-    display: inline-block;
-}
-
-.PrevCommentImage {
-    margin-right: 10px;
-}
-
-.CommentDate {
-    font-weight: 600;
-    float: right;
-
-}
-
-.HrThin {
-    border-top: 2px solid #4285f4;
-    margin-top: 20px;
-}
-
-.CommentHeader {
-    text-align: center;
-    margin-bottom: 25px;
-    color: #34a853;
-}
 
 .TipDetails {
     display: inline-block;
@@ -106,4 +68,44 @@
     font-size: .8rem;
     text-align: right;
 
+}
+
+.HR {
+    border-top: 4px solid #4285f4;
+    margin-top: 20px;
+}
+
+.AuthorComment {
+    width: 50px;
+    display: inline-block;
+    /* float: left; */
+}
+
+.Input {
+    text-align: center;
+    font-weight: 500;
+    border: solid 1px #34a853;
+    font-size: 1.3rem;
+    display: inline-block;
+}
+
+.PrevCommentImage {
+    margin-right: 10px;
+}
+
+.CommentDate {
+    font-weight: 600;
+    float: right;
+
+}
+
+.HrThin {
+    border-top: 2px solid #4285f4;
+    margin-top: 20px;
+}
+
+.CommentHeader {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #34a853;
 }

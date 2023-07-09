@@ -6,11 +6,10 @@ import { Route, Switch } from "react-router-dom";
 import './api/axiosDefaults';
 import SignUpPage from "./pages/auth/SignUpPage";
 import SignInPage from "./pages/auth/SignInPage";
-import MyProfilePage from "./pages/MyProfilePage";
+import MyProfilePage from "./pages/author/MyProfilePage";
 import CreateTipForm from "./pages/tips/CreateTipForm";
-import TipDetailPage from "./pages/TipDetailPage";
+import TipDetailPage from "./pages/tips/TipDetailPage";
 import Footer from "./components/Footer";
-import HeroBoxComponent from "./components/HeroBoxComponent";
 import EditTipForm from "./pages/tips/EditTipForm";
 
 
