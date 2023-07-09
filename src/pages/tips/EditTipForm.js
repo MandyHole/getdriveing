@@ -105,13 +105,13 @@ const EditTipForm = () => {
     formData.append("title", title);
     formData.append("ability", ability);
     formData.append("category", category);
-    formData.append("screenshot", screenshotInput.current.files[0]);
+    if (screenshotInput?.current.files[0]) {
+    formData.append("screenshot", screenshotInput.current.files[0]);}
     formData.append("tip_content", tip_content);
 
     try {
-      const { data } = await axiosReq.post("/tips/", formData);
-      setCurrentUser(data.user);
-      history.push(`/tips/${data.id}`);
+      await axiosReq.put(`/tips/${id}/`, formData);
+      history.push(`/tips/${id}`);
     } catch (err) {
       console.log(err);
       if (err.response?.status !== 401) {
@@ -310,7 +310,7 @@ const EditTipForm = () => {
                   className={`${btnStyles.Buttons} ${btnStyles.HeroButtons}`}
                   type="submit"
                 >
-                  Edit
+                  Save changes
                 </Button>
                 <Button
                   className={`${btnStyles.Buttons} ${btnStyles.HeroButtons}`}
