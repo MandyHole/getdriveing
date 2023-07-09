@@ -7,10 +7,8 @@ import Button from "react-bootstrap/Button";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
-import CreateTipHero from "../../components/CreateTipHero";
 import {
   useCurrentUser,
-  useSetCurrentUser,
 } from "../../contexts/CurrentUserContext";
 import { useHistory } from "react-router-dom";
 import btnStyles from "../../styles/Buttons.module.css";
@@ -19,7 +17,6 @@ import { useParams } from "react-router-dom/cjs/react-router-dom";
 import HeroBoxComponent from "../../components/HeroBoxComponent";
 
 const EditTipForm = () => {
-  const setCurrentUser = useSetCurrentUser();
   const currentUser = useCurrentUser();
   const { id } = useParams();
   const history = useHistory();
@@ -33,15 +30,9 @@ const EditTipForm = () => {
         } catch(err) {
             console.log(err)
         }
-        
     }
     handleMount()
-    
-  }
-  , [history, id])
-
-
-
+  }, [history, id])
   const [createTipData, setCreateTipData] = useState({
     title: "",
     ability: "",
@@ -50,25 +41,16 @@ const EditTipForm = () => {
     tip_content: "",
   });
   const [errors, setErrors] = useState({});
-
-
-
   const { title, ability, category, screenshot, tip_content } = createTipData;
-
   const screenshotInput = useRef(null);
   const categoryInput = useRef(null);
   const abilityInput = useRef(null);
-
-
-
   const handleChange = (event) => {
     setCreateTipData({
       ...createTipData,
       [event.target.name]: event.target.value,
     });
   };
-
-
   const handleChangeScreenshot = (event) => {
     if (event.target.files.length) {
       URL.revokeObjectURL(screenshot);
@@ -78,8 +60,6 @@ const EditTipForm = () => {
       });
     }
   };
-  
-
   const handleChangeCategory = (event) => {
     if (event.target.ref !== null) {
       setCreateTipData({
@@ -88,7 +68,6 @@ const EditTipForm = () => {
       });
     }
   };
-
   const handleChangeAbility = (event) => {
     if (event.target.input !== null) {
       setCreateTipData({
@@ -120,8 +99,10 @@ const EditTipForm = () => {
     }
   };
 
-  const tipForm = (
-    <>
+  return (
+    <div>
+      <HeroBoxComponent  h1= {`Edit your tip, ${currentUser?.username.charAt(0).toUpperCase()}${currentUser?.username.slice(1)}`} />
+      <>
       <Container fluid="lg">
         <Row>
           <Col lg={{ span: 8, offset: 2 }}>
@@ -147,7 +128,18 @@ const EditTipForm = () => {
                   Select a Category
                 </Form.Label>
                 <div className={styles.Center}>
-                  <Form.Check
+                {category === "drive_pdf" && <Form.Check
+                    inline
+                    defaultChecked
+                    type="radio"
+                    label="Drive/PDFs"
+                    name="category"
+                    className={styles.Radio}
+                    value="drive_pdf"
+                    onChange={handleChangeCategory}
+                    ref={categoryInput}
+                  />}
+                    {category !== "drive_pdf" && <Form.Check
                     inline
                     type="radio"
                     label="Drive/PDFs"
@@ -156,9 +148,21 @@ const EditTipForm = () => {
                     value="drive_pdf"
                     onChange={handleChangeCategory}
                     ref={categoryInput}
+                  />}
 
-                  />
-                  <Form.Check
+                  {category === "sheets" && <Form.Check
+                    inline
+                    defaultChecked
+                    type="radio"
+                    label="Sheets"
+                    name="category"
+                    className={styles.Radio}
+                    value="sheets"
+                    onChange={handleChangeCategory}     
+                    ref={categoryInput}
+    
+                    />}
+                    {category !== "sheets" && <Form.Check
                     inline
                     type="radio"
                     label="Sheets"
@@ -168,8 +172,20 @@ const EditTipForm = () => {
                     onChange={handleChangeCategory}     
                     ref={categoryInput}
     
-                    />
-                  <Form.Check
+                    />}
+
+                    {category === "docs" && <Form.Check
+                    inline
+                    defaultChecked
+                    type="radio"
+                    label="Docs"
+                    name="category"
+                    className={styles.Radio}
+                    value="docs"
+                    onChange={handleChangeCategory}
+                    ref={categoryInput}/>}
+                  
+                  {category !== "docs" && <Form.Check
                     inline
                     type="radio"
                     label="Docs"
@@ -177,9 +193,20 @@ const EditTipForm = () => {
                     className={styles.Radio}
                     value="docs"
                     onChange={handleChangeCategory}
+                    ref={categoryInput}/>}
+                  {category === "slides" && 
+                  <Form.Check
+                    inline
+                    defaultChecked
+                    type="radio"
+                    label="Slides"
+                    name="category"
+                    className={styles.Radio}
+                    value="slides"
+                    onChange={handleChangeCategory}
                     ref={categoryInput}
-
-                  />
+                  />}
+                  {category !== "slides" && 
                   <Form.Check
                     inline
                     type="radio"
@@ -189,8 +216,8 @@ const EditTipForm = () => {
                     value="slides"
                     onChange={handleChangeCategory}
                     ref={categoryInput}
-
-                  />
+                  />}
+{category !== "forms" &&
                   <Form.Check
                     inline
                     className={styles.Radio}
@@ -200,9 +227,19 @@ const EditTipForm = () => {
                     value="forms"
                     onChange={handleChangeCategory}
                     ref={categoryInput}
-
-
-                  />
+                  />}
+                  {category === "forms" &&
+                  <Form.Check
+                    inline
+                    defaultChecked
+                    className={styles.Radio}
+                    type="radio"
+                    label="Forms"
+                    name="category"
+                    value="forms"
+                    onChange={handleChangeCategory}
+                    ref={categoryInput}
+                  />}
                 </div>
               </Form.Group> 
               {errors.category?.map((message, idx) => (
@@ -215,6 +252,21 @@ const EditTipForm = () => {
                   Select a Recommended Ability
                 </Form.Label>
                 <div className={styles.Center}>
+
+                  {ability === "beginner" && 
+                  <Form.Check
+                    inline
+                    defaultChecked
+                    className={styles.Radio}
+                    type="radio"
+                    label="Beginner+"
+                    name="ability"
+                    value="beginner"
+                    onChange={handleChangeAbility}
+                    ref={abilityInput}
+                  />}
+
+{ability !== "beginner" && 
                   <Form.Check
                     inline
                     className={styles.Radio}
@@ -224,9 +276,22 @@ const EditTipForm = () => {
                     value="beginner"
                     onChange={handleChangeAbility}
                     ref={abilityInput}
-                   
+                  />}
 
-                  />
+{ ability === "intermediate" && 
+                  <Form.Check
+                    inline
+                    defaultChecked
+                    type="radio"
+                    label="Intermediate+"
+                    name="ability"
+                    className={styles.Radio}
+                    value="intermediate"
+                    onChange={handleChangeAbility}
+                    ref={abilityInput}
+                  />}
+
+{ ability !== "intermediate" && 
                   <Form.Check
                     inline
                     type="radio"
@@ -236,9 +301,21 @@ const EditTipForm = () => {
                     value="intermediate"
                     onChange={handleChangeAbility}
                     ref={abilityInput}
-                   
+                  />}
 
-                  />
+{ ability === "advanced" && 
+                  <Form.Check
+                  defaultChecked
+                    inline
+                    type="radio"
+                    label="Advanced"
+                    name="ability"
+                    value="advanced"
+                    className={styles.Radio}
+                    onChange={handleChangeAbility}
+                    ref={abilityInput}
+                  />}
+{ ability !== "advanced" && 
                   <Form.Check
                     inline
                     type="radio"
@@ -248,8 +325,8 @@ const EditTipForm = () => {
                     className={styles.Radio}
                     onChange={handleChangeAbility}
                     ref={abilityInput}
+                  />}
 
-                  />
                 </div>
               </Form.Group>
               {errors.ability?.map((message, idx) => (
@@ -328,14 +405,7 @@ const EditTipForm = () => {
         </Row>
       </Container>{" "}
     </>
-  );
-  return (
-    <div>
-      {/* <CreateTipHero /> */}
-      <HeroBoxComponent  h1= {`Edit your tip, ${currentUser?.username.charAt(0).toUpperCase()}${currentUser?.username.slice(1)}`} />
 
-
-      {currentUser ? tipForm : <></>}
     </div>
   );
 };
