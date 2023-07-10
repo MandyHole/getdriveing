@@ -10,6 +10,9 @@ import btnStyles from "../../styles/Buttons.module.css";
 import HeroBoxComponent from "../../components/HeroBoxComponent";
 import { axiosRes } from "../../api/axiosDefaults";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import { useState } from "react";
+import Modal from 'react-bootstrap/Modal';
+import DeleteModal from "../../components/DeleteModal";
 
 
 const Tips = (props) => {
@@ -74,6 +77,10 @@ const Tips = (props) => {
     history.push(`/tips/${id}/edit`)
   }
 
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
   const handleDeleteTip = async () => {
     try {
       await axiosRes.delete(`/tips/${id}/`)
@@ -81,6 +88,7 @@ const Tips = (props) => {
   } catch (err) {
     console.log(err)
   }};
+
 
 
   return (
@@ -125,11 +133,19 @@ const Tips = (props) => {
                 Edit this tip
               </Button>
               <Button
-                className={`${btnStyles.Buttons} ${btnStyles.RightFloat}`} onClick={handleDeleteTip}
+                className={`${btnStyles.Buttons} ${btnStyles.RightFloat}`} onClick={handleShow}
               >
 
                 Delete this tip
               </Button></>}
+
+              <DeleteModal 
+              title="Delete this tip" 
+              text ="Are you sure you want to delete this tip? It cannot be undone!" 
+              button_onclick = {handleDeleteTip}
+              button_text = "Delete Tip"
+              show={show} 
+              handleClose={handleClose} />
 
               { !ownsTip && currentUser && <><div className={styles.Rating}>
                 <StarRating startingValue={average_rating} />

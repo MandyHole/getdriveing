@@ -13,6 +13,8 @@ import Tips from "../tips/Tips"
 import TipHeroes from "./TipHeroes"
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import CommentForm from "../comments/CommentForm";
+import ProfilePic from "../../components/ProfilePic";
+import PreviousComments from "../comments/PreviousComments";
 
 
 function TipDetailPage() {
@@ -22,6 +24,7 @@ function TipDetailPage() {
   // const [errors, setErrors] = useState({});
   const { id } = useParams();
   const [tip, setTip] = useState({ results: [] });
+
   // useEffect(() => {
   //   const handleMount = async () => {
   //     try {
@@ -43,11 +46,12 @@ function TipDetailPage() {
   useEffect(() => {
     const handleMount = async () => {
       try {
-        const [{ data: tip }] = await Promise.all([
+        const [{ data: tip }, { data : comments}] = await Promise.all([
           axiosReq.get(`/tips/${id}`),
+          axiosReq.get(`/comments/?tip=${id}`)
         ]);
         setTip({ results: [tip] });
-        // setComments({ results: [comments]})
+        setComments(comments)
       } catch (err) {
         console.log(err);
       }
@@ -86,22 +90,38 @@ function TipDetailPage() {
         <Col md={{ span: 8, offset: 1 }} className={styles.TipContent}>
         <Tips {...tip.results[0]} setTips = {setTip} tipDetail/>
 
-          <hr className={styles.HR} />
-          <h3 className={styles.CommentHeader}>Add a Comment</h3>
+
           {currentUser ? (
+                      <><hr className={styles.HR} />
+                      <h3 className={styles.CommentHeader}>Add a Comment</h3>
   <CommentForm
   author_id={currentUser.author_id}
   authorImage={author_image}
   tip={id}
   setTip={setTip}
-  setComments={setComments}
+  setComments={setComments} /></>) : null}
+  <hr className={styles.HR} />  <h3 className={styles.CommentHeader}>
+    Previous Comments</h3>
+    <p className={styles.Center}>
+{ comments.results.length ? (null) : currentUser ? ('Make the first comment using the form above') : ('No comments have been made yet') }
+</p>
+    { comments.results.length ? (
+  comments.results.map((comment) => (<PreviousComments  key={comment.id} {...comment} 
+
+// image_source={AuthorImage} author={comment.owner} comment={comment.content} updated={comment.updated_at}
+
 />
-) : comments.results.length ? (
-  "Comments"
-) : null}
-          <hr className={styles.HR} />
-          <h3 className={styles.CommentHeader}>Previous Comments</h3>
-          <p>
+    ))
+
+  
+ ) : null }
+  
+    
+
+
+          
+
+          {/* <p>
             <Image
               src={AuthorImage}
               className={`${styles.PrevCommentImage} ${styles.AuthorComment}`}
@@ -126,7 +146,7 @@ function TipDetailPage() {
               <em>Comment made xx days ago.</em>
             </span>
           </p>
-          <hr className={styles.HrThin} />
+          <hr className={styles.HrThin} /> */}
         </Col>
         <Col md={{ span: 3 }} className={styles.AuthorContent}>
           <h1>Author's Profile</h1>
