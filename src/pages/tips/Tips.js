@@ -7,11 +7,13 @@ import Figure from "react-bootstrap/Figure";
 import StarRating from "../../components/StarRating";
 import Button from "react-bootstrap/Button";
 import btnStyles from "../../styles/Buttons.module.css";
-import HeroBoxComponent from "../../components/HeroBoxComponent";
 import { axiosRes } from "../../api/axiosDefaults";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { useState } from "react";
 import DeleteModal from "../../components/DeleteModal";
+import { useParams } from "react-router-dom/cjs/react-router-dom";
+import { ratingClasses } from "@mui/material";
+
 
 
 const Tips = (props) => {
@@ -36,6 +38,7 @@ const Tips = (props) => {
   const currentUser = useCurrentUser();
   const ownsTip = currentUser?.username === owner;
   const history = useHistory()
+  // const { tip_id } = useParams();
 
   const handleSaveRequest = async () => {
     try {
@@ -48,11 +51,11 @@ const Tips = (props) => {
                 : tip;
             }),
         }));
-        // window.location.reload(true);
 
     } catch (err){
         console.log(err)
     }
+            history.go(0)
   }
 
   const handleUnsave = async () => {
@@ -66,10 +69,10 @@ const Tips = (props) => {
             : tip;
         }),
       }));
-      // window.location.reload(true);
     } catch (err) {
       console.log(err);
     }
+            history.go(0)
   };
 
   const handleEditTip = () => {
@@ -92,23 +95,7 @@ const Tips = (props) => {
 
   return (
     <>
-      {/* {tipDetail ? (
-        <HeroBoxComponent
-          h1={title}
-          h2={`Category: ${category}, Ability: ${ability}`}
-          h3={`Average Rating:  ${
-            average_rating === null
-              ? "No ratings yet"
-              : `${average_rating}'/5 stars'`
-          }`}
-          h3_2={`Saved ${number_times_saved} Time${number_times_saved === 1 ? (""): ("s")}`}
-        />
-      ) : (
-        <></>
-      )} */}
-
-
-          <Row>
+              <Row>
             <Col lg={{ span: 4 }}>
               <Figure>
                 <Figure.Image
@@ -116,7 +103,7 @@ const Tips = (props) => {
                   alt={title}
                   src={screenshot}
                 />
-                <div className={styles.Rating}>
+                <div className={`${styles.Rating} ${styles.Center}`}>
                   <Figure.Caption className={styles.ScreenshotCaption}>
                     <a href={screenshot} className={styles.Link} target="new">
                       See a larger screenshot
@@ -146,13 +133,9 @@ const Tips = (props) => {
               show={show} 
               handleClose={handleClose} />
 
-              { !ownsTip && currentUser && <><div className={styles.Rating}>
-                <StarRating startingValue={average_rating} />
-              </div>
+              <div className={styles.Centre}>
 
-              <Button className={`${btnStyles.Buttons} ${btnStyles.LeftFloat}`}>
-                Rate this tip
-              </Button></>}
+{!ownsTip && currentUser && <StarRating tip={id}/>}</div>
 
 {!ownsTip && currentUser && !saved_tips_id &&<><Button
                 className={`${btnStyles.Buttons} ${btnStyles.RightFloat}`}

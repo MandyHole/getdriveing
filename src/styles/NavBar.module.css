@@ -1,10 +1,10 @@
-i {
+.NavIcon {
     font-size: 1.5rem;
     color: #34a853;
     margin: 0 10px 0 35px;
     transition: font-size 1s;
 }
-i:hover {
+.NavIcon:hover {
     font-size: 1.7rem;
 }
 

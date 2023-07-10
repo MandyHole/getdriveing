@@ -39,15 +39,12 @@
     text-align: center;
 }
 
-.Rating {
-    display:flex;
-    justify-content:center;
-    margin-bottom: 5px;
-}
+
 .Center {
     display:flex;
     justify-content:center;
     margin-bottom: 5px;
+    text-align: center;
 }
 
 .Search {
