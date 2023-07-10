@@ -11,7 +11,6 @@ import HeroBoxComponent from "../../components/HeroBoxComponent";
 import { axiosRes } from "../../api/axiosDefaults";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { useState } from "react";
-import Modal from 'react-bootstrap/Modal';
 import DeleteModal from "../../components/DeleteModal";
 
 
@@ -140,8 +139,8 @@ const Tips = (props) => {
               </Button></>}
 
               <DeleteModal 
-              title="Delete this tip" 
-              text ="Are you sure you want to delete this tip? It cannot be undone!" 
+              title="Warning" 
+              text ="Please note that this cannot be undone...are you sure you want to delete this tip? " 
               button_onclick = {handleDeleteTip}
               button_text = "Delete Tip"
               show={show} 

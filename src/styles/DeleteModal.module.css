@@ -1,0 +1,30 @@
+.DeleteButtons {
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    color: #fff;
+    background-color: #575755;
+    border-radius: 15px;
+    box-shadow: 0 9px #ea4335;
+    border: none;
+}
+
+.DeleteButtons:hover {
+    background-color: #000;
+}
+
+.DeleteButtons:active {
+    background-color: #575755;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+    background: #575755;
+}
+
+.Header {
+    color: #ea4335;
+    text-align: center;
+}
+
+.Body {
+    font-size: 1.2rem;
+}

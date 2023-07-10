@@ -1,15 +1,5 @@
 import React from "react";
-import { useCurrentUser } from "../../contexts/CurrentUserContext";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import styles from "../../styles/Tips.module.css";
-import Figure from "react-bootstrap/Figure";
-import StarRating from "../../components/StarRating";
-import Button from "react-bootstrap/Button";
-import btnStyles from "../../styles/Buttons.module.css";
 import HeroBoxComponent from "../../components/HeroBoxComponent";
-import { axiosRes } from "../../api/axiosDefaults";
-import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 
 const TipHeroes = (props) => {

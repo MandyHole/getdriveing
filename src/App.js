@@ -11,6 +11,7 @@ import CreateTipForm from "./pages/tips/CreateTipForm";
 import TipDetailPage from "./pages/tips/TipDetailPage";
 import Footer from "./components/Footer";
 import EditTipForm from "./pages/tips/EditTipForm";
+import EditCommentForm from "./pages/comments/EditCommentForm";
 
 
 function App() {
@@ -57,6 +58,16 @@ function App() {
           render={() => (
             <>
               <EditTipForm />
+            </>
+          )}
+        />
+
+<Route
+          exact
+          path="/comments/:id/edit"
+          render={() => (
+            <>
+              <EditCommentForm />
             </>
           )}
         />
