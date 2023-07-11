@@ -14,6 +14,7 @@ import Dropdown from "react-bootstrap/Dropdown";
 import Card from "react-bootstrap/Card";
 import ProfilePic from "../../components/ProfilePic";
 import HeroComponent from "../../components/HeroComponent"
+import TipsFeed from "../../components/TipsFeed"
 
 const MyProfilePage = () => {
   const currentUser = useCurrentUser();
@@ -82,36 +83,18 @@ const MyProfilePage = () => {
             </Dropdown.Menu>
           </Dropdown>
           </div>
-          <InputGroup className={styles.Search} size="lg">
-            <InputGroup.Text id="search">
+          <InputGroup size="lg">
+            <InputGroup.Text className={styles.Search}  id="search">
               <i className="fa-solid fa-magnifying-glass"></i>
             </InputGroup.Text>
-            <Form.Control
+            <Form.Control className={styles.Search} 
               placeholder="Search all tips"
               aria-label="Search tips"
               aria-describedby="tip-search"
             />
           </InputGroup>
 
-          <Card className={styles.Card}>
-                        <Card.Body>
-              <Card.Title> Tip title</Card.Title>
-              <Card.Subtitle className="mb-2 text-muted">
-                Tip Category
-              </Card.Subtitle>
-              <Card.Text>
-                odio facilisis mauris sit amet massa vitae tort odio facilisis
-                mauris sit amet massa vitae tort odio facilisis mauris sit amet
-                massa vitae tort
-              </Card.Text>
-              <Card.Link className={styles.Link} href="#">
-                Get tip details
-              </Card.Link>
-              <Card.Link className={styles.Link} href="#">
-                Unsave tip
-              </Card.Link>
-            </Card.Body>
-          </Card>
+          <TipsFeed />
 <div className={styles.Margin}></div>
           <h3 className={styles.CommentHeader}>My Tips</h3>
 
@@ -152,11 +135,11 @@ const MyProfilePage = () => {
           </Dropdown>
           
           </div>
-          <InputGroup className={styles.Search} size="lg">
-            <InputGroup.Text id="search">
+          <InputGroup size="lg">
+            <InputGroup.Text className={styles.Search}  id="search">
               <i className="fa-solid fa-magnifying-glass"></i>
             </InputGroup.Text>
-            <Form.Control
+            <Form.Control className={styles.Search} 
               placeholder="Search all tips"
               aria-label="Search tips"
               aria-describedby="tip-search"

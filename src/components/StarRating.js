@@ -78,8 +78,13 @@ export default function StarRating(props) {
     </Box>
         <Button className={`${btnStyles.Buttons} ${btnStyles.LeftFloat}`} onClick={handleRating}>
         Rate this tip
-      </Button></>
+      </Button>
 
+{/* <Button className={`${btnStyles.Buttons} ${btnStyles.LeftFloat}`} onClick={handleUpdatedRating}>
+Edit this tip
+</Button> */}
+
+</>
 
   );
 }

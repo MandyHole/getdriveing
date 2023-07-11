@@ -12,6 +12,7 @@ import TipDetailPage from "./pages/tips/TipDetailPage";
 import Footer from "./components/Footer";
 import EditTipForm from "./pages/tips/EditTipForm";
 import EditCommentForm from "./pages/comments/EditCommentForm";
+import TipsFeed from "./components/TipsFeed";
 
 
 function App() {
@@ -28,7 +29,7 @@ function App() {
             <>
               {" "}
               <HeroBox />
-              <h1>Homepage</h1>
+              <TipsFeed />
             </>
           )}
         />
