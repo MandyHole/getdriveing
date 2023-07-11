@@ -1,0 +1,15 @@
+.CardTitle {
+    font-size: 2rem;
+    color: #4285f4;
+}
+
+.Card {
+    border: solid 2px #4285f4;
+    margin: 5px 0;
+
+}
+
+.CardCategory {
+    font-size: 1.4rem;
+    color: #34a853;
+}

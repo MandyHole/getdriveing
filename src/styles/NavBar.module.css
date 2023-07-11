@@ -34,3 +34,26 @@
 .Active span {
     color: #4285f4;
 }
+
+@media screen and (max-width: 1200px) {
+    .NavIcon {
+      font-size: 1.1rem;
+    }
+    .NavIcon:hover {
+        font-size: 1.1rem;
+    }
+    .NavLinkItems {
+        font-size: 1.1rem;
+        color: #575755;
+        text-decoration: none;
+    
+    }
+    
+    .NavLinkItems:hover {
+        font-size: 1.1rem;
+        color: #34a853;
+        transition: color ease-in-out .5s;
+    
+    }
+    
+  }

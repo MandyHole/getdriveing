@@ -25,6 +25,8 @@
     justify-content:center;
 }
 
+
+
 .HeroButtons {
 
     margin: 15px 30px;
@@ -154,9 +156,18 @@
     color: #fff;
     background-color: #575755;
     border: none;
-    margin: 0 5px
+    margin: 0 5px;
+    display: table-cell
+    /* padding: 16px; */
 }
 
 .SmallGrey:hover {
     background-color: #000;
+}
+
+.RightButtons {
+    display:table;
+    justify-content:right;
+    text-align: right;
+    width: 100%;
 }

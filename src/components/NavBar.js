@@ -32,11 +32,14 @@ const NavBar = () => {
 
   const signedInMenu = (
     <>
-      {" "}
+      <NavLink exact to="/tips" activeClassName={styles.Active}>
+              <i className={`${styles.NavIcon} fa-sharp fa-solid fa-circle-check`}></i>
+                <span className={styles.NavLinkItems}>Saved Tips</span>
+              </NavLink>
       <NavLink exact to="/tips/create" activeClassName={styles.Active}>
         <i className={`${styles.NavIcon} fa-solid fa-circle-plus`}></i>
         <span className={styles.NavLinkItems}>
-          Create a Tip
+          Add a Tip
         </span>
       </NavLink>
       <NavLink exact to="/my-info" activeClassName={styles.Active}>
@@ -100,10 +103,7 @@ const NavBar = () => {
                 <i className={`${styles.NavIcon} fa-solid fa-solid fa-house`}></i>
                 <span className={styles.NavLinkItems}>Home</span>
               </NavLink>
-              <NavLink exact to="/tips" activeClassName={styles.Active}>
-              <i className={`${styles.NavIcon} fa-sharp fa-solid fa-circle-check`}></i>
-                <span className={styles.NavLinkItems}>Tips</span>
-              </NavLink>
+              
               {currentUser ? signedInMenu : loggedOutMenu}
             </Nav>
           </Navbar.Collapse>

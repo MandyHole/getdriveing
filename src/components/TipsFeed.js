@@ -1,15 +1,21 @@
 import React, { useEffect, useState } from "react";
 import Card from "react-bootstrap/Card";
-import styles from "../styles/Tips.module.css";
-import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
+import Button from "react-bootstrap/Button";
+import styles from "../styles/TipsFeed.module.css";
+import { useHistory, useLocation } from "react-router-dom/cjs/react-router-dom.min";
 import { axiosReq } from "../api/axiosDefaults";
-import Tips from "../pages/tips/Tips";
 import { Link } from "react-router-dom/cjs/react-router-dom";
+import btnStyles from "../styles/Buttons.module.css";
+import DeleteModal from "./DeleteModal";
 
 const TipsFeed = ({ message, filter = "" }) => {
   const [tips, setTips] = useState({ results: "" });
   const [hasLoaded, setHasLoaded] = useState(false);
   const { pathname } = useLocation();
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+  const history = useHistory();
 
   useEffect(() => {
     const fetchTips = async () => {
@@ -26,6 +32,16 @@ const TipsFeed = ({ message, filter = "" }) => {
     fetchTips();
   }, [filter, pathname]);
 
+  // const handleDeleteTip = async () => {
+  //   try {
+  //     await axiosRes.delete(`/tips/${id}/`)
+  //     history.goBack();
+  // } catch (err) {
+  //   console.log(err)
+  // }};
+
+
+
   return (
     <>
       {hasLoaded ? (
@@ -35,30 +51,39 @@ const TipsFeed = ({ message, filter = "" }) => {
                 <>
                   <Card className={styles.Card}>
                     <Card.Body>
-                      <Card.Title> {tip.title}</Card.Title>
-                      <Card.Subtitle className="mb-2 text-muted">
+                      <Card.Title className={styles.CardTitle}>{tip.is_owner ? (
+                        <>
+                
+              <div className={btnStyles.RightButtons}>
+                    <Link to={`/tips/${tip.id}/edit`}><Button className={btnStyles.SmallGrey}><i className="fa-solid fa-pen-to-square"></i></Button>
+                            </Link>
+
+                            <Button className={btnStyles.SmallGrey} onClick={handleShow}><i className="fa-solid fa-trash"></i></Button>
+                            
+                            </div>
+
+                          <DeleteModal 
+              title="Warning" 
+              text ="Please note that this cannot be undone...are you sure you want to delete this tip? " 
+              // button_onclick = {handleDeleteTip}
+              button_text = "Delete Tip"
+              show={show} 
+              handleClose={handleClose} />
+
+
+                        </>
+                      ) : (
+                //  add save tip here?
+                          null
+                     
+                      )} {tip.title} </Card.Title>
+                      <Card.Subtitle className={`${styles.CardCategory} mb-2 text-muted`}>
                         {tip.category.toUpperCase()}
                       </Card.Subtitle>
                       <Card.Text>{`${tip.tip_content.slice(0, 300)}...`}</Card.Text>
-                      {tip.is_owner ? (
-                        <>
-                        <Link to="/tips/{tip_id}" className={styles.Link}>
-                            Read tip
-                          </Link>
-                          <Card.Link className={styles.Link} href="#">
-                            Edit tip
-                          </Card.Link>
-                          <Card.Link className={styles.Link} href="#">
-                            Delete tip
-                          </Card.Link>
-                        </>
-                      ) : (
-                        <>
-                          <Card.Link className={styles.Link} href="#">
-                            Save tip
-                          </Card.Link>
-                        </>
-                      )}
+                      <Link to={`/tips/${tip.id}`}><Button className={`${btnStyles.Buttons} ${btnStyles.Width}`}>Read tip</Button>
+                            </Link>
+
                     </Card.Body>
                   </Card>
                 </>
