@@ -269,7 +269,7 @@ const CreateTipForm = () => {
                   {message}
                 </Alert>
               ))}
-              <div className={btnStyles.HeroButtonBox}>
+              <div className={btnStyles.CenterButtons}>
                 <Button
                   className={`${btnStyles.Buttons} ${btnStyles.HeroButtons}`}
                   type="submit"

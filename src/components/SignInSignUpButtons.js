@@ -6,7 +6,7 @@ import Button from "react-bootstrap/Button";
 
 const SignInSignUpButtons = () => {
   return (
-            <div className={btnStyles.HeroButtonBox}>
+            <div className={btnStyles.CenterButtons}>
         
     <Link to="/sign-up">
           <Button

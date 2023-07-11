@@ -41,7 +41,7 @@ const CreateTipHero = () => {
         </Col>
       </Row>
       <Row>
-        <Col md={{ span: 8, offset: 2 }} className={btnStyles.HeroButtonBox}>
+        <Col md={{ span: 8, offset: 2 }} className={btnStyles.CenterButtons}>
           <Link to="/sign-up">
           <Button
             size="lg"
@@ -79,7 +79,7 @@ const CreateTipHero = () => {
         </Col>
       </Row>
       <Row>
-        <Col md={{ span: 8, offset: 2 }} className={btnStyles.HeroButtonBox}>
+        <Col md={{ span: 8, offset: 2 }} className={btnStyles.CenterButtons}>
           <Link to="/sign-up">
           <Button
             size="lg"

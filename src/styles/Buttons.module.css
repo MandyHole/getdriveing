@@ -20,7 +20,7 @@
     background: #575755;
 }
 
-.HeroButtonBox {
+.CenterButtons {
     display:flex;
     justify-content:center;
 }
@@ -145,4 +145,18 @@
     box-shadow: 0 5px #666;
     transform: translateY(4px);
     background: #575755;
+}
+
+.SmallGrey {
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    color: #fff;
+    background-color: #575755;
+    border: none;
+    margin: 0 5px
+}
+
+.SmallGrey:hover {
+    background-color: #000;
 }

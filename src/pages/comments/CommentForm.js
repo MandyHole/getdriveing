@@ -61,7 +61,7 @@ function CommentForm(props) {
           />
       </Form.Group>
 
-      <div  className={btnStyles.HeroButtonBox}>
+      <div  className={btnStyles.CenterButtons}>
       <button
         className={`${btnStyles.Buttons} ${btnStyles.RightFloat}`}
         disabled={!content.trim()}

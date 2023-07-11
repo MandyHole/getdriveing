@@ -44,24 +44,25 @@ const PreviousComments = (props) => {
               additional_class={profileStyles.MarginRight}
             />
             {content}</p>
-            <p className={styles.CommentDate}>
+            { !owns_comment && ( <p className={styles.CommentDate}>
                 
-              <em>Comment made by {owner}: {updated_at}</em>
-            </p>
+                <em>Comment made by {owner}: {updated_at}</em>
+              </p>)}
+           
             {/* {owns_comment && 
             (<><p><Link to "/comments/{id}/edit">  edit </Link>  delete comment</p></>)
             } */}
-                        { owns_comment && (<><Button
-                className={`${btnStyles.Buttons} ${btnStyles.RightFloat}`} onClick={handleEditComment}
+                        { owns_comment && (<><p className={styles.CommentDate}><em>I updated this comment {updated_at}</em></p><div className={btnStyles.CenterButtons}><Button
+                className={`${btnStyles.SmallGrey}`} onClick={handleEditComment}
               >
 
-                Edit comment
+<i className="fa-solid fa-pen-to-square"></i>
               </Button> <Button
-                className={`${btnStyles.Buttons} ${btnStyles.RightFloat}`} onClick={handleShow}
+                className={`${btnStyles.SmallGrey}`} onClick={handleShow}
               >
 
-                Delete comment
-              </Button></>)}
+<i className="fa-solid fa-trash"></i>
+              </Button></div></>)}
 
 
               <DeleteModal 

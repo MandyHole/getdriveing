@@ -18,7 +18,7 @@ import { Link } from "react-router-dom";
             <h3>{h3}<i className={`${star1} ${styles.Star}`} /><i className={`${star2} ${styles.Star}`} /> <i className={`${star3} ${styles.Star}`} /> <i className={`${star4} ${styles.Star}`} /> <i className={`${star5} ${styles.Star}`} /> </h3>
             <h3>{h3_2}</h3>
             
-                            <div className={btnStyles.HeroButtonBox}>
+                            <div className={btnStyles.CenterButtons}>
         
                             <Link to={link1}>
                                     {button1}

@@ -19,7 +19,7 @@ const HeroBoxComponent = ({additional_class, h1, h2, h3, h3_2, buttonrow=false})
             <h3>{h3_2}</h3>
 
             {/* if {buttonrow}=true {
-                            <div className={btnStyles.HeroButtonBox}>
+                            <div className={btnStyles.CenterButtons}>
         
                             <Link to="/sign-up">
                                   <Button
