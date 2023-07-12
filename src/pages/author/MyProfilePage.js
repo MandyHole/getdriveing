@@ -1,7 +1,6 @@
 import React from "react";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import styles from "../../styles/Tips.module.css";
 import Button from "react-bootstrap/Button";
 import btnStyles from "../../styles/Buttons.module.css";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
@@ -24,7 +23,7 @@ const MyProfilePage = () => {
           .toUpperCase()}${currentUser?.username.slice(1)}'s Information`}
       />
       <Row>
-        <Col md={{ span: 8, offset: 1 }} className={styles.TipContent}>
+        <Col md={{ span: 8, offset: 1 }} className={appStyles.MainContent}>
           <h3 className={appStyles.ContentHeader}>My Tips</h3>
           <div className={appStyles.Center}>
             <Dropdown as={ButtonGroup} className={btnStyles.DropdownButton}>

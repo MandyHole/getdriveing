@@ -15,8 +15,8 @@ a {
 .Center {
     display:flex;
     justify-content:center;
+    /* margin-bottom: 5px; */
     text-align: center;
-
 }
 
 .ContentHeader {
@@ -28,5 +28,4 @@ a {
 .MainContent {
     padding: 3%;
     font-size: 1.3rem;
-
 }

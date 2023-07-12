@@ -18,6 +18,7 @@ import PreviousComments from "../comments/PreviousComments";
 import appStyles from "../../App.module.css"
 import HeroBoxComponent from "../../components/HeroComponent";
 import MySpinner from "../../components/MySpinner";
+import AuthorInfo from "../../components/AuthorInfo";
 
 
 function TipDetailPage() {
@@ -152,7 +153,7 @@ function TipDetailPage() {
           </p>
           <hr className={styles.HrThin} /> */}
         </Col>
-        <Col md={{ span: 3 }} className={styles.AuthorContent}>
+ {/* <       <Col md={{ span: 3 }} className={styles.AuthorContent}>
           <h1>Author's Profile</h1>
           <Image
             src={AuthorImage}
@@ -164,7 +165,8 @@ function TipDetailPage() {
           <p className={styles.AuthorBody}>Bio text</p>
           <p className={styles.AuthorBody}>Number of Tips</p>
           <Button className={btnStyles.GreenButtons}>Author's tips</Button>
-        </Col>
+        </Col>> */}
+        <AuthorInfo filter='6'/>
         </Row>
     </>
   );
