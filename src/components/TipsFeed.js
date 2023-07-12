@@ -75,8 +75,7 @@ const TipsFeed = ({ message, filter = "" }) => {
         <>
 
 
-          {tips.results.length
-            ? tips.results.map((tip) => (
+      {tips.results.length ? tips.results.map((tip) => (
                 <>
                   <Card className={styles.Card}>
                     <Card.Body>
@@ -98,8 +97,6 @@ const TipsFeed = ({ message, filter = "" }) => {
               button_text = "Delete Tip"
               show={show} 
               handleClose={handleClose} />
-
-
                         </>
                       ) : (
                 //  add save tip here?
@@ -118,11 +115,9 @@ const TipsFeed = ({ message, filter = "" }) => {
                 </>
               ))
          
-              // add this later
           : <NoResultsFound />}
           </>)
        : (
-       // add this later
 
         <MySpinner />
       )}

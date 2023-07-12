@@ -14,6 +14,7 @@ import EditTipForm from "./pages/tips/EditTipForm";
 import EditCommentForm from "./pages/comments/EditCommentForm";
 import ScrollToTop from "./components/ScrollToTop";
 import Homepage from "./pages/Homepage";
+import EditProfileForm from "./pages/author/EditProfileForm";
 
 
 function App() {
@@ -109,6 +110,15 @@ function App() {
           render={() => (
             <>
               <MyProfilePage />
+            </>
+          )}
+        />
+        <Route
+          exact
+          path="/authors/:id/edit"
+          render={() => (
+            <>
+              <EditProfileForm />
             </>
           )}
         />

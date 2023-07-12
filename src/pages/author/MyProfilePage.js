@@ -15,6 +15,7 @@ import Card from "react-bootstrap/Card";
 import ProfilePic from "../../components/ProfilePic";
 import HeroComponent from "../../components/HeroComponent"
 import TipsFeed from "../../components/TipsFeed"
+import AuthorInfo from "../../components/AuthorInfo"
 
 const MyProfilePage = () => {
   const currentUser = useCurrentUser();
@@ -167,14 +168,15 @@ const MyProfilePage = () => {
         </Col>
 
         <Col md={{ span: 3 }} className={styles.AuthorContent}>
-          <h1>My Profile</h1>
+          <AuthorInfo filter={4}/> 
+          {/* <h1>My Profile</h1>
           <ProfilePic src={AuthorImage} size = "150px"/>
           <p className={styles.Name}>Name</p>
           <p className={styles.AuthorBody}>Member since: xxx</p>
           <p className={styles.AuthorBody}>Bio text</p>
           <p className={styles.AuthorBody}>Number of Tips</p>
 
-          <Button className={btnStyles.GreenButtons}>Edit profile</Button>
+          <Button className={btnStyles.GreenButtons}>Edit profile</Button> */}
         </Col>
       </Row>
     </>
