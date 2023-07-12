@@ -13,6 +13,7 @@ import { useState } from "react";
 import DeleteModal from "../../components/DeleteModal";
 import { useParams } from "react-router-dom/cjs/react-router-dom";
 import { ratingClasses } from "@mui/material";
+import appStyles from "../../App.module.css"
 
 
 
@@ -103,7 +104,7 @@ const Tips = (props) => {
                   alt={title}
                   src={screenshot}
                 />
-                <div className={`${styles.Rating} ${styles.Center}`}>
+                <div className={`${styles.Rating} ${appStyles.Center}`}>
                   <Figure.Caption className={styles.ScreenshotCaption}>
                     <a href={screenshot} className={styles.Link} target="new">
                       See a larger screenshot

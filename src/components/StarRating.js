@@ -1,16 +1,14 @@
 import React, { useState } from "react";
 import Box from "@mui/material/Box";
-import Rating, { ratingClasses } from "@mui/material/Rating";
+import Rating from "@mui/material/Rating";
 import { useHistory } from "react-router-dom";
-import { useParams } from "react-router-dom/cjs/react-router-dom";
 import {
-  useCurrentUser, useSetCurrentUser
+  useCurrentUser
 } from "../contexts/CurrentUserContext";
 import { axiosReq } from "../api/axiosDefaults";
 import Button from "react-bootstrap/Button";
-import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import btnStyles from "../styles/Buttons.module.css";
-import styles from "../styles/Tips.module.css"
+import appStyles from "../App.module.css"
 
 
 export default function StarRating(props) {
@@ -62,7 +60,7 @@ export default function StarRating(props) {
 
 
   return (
-   <> <Box className={styles.Center}
+   <> <Box className={appStyles.Center}
       sx={{
         "& > legend": { mt: 2 },
       }}

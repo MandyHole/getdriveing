@@ -1,0 +1,16 @@
+.AuthorBody {
+    font-size: 1.2rem;
+    font-weight: 400;
+}
+
+.Name {
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+.AuthorContent {
+    padding: 3%;
+    background-color: #575755;
+    text-align: center;
+    color: #fff;
+}

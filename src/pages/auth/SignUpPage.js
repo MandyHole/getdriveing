@@ -1,5 +1,5 @@
 import React, { useState }  from "react";
-import heroStyles from "../../styles/HeroBox.module.css";
+import heroStyles from "../../styles/HeroComponent.module.css";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";

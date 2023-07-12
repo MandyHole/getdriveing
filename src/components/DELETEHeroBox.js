@@ -8,36 +8,45 @@ import btnStyles from "../styles/Buttons.module.css";
 import { useCurrentUser } from "../contexts/CurrentUserContext";
 import { Link } from "react-router-dom";
 
-const CreateTipHero = () => {
+
+const HeroBox = () => {
   const currentUser = useCurrentUser();
 
   const loggedInContent = (
     <>
-    <div className={styles.BoxBackground}>
-      <Container>
-        <Row>
-          <Col md={{ span: 8, offset: 2 }}>
-            <h1>Create a Tip, {currentUser?.username.charAt(0).toUpperCase()}{currentUser?.username.slice(1)}</h1>
-          </Col>
-        </Row>
-
-      </Container>
-      </div>
-      </>
+      <Row>
+        <Col md={{ span: 10, offset: 1 }}>
+          <h2>Welcome, {currentUser?.username.charAt(0).toUpperCase()}{currentUser?.username.slice(1)}</h2>
+        </Col>
+      </Row>
+      <Row>
+        <Col md={{ span: 8, offset: 2 }} className={btnStyles.CenterButtons}>
+          <Link to="/tips/create">
+          <Button
+            size="lg"
+            variant="dark"
+            className={`${btnStyles.HeroButtons} ${btnStyles.Buttons}`}
+          >
+            Add a Tip
+          </Button></Link>
+          <Link to="/my-info">
+          <Button
+            size="lg"
+            variant="dark"
+            className={`${btnStyles.HeroButtons} ${btnStyles.Buttons}`}
+          >
+            My Info
+          </Button></Link>
+        </Col>
+      </Row>
+    </>
   );
 
   const loggedOutContent = (
     <>
-     <div className={`${styles.BoxBackground} ${styles.FullHeight}`}>
-     <Container>
-        <Row>
-          <Col md={{ span: 8, offset: 2 }}>
-            <h1>You need to sign in before you can create a tip</h1>
-          </Col>
-        </Row>
       <Row>
         <Col md={{ span: 10, offset: 1 }}>
-          <h2>Create a free account to create, save and rate content!</h2>
+          <h2>See below for some useful tips. Or, create a free account so you can share your own tips as well as save and rate existing ones!</h2>
         </Col>
       </Row>
       <Row>
@@ -60,15 +69,20 @@ const CreateTipHero = () => {
           </Button></Link>
         </Col>
       </Row>
-      </Container>
-      </div>
     </>
   );
   return (
-   <>
+    <div className={styles.BoxBackground}>
+      <Container>
+        <Row>
+          <Col md={{ span: 8, offset: 2 }}>
+            <h1>Make the most of Google Drive Workplace</h1>
+          </Col>
+        </Row>
         {currentUser ? loggedInContent : loggedOutContent}
-        </>
+      </Container>
+    </div>
   );
 };
 
-export default CreateTipHero;
+export default HeroBox;

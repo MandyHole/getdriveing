@@ -15,6 +15,9 @@ import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import CommentForm from "../comments/CommentForm";
 import ProfilePic from "../../components/ProfilePic";
 import PreviousComments from "../comments/PreviousComments";
+import appStyles from "../../App.module.css"
+import HeroBoxComponent from "../../components/HeroComponent";
+import MySpinner from "../../components/MySpinner";
 
 
 function TipDetailPage() {
@@ -86,6 +89,7 @@ function TipDetailPage() {
 
     <TipHeroes {...tip.results[0]} setTips = {setTip} tipDetail />
 
+
               <Row>
         <Col md={{ span: 8, offset: 1 }} className={styles.TipContent}>
         <Tips {...tip.results[0]} setTips = {setTip} tipDetail/>
@@ -93,16 +97,16 @@ function TipDetailPage() {
 
           {currentUser ? (
                       <><hr className={styles.HR} />
-                      <h3 className={styles.CommentHeader}>Add a Comment</h3>
+                      <h3 className={appStyles.ContentHeader}>Add a Comment</h3>
   <CommentForm
   author_id={currentUser.author_id}
   authorImage={author_image}
   tip={id}
   setTip={setTip}
   setComments={setComments} /></>) : null}
-  <hr className={styles.HR} />  <h3 className={styles.CommentHeader}>
+  <hr className={styles.HR} />  <h3 className={appStyles.ContentHeader}>
     Previous Comments</h3>
-    <p className={styles.Center}>
+    <p className={appStyles.Center}>
 { comments.results.length ? (null) : currentUser ? ('Make the first comment using the form above') : ('No comments have been made yet') }
 </p>
     { comments.results.length ? (

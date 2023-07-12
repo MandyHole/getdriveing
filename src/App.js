@@ -1,6 +1,5 @@
 import styles from "./App.module.css";
 import NavBar from "./components/NavBar";
-import HeroBox from "./components/HeroBox";
 import { Container } from "react-bootstrap";
 import { Route, Switch } from "react-router-dom";
 import './api/axiosDefaults';
@@ -15,6 +14,7 @@ import EditCommentForm from "./pages/comments/EditCommentForm";
 import ScrollToTop from "./components/ScrollToTop";
 import Homepage from "./pages/Homepage";
 import EditProfileForm from "./pages/author/EditProfileForm";
+import HeroComponent from "./components/HeroComponent";
 
 
 function App() {
@@ -39,7 +39,7 @@ function App() {
           path="/tips"
           render={() => (
             <>
-       <HeroBox />
+       <HeroComponent />
               <h1>Tips</h1>
               
             </>
@@ -126,7 +126,7 @@ function App() {
         <Route
           render={() => (
             <>
-              <HeroBox />
+              <HeroComponent />
               <h1>Page not found</h1>
             </>
           )}

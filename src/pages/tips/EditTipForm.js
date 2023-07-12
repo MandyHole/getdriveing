@@ -12,21 +12,26 @@ import {
 } from "../../contexts/CurrentUserContext";
 import { useHistory } from "react-router-dom";
 import btnStyles from "../../styles/Buttons.module.css";
-import { axiosReq } from "../../api/axiosDefaults";
+import { axiosReq, axiosRes } from "../../api/axiosDefaults";
 import { useParams } from "react-router-dom/cjs/react-router-dom";
 import HeroComponent from "../../components/HeroComponent";
+import DeleteModal from "../../components/DeleteModal";
+import appStyles from "../../App.module.css"
 
 const EditTipForm = () => {
   const currentUser = useCurrentUser();
   const { id } = useParams();
   const history = useHistory();
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
   useEffect(() => {
     const handleMount = async () => {
         try {
             const {data} = await axiosReq.get(`/tips/${id}`)
             const {title, ability, category, screenshot, tip_content, is_owner} = data;
-            is_owner ? setCreateTipData({title, ability, category, screenshot, tip_content}) : (history.push("/"))
+            is_owner ? (setCreateTipData({title, ability, category, screenshot, tip_content})) : (history.push("/"))
         } catch(err) {
             console.log(err)
         }
@@ -77,6 +82,14 @@ const EditTipForm = () => {
     }
   };
 
+    const handleDeleteTip = async () => {
+    try {
+      await axiosRes.delete(`/tips/${id}/`)
+      history.push('/');
+  } catch (err) {
+    console.log(err)
+  }};
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     const formData = new FormData();
@@ -106,6 +119,15 @@ const EditTipForm = () => {
       <Container fluid="lg">
         <Row>
           <Col lg={{ span: 8, offset: 2 }}>
+          
+              <DeleteModal 
+              title="Warning" 
+              text ="Please note that this cannot be undone...are you sure you want to delete this tip? " 
+              button_onclick = {handleDeleteTip}
+              button_text = "Delete Tip"
+              show={show} 
+              handleClose={handleClose} />
+
             <Form onSubmit={handleSubmit} className={styles.FormMargin}>
               <Form.Group className="mb-3" controlId="title">
                 <Form.Label className={styles.Labels}>Title</Form.Label>
@@ -127,7 +149,7 @@ const EditTipForm = () => {
                 <Form.Label className={styles.Labels}>
                   Select a Category
                 </Form.Label>
-                <div className={styles.Center}>
+                <div className={appStyles.Center}>
                 {category === "drive_pdf" && <Form.Check
                     inline
                     defaultChecked
@@ -251,7 +273,7 @@ const EditTipForm = () => {
                 <Form.Label className={styles.Labels}>
                   Select a Recommended Ability
                 </Form.Label>
-                <div className={styles.Center}>
+                <div className={appStyles.Center}>
 
                   {ability === "beginner" && 
                   <Form.Check
@@ -394,6 +416,12 @@ const EditTipForm = () => {
                 onClick={() => history.goBack()}                >
                   Cancel
                 </Button>
+      
+              <Button className={`${btnStyles.Buttons} ${btnStyles.HeroButtons}`} onClick={handleShow}>Delete Tip</Button>
+          
+
+
+
               </div>
               {errors.non_field_errors?.map((message, idx) => (
                 <Alert variant="warning" key={idx} className="mt-3">

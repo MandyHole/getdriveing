@@ -15,7 +15,8 @@ import { useHistory } from "react-router-dom";
 import btnStyles from "../../styles/Buttons.module.css";
 import { axiosReq } from "../../api/axiosDefaults";
 import HeroComponent from "../../components/HeroComponent";
-import boxStyles from "../../styles/HeroBox.module.css";
+import boxStyles from "../../styles/HeroComponent.module.css";
+import appStyles from "../../App.module.css"
 
 const CreateTipForm = () => {
   const setCurrentUser = useSetCurrentUser();
@@ -121,7 +122,7 @@ const CreateTipForm = () => {
                 <Form.Label className={styles.Labels}>
                   Select a Category
                 </Form.Label>
-                <div className={styles.Center}>
+                <div className={appStyles.Center}>
                   <Form.Check
                     inline
                     type="radio"
@@ -183,7 +184,7 @@ const CreateTipForm = () => {
                 <Form.Label className={styles.Labels}>
                   Select a Recommended Ability
                 </Form.Label>
-                <div className={styles.Center}>
+                <div className={appStyles.Center}>
                   <Form.Check
                     inline
                     className={styles.Radio}
@@ -307,27 +308,8 @@ const CreateTipForm = () => {
           h1="You need to sign in before you can create a tip"
           additional_class={boxStyles.FullHeight}
           h2="Create a free account to create, save and rate content!"
-          link1="/sign-up"
-          button1={
-            <Button
-              size="lg"
-              variant="dark"
-              className={`${btnStyles.HeroButtons} ${btnStyles.Buttons}`}
-            >
-              Sign Up
-            </Button>
-          }
-
-          link2="/sign-in"
-          button2={
-            <Button
-              size="lg"
-              variant="dark"
-              className={`${btnStyles.HeroButtons} ${btnStyles.Buttons}`}
-            >
-              Sign In
-            </Button>
-          }
+          signinbuttons
+          
         />
       )}
       {currentUser ? tipForm : null}

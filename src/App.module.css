@@ -11,3 +11,22 @@ a {
     color: none;
     text-decoration: none;
 }
+
+.Center {
+    display:flex;
+    justify-content:center;
+    text-align: center;
+
+}
+
+.ContentHeader {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #34a853;
+}
+
+.MainContent {
+    padding: 3%;
+    font-size: 1.3rem;
+
+}
