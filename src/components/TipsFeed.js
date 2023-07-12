@@ -7,6 +7,10 @@ import { axiosReq } from "../api/axiosDefaults";
 import { Link } from "react-router-dom/cjs/react-router-dom";
 import btnStyles from "../styles/Buttons.module.css";
 import DeleteModal from "./DeleteModal";
+import MySpinner from "./MySpinner";
+import { Form } from "react-bootstrap";
+import InputGroup from "react-bootstrap/InputGroup";
+import NoResultsFound from "./NoResultsFound";
 
 const TipsFeed = ({ message, filter = "" }) => {
   const [tips, setTips] = useState({ results: "" });
@@ -16,11 +20,12 @@ const TipsFeed = ({ message, filter = "" }) => {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const history = useHistory();
+  const [query, setQuery] = useState("");
 
   useEffect(() => {
     const fetchTips = async () => {
       try {
-        const { data } = await axiosReq.get(`/tips/?${filter}/`);
+        const { data } = await axiosReq.get(`/tips/?${filter}search=${query}`);
         setTips(data);
         setHasLoaded(true);
         // console.log(data)
@@ -29,8 +34,13 @@ const TipsFeed = ({ message, filter = "" }) => {
       }
     };
     setHasLoaded(false);
-    fetchTips();
-  }, [filter, pathname]);
+    const timer = setTimeout(() => {
+      fetchTips();
+    }, 1000)
+    return () => {
+    clearTimeout(timer)}
+
+  }, [filter, query, pathname]);
 
   // const handleDeleteTip = async () => {
   //   try {
@@ -43,9 +53,28 @@ const TipsFeed = ({ message, filter = "" }) => {
 
 
   return (
-    <>
+    <>        <Form onSubmit={(event) => event.preventDefault()}>
+    <InputGroup size="lg">
+    <InputGroup.Text className={styles.Search}  id="search">
+      <i className="fa-solid fa-magnifying-glass"></i>
+    </InputGroup.Text>
+    <Form.Control className={styles.Search} 
+    value={query}
+    onChange={(event) => setQuery(event.target.value)}
+
+      placeholder="Search all tips"
+      aria-label="Search tips"
+      aria-describedby="tip-search"
+    />
+  </InputGroup>
+  </Form>
+
+
+
       {hasLoaded ? (
         <>
+
+
           {tips.results.length
             ? tips.results.map((tip) => (
                 <>
@@ -88,11 +117,14 @@ const TipsFeed = ({ message, filter = "" }) => {
                   </Card>
                 </>
               ))
-            
-          : ("no results")}
+         
+              // add this later
+          : <NoResultsFound />}
           </>)
        : (
-        console.log("loading")
+       // add this later
+
+        <MySpinner />
       )}
     </>
   );

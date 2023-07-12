@@ -1,0 +1,23 @@
+.RightSidebar {
+    padding: 3%;
+    background-color: #575755;
+    color: #fff;
+}
+
+.Heading {
+    font-size: 2rem;
+    font-weight: 500;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.Text {
+    font-size: 1.2rem;
+}
+
+.Center {
+    /* display: flex;
+    justify-content: center; */
+    text-align: center;
+    margin: 20px 0
+}

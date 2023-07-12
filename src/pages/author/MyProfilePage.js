@@ -83,7 +83,7 @@ const MyProfilePage = () => {
             </Dropdown.Menu>
           </Dropdown>
           </div>
-          <InputGroup size="lg">
+          {/* <InputGroup size="lg">
             <InputGroup.Text className={styles.Search}  id="search">
               <i className="fa-solid fa-magnifying-glass"></i>
             </InputGroup.Text>
@@ -92,7 +92,7 @@ const MyProfilePage = () => {
               aria-label="Search tips"
               aria-describedby="tip-search"
             />
-          </InputGroup>
+          </InputGroup> */}
 
           <TipsFeed />
 <div className={styles.Margin}></div>

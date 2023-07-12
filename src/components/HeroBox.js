@@ -46,7 +46,7 @@ const HeroBox = () => {
     <>
       <Row>
         <Col md={{ span: 10, offset: 1 }}>
-          <h2>Create a free account to create, save and rate content!</h2>
+          <h2>See below for some useful tips. Or, create a free account so you can share your own tips as well as save and rate existing ones!</h2>
         </Col>
       </Row>
       <Row>

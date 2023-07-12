@@ -12,14 +12,15 @@ import TipDetailPage from "./pages/tips/TipDetailPage";
 import Footer from "./components/Footer";
 import EditTipForm from "./pages/tips/EditTipForm";
 import EditCommentForm from "./pages/comments/EditCommentForm";
-import TipsFeed from "./components/TipsFeed";
+import ScrollToTop from "./components/ScrollToTop";
+import Homepage from "./pages/Homepage";
 
 
 function App() {
   return (
     <div className={styles.App}>
       <NavBar />
-
+      <ScrollToTop>
       <Switch>
         {" "}
         <Route
@@ -28,8 +29,7 @@ function App() {
           render={() => (
             <>
               {" "}
-              <HeroBox />
-              <TipsFeed />
+              <Homepage />
             </>
           )}
         />
@@ -79,7 +79,6 @@ function App() {
           path="/tips/:id"
           render={() => (
             <>
-              {" "}
               <TipDetailPage />
             </>
           )}
@@ -127,6 +126,7 @@ function App() {
 
       <Container></Container>
       <Footer />
+      </ScrollToTop>
     </div>
   );
 }
