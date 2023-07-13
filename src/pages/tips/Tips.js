@@ -39,7 +39,6 @@ const Tips = (props) => {
   const currentUser = useCurrentUser();
   const ownsTip = currentUser?.username === owner;
   const history = useHistory()
-  // const { tip_id } = useParams();
 
   const handleSaveRequest = async () => {
     try {
@@ -136,7 +135,9 @@ const Tips = (props) => {
 
               <div className={styles.Centre}>
 
-{!ownsTip && currentUser && <StarRating tip={id}/>}</div>
+
+{/* Add rating_tip_id to database and put here */}
+{!ownsTip && currentUser && <StarRating tip={id}/>}. </div>
 
 {!ownsTip && currentUser && !saved_tips_id &&<><Button
                 className={`${btnStyles.Buttons} ${btnStyles.RightFloat}`}

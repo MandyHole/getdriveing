@@ -11,7 +11,7 @@ import ProfilePic from "./ProfilePic";
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 
 
-const AuthorInfo = (props) => {
+const MyInfo = (props) => {
   const { filter, tips, setTips} = props;
   const [authors, setAuthors] = useState({ results: "" });
   const [hasLoaded, setHasLoaded] = useState(false);
@@ -19,28 +19,19 @@ const AuthorInfo = (props) => {
   const [query, setQuery] = useState("");
   const { id } = useParams();
 
-
-  // const currentUser = useCurrentUser();
-  // const ownsTip = currentUser?.username === owner;
-  // const history = useHistory()
-
   
   useEffect(() => {
     const fetchAuthors = async () => {
       try {
         const [{ data: tips }, { data : authors}] = await Promise.all([
-          axiosReq.get(`/tips/${id}`),
+          axiosReq.get(`/tips/`),
           axiosReq.get(`/authors/${filter}`)
         ]);
         setTips({ results: [tips] });
         setAuthors(authors);
         setHasLoaded(true);
-        console.log(filter)
       } catch (err) {
         console.log(err);
-        console.log(filter)
-
-
       }
     };
     setHasLoaded(false);
@@ -96,4 +87,4 @@ const AuthorInfo = (props) => {
   );
 };
 
-export default AuthorInfo;
+export default MyInfo;

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
@@ -9,11 +9,34 @@ import ButtonGroup from "react-bootstrap/ButtonGroup";
 import Dropdown from "react-bootstrap/Dropdown";
 import HeroComponent from "../../components/HeroComponent";
 import TipsFeed from "../../components/TipsFeed";
-import AuthorInfo from "../../components/AuthorInfo";
+import MyInfo from "../../components/MyInfo";
 import appStyles from "../../App.module.css"
+import { useState } from "react";
+import { axiosReq } from "../../api/axiosDefaults";
+
+
 
 const MyProfilePage = () => {
   const currentUser = useCurrentUser();
+  const [tips, setTips] = useState({ results: [] });
+  const [authors, setAuthors] = useState({ results: [] });
+
+  useEffect(() => {
+    const handleMount = async () => {
+      try {
+        const [{ data: tips }, {data : authors}] = await Promise.all([
+          axiosReq.get(`/tips/`),
+          axiosReq.get(`/authors`)
+        ]);
+        setTips({ results: [tips] });
+        setAuthors(authors)
+
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    handleMount();
+  }, );
 
   const loggedInContent = (
     <>
@@ -59,7 +82,11 @@ const MyProfilePage = () => {
           </div>
           <TipsFeed />
         </Col>
-        <AuthorInfo filter={4} />
+        {currentUser ? (
+        <MyInfo  
+        {...tips.results[0]} setTips = {setTips}
+        {...authors.results[0]} setAuthors = {setAuthors}
+        filter={currentUser?.pk} />):(null)}
       </Row>
     </>
   );

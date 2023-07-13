@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from "react";
 import HeroComponent from '../components/HeroComponent'
 import TipsFeed from '../components/TipsFeed'
 import Row from "react-bootstrap/Row";
@@ -7,13 +7,34 @@ import Col from "react-bootstrap/Col";
 import { useCurrentUser } from '../contexts/CurrentUserContext';
 import btnStyles from "../styles/Buttons.module.css";
 import { Link } from "react-router-dom";
-import AuthorInfo from '../components/AuthorInfo';
+import MyInfo from '../components/MyInfo';
 import appStyles from '../App.module.css'
 import styles from '../styles/Homepage.module.css'
 import authorStyles from "../styles/AuthorInfo.module.css";
+import { axiosReq } from "../api/axiosDefaults";
 
 const Homepage = () => {
-    const currentUser = useCurrentUser()
+  const currentUser = useCurrentUser();
+  const [tips, setTips] = useState({ results: [] });
+  const [authors, setAuthors] = useState({ results: [] });
+
+  useEffect(() => {
+    const handleMount = async () => {
+      try {
+        const [{ data: tips }, {data : authors}] = await Promise.all([
+          axiosReq.get(`/tips/`),
+          axiosReq.get(`/authors`)
+        ]);
+        setTips({ results: [tips] });
+        setAuthors(authors)
+
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    handleMount();
+  }, );
+
   return (
     
     <>
@@ -37,19 +58,21 @@ const Homepage = () => {
         </Col>
 
 
-    {currentUser &&
-// add filter
-    <AuthorInfo filter="2" />}
+        {currentUser ? (
+        <MyInfo  
+        {...tips.results[0]} setTips = {setTips}
+        {...authors.results[0]} setAuthors = {setAuthors}
+        filter={currentUser?.pk} />):(null)}
 
   {!currentUser && <>
     <Col md={{ span: 3 }} className={authorStyles.AuthorContent}>
   <h4 className={styles.Heading}>Benefits to having an account</h4>
-  <p className={styles.Text}>You can:
+  <div className={styles.Text}>You can:
   <ul>
     <li>Save useful tips so you can easily refer to them again</li>
     <li>Share your own tips to help others</li>
     <li>Rate tips to help others find the most useful information</li>
-  </ul></p>
+  </ul></div>
 
   <Link to="/sign-up">
   <Button

@@ -42,8 +42,7 @@ const EditProfileForm = () => {
               image,
               is_owner,
               number_tips_created} = data;
-              console.log(is_owner)
-            is_owner ? setCreateAuthorData({name, bio, image}) : (history.push("/"))
+            is_owner  ? setCreateAuthorData({name, bio, image}) : (history.push("/"))
         } catch(err) {
             console.log(err)
         }
@@ -88,11 +87,12 @@ const EditProfileForm = () => {
       }
     }
   };
+  
 
   return (
     <div>
       <HeroComponent  h1= {`Edit your profile, ${currentUser?.username.charAt(0).toUpperCase()}${currentUser?.username.slice(1)}`} />
-      <>
+  
       <Container fluid="lg">
         <Row>
           <Col lg={{ span: 8, offset: 2 }}>
@@ -182,7 +182,7 @@ const EditProfileForm = () => {
           </Col>
         </Row>
       </Container>{" "}
-    </>
+  
 
     </div>
   );
