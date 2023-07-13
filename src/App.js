@@ -15,6 +15,9 @@ import ScrollToTop from "./components/ScrollToTop";
 import Homepage from "./pages/Homepage";
 import EditProfileForm from "./pages/author/EditProfileForm";
 import HeroComponent from "./components/HeroComponent";
+import SavedTips from "./pages/tips/SavedTips";
+import PageNotFound from "./components/PageNotFound";
+import AuthorsTips from "./pages/author/AuthorsTips";
 
 
 function App() {
@@ -54,6 +57,17 @@ function App() {
             </>
           )}
         />
+<Route
+            exact
+            path="/saved"
+            render={() => (
+              <SavedTips />
+            
+            )}
+
+
+            />
+
  <Route
           exact
           path="/tips/:id/edit"
@@ -113,6 +127,15 @@ function App() {
             </>
           )}
         />
+         <Route
+          exact
+          path="/authors/:id"
+          render={() => (
+            <>
+              <AuthorsTips />
+            </>
+          )}
+        />
         <Route
           exact
           path="/authors/:id/edit"
@@ -126,8 +149,7 @@ function App() {
         <Route
           render={() => (
             <>
-              <HeroComponent />
-              <h1>Page not found</h1>
+              <PageNotFound />
             </>
           )}
         />

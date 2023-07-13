@@ -32,7 +32,7 @@ const NavBar = () => {
 
   const signedInMenu = (
     <>
-      <NavLink exact to="/tips" activeClassName={styles.Active}>
+      <NavLink exact to="/saved" activeClassName={styles.Active}>
               <i className={`${styles.NavIcon} fa-sharp fa-solid fa-circle-check`}></i>
                 <span className={styles.NavLinkItems}>Saved Tips</span>
               </NavLink>

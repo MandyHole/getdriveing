@@ -53,7 +53,7 @@ const EditCommentForm = () => {
     formData.append("content", content);
     try {
       await axiosReq.put(`/comments/${id}/`, formData);
-      history.push('/');
+      history.goBack()
     } catch (err) {
       console.log(err);
       if (err.response?.status !== 401) {
@@ -89,8 +89,7 @@ const EditCommentForm = () => {
               <div className={btnStyles.CenterButtons}>
                 <Button
                   className={`${btnStyles.Buttons} ${btnStyles.HeroButtons}`}
-                  type="submit"
-                >
+                  type="submit">
                   Save changes
                 </Button>
                 <Button

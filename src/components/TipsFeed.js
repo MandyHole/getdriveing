@@ -61,7 +61,7 @@ const TipsFeed = ({ message, filter = "" }) => {
               
             ))
           ) : (
-            <NoResultsFound />
+            <NoResultsFound message={message}/>
           )}
         </>
       ) : (

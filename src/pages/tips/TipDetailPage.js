@@ -1,5 +1,7 @@
 import React, { useEffect } from "react";
 import Row from "react-bootstrap/Row";
+import Button from "react-bootstrap/Button";
+import { Link } from "react-router-dom/cjs/react-router-dom";
 import Col from "react-bootstrap/Col";
 import styles from "../../styles/Tips.module.css";
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
@@ -12,6 +14,7 @@ import CommentForm from "../comments/CommentForm";
 import PreviousComments from "../comments/PreviousComments";
 import appStyles from "../../App.module.css"
 import AuthorInfo from "../../components/AuthorInfo";
+import btnStyles from "../../styles/Buttons.module.css"
 
 
 function TipDetailPage() {
@@ -64,7 +67,24 @@ function TipDetailPage() {
   authorImage={author_image}
   tip={id}
   setTips={setTips}
-  setComments={setComments} /></>) : null}
+  setComments={setComments} /></>) : (<><h3 className={appStyles.ContentHeader}>Want to add a comment? Please create an account or sign in...</h3><div md={{ span: 8, offset: 2 }} className={btnStyles.CenterButtons}>
+    <Link to="/sign-up">
+    <Button
+      size="lg"
+      variant="dark"
+      className={`${btnStyles.HeroButtons} ${btnStyles.Buttons}`}
+    >
+      Sign Up
+    </Button></Link>
+    <Link to="/sign-in">
+    <Button
+      size="lg"
+      variant="dark"
+      className={`${btnStyles.HeroButtons} ${btnStyles.Buttons}`}
+    >
+      Sign In
+    </Button></Link>
+  </div></>)}
   <hr className={styles.HR} />  <h3 className={appStyles.ContentHeader}>
     Previous Comments</h3>
     <p className={appStyles.Center}>
@@ -88,14 +108,12 @@ function TipDetailPage() {
 
         </Col>
 
-        {/* tips.results.map((tip) => ( */}
         {tips.results.length ? (
         <AuthorInfo 
         {...tips.results[0]} setTips = {setTips}
         {...authors.results[0]} setAuthors = {setAuthors}
         filter={tips.results[0].owner_id}/>) : (<></>)}
         
-        {/* )) */}
         </Row>
     </>
   );

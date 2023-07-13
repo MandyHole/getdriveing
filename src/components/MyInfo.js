@@ -12,7 +12,7 @@ import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 
 
 const MyInfo = (props) => {
-  const { filter, tips, setTips} = props;
+  const { filter, tips, setTips, author_tip_page} = props;
   const [authors, setAuthors] = useState({ results: "" });
   const [hasLoaded, setHasLoaded] = useState(false);
   const { pathname } = useLocation();
@@ -46,15 +46,33 @@ const MyInfo = (props) => {
         {hasLoaded ? (
           <>
             <ProfilePic src={authors.image} size="150px" />
-            {authors.name.length ? (
-              <p className={styles.Name}>{authors.name}'s Profile</p>
+
+            
+
+            
+              <p className={styles.Name}>{authors.is_owner ? ("My Profile:") : (null)} {authors.name.length ? (`${authors.name}` 
             ) : (
-              <p className={styles.Name}>{authors.owner}'s Profile</p>
-            )}
+              `${authors.owner}`)}</p>
+              {authors.is_owner ? (<>
+              <Link to={`/authors/${filter}/edit`}>
+              <Button className={btnStyles.GreenButtons}>
+                Edit your name
+              </Button>
+            </Link></>) : (null)}
+            
             <p className={styles.AuthorBody}>
               Member since: {authors.created_on}
             </p>
-            <p className={styles.AuthorBody}>{authors.bio}</p>
+            <p className={styles.AuthorBody}> {authors.bio}
+            
+            {authors.is_owner ? (<><Link to={`/authors/${filter}/edit`}>
+              <Button className={btnStyles.GreenButtons}>
+                Add your bio
+              </Button>
+            </Link></>) : (authors.bio)}
+            
+            
+            </p>
             <p className={styles.AuthorBody}>
               Tips created: {authors.number_tips_created}
             </p>
@@ -68,13 +86,12 @@ const MyInfo = (props) => {
                 </Link>
               </>
             ) : (
-              // Add this functionality
               <>
-                <Link to={`/tips_by_author/${filter}`}>
+                 { !author_tip_page && <Link to={`/authors/${filter}`}>
                   <Button className={btnStyles.GreenButtons}>
                     Author's Tips
                   </Button>
-                </Link>
+                </Link>}
               </>
             )}
           </>

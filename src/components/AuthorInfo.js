@@ -79,7 +79,7 @@ const AuthorInfo = (props) => {
             ) : (
               // Add this functionality
               <>
-                <Link to={`/tips_by_author/${filter}`}>
+                <Link to={`/authors/${filter}`}>
                   <Button className={btnStyles.GreenButtons}>
                     Author's Tips
                   </Button>

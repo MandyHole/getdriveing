@@ -8,7 +8,7 @@ import btnStyles from "../styles/Buttons.module.css";
 import { Link } from "react-router-dom";
 
  function HeroBoxComponent (props) {
-    const { h1, h2, h3, h3_2, additional_class, homepage_logged_in, signinbuttons, star1, star2, star3, star4, star5, tipDetail } = props;
+    const { h1, h2, h3, h3_2, additional_class, not_found, homepage_logged_in, signinbuttons, star1, star2, star3, star4, star5, tipDetail } = props;
   return (
     <div className={`${styles.BoxBackground} ${additional_class}`}>
       <Container>
@@ -55,6 +55,15 @@ import { Link } from "react-router-dom";
         {tipDetail? (<><i className={`${star1} ${styles.Star}`} /><i className={`${star2} ${styles.Star}`} /> <i className={`${star3} ${styles.Star}`} /> <i className={`${star4} ${styles.Star}`} /> <i className={`${star5} ${styles.Star}`} /></>)
           : (null) }
 
+{not_found ? ( <>
+<div className={btnStyles.CenterButtons}>
+          <Link to="/">
+          <Button
+            className={`${btnStyles.HeroButtons} ${btnStyles.Buttons}`}
+          >
+            Homepage
+          </Button></Link>
+        </div></>): (null)}
 
         
         </h3>
