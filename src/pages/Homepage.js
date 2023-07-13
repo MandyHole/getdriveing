@@ -87,10 +87,7 @@ const Homepage = () => {
     Sign In
   </Button></Link></Col></>
   }
-  
 
-
-{/* </Col> */}
 </Row>
     </>
   )

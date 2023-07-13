@@ -15,6 +15,9 @@ import btnStyles from "../../styles/Buttons.module.css";
 import { axiosReq } from "../../api/axiosDefaults";
 import { useParams } from "react-router-dom/cjs/react-router-dom";
 import HeroComponent from "../../components/HeroComponent";
+import appStyles from "../../App.module.css"
+import NoResultsFound from "../../components/NoResultsFound";
+
 
 const EditProfileForm = () => {
   const currentUser = useCurrentUser();
@@ -28,6 +31,8 @@ const EditProfileForm = () => {
   const imageInput = useRef(null);
   const [errors, setErrors] = useState({});
   const { name, bio, image } = createAuthorData;
+  const [authors, setAuthors] = useState({ results: [] });
+
 
   useEffect(() => {
     const handleMount = async () => {
@@ -43,6 +48,8 @@ const EditProfileForm = () => {
               is_owner,
               number_tips_created} = data;
             is_owner  ? setCreateAuthorData({name, bio, image}) : (history.push("/"))
+            setAuthors({ results: [data] });
+
         } catch(err) {
             console.log(err)
         }
@@ -91,97 +98,103 @@ const EditProfileForm = () => {
 
   return (
     <div>
-      <HeroComponent  h1= {`Edit your profile, ${currentUser?.username.charAt(0).toUpperCase()}${currentUser?.username.slice(1)}`} />
+
+{authors.results.length? (<>
+  <HeroComponent  h1= {`Edit your profile, ${currentUser?.username.charAt(0).toUpperCase()}${currentUser?.username.slice(1)}`} />
   
-      <Container fluid="lg">
-        <Row>
-          <Col lg={{ span: 8, offset: 2 }}>
-            <Form onSubmit={handleSubmit} className={styles.FormMargin}>
-              <Form.Group className="mb-3" controlId="title">
-                <Form.Label className={styles.Labels}>Name</Form.Label>
-                <Form.Control
-                  className={styles.Input}
-                  type="text"
-                  placeholder="Your name as you'd like it displayed"
-                  name="name"
-                  value={name}
-                  onChange={handleChange}
-                />
-              </Form.Group>
-              {errors.name?.map((message, idx) => (
-                <Alert variant="warning" key={idx}>
-                  {message}
-                </Alert>
-              ))}
-              
-              <Form.Group className="mb-3" controlId="bio">
-                <Form.Label className={styles.Labels}>Your bio</Form.Label>
-                <Form.Control
-                  className={styles.Input}
-                  as="textarea"
-                  rows={3}
-                  placeholder="Provide details about yourself"
-                  value={bio}
-                  onChange={handleChange}
-                  name="bio"
-                />
-              </Form.Group>
-              {errors.bio?.map((message, idx) => (
-                <Alert variant="warning" key={idx}>
-                  {message}
-                </Alert>
-              ))}
+  <Container fluid="lg">
+    <Row>
+      <Col lg={{ span: 8, offset: 2 }}>
+        <Form onSubmit={handleSubmit} className={styles.FormMargin}>
+          <Form.Group className="mb-3" controlId="title">
+            <Form.Label className={styles.Labels}>Name</Form.Label>
+            <Form.Control
+              className={styles.Input}
+              type="text"
+              placeholder="Your name as you'd like it displayed"
+              name="name"
+              value={name}
+              onChange={handleChange}
+            />
+          </Form.Group>
+          {errors.name?.map((message, idx) => (
+            <Alert variant="warning" key={idx}>
+              {message}
+            </Alert>
+          ))}
+          
+          <Form.Group className="mb-3" controlId="bio">
+            <Form.Label className={styles.Labels}>Your bio</Form.Label>
+            <Form.Control
+              className={styles.Input}
+              as="textarea"
+              rows={3}
+              placeholder="Provide details about yourself"
+              value={bio}
+              onChange={handleChange}
+              name="bio"
+            />
+          </Form.Group>
+          {errors.bio?.map((message, idx) => (
+            <Alert variant="warning" key={idx}>
+              {message}
+            </Alert>
+          ))}
 
-              <Form.Group controlId="image_upload" className="mb-3">
-                <Form.Label className={styles.Labels}>
-                  Upload a picture of yourself (square photos work best)
-                </Form.Label>
-                <Form.Control
-                  className={`${styles.FileUpload} mx-auto d-block `}
-                  type="file"
-                  accept="image/*"
-                  onChange={handleChangeImage}
-                  ref={imageInput}
-                />
-                {image ? (
-                  <Image
-                    src={image}
-                    className={`${styles.Image} mx-auto d-block `}
-                    thumbnail
-                    fluid
-                  />
-                ) : (
-                  <></>
-                )}
-              </Form.Group>
+          <Form.Group controlId="image_upload" className="mb-3">
+            <Form.Label className={styles.Labels}>
+              Upload a picture of yourself (square photos work best)
+            </Form.Label>
+            <Form.Control
+              className={`${styles.FileUpload} mx-auto d-block `}
+              type="file"
+              accept="image/*"
+              onChange={handleChangeImage}
+              ref={imageInput}
+            />
+            {image ? (
+              <Image
+                src={image}
+                className={`${styles.Image} mx-auto d-block `}
+                thumbnail
+                fluid
+              />
+            ) : (
+              <></>
+            )}
+          </Form.Group>
 
-              {errors.image?.map((message, idx) => (
-                <Alert variant="warning" key={idx}>
-                  {message}
-                </Alert>
-              ))}
-              <div className={btnStyles.CenterButtons}>
-                <Button
-                  className={`${btnStyles.Buttons} ${btnStyles.HeroButtons}`}
-                  type="submit"
-                >
-                  Save changes
-                </Button>
-                <Button
-                  className={`${btnStyles.Buttons} ${btnStyles.HeroButtons}`}
-                onClick={() => history.goBack()}                >
-                  Cancel
-                </Button>
-              </div>
-              {errors.non_field_errors?.map((message, idx) => (
-                <Alert variant="warning" key={idx} className="mt-3">
-                  {message}
-                </Alert>
-              ))}
-            </Form>
-          </Col>
-        </Row>
-      </Container>{" "}
+          {errors.image?.map((message, idx) => (
+            <Alert variant="warning" key={idx}>
+              {message}
+            </Alert>
+          ))}
+          <div className={btnStyles.CenterButtons}>
+            <Button
+              className={`${btnStyles.Buttons} ${btnStyles.HeroButtons}`}
+              type="submit"
+            >
+              Save changes
+            </Button>
+            <Button
+              className={`${btnStyles.Buttons} ${btnStyles.HeroButtons}`}
+            onClick={() => history.goBack()}                >
+              Cancel
+            </Button>
+          </div>
+          {errors.non_field_errors?.map((message, idx) => (
+            <Alert variant="warning" key={idx} className="mt-3">
+              {message}
+            </Alert>
+          ))}
+        </Form>
+      </Col>
+    </Row>
+  </Container>{" "}
+
+
+</>) : (<div className={appStyles.NotFoundContainer}><NoResultsFound /></div>) }
+      
   
 
     </div>

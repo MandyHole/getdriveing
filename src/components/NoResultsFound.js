@@ -1,9 +1,9 @@
 import React from 'react'
 import styles from "../styles/NoResultsFound.module.css"
 
-const NoResultsFound = (message="Sorry, no results found - try a different search!") => {
+const NoResultsFound = () => {
   return (
-    <div className={styles.NoResultsContainer}><div className={styles.Icon}><i className="fa-solid fa-magnifying-glass-minus fa-bounce"></i></div><div className={styles.Message}>{message}</div></div>
+    <div className={styles.NoResultsContainer}><div className={styles.Icon}><i className="fa-solid fa-magnifying-glass-minus fa-bounce"></i></div><div className={styles.Message}>Sorry, no results found!</div></div>
   )
 }
 

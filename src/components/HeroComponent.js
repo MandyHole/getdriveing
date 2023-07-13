@@ -7,9 +7,13 @@ import Col from "react-bootstrap/Col";
 import btnStyles from "../styles/Buttons.module.css";
 import { Link } from "react-router-dom";
 
+
  function HeroBoxComponent (props) {
     const { h1, h2, h3, h3_2, additional_class, not_found, homepage_logged_in, signinbuttons, star1, star2, star3, star4, star5, tipDetail } = props;
-  return (
+
+  
+  
+    return (
     <div className={`${styles.BoxBackground} ${additional_class}`}>
       <Container>
         <Row>

@@ -15,6 +15,7 @@ import PreviousComments from "../comments/PreviousComments";
 import appStyles from "../../App.module.css"
 import AuthorInfo from "../../components/AuthorInfo";
 import btnStyles from "../../styles/Buttons.module.css"
+import NoResultsFound from "../../components/NoResultsFound";
 
 
 function TipDetailPage() {
@@ -56,7 +57,7 @@ function TipDetailPage() {
               <Row>
 
         <Col md={{ span: 8, offset: 1 }} className={styles.TipContent}>
-        <Tips {...tips.results[0]} setTips = {setTips} tipDetail/>
+        {tips.results.length ?(<><Tips {...tips.results[0]} setTips = {setTips} tipDetail/>
 
 
           {currentUser ? (
@@ -98,7 +99,7 @@ function TipDetailPage() {
     ))
 
   
- ) : null }
+ ) : null }</>): (<div className={appStyles.NotFoundContainer}><NoResultsFound /></div>)}
   
     
 

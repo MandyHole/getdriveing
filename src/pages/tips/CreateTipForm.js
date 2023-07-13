@@ -124,7 +124,6 @@ const CreateTipForm = () => {
                 </Form.Label>
                 <div className={appStyles.Center}>
                   <Form.Check
-                    inline
                     type="radio"
                     label="Drive/PDFs"
                     name="category"
@@ -132,9 +131,9 @@ const CreateTipForm = () => {
                     value="drive_pdf"
                     onChange={handleChangeCategory}
                     ref={categoryInput}
+                    aria-label="Drive and PDF"
                   />
                   <Form.Check
-                    inline
                     type="radio"
                     label="Sheets"
                     name="category"
@@ -142,9 +141,10 @@ const CreateTipForm = () => {
                     value="sheets"
                     onChange={handleChangeCategory}
                     ref={categoryInput}
+                    aria-label="Google Sheets"
+
                   />
                   <Form.Check
-                    inline
                     type="radio"
                     label="Docs"
                     name="category"
@@ -152,9 +152,10 @@ const CreateTipForm = () => {
                     value="docs"
                     onChange={handleChangeCategory}
                     ref={categoryInput}
+                    aria-label="Docs"
+
                   />
                   <Form.Check
-                    inline
                     type="radio"
                     label="Slides"
                     name="category"
@@ -162,9 +163,10 @@ const CreateTipForm = () => {
                     value="slides"
                     onChange={handleChangeCategory}
                     ref={categoryInput}
+                    aria-label="Slides"
+
                   />
                   <Form.Check
-                    inline
                     className={styles.Radio}
                     type="radio"
                     label="Forms"
@@ -172,6 +174,8 @@ const CreateTipForm = () => {
                     value="forms"
                     onChange={handleChangeCategory}
                     ref={categoryInput}
+                    aria-label="Forms"
+
                   />
                 </div>
               </Form.Group>
@@ -186,7 +190,6 @@ const CreateTipForm = () => {
                 </Form.Label>
                 <div className={appStyles.Center}>
                   <Form.Check
-                    inline
                     className={styles.Radio}
                     type="radio"
                     label="Beginner+"
@@ -194,9 +197,10 @@ const CreateTipForm = () => {
                     value="beginner"
                     onChange={handleChangeAbility}
                     ref={abilityInput}
+                    aria-label="Beginner+"
+
                   />
                   <Form.Check
-                    inline
                     type="radio"
                     label="Intermediate+"
                     name="ability"
@@ -204,9 +208,10 @@ const CreateTipForm = () => {
                     value="intermediate"
                     onChange={handleChangeAbility}
                     ref={abilityInput}
+                    aria-label="Intermediate+"
+
                   />
                   <Form.Check
-                    inline
                     type="radio"
                     label="Advanced"
                     name="ability"
@@ -214,6 +219,8 @@ const CreateTipForm = () => {
                     className={styles.Radio}
                     onChange={handleChangeAbility}
                     ref={abilityInput}
+                    aria-label="Advanced"
+
                   />
                 </div>
               </Form.Group>

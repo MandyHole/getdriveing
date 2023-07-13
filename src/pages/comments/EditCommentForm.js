@@ -15,17 +15,22 @@ import btnStyles from "../../styles/Buttons.module.css";
 import { axiosReq } from "../../api/axiosDefaults";
 import { useParams } from "react-router-dom/cjs/react-router-dom";
 import HeroComponent from "../../components/HeroComponent";
+import appStyles from "../../App.module.css"
+import NoResultsFound from "../../components/NoResultsFound";
 
 const EditCommentForm = () => {
   const currentUser = useCurrentUser();
   const { id } = useParams();
   const history = useHistory();
+  const [comments, setComments] = useState({ results: [] });
+
 
   useEffect(() => {
     const handleMount = async () => {
         try {
             const {data} = await axiosReq.get(`/comments/${id}`)
             const {content, is_owner} = data;
+            setComments({ results: [data] })
             is_owner ? setCreateCommentData({content}) : (history.goBack())
         } catch(err) {
             console.log(err)
@@ -64,7 +69,9 @@ const EditCommentForm = () => {
 
   return (
     <div>
-      <HeroComponent  h1= {`Edit your Comment, ${currentUser?.username.charAt(0).toUpperCase()}${currentUser?.username.slice(1)}`} />
+
+{comments.results.length?  (<>
+  <HeroComponent  h1= {`Edit your Comment, ${currentUser?.username.charAt(0).toUpperCase()}${currentUser?.username.slice(1)}`} />
       <>
       <Container fluid="lg">
         <Row>
@@ -107,6 +114,13 @@ const EditCommentForm = () => {
         </Row>
       </Container>{" "}
     </>
+
+
+</>):(<div className={appStyles.NotFoundContainer}><NoResultsFound /></div>)}
+
+
+
+      
 
     </div>
   );

@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import styles from "../styles/AuthorInfo.module.css";
-import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
 import { axiosReq } from "../api/axiosDefaults";
 import { Link } from "react-router-dom/cjs/react-router-dom";
 import btnStyles from "../styles/Buttons.module.css";
@@ -12,17 +11,10 @@ import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 
 
 const AuthorInfo = (props) => {
-  const { filter, tips, setTips} = props;
+  const { filter, setTips} = props;
   const [authors, setAuthors] = useState({ results: "" });
   const [hasLoaded, setHasLoaded] = useState(false);
-  const { pathname } = useLocation();
-  const [query, setQuery] = useState("");
   const { id } = useParams();
-
-
-  // const currentUser = useCurrentUser();
-  // const ownsTip = currentUser?.username === owner;
-  // const history = useHistory()
 
   
   useEffect(() => {
@@ -35,17 +27,16 @@ const AuthorInfo = (props) => {
         setTips({ results: [tips] });
         setAuthors(authors);
         setHasLoaded(true);
-        console.log(filter)
       } catch (err) {
         console.log(err);
-        console.log(filter)
+
 
 
       }
     };
     setHasLoaded(false);
     fetchAuthors();
-  }, [filter]);
+  }, [filter, setTips, id]);
 
   return (
     <>
@@ -77,7 +68,6 @@ const AuthorInfo = (props) => {
                 </Link>
               </>
             ) : (
-              // Add this functionality
               <>
                 <Link to={`/authors/${filter}`}>
                   <Button className={btnStyles.GreenButtons}>

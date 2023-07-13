@@ -3,7 +3,6 @@ import React, { useEffect, useState } from "react";
 import styles from "../styles/TipsFeed.module.css";
 import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
 import { axiosReq } from "../api/axiosDefaults";
-import btnStyles from "../styles/Buttons.module.css";
 import MySpinner from "./MySpinner";
 import { Form } from "react-bootstrap";
 import InputGroup from "react-bootstrap/InputGroup";
@@ -61,7 +60,7 @@ const TipsFeed = ({ message, filter = "" }) => {
               
             ))
           ) : (
-            <NoResultsFound message={message}/>
+            <NoResultsFound />
           )}
         </>
       ) : (

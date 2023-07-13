@@ -2,22 +2,17 @@ import React, { useEffect, useState } from "react";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import styles from "../styles/AuthorInfo.module.css";
-import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
 import { axiosReq } from "../api/axiosDefaults";
 import { Link } from "react-router-dom/cjs/react-router-dom";
 import btnStyles from "../styles/Buttons.module.css";
 import MySpinner from "./MySpinner";
 import ProfilePic from "./ProfilePic";
-import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 
 
 const MyInfo = (props) => {
-  const { filter, tips, setTips, author_tip_page} = props;
+  const { filter, setTips, author_tip_page} = props;
   const [authors, setAuthors] = useState({ results: "" });
   const [hasLoaded, setHasLoaded] = useState(false);
-  const { pathname } = useLocation();
-  const [query, setQuery] = useState("");
-  const { id } = useParams();
 
   
   useEffect(() => {
@@ -36,7 +31,7 @@ const MyInfo = (props) => {
     };
     setHasLoaded(false);
     fetchAuthors();
-  }, [filter]);
+  }, [filter, setTips]);
 
   return (
     <>
