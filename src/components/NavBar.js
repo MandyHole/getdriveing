@@ -25,34 +25,27 @@ const NavBar = () => {
     }
   };
 
-  const {expanded, setExpanded, ref} = ClickOutsideToggle();
-
-
-
+  const { expanded, setExpanded, ref } = ClickOutsideToggle();
 
   const signedInMenu = (
     <>
       <NavLink exact to="/saved" activeClassName={styles.Active}>
-              <i className={`${styles.NavIcon} fa-sharp fa-solid fa-circle-check`}></i>
-                <span className={styles.NavLinkItems}>Saved Tips</span>
-              </NavLink>
+        <i
+          className={`${styles.NavIcon} fa-sharp fa-solid fa-circle-check`}
+        ></i>
+        <span className={styles.NavLinkItems}>Saved Tips</span>
+      </NavLink>
       <NavLink exact to="/tips/create" activeClassName={styles.Active}>
         <i className={`${styles.NavIcon} fa-solid fa-circle-plus`}></i>
-        <span className={styles.NavLinkItems}>
-          Add a Tip
-        </span>
+        <span className={styles.NavLinkItems}>Add a Tip</span>
       </NavLink>
       <NavLink exact to="/my-info" activeClassName={styles.Active}>
         <i className={`${styles.NavIcon} fa-solid fa-user`}></i>
-        <span className={styles.NavLinkItems}>
-          My Info
-        </span>
+        <span className={styles.NavLinkItems}>My Info</span>
       </NavLink>
       <NavLink exact to="/" onClick={handleSignOut}>
-      <i className={`${styles.NavIcon} fa-solid fa-right-from-bracket`}></i>
-        <span className={styles.NavLinkItems}>
-          Logout
-        </span>
+        <i className={`${styles.NavIcon} fa-solid fa-right-from-bracket`}></i>
+        <span className={styles.NavLinkItems}>Logout</span>
       </NavLink>
     </>
   );
@@ -61,16 +54,12 @@ const NavBar = () => {
     <>
       {" "}
       <NavLink exact to="/sign-in" activeClassName={styles.Active}>
-      <i className={`${styles.NavIcon} fa-solid fa-user`}></i>
-        <span className={styles.NavLinkItems}>
-          Sign In
-        </span>
+        <i className={`${styles.NavIcon} fa-solid fa-user`}></i>
+        <span className={styles.NavLinkItems}>Sign In</span>
       </NavLink>
       <NavLink exact to="/sign-up" activeClassName={styles.Active}>
-      <i className={`${styles.NavIcon} fa-solid fa-users`}></i>
-        <span className={styles.NavLinkItems}>
-          Sign Up
-        </span>
+        <i className={`${styles.NavIcon} fa-solid fa-users`}></i>
+        <span className={styles.NavLinkItems}>Sign Up</span>
       </NavLink>
     </>
   );
@@ -100,10 +89,12 @@ const NavBar = () => {
           >
             <Nav className="mr-auto">
               <NavLink exact to="/" activeClassName={styles.Active}>
-                <i className={`${styles.NavIcon} fa-solid fa-solid fa-house`}></i>
+                <i
+                  className={`${styles.NavIcon} fa-solid fa-solid fa-house`}
+                ></i>
                 <span className={styles.NavLinkItems}>Home</span>
               </NavLink>
-              
+
               {currentUser ? signedInMenu : loggedOutMenu}
             </Nav>
           </Navbar.Collapse>

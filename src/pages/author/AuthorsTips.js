@@ -9,6 +9,8 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import appStyles from '../../App.module.css'
 import MySpinner from "../../components/MySpinner";
+// import { useCurrentUser } from "../../contexts/CurrentUserContext";
+
 
 
 const AuthorsTips = () => {
@@ -16,6 +18,8 @@ const AuthorsTips = () => {
     const [author, setAuthor] = useState({ results: [] });
     const [tips, setTips] = useState({ results: [] });
     const [hasLoaded, setHasLoaded] = useState(false);
+    // const currentUser = useCurrentUser();
+
 
 
     useEffect(() => {
@@ -46,7 +50,7 @@ const AuthorsTips = () => {
 (<HeroComponent {...author.results[0]} h1={`Tips by ${author.results[0].owner}`} />) : (null)}
  <Row>
         <Col md={{ span: 8, offset: 1 }} className={appStyles.MainContent}>
-<TipsFeed filter={`owner_id=${id}&`}/>
+<TipsFeed filter={`owner__author=${id}&`}/>
 </Col>
 
         {author.results.length ? (

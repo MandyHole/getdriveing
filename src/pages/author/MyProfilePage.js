@@ -80,7 +80,8 @@ const MyProfilePage = () => {
               </Dropdown.Menu>
             </Dropdown>
           </div>
-          <TipsFeed />
+          {currentUser ? (
+          <TipsFeed filter={`owner__author=${currentUser.pk}&`}/>) : (null)}
         </Col>
         {currentUser ? (
         <MyInfo  

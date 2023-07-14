@@ -3,22 +3,12 @@ import HeroComponent from "../../components/HeroComponent";
 
 const TipHeroes = (props) => {
   const {
-    id,
     ability,
     average_rating,
     category,
-    created_on,
-    is_owner,
     number_times_saved,
-    owner,
-    owner_id,
-    saved_tips_id,
-    screenshot,
-    tip_content,
     title,
-    updated_on,
     tipDetail,
-    setTip,
   } = props;
 
 
@@ -28,7 +18,15 @@ const TipHeroes = (props) => {
         <HeroComponent
         tipDetail
           h1={title}
-          h2={`Category: ${category};   Ability: ${ability}`}
+          // h2={`Category: ${category};   Ability: ${ability}`}
+          h2={category === "drive_pdf" ? (`Category: Drive and PDFs; Ability: ${ability}`) : (<>
+            {category === "docs" ? (`Category: Google Docs; Ability: ${ability}`) : (
+              "another category"
+            )}</>
+            // FINISH THIS
+
+          ) }
+        
           h3={average_rating === null ? ("No ratings yet...") : ("Average Rating: ")}
           
           star1=

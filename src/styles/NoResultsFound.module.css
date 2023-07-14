@@ -1,17 +1,17 @@
 .NoResultsContainer {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 .Icon {
-    font-size: 3rem;
-    color: #ea4335;
-    display: inline-block;
-    margin: 0 15px;
+  font-size: 3rem;
+  color: #ea4335;
+  display: inline-block;
+  margin: 0 15px;
 }
 
 .Message {
-    color: #ea4335;
-    display: inline-block;
-    font-size: 2rem;
-    text-align: center;
+  color: #ea4335;
+  display: inline-block;
+  font-size: 2rem;
+  text-align: center;
 }

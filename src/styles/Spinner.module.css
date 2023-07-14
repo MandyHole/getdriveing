@@ -1,14 +1,14 @@
 .Asset {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    min-height: 300px;
-  }
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 300px;
+}
 
 .FullPage {
-  display:flex;
-  justify-content:center;
+  display: flex;
+  justify-content: center;
   text-align: center;
   padding-top: 100px;
 }

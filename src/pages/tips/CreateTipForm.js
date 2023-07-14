@@ -16,7 +16,7 @@ import btnStyles from "../../styles/Buttons.module.css";
 import { axiosReq } from "../../api/axiosDefaults";
 import HeroComponent from "../../components/HeroComponent";
 import boxStyles from "../../styles/HeroComponent.module.css";
-import appStyles from "../../App.module.css"
+import appStyles from "../../App.module.css";
 
 const CreateTipForm = () => {
   const setCurrentUser = useSetCurrentUser();
@@ -142,7 +142,6 @@ const CreateTipForm = () => {
                     onChange={handleChangeCategory}
                     ref={categoryInput}
                     aria-label="Google Sheets"
-
                   />
                   <Form.Check
                     type="radio"
@@ -153,7 +152,6 @@ const CreateTipForm = () => {
                     onChange={handleChangeCategory}
                     ref={categoryInput}
                     aria-label="Docs"
-
                   />
                   <Form.Check
                     type="radio"
@@ -164,7 +162,6 @@ const CreateTipForm = () => {
                     onChange={handleChangeCategory}
                     ref={categoryInput}
                     aria-label="Slides"
-
                   />
                   <Form.Check
                     className={styles.Radio}
@@ -175,7 +172,6 @@ const CreateTipForm = () => {
                     onChange={handleChangeCategory}
                     ref={categoryInput}
                     aria-label="Forms"
-
                   />
                 </div>
               </Form.Group>
@@ -198,7 +194,6 @@ const CreateTipForm = () => {
                     onChange={handleChangeAbility}
                     ref={abilityInput}
                     aria-label="Beginner+"
-
                   />
                   <Form.Check
                     type="radio"
@@ -209,7 +204,6 @@ const CreateTipForm = () => {
                     onChange={handleChangeAbility}
                     ref={abilityInput}
                     aria-label="Intermediate+"
-
                   />
                   <Form.Check
                     type="radio"
@@ -220,7 +214,6 @@ const CreateTipForm = () => {
                     onChange={handleChangeAbility}
                     ref={abilityInput}
                     aria-label="Advanced"
-
                   />
                 </div>
               </Form.Group>
@@ -316,7 +309,6 @@ const CreateTipForm = () => {
           additional_class={boxStyles.FullHeight}
           h2="Create a free account to create, save and rate content!"
           signinbuttons
-          
         />
       )}
       {currentUser ? tipForm : null}

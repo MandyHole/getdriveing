@@ -8,8 +8,11 @@ import { Form } from "react-bootstrap";
 import InputGroup from "react-bootstrap/InputGroup";
 import NoResultsFound from "./NoResultsFound";
 import TipOverview from "./TipOverview";
+import { useCurrentUser } from "../contexts/CurrentUserContext";
 
-const TipsFeed = ({ message, filter = "" }) => {
+
+const TipsFeed = ({ filter = "" }) => {
+  const currentUser = useCurrentUser();
   const [tips, setTips] = useState({ results: "" });
   const [hasLoaded, setHasLoaded] = useState(false);
   const { pathname } = useLocation();

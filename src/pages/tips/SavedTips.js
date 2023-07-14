@@ -13,7 +13,6 @@ import MySpinner from "../../components/MySpinner";
 
 const SavedTips = () => {
   const currentUser = useCurrentUser();
-  const filter_user = currentUser?.username|| ""
   const [tips, setTips] = useState({ results: [] });
   const [authors, setAuthors] = useState({ results: [] });
   const [hasLoaded, setHasLoaded] = useState(false)
@@ -55,15 +54,8 @@ const SavedTips = () => {
         /> </> } 
           {hasLoaded ? (<><Row>
         <Col md={{ span: 8, offset: 1 }} className={appStyles.MainContent}>
-        {/* <TipsFeed filter={`saved_tips_id__owner=${filter_user}__tip&`}/> */}
-        {/* <TipsFeed filter={`owner=${filter_user}__saved_tip__tip&`} message="It looks like you don't have any saved tips yet..."/> */}
-        {/* <TipsFeed filter={`saved_tips_id__owner==${filter_user}__tip&`} message="It looks like you don't have any saved tips yet..."/> */}
-        {/* <TipsFeed filter={`saved_tips__owner__authors__owner==${currentUser}&`} message="It looks like you don't have any saved tips yet..."/> */}
-
-        <TipsFeed 
-        // filter= {`saved_tips__owner==${filter_user}&`} message="It looks like you don't have any saved tips yet..."
-        />
-
+        {currentUser ? (
+          <TipsFeed filter={`author_saved_tip=4__owner__author=4&`}/>) : (null)}
         </Col>
 
 

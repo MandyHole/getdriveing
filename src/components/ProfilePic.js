@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "../styles/ProfilePic.module.css";
 
-const ProfilePic = ({ src, size, author, additional_class}) => {
+const ProfilePic = ({ src, size, author, additional_class }) => {
   return (
     <span>
       <img

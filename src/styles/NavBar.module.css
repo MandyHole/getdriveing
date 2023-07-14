@@ -1,59 +1,75 @@
 .NavIcon {
-    font-size: 1.5rem;
-    color: #34a853;
-    margin: 0 10px 0 35px;
-    transition: font-size 1s;
+  font-size: 1.5rem;
+  color: #34a853;
+  margin: 0 10px 0 35px;
+  transition: font-size 1s;
 }
 .NavIcon:hover {
-    font-size: 1.7rem;
+  font-size: 1.7rem;
 }
 
 .NavLinkItems {
-    font-size: 1.5rem;
-    color: #575755;
-    text-decoration: none;
-
+  font-size: 1.5rem;
+  color: #575755;
+  text-decoration: none;
 }
 
 .NavLinkItems:hover {
-    font-size: 1.5rem;
-    color: #34a853;
-    transition: color ease-in-out .5s;
-
+  font-size: 1.5rem;
+  color: #34a853;
+  transition: color ease-in-out 0.5s;
 }
 
 .NavBarBackground {
-    box-shadow: 0 5px 5px  #575755;
-    background-color: #fff;
+  box-shadow: 0 5px 5px #575755;
+  background-color: #fff;
 }
 
 .Active i {
-    color: #4285f4;
+  color: #4285f4;
 }
 
 .Active span {
-    color: #4285f4;
+  color: #4285f4;
 }
 
 @media screen and (max-width: 1200px) {
-    .NavIcon {
-      font-size: 1.1rem;
-    }
-    .NavIcon:hover {
-        font-size: 1.1rem;
-    }
-    .NavLinkItems {
-        font-size: 1.1rem;
-        color: #575755;
-        text-decoration: none;
-    
-    }
-    
-    .NavLinkItems:hover {
-        font-size: 1.1rem;
-        color: #34a853;
-        transition: color ease-in-out .5s;
-    
-    }
-    
+  .NavIcon {
+    font-size: 1.1rem;
   }
+  .NavIcon:hover {
+    font-size: 1.1rem;
+  }
+  .NavLinkItems {
+    font-size: 1.1rem;
+    color: #575755;
+    text-decoration: none;
+  }
+
+  .NavLinkItems:hover {
+    font-size: 1.1rem;
+    color: #34a853;
+    transition: color ease-in-out 0.5s;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .NavIcon {
+    font-size: 1.3rem;
+  }
+  .NavIcon:hover {
+    font-size: 1.3rem;
+  }
+  .NavLinkItems {
+    font-size: 1.3rem;
+    color: #575755;
+    text-decoration: none;
+    line-height: 3rem;
+  }
+
+  .NavLinkItems:hover {
+    font-size: 1.4rem;
+    color: #34a853;
+    transition: color ease-in-out 0.5s;
+  }
+}
