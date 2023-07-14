@@ -8,12 +8,14 @@ import MyInfo from "../../components/MyInfo";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import appStyles from '../../App.module.css'
+import MySpinner from "../../components/MySpinner";
 
 
 const AuthorsTips = () => {
     const { id } = useParams()
     const [author, setAuthor] = useState({ results: [] });
     const [tips, setTips] = useState({ results: [] });
+    const [hasLoaded, setHasLoaded] = useState(false);
 
 
     useEffect(() => {
@@ -25,11 +27,13 @@ const AuthorsTips = () => {
             ]);
             setAuthor({ results: [author] });
             setTips(tips)
+            setHasLoaded(true)
     
           } catch (err) {
             console.log(err);
           }
         };
+        setHasLoaded(false)
         handleMount();
       }, [id]);
 
@@ -38,8 +42,7 @@ const AuthorsTips = () => {
   return (<>
    
 
-
-        {author.results.length ?
+{hasLoaded? (<>{author.results.length ?
 (<HeroComponent {...author.results[0]} h1={`Tips by ${author.results[0].owner}`} />) : (null)}
  <Row>
         <Col md={{ span: 8, offset: 1 }} className={appStyles.MainContent}>
@@ -52,7 +55,8 @@ const AuthorsTips = () => {
         {...tips} setTips = {setTips}
         filter={id}  author_tip_page/>) : (<></>)}
 
-</Row>
+</Row></>) : (<MySpinner full_page/>) } 
+        
 </>
   )
 }

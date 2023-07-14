@@ -1,7 +1,6 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "../../styles/CreateUpdateTipForms.module.css";
 import Form from "react-bootstrap/Form";
-import { Image } from "react-bootstrap";
 import Alert from "react-bootstrap/Alert";
 import Button from "react-bootstrap/Button";
 import Col from "react-bootstrap/Col";
@@ -15,14 +14,15 @@ import btnStyles from "../../styles/Buttons.module.css";
 import { axiosReq } from "../../api/axiosDefaults";
 import { useParams } from "react-router-dom/cjs/react-router-dom";
 import HeroComponent from "../../components/HeroComponent";
-import appStyles from "../../App.module.css"
-import NoResultsFound from "../../components/NoResultsFound";
+import PageNotFound from "../../components/PageNotFound";
+import MySpinner from "../../components/MySpinner";
 
 const EditCommentForm = () => {
   const currentUser = useCurrentUser();
   const { id } = useParams();
   const history = useHistory();
   const [comments, setComments] = useState({ results: [] });
+  const [hasLoaded, setHasLoaded] = useState(false)
 
 
   useEffect(() => {
@@ -32,10 +32,12 @@ const EditCommentForm = () => {
             const {content, is_owner} = data;
             setComments({ results: [data] })
             is_owner ? setCreateCommentData({content}) : (history.goBack())
+            setHasLoaded(true)
         } catch(err) {
             console.log(err)
         }
     }
+    setHasLoaded(false)
     handleMount()
   }, [history, id])
   const [createCommentData, setCreateCommentData] = useState({
@@ -70,6 +72,7 @@ const EditCommentForm = () => {
   return (
     <div>
 
+      {hasLoaded ? (<>
 {comments.results.length?  (<>
   <HeroComponent  h1= {`Edit your Comment, ${currentUser?.username.charAt(0).toUpperCase()}${currentUser?.username.slice(1)}`} />
       <>
@@ -116,7 +119,8 @@ const EditCommentForm = () => {
     </>
 
 
-</>):(<div className={appStyles.NotFoundContainer}><NoResultsFound /></div>)}
+</>):(<div><PageNotFound/></div>)}</>):(<MySpinner full_page/>)}
+
 
 
 

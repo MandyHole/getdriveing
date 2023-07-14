@@ -15,8 +15,8 @@ import btnStyles from "../../styles/Buttons.module.css";
 import { axiosReq } from "../../api/axiosDefaults";
 import { useParams } from "react-router-dom/cjs/react-router-dom";
 import HeroComponent from "../../components/HeroComponent";
-import appStyles from "../../App.module.css"
-import NoResultsFound from "../../components/NoResultsFound";
+import PageNotFound from "../../components/PageNotFound";
+import MySpinner from "../../components/MySpinner";
 
 
 const EditProfileForm = () => {
@@ -32,6 +32,7 @@ const EditProfileForm = () => {
   const [errors, setErrors] = useState({});
   const { name, bio, image } = createAuthorData;
   const [authors, setAuthors] = useState({ results: [] });
+  const [hasLoaded, setHasLoaded] = useState(false)
 
 
   useEffect(() => {
@@ -39,21 +40,19 @@ const EditProfileForm = () => {
         try {
             const {data} = await axiosReq.get(`/authors/${id}`)
             const {
-              owner,
               name,
               bio,
-              created_on,
-              updated_on,
               image,
-              is_owner,
-              number_tips_created} = data;
+              is_owner} = data;
             is_owner  ? setCreateAuthorData({name, bio, image}) : (history.push("/"))
             setAuthors({ results: [data] });
+            setHasLoaded(true)
 
         } catch(err) {
             console.log(err)
         }
     }
+    setHasLoaded(false)
     handleMount()
   }, [history, id])
 
@@ -99,7 +98,7 @@ const EditProfileForm = () => {
   return (
     <div>
 
-{authors.results.length? (<>
+{hasLoaded ? (<>{authors.results.length? (<>
   <HeroComponent  h1= {`Edit your profile, ${currentUser?.username.charAt(0).toUpperCase()}${currentUser?.username.slice(1)}`} />
   
   <Container fluid="lg">
@@ -193,7 +192,8 @@ const EditProfileForm = () => {
   </Container>{" "}
 
 
-</>) : (<div className={appStyles.NotFoundContainer}><NoResultsFound /></div>) }
+</>) : (<div><PageNotFound/></div>) }</>) : (<MySpinner full_page/>)}
+
       
   
 

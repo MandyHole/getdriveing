@@ -78,7 +78,7 @@ const AuthorInfo = (props) => {
             )}
           </>
         ) : (
-          <MySpinner />
+          <MySpinner full_page/>
         )}
         
       </Col>{" "}

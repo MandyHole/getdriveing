@@ -15,7 +15,8 @@ import PreviousComments from "../comments/PreviousComments";
 import appStyles from "../../App.module.css"
 import AuthorInfo from "../../components/AuthorInfo";
 import btnStyles from "../../styles/Buttons.module.css"
-import NoResultsFound from "../../components/NoResultsFound";
+import PageNotFound from "../../components/PageNotFound";
+import MySpinner from "../../components/MySpinner";
 
 
 function TipDetailPage() {
@@ -25,6 +26,7 @@ function TipDetailPage() {
   const { id } = useParams();
   const [tips, setTips] = useState({ results: [] });
   const [authors, setAuthors] = useState({ results: [] });
+  const [hasLoaded, setHasLoaded] = useState(false);
 
 
   useEffect(() => {
@@ -38,26 +40,28 @@ function TipDetailPage() {
         setTips({ results: [tips] });
         setComments(comments)
         setAuthors(authors)
-        console.log(authors)
-        console.log(tips)
+        setHasLoaded(true);
 
       } catch (err) {
         console.log(err);
       }
     };
+    setHasLoaded(false);
     handleMount();
   }, [id]);
 
   return (
     <>
+
+{hasLoaded ? (<>
  {tips.results.length ?(<>
-    <TipHeroes {...tips.results[0]} setTips = {setTips} tipDetail /></>) : (null)}
+    <TipHeroes {...tips.results[0]} setTips = {setTips} tipDetail />
 
 
               <Row>
 
         <Col md={{ span: 8, offset: 1 }} className={styles.TipContent}>
-        {tips.results.length ?(<><Tips {...tips.results[0]} setTips = {setTips} tipDetail/>
+        <Tips {...tips.results[0]} setTips = {setTips} tipDetail/>
 
 
           {currentUser ? (
@@ -99,23 +103,11 @@ function TipDetailPage() {
     ))
 
   
- ) : null }</>): (<div className={appStyles.NotFoundContainer}><NoResultsFound /></div>)}
-  
-    
-
-
-          
-
-
-        </Col>
-
-        {tips.results.length ? (
-        <AuthorInfo 
-        {...tips.results[0]} setTips = {setTips}
-        {...authors.results[0]} setAuthors = {setAuthors}
-        filter={tips.results[0].owner_id}/>) : (<></>)}
-        
-        </Row>
+ ) : null } </Col><AuthorInfo 
+ {...tips.results[0]} setTips = {setTips}
+ {...authors.results[0]} setAuthors = {setAuthors}
+ filter={tips.results[0].owner_id}/> </Row></>): (<div><PageNotFound/></div>)}</>) : (<MySpinner full_page/>)}
+       
     </>
   );
 }

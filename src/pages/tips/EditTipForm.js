@@ -17,7 +17,8 @@ import { useParams } from "react-router-dom/cjs/react-router-dom";
 import HeroComponent from "../../components/HeroComponent";
 import DeleteModal from "../../components/DeleteModal";
 import appStyles from "../../App.module.css"
-import NoResultsFound from "../../components/NoResultsFound";
+import PageNotFound from "../../components/PageNotFound";
+import MySpinner from "../../components/MySpinner";
 
 const EditTipForm = () => {
   const currentUser = useCurrentUser();
@@ -27,6 +28,8 @@ const EditTipForm = () => {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const [tips, setTips] = useState({ results: [] });
+  const [hasLoaded, setHasLoaded] = useState(false);
+
 
   useEffect(() => {
     const handleMount = async () => {
@@ -35,10 +38,12 @@ const EditTipForm = () => {
             const {title, ability, category, screenshot, tip_content, is_owner} = data;
             setTips({ results: [data] });
             is_owner ? (setCreateTipData({title, ability, category, screenshot, tip_content})) : (history.push("/"))
+            setHasLoaded(true)
         } catch(err) {
             console.log(err)
         }
     }
+    setHasLoaded(false)
     handleMount()
   }, [history, id])
   const [createTipData, setCreateTipData] = useState({
@@ -117,6 +122,9 @@ const EditTipForm = () => {
 
   return (
     <div>
+      {hasLoaded ? (<>
+
+
       {tips.results.length?  (<><HeroComponent  h1= {`Edit your tip, ${currentUser?.username.charAt(0).toUpperCase()}${currentUser?.username.slice(1)}`} /> <>
       <Container fluid="lg">
         <Row>
@@ -455,7 +463,7 @@ const EditTipForm = () => {
           </Col>
         </Row>
       </Container>{" "}
-    </></>) : (<div className={appStyles.NotFoundContainer}><NoResultsFound /></div>) }
+    </></>) : (<div><PageNotFound/></div>) }</>) : (<MySpinner full_page/>)}
       
       
 
