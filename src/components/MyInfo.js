@@ -42,15 +42,7 @@ const MyInfo = (props) => {
               {authors.is_owner ? "My Profile:" : null}{" "}
               {authors.name.length ? `${authors.name}` : `${authors.owner}`}
             </p>
-            {authors.is_owner ? (
-              <>
-                <Link to={`/authors/${filter}/edit`}>
-                  <Button className={btnStyles.GreenButtons}>
-                    Edit your name
-                  </Button>
-                </Link>
-              </>
-            ) : null}
+           
 
             <p className={styles.AuthorBody}>
               Member since: {authors.created_on}
@@ -58,17 +50,7 @@ const MyInfo = (props) => {
             <p className={styles.AuthorBody}>
               {" "}
               {authors.bio}
-              {authors.is_owner ? (
-                <>
-                  <Link to={`/authors/${filter}/edit`}>
-                    <Button className={btnStyles.GreenButtons}>
-                      Add your bio
-                    </Button>
-                  </Link>
-                </>
-              ) : (
-                authors.bio
-              )}
+              
             </p>
             <p className={styles.AuthorBody}>
               Tips created: {authors.number_tips_created}

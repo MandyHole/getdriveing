@@ -4,10 +4,11 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import styles from "../../styles/Tips.module.css";
 import Figure from "react-bootstrap/Figure";
-import StarRating from "../../components/StarRating";
+import CreateRating from "../rating/CreateRatingForm"
+import EditRating from "../rating/EditRatingForm"
 import Button from "react-bootstrap/Button";
 import btnStyles from "../../styles/Buttons.module.css";
-import { axiosRes } from "../../api/axiosDefaults";
+import { axiosRes, axiosReq } from "../../api/axiosDefaults";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { useState } from "react";
 import DeleteModal from "../../components/DeleteModal";
@@ -28,6 +29,30 @@ const Tips = (props) => {
   const currentUser = useCurrentUser();
   const ownsTip = currentUser?.username === owner;
   const history = useHistory();
+  const [tips, setTips] = useState({ results: [] });
+  const [rating, setRating] = useState({ results: [] });
+  const [hasLoaded, setHasLoaded] = useState(false);
+
+
+
+  // useEffect(() => {
+  //   const handleMount = async () => {
+  //     try {
+  //       const [{ data: tips }, { data: rating }] =
+  //         await Promise.all([
+  //           axiosReq.get(`/tips/${id}`),
+  //           axiosReq.get(`/rating/?tip=${id}`),
+  //         ]);
+  //       setTips({ results: [tips] });
+  //       setRating({results: [rating]})
+  //       setHasLoaded(true);
+  //     } catch (err) {
+  //       console.log(err);
+  //     }
+  //   };
+  //   setHasLoaded(false);
+  //   handleMount();
+  // }, [id]);
 
   const handleSaveRequest = async () => {
     try {
@@ -134,8 +159,9 @@ const Tips = (props) => {
           />
 
           <div className={styles.Centre}>
-            {/* Add rating_tip_id to database and put here */}
-            {!ownsTip && currentUser && <StarRating tip={id} />}.{" "}
+            {!ownsTip && currentUser && <CreateRating tip={id}/>}.{" "}
+            {/* Add rating_tip_id to database and put below !rating_tips_id */}
+            {/* {!ownsTip && currentUser &&  <EditRating tip={id}/>}.{" "} */}
           </div>
 
           {!ownsTip && currentUser && !saved_tips_id && (

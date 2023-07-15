@@ -51,9 +51,6 @@ const PreviousComments = (props) => {
           </em>
         </p>
       )}
-      {/* {owns_comment && 
-            (<><p><Link to "/comments/{id}/edit">  edit </Link>  delete comment</p></>)
-            } */}
       {owns_comment && (
         <>
           <p className={styles.CommentDate}>
