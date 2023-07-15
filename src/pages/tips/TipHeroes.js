@@ -18,14 +18,15 @@ const TipHeroes = (props) => {
         <HeroComponent
         tipDetail
           h1={title}
-          // h2={`Category: ${category};   Ability: ${ability}`}
-          h2={category === "drive_pdf" ? (`Category: Drive and PDFs; Ability: ${ability}`) : (<>
-            {category === "docs" ? (`Category: Google Docs; Ability: ${ability}`) : (
-              "another category"
+          h2={<>{category === "drive_pdf" ? (`Category: Drive and PDFs; Ability: ${ability}`) : (<>
+            {category === "docs" ? (`Category: Google Docs; Ability: ${ability}`) : (<>
+              {category === "forms" ? (`Category: Google Forms; Ability: ${ability}`): (<>
+                {category === "sheets" ? (`Category: Google Sheets; Ability: ${ability}`): (<>
+                  {category === "slides" ? (`Category: Google Slides; Ability: ${ability}`): (<>
+              </>
             )}</>
-            // FINISH THIS
 
-          ) }
+          ) }</>)}</>)}</>)}</>}
         
           h3={average_rating === null ? ("No ratings yet...") : ("Average Rating: ")}
           
