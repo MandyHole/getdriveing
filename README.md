@@ -227,14 +227,12 @@ and the <a href="https://res.cloudinary.com/dd4cchm7g/image/upload/v1689453091/S
 | Sign up: As a user, I can create an account so that I can add, save, and rate tips. | If a user isn't currently signed in, they are given very limited options as to what they are able to do when they get to the homepage (either sign in or sign up) so that they are aware that they can create an account. | <img src="https://res.cloudinary.com/dd4cchm7g/image/upload/v1689456115/Screenshot_2023-07-15_at_22.19.34_raqt36.png" alt="Screenshot of sign up page"> |
 | Sign in: As a user, I can easily log into my account once created so that I can access the additional features. | The Sign in buttons are clearly visible on the homepage and in the NavBar if a user isn't already signed in. If they try to access content that requires an account, they are given a button to sign in| <img src="https://res.cloudinary.com/dd4cchm7g/image/upload/v1689453092/Screenshot_2023-07-15_at_21.22.22_pz1sbc.png" alt="Screenshot of sign in message"> |
 | Status: As a user, I can easily see if I’m logged in or not so I can login if required. | The NavBar changes once logged in to clearly show this. Also, the user's name appears throughout the site| <img src="https://res.cloudinary.com/dd4cchm7g/image/upload/v1689456386/Screenshot_2023-07-15_at_22.26.14_vdhgwz.png" alt="Image showing both versions of the NavBar"> |
-| Logout: As a user, I can stayed logged in until I choose to log out so that way I don’t have to keep logging in to access the additional features. | This is configured in the CurrentUsesrContext.js file|  |
-
+| Logout: As a user, I can stayed logged in until I choose to log out so that way I don’t have to keep logging in to access the additional features. | This is configured in the CurrentUsesrContext.js file| xxx |
 | `Viewing Content` |
 |  |  |  |
 | Menu Access: As a user, I can access the menu from all pages so that I can easily make my way through the site. | The relevant menu (either for logged out / logged in user) is accessible on all pages; example page shown in image. | <img src="https://res.cloudinary.com/dd4cchm7g/image/upload/v1689453091/Screenshot_2023-07-15_at_21.23.22_ohkh3q.png" alt="Screenshot of sample page with menu"> |
 | Responsiveness: As a user, I can read and use the content / features on all screensizes so that I can access the content from various devices. | The site is designed with Bootstrap, and certain font elements (like the nav bar and the stars in the header of the Tip Ability page) are designed to go smaller at certain widths to fit neatly. | <img src="https://res.cloudinary.com/dd4cchm7g/image/upload/v1689451794/Screenshot_2023-07-15_at_21.09.35_robd7a.png" alt="Screenshot of Tip Detail page"> |
 | >Menu options: As a user, I will only see menu options relevant to me based on my login status so that the appropriate content is easily accessible. | The navbar changes once logged in so instead of just seeing options for Home, Sign up/Sign in, they see options for Home, Saved Tips, Add a Tip, My Info and Logout instead. | <img src="https://res.cloudinary.com/dd4cchm7g/image/upload/v1689456386/Screenshot_2023-07-15_at_22.26.14_vdhgwz.png" alt="Image showing both versions of the NavBar"> |
-
 | `Tip Feed` |
 |  |  |  |
 | New info: As a user, I can find the most recently added content on the homepage so I don’t miss new content.| The feed on the homepage defaults to showing all tips in a newest to oldest order. | <img src="https://res.cloudinary.com/dd4cchm7g/image/upload/v1689453091/Screenshot_2023-07-15_at_21.23.22_ohkh3q.png" alt="Screenshot of sample page with menu"> |
@@ -242,36 +240,33 @@ and the <a href="https://res.cloudinary.com/dd4cchm7g/image/upload/v1689453091/S
 | Search tips: As a user, I can search the tip title and content so that I can find a topic of particular interest to me.| There is a search bar at the top of each Tips Feed that searches Titles and Content. | <img src="https://res.cloudinary.com/dd4cchm7g/image/upload/v1689511502/Screenshot_2023-07-16_at_13.44.15_qgoqvq.png" alt="Screenshot of search bar">  |
 | Create a tip: As a logged in user, I can create a tip so that I can share my insights with the wider community.| Once logged in, there is page accessible from the menu with a form to add a tip. | <img src="https://res.cloudinary.com/dd4cchm7g/image/upload/v1689511722/Screenshot_2023-07-16_at_13.48.31_nergdc.png" alt="Screenshot of Add a Tip page">  |
 | Infinite scroll: As a user I can keep scrolling through the tips on the site, that are loaded for me automatically so that I don’t have to click to get more tips.| XXX | XXX |
-| Tip Overview: As a user, I can see key tip information (Title Category, Ability, rating and number of times saved) so I know whether I want to access the detailed content.| In the tip feed, you can see the title, category and an intro blurb with a link to Read the Tip and find out more | <img src="https://res.cloudinary.com/dd4cchm7g/image/upload/v1689511722/Screenshot_2023-07-16_at_13.48.31_nergdc.png" alt="Screenshot of Add a Tip page">  |
+| Tip Overview: As a user, I can see key tip information (Title Category, Ability, rating and number of times saved) so I know whether I want to access the detailed content.| In the tip feed, you can see the title, category, ability, times saved and average rating along with the first few lines of the tip and a link to Read the Tip. | <img src="https://res.cloudinary.com/dd4cchm7g/image/upload/v1689539373/Screenshot_2023-07-16_at_21.29.16_emidlo.png" alt="Screenshot of a sample overview in the tip feed.">  |
+| `Tip Details` |
+|  |  |  |
+| Tip Detail: As a user, I can open a specific tip so that I can access the content and any comments.| In the tip feed, you can see the first bit of text along with an ellipsis to signify there is more along with a link to "Read tip" which takes you to a page with the full tip details. | <img src="https://res.cloudinary.com/dd4cchm7g/image/upload/v1689539373/Screenshot_2023-07-16_at_21.29.16_emidlo.png" alt="Screenshot of a sample overview in the tip feed.">  |
+| Comment View: As a user, I  can read comments made about a specific tip so that I can connect with the community.| In the tip detail page, you can read any comments that have been made, regardless of logged in status | <img src="https://res.cloudinary.com/dd4cchm7g/image/upload/v1689539782/Screenshot_2023-07-16_at_21.36.12_ctxe5s.png" alt="Screenshot of a sample overview in the tip feed."> |
+| Rate tip: As a logged in user, I can rate how useful the tip is so that I can help the community find the most useful content. | In the tip detail page, you can rate the tip if you are logged in and you don't own the tip. | <img src="https://res.cloudinary.com/dd4cchm7g/image/upload/v1689539881/Screenshot_2023-07-16_at_21.37.31_n5e0kl.png" alt="Screenshot of the rate tip stars and button."> |
+| Save tip: As a logged in user, I can save the tip so that I can easily find it again for reference. | In the tip detail page, you can save the tip if you are logged in and don't own the tip; the user can then find the saved tip on the saved tips page (/saved). | <img src="https://res.cloudinary.com/dd4cchm7g/image/upload/v1689540053/Screenshot_2023-07-16_at_21.40.07_drjw14.png" alt="Screenshot of the save tip button."> |
+| Create comment: As a logged in user, I can comment on a tip so that the community can benefit from additional insights or can answer a question I might post. | In the tip detail page, you can add a comment to the tip if you are logged in. | <img src="https://res.cloudinary.com/dd4cchm7g/image/upload/v1689540208/Screenshot_2023-07-16_at_21.43.17_r6dlif.png" alt="Screenshot of a the create a comment form"> |
+| Edit/delete comment: As a logged in user, I can edit or delete a comment that I had previously made so that I can keep my information relevant.  | In the tip detail page, you can see edit/delete buttons on any comment you have made (user has to be logged in). | <img src="https://res.cloudinary.com/dd4cchm7g/image/upload/v1689539782/Screenshot_2023-07-16_at_21.36.12_ctxe5s.png" alt="Screenshot of a comment with edit/delete buttons"> |
+| User stats: As a user I can view information about a specific user: avatar, bio, number of tips created and date joined so that I can learn more about them  | In the tip detail page, you can see a grey sidebar with the author's details. | <img src="https://res.cloudinary.com/dd4cchm7g/image/upload/v1689540522/Screenshot_2023-07-16_at_21.48.13_nixgzb.png" alt="Screenshot of the grey sidebar with author information"> |
+| View tip by user: As a user I can view all the tips by a specific user so I can access further tips by someone I found helpful.  | In the tip detail page, you can see a grey sidebar with the author's details that has a link to all the tips that they have made. | <img src="https://res.cloudinary.com/dd4cchm7g/image/upload/v1689540522/Screenshot_2023-07-16_at_21.48.13_nixgzb.png" alt="Screenshot of the grey sidebar with author information, including a button with a link to their tips"> |
+| `Personal Profile Info` |
+|  |  |  |
+| Edit tip: As a logged in user, I can edit a tip that I had previously created so that I can keep it up to date.  | In the tip detail page, you can see a button to edit the tip if you are logged in and own the tip. You can also see an edit button the tip feeds (if logged in and the owner). | <img src="https://res.cloudinary.com/dd4cchm7g/image/upload/v1689540842/Screenshot_2023-07-16_at_21.53.42_rxupvn.png" alt="Screenshot of the tip feed with the grey edit button"> |
+| Delete tip: As a logged in user, I can delete a tip that I had previously created so that only relevant information stays on the site.  | On the tip detail page, you can see a button to delete the tip if you are logged in and own the tip. This prompts a modal so that tips are less likely to be deleted accidentally | <img src="https://res.cloudinary.com/dd4cchm7g/image/upload/v1689540989/Screenshot_2023-07-16_at_21.55.49_jxxjbu.png" alt="Screenshot of the edit and delete button"> |
+| See saved tips: As a logged in user, I can access my saved tips easily so that I can easily find what I need.  | Saved tips can be found on /saved | <img src="https://res.cloudinary.com/dd4cchm7g/image/upload/v1689541148/Screenshot_2023-07-16_at_21.58.56_mr88hg.png" alt="Screenshot of saved tips page"> |
+| Unsave tip: As a logged in user, I can ‘unsave’ a tip so that only information I want saved appears.  | If a logged in user has already saved a tip, an 'unsave this tip button' appears instead | <img src="https://res.cloudinary.com/dd4cchm7g/image/upload/v1689541286/Screenshot_2023-07-16_at_22.01.17_mzkxop.png" alt="Screenshot of unsave this tip button"> |
+| As a logged in user, I can update my profile image so other users can see an avatar of my choosing by my content.  | A logged in user can access the option to edit their profile, including image, on /saved, /my-info and on the tip detail page of any tips that they own. | <img src="https://res.cloudinary.com/dd4cchm7g/image/upload/v1689541489/Screenshot_2023-07-16_at_22.04.33_cxchfg.png" alt="Screenshot of unsave this tip button"> |
+
+<h3 id="feature-test">Feature Testing</h3>
 
 
+`NavBar- not logged in`
 
-<li>Tip Overview: As a user, I can see key tip information (Title Category, Ability, rating and number of times saved) so I know whether I want to access the detailed content.</li>
-</ul></ul>
-
-<ul><li>Tip Details</li><ul><li>Tip Detail: As a user, I can open a specific tip so that I can access the content and any comments.
-</li>
-<li>Comment View: As a user, I  can read comments made about a specific tip so that I can connect with the community.
-</li>
-<li>Rate tip: As a logged in user, I can rate how useful the tip is so that I can help the community find the most useful content.
-</li>
-<li>Save tip: As a logged in user, I can save the tip so that I can easily find it again for reference.
-</li>
-<li>Create comment: As a logged in user, I can comment on a tip so that the community can benefit from additional insights or can answer a question I might post.
-</li>
-<li>Edit/delete comment: As a logged in user, I can edit or delete a comment that I had previously made so that I can keep my information relevant.</li>
-<li>User stats: As a user I can view information about a specific user: avatar, bio, number of tips created and date joined so that I can learn more about them</li>
-<li>View tip by user: As a user I can view all the tips by a specific user so I can access further tips by someone I found helpful.</li>
-</ul></ul>
-
-<ul><li>Personal Profile Info</li><ul><li>Edit tip: As a logged in user, I can edit a tip that I had previously created so that I can keep it up to date.
-</li>
-<li>Delete tip: As a logged in user, I can delete a tip that I had previously created so that only relevant information stays on the site.
-</li>
-<li>See saved tips: As a logged in user, I can access my saved tips easily so that I can easily find what I need.
-</li>
-<li>Unsave tip: As a logged in user, I can ‘unsave’ a tip so that only information I want saved appears. 
-</li>
-<li>As a logged in user, I can update my profile image so other users can see an avatar of my choosing by my content.
-</li>
-</ul></ul></ul>
+| Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
+| --- | --- | --- | --- | --- |
+| Logo Image | Reloads Home page | Clicked logo image | Home page reloads | Pass |
+| Home Link in Navbar | Reloads Home page | Clicked link | Home page reloads | Pass |
+| Sign In Link in Navbar | Go to /sign-in | Clicked link | Went to sign in page | Pass |
+| Sign Up Link in Navbar | Go to /sign-up | Clicked link | Went to sign up page | Pass |
