@@ -9,7 +9,6 @@ import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
 import {
   useCurrentUser,
-  useSetCurrentUser,
 } from "../../contexts/CurrentUserContext";
 import { useHistory } from "react-router-dom";
 import btnStyles from "../../styles/Buttons.module.css";
@@ -19,7 +18,6 @@ import boxStyles from "../../styles/HeroComponent.module.css";
 import appStyles from "../../App.module.css";
 
 const CreateTipForm = () => {
-  const setCurrentUser = useSetCurrentUser();
   const currentUser = useCurrentUser();
 
   const [createTipData, setCreateTipData] = useState({
@@ -86,7 +84,6 @@ const CreateTipForm = () => {
 
     try {
       const { data } = await axiosReq.post("/tips/", formData);
-      setCurrentUser(data.user);
       history.push(`/tips/${data.id}`);
     } catch (err) {
       console.log(err);
