@@ -232,7 +232,7 @@ const EditTipForm = () => {
                                 ref={categoryInput}
                                 aria-label="Sheets"
                               />
-                            )}
+                            )}</div> <div className={appStyles.Center}>
 
                             {category === "docs" && (
                               <Form.Check
@@ -350,8 +350,8 @@ const EditTipForm = () => {
                                 ref={abilityInput}
                                 aria-label="Beginner+"
                               />
-                            )}
-
+                            )}</div>
+ <div className={appStyles.Center}>
                             {ability === "intermediate" && (
                               <Form.Check
                                 defaultChecked
@@ -378,7 +378,7 @@ const EditTipForm = () => {
                                 aria-label="Intermediate+"
                               />
                             )}
-
+</div> <div className={appStyles.Center}>
                             {ability === "advanced" && (
                               <Form.Check
                                 defaultChecked

@@ -1,7 +1,7 @@
 import React, { useState, useRef } from "react";
 import styles from "../../styles/CreateUpdateTipForms.module.css";
 import Form from "react-bootstrap/Form";
-import { Image } from "react-bootstrap";
+import Image from "react-bootstrap/Image";
 import Alert from "react-bootstrap/Alert";
 import Button from "react-bootstrap/Button";
 import Col from "react-bootstrap/Col";
@@ -133,6 +133,7 @@ const CreateTipForm = () => {
                     ref={categoryInput}
                     aria-label="Drive and PDF"
                   />
+                  
                   <Form.Check
                     type="radio"
                     label="Sheets"
@@ -142,7 +143,8 @@ const CreateTipForm = () => {
                     onChange={handleChangeCategory}
                     ref={categoryInput}
                     aria-label="Google Sheets"
-                  />
+                  /></div>
+                  <div className={appStyles.Center}>
                   <Form.Check
                     type="radio"
                     label="Docs"
@@ -194,7 +196,7 @@ const CreateTipForm = () => {
                     onChange={handleChangeAbility}
                     ref={abilityInput}
                     aria-label="Beginner+"
-                  />
+                  /></div> <div className={appStyles.Center}>
                   <Form.Check
                     type="radio"
                     label="Intermediate+"
@@ -204,7 +206,7 @@ const CreateTipForm = () => {
                     onChange={handleChangeAbility}
                     ref={abilityInput}
                     aria-label="Intermediate+"
-                  />
+                  /></div> <div className={appStyles.Center}>
                   <Form.Check
                     type="radio"
                     label="Advanced"

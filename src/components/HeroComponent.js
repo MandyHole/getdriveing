@@ -6,6 +6,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import btnStyles from "../styles/Buttons.module.css";
 import { Link } from "react-router-dom";
+import appStyles from "../App.module.css"
 
 function HeroBoxComponent(props) {
   const {
@@ -85,11 +86,13 @@ function HeroBoxComponent(props) {
 
               {tipDetail ? (
                 <>
-                  <i className={`${star1} ${styles.Star}`} />
-                  <i className={`${star2} ${styles.Star}`} />{" "}
+                <div className={appStyles.Center}>
+                {star1} {star2} {star3} {star4} {star5} </div>
+                  {/* <i className={`${star1} ${styles.Star}`} /> */}
+                  {/* <i className={`${star2} ${styles.Star}`} />{" "}
                   <i className={`${star3} ${styles.Star}`} />{" "}
                   <i className={`${star4} ${styles.Star}`} />{" "}
-                  <i className={`${star5} ${styles.Star}`} />
+                  <i className={`${star5} ${styles.Star}`} /> */}
                 </>
               ) : null}
 

@@ -49,7 +49,7 @@ const TipsFeed = ({ filter = "" }) => {
             className={styles.Search}
             value={query}
             onChange={(event) => setQuery(event.target.value)}
-            placeholder="Search all tips"
+            placeholder="Search tips"
             aria-label="Search tips"
             aria-describedby="tip-search"
           />

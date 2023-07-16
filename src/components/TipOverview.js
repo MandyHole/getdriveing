@@ -6,6 +6,7 @@ import btnStyles from "../styles/Buttons.module.css";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import Card from "react-bootstrap/Card";
 import { Link } from "react-router-dom/cjs/react-router-dom";
+import Star from "./Star"
 
 const TipOverview = (props) => {
   const {
@@ -59,6 +60,27 @@ const TipOverview = (props) => {
 {ability === "beginner" && " Beginner+"}
 {ability === "intermediate" && " Intermediate+"}
 {ability === "advanced" && " Advanced"}
+<div className={styles.StarLine}>{average_rating === null ? (" No ratings yet...") : (" Average Rating: ")}
+          
+
+          {average_rating === null ? (<Star overview_outline/>) : <Star overview_solid/>}
+  
+
+    
+          {Math.floor(average_rating) >= 2 ? (<Star overview_solid/>) : 
+           (<Star overview_outline/>)}
+    
+           {Math.floor(average_rating) >= 3 ? (<Star overview_solid/>) : 
+            (<Star overview_outline/>)}
+
+ 
+            {Math.floor(average_rating) >= 4 ? (<Star overview_solid/>) : 
+             (<Star overview_outline/>)}
+
+
+             {Math.floor(average_rating) === 5 ? (<Star overview_solid/>) : 
+              (<Star overview_outline/>)}
+</div>
             </Card.Subtitle>
             <Card.Text>{`${tip_content.slice(0, 300)}...`}</Card.Text>
             <Link to={`/tips/${id}`}>

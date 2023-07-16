@@ -1,5 +1,6 @@
 import React from "react";
 import HeroComponent from "../../components/HeroComponent";
+import Star from "../../components/Star";
 
 const TipHeroes = (props) => {
   const {
@@ -31,23 +32,24 @@ const TipHeroes = (props) => {
           h3={average_rating === null ? ("No ratings yet...") : ("Average Rating: ")}
           
           star1=
-          {average_rating === null ? ('fa-regular fa-star') : 
-           ("fa-solid fa-star")}
+          {average_rating === null ? <Star hero_outline /> : 
+           <Star hero_solid />}
 
            star2=
-          {Math.floor(average_rating) >= 2 ? ('fa-solid fa-star') : 
-           ("fa-regular fa-star")}
+          {Math.floor(average_rating) >= 2 ? <Star hero_solid /> : 
+          <Star hero_outline /> }
            star3=
-           {Math.floor(average_rating) >= 3 ? ('fa-solid fa-star') : 
-            ("fa-regular fa-star")}
+           {Math.floor(average_rating) >= 3 ? <Star hero_solid /> : 
+           <Star hero_outline /> }
 
             star4=
-            {Math.floor(average_rating) >= 4 ? ('fa-solid fa-star') : 
-             ("fa-regular fa-star")}
+            {Math.floor(average_rating) >= 4 ? <Star hero_solid />: 
+            <Star hero_outline /> }
 
              star5=
-             {Math.floor(average_rating) === 5 ? ('fa-solid fa-star') : 
-              ("fa-regular fa-star")}
+             {Math.floor(average_rating) === 5 ? <Star hero_solid /> : 
+             <Star hero_outline /> }
+             
           h3_2={`Saved ${number_times_saved} Time${number_times_saved === 1 ? (""): ("s")}`}
         />
       ) : (
