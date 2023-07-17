@@ -33,9 +33,9 @@ const AuthorInfo = (props) => {
   }, [filter, setTips, id]);
 
   return (
-    <><aside>
+    <>
       <Col md={{ span: 3 }} className={styles.AuthorContent}>
-        {hasLoaded ? (
+      <aside>{hasLoaded ? (
           <>
             <ProfilePic src={authors.image} size="150px" />
             {authors.name.length ? (
@@ -68,7 +68,7 @@ const AuthorInfo = (props) => {
         ) : (
           <MySpinner full_page />
         )}
-      </Col></aside>
+      </aside></Col>
     </>
   );
 };

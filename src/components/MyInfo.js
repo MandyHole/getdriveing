@@ -29,8 +29,9 @@ const MyInfo = (props) => {
   }, [filter]);
 
   return (
-    <><aside>
+    <>
       <Col md={{ span: 3 }} className={styles.AuthorContent}>
+      <aside>
         {hasLoaded ? (
           <>
             <ProfilePic src={authors.image} size="150px" />
@@ -67,7 +68,7 @@ const MyInfo = (props) => {
         ) : (
           <MySpinner />
         )}
-      </Col></aside>
+      </aside></Col>
     </>
   );
 };
