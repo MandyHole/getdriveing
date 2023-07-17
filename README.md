@@ -514,6 +514,7 @@ Send alerts to people if someone comments on a tip that they have written.
 <h3 id="deployment">Deployment</h3>
 This project was deployed through Heroku (live link found here: <a href="https://get-drive-ing-36f2443ac236.herokuapp.com/" target="new" aria-label="Deployed site">https://get-drive-ing-36f2443ac236.herokuapp.com/)</a> using the following steps:
 <ol>
+<li>Add a Procfile to the root directory with 'web: serve -s build'</li>
 <li>Login / Sign up to Heroku</li>
 <li>Click New -- Create New App</li>
 <li>Name your app (must be unique), select your nearest revious and click “Create app” to confirm.</li>
