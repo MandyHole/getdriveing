@@ -5,7 +5,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
 const Footer = () => {
-  return (
+  return (<footer>
     <div className={styles.Margin}>
       <Container fluid className={styles.Footer}>
         <Row>
@@ -14,7 +14,7 @@ const Footer = () => {
           </Col>
         </Row>
       </Container>
-    </div>
+    </div></footer>
   );
 };
 

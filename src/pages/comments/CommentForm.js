@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
-import formStyles from "../../styles/Form.module.css";
+import styles from "../../styles/CommentForm.module.css"
 import ProfilePic from "../../components/ProfilePic";
 import { axiosRes } from "../../api/axiosDefaults";
-import btnStyles from "../../styles/Buttons.module.css";
+import MyButtons from "../../components/MyButtons";
 
 function CommentForm(props) {
   const { tip, setComments, authorImage, } = props;
@@ -34,27 +34,23 @@ function CommentForm(props) {
     <>
       <ProfilePic src={authorImage} size="50px" />
 
-      <Form className={formStyles.FormMargin} onSubmit={handleSubmit}>
+      <Form className={styles.FormMargin} onSubmit={handleSubmit}>
         <Form.Group className="mb-3" controlId="comment">
           <Form.Label className="d-none">Title</Form.Label>
           <Form.Control
             type="text"
             placeholder="Write a comment..."
             name="comment"
-            className={formStyles.Input}
+            className={styles.Input}
             value={content}
             onChange={handleChange}
           />
         </Form.Group>
 
-        <div className={btnStyles.CenterButtons}>
-          <button
-            className={`${btnStyles.Buttons}`}
-            disabled={!content.trim()}
-            type="submit"
-          >
-            Post your comment
-          </button>
+        <div className={styles.Center}>
+
+          <MyButtons submit text="Post your comment" />
+
         </div>
       </Form>
     </>

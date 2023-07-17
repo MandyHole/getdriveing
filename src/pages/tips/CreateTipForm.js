@@ -1,5 +1,5 @@
 import React, { useState, useRef } from "react";
-import styles from "../../styles/CreateUpdateTipForms.module.css";
+import styles from "../../styles/CreateEditTipForms.module.css";
 import Form from "react-bootstrap/Form";
 import Image from "react-bootstrap/Image";
 import Alert from "react-bootstrap/Alert";

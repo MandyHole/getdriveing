@@ -1,7 +1,7 @@
 ## GetDriveing
 <img src="https://res.cloudinary.com/dd4cchm7g/image/upload/v1689448397/Screenshot_2023-07-15_at_20.12.59_w3qytx.png" width = 15% alt="GetDriveing Logo"></a>
 
-This is a responsive community website for people to share tips about how to make the most out of Google Drive Workplace, which recently grew to more than 3 billion users globally. Googe Drive Workplace  has a host of features and add-ons. At my work where Google Drive is the main system for making and sharing files, I’ve often heard things like ‘Oh, I didn’t know you could do that - that’s helpful!’ when I have showed someone a feature on Drive. Similarly,  I  have learned from others about add ons that I hadn’t previously heard of that offered extra useful functionality. There are also some features I have used that I can’t quite remember the exact text required (like forcing a pdf export of a live document) that I also find I am constantly searching the internet to find again.  I presume that the many employees at my workplace who only use Google Drive’s basic features are fairly representative of Google Drive Workplace users as a whole, and this website offers a chance to help people like them tap into more of the functionality that Google Drive has to offer, make it easier to access information they already found helpful and make their work more efficient as a result.
+This is a responsive community website for people to share tips about how to make the most out of Google Drive Workplace, which recently grew to more than 3 billion users globally. Googe Drive Workplace  has a host of features and add-ons. At my work where Google Drive is the main system for making and sharing files, I’ve often heard things like ‘Oh, I didn’t know you could do that - that’s helpful!’ when I have showed someone a feature on Drive. Similarly,  I  have randomly learned from others about add ons that I hadn’t previously heard of that offered extra useful functionality. There are also some features I have used that I can’t quite remember the exact text required (like forcing a pdf export of a live document) that I also find I am constantly searching the internet to find again.  I presume that the many employees at my workplace who only use Google Drive’s basic features are fairly representative of Google Drive Workplace users as a whole, and this website offers a chance to help people like them tap into more of the functionality that Google Drive has to offer, make it easier to access information they already found helpful and make their work more efficient as a result.
 
 There are several features that make this community website become a useful resource. The rating feature can help users find what others have viewed the most helpful tips. If there is a tip that a user finds particularly helpful, they can find all the tips by the author of that particular tip so see if they like their other tips as well. Users can also ‘save’ a tip so they can easily find it again and refer back to it if needed. The main homepage feed sorts tips by when they were created so users can find what has been recently added so as to not miss anything.
 
@@ -13,6 +13,7 @@ Link to deployed database: <a href="https://getdriveing-6933e088a46d.herokuapp.c
 <img src="https://res.cloudinary.com/dd4cchm7g/image/upload/v1682343969/Screenshot_2023-04-24_at_14.21.09_lze2u8.png" width = 95% alt="Sample views of GetDriveing website"></a>
 
 ## Contents
+<a href="#goals" aria-label="Jump to Project Goals">Project Goals</a>
 <a href="#UX" aria-label="Jump to User Experience">User Experience</a>
 <ul>
 <li><a href="#stories" aria-label="Jump to User Exeperience: User Stories">User Stories</a></li>
@@ -24,6 +25,7 @@ Link to deployed database: <a href="https://getdriveing-6933e088a46d.herokuapp.c
 <ul>
 <li><a href="#languages" aria-label="Jump to Technologies: Languages Used">Languages Used</a></li>
 <li><a href="#frameworks" aria-label="Jump to Technologies: Frameworks, Programmes and Libraries">Frameworks, Programmes and Libraries</a></li>
+<li><a href="#components" aria-label="Jump to React: Using Components">React: Using Components</a></li>
 </ul>
 <p><a href="#testing" aria-label="Jump to Testing">Testing</a></p>
 <ul>
@@ -52,13 +54,24 @@ Link to deployed database: <a href="https://getdriveing-6933e088a46d.herokuapp.c
 <li><a href="#media" aria-label="Jump to Credits - Media">Media</a></li>
 </ul>
 
+<h2 id="goals">Project Goals</h2>
+<ol>
+<li>Share some useful Google Drive features that I know of with others</li>
+<li>Find out some tips from other users who want to share Google Drive features they find helpful</li>
+<li>Engage the community with options for comments, ratings, saved tips and adding user info</li>
+<li>Make the website fully responsive and user friendly so people are willing to return</li>
+<li>Make it easy for people to find a tip</li>
+<li>Make content editable to allow for changes in Google Drive functionality</li>
+</ol>
+
+
 <h2 id="UX">User Experience</h2>
 
 <ul id="stories"><li><strong>User Stories</strong></li>
 
-<ul><li>Accounts</li><ul><li>Sign up: As a user, I can create an account so that I can add, save, and rate tips.
+<ul><li>Accounts (Project Goals: sharing tips, engaging community)</li><ul><li>Sign up: As a user, I can create an account so that I can add, save, and rate tips.
 </li>
-<li>Sign  in: As a user, I can easily log into my account once created so that I can access the additional features.
+<li>Sign in: As a user, I can easily log into my account once created so that I can access the additional features.
 </li>
 <li>Status: As a user, I can easily see if I’m logged in or not so I can login if required.
 </li>
@@ -66,7 +79,7 @@ Link to deployed database: <a href="https://getdriveing-6933e088a46d.herokuapp.c
 </li>
 </ul></ul>
 
-<ul><li>Viewing Content</li><ul><li>Menu Access: As a user, I can access the menu from all pages so that I can easily make my way through the site.
+<ul><li>Viewing Content (Project goals: Fully responsive/user friendly)</li><ul><li>Menu Access: As a user, I can access the menu from all pages so that I can easily make my way through the site.
 </li>
 <li>Responsiveness: As a user, I can read and use the content / features on all screensizes so that I can access the content from various devices.
 </li>
@@ -74,7 +87,7 @@ Link to deployed database: <a href="https://getdriveing-6933e088a46d.herokuapp.c
 </li>
 </ul></ul>
 
-<ul><li>Tip Feed</li><ul><li>New info: As a user, I can find the most recently added content on the homepage so I don’t miss new content.
+<ul><li>Tip Feed (Project Goals: Make it easy for users to find a tip / create a tip)</li><ul><li>New info: As a user, I can find the most recently added content on the homepage so I don’t miss new content.
 </li>
 <li>Filter/sort tips: As a user, I can access the full list of tips which I can sort and filter so I can easily find what I need.
 </li>
@@ -87,7 +100,7 @@ Link to deployed database: <a href="https://getdriveing-6933e088a46d.herokuapp.c
 <li>Tip Overview: As a user, I can see key tip information (Title Category, Ability, rating and number of times saved) so I know whether I want to access the detailed content.</li>
 </ul></ul>
 
-<ul><li>Tip Details</li><ul><li>Tip Detail: As a user, I can open a specific tip so that I can access the content and any comments.
+<ul><li>Tip Details (Project goals: Engage community, access tips)</li><ul><li>Tip Detail: As a user, I can open a specific tip so that I can access the content and any comments.
 </li>
 <li>Comment View: As a user, I  can read comments made about a specific tip so that I can connect with the community.
 </li>
@@ -102,7 +115,7 @@ Link to deployed database: <a href="https://getdriveing-6933e088a46d.herokuapp.c
 <li>View tip by user: As a user I can view all the tips by a specific user so I can access further tips by someone I found helpful.</li>
 </ul></ul>
 
-<ul><li>Personal Profile Info</li><ul><li>Edit tip: As a logged in user, I can edit a tip that I had previously created so that I can keep it up to date.
+<ul><li>Personal Profile Info (Project goals: engage community, keep content up to date)</li><ul><li>Edit tip: As a logged in user, I can edit a tip that I had previously created so that I can keep it up to date.
 </li>
 <li>Delete tip: As a logged in user, I can delete a tip that I had previously created so that only relevant information stays on the site.
 </li>
@@ -146,10 +159,12 @@ User profile image: This is a fairly standard style photo for people who have ye
 <li><a href="https://res.cloudinary.com/dd4cchm7g/image/upload/v1689450924/GetDriveIng6_w6cplf.png" aria-label="a wireframe mockup of the Tip Detail page (desktop view; logged in" target="new">Mockup of the Tip Detail page (desktop view; logged in)</a> and the <a href="https://res.cloudinary.com/dd4cchm7g/image/upload/v1689451794/Screenshot_2023-07-15_at_21.09.35_robd7a.png" aria-label="screenshot of the desktop version of the Tip Detail page" target="new">actual screenshot.</a></li>
 
 <li><a href="https://res.cloudinary.com/dd4cchm7g/image/upload/v1689450924/GetDriveIng11_rqlbf8.png" aria-label="a wireframe mockup of the Sign up page (mobile view" target="new">Mockup of the Sign up page (mobile view)</a> and the <a href="https://res.cloudinary.com/dd4cchm7g/image/upload/v1689456115/Screenshot_2023-07-15_at_22.19.34_raqt36.png" aria-label="screenshot of the Sign up page" target="new">actual screenshot.</a></li>
-
 <li><a href="https://res.cloudinary.com/dd4cchm7g/image/upload/v1689451909/GetDriveIng4_iffphc.png" aria-label="a wireframe mockup of the My Info up page (desktop view)" target="new">Mockup of the My Info page (desktop view)</a> and the <a href="https://res.cloudinary.com/dd4cchm7g/image/upload/v1689453092/Screenshot_2023-07-15_at_21.22.22_pz1sbc.png" aria-label="screenshot of the My Info page (logged out)" target="new">actual screenshot (logged out)</a>
 and the <a href="https://res.cloudinary.com/dd4cchm7g/image/upload/v1689453091/Screenshot_2023-07-15_at_21.23.22_ohkh3q.png" aria-label="screenshot of the My Info page (logged in)" target="new">actual screenshot (logged in).</a></li>
+<li><a href="https://res.cloudinary.com/dd4cchm7g/image/upload/v1689634279/Models_stt0lf.png" aria-label="a mockup of the Database models relationship" target="new">Mockup of database models relationship</a> </li>
+<li><a href="https://res.cloudinary.com/dd4cchm7g/image/upload/v1689634288/crud_sfem7l.png" aria-label="a mockup of CRUD functionality" target="new">Mockup of CRUD functionality</a> </li>
 </ul>
+
 
 
 <h2 id="features">Key Features</h2>
@@ -168,6 +183,7 @@ and the <a href="https://res.cloudinary.com/dd4cchm7g/image/upload/v1689453091/S
 <li>HTML5</li>
 <li>CSS</li>
 <li>Javascript</li>
+<li>JSX</li>
 <li>Python (for the linked database not this frontend)</li>
 </ul>
 
@@ -175,7 +191,9 @@ and the <a href="https://res.cloudinary.com/dd4cchm7g/image/upload/v1689453091/S
 <ul>
 <li><strong>React</strong> a JavaScript library used to build the user interface
 </li>
-<li><strong>React Bootstrap 5.0 v2.8.0</strong> used as a starting point to stylise navigation bar, cards, forms and layout to accompany bespoke CSS styling.</li>
+<li><strong>React Bootstrap 5.0 v2.8.0</strong> used as a starting point to stylise navigation bar, cards, forms and layout to accompany bespoke CSS styling in order to save time and ensure responsiveness.</li>
+<li><strong>MUI</strong>: used to develop a star rating system that fed into database.
+<li><strong>React Router</strong> used to navigate around the site
 <li><strong>Django Rest Framework</strong> used in a separate deployed website to provide the database.</li>
 <li><strong>Google Fonts:</strong> used to import the 'Roboto' font used on all pages.</li>
 <li><strong>Font Awesome:</strong> used for iconography</li>
@@ -190,6 +208,24 @@ and the <a href="https://res.cloudinary.com/dd4cchm7g/image/upload/v1689453091/S
 <li><strong>ElephantSQL:</strong> used to host the database</li>
 <li><strong>Google Dev Tools:</strong> used to troubleshoot and test features, responsiveness and styling.</li>
 <li><strong>Am I Responsive:</strong> used to demonstrate how the website looks on various websites</li>
+</ul>
+
+<h3 id="components"> React Components</h3>
+
+I utilised React components for various parts of the website that were used across pages. Each had a distinct accompanying css file. This kept the code in the pages itself cleaner and shorter and the related css easier to find. Below is a list of the components and where they are used:
+<ul>
+<li>Author Info: Tip Detail page</li>
+<li>Delete Modal: Previous Comments, Edit Tips, Tip Details</li>
+<li>Footer: All pages</li>
+<li>HeroComponent: All pages</li>
+<li>MyButtons: Practically all pages</li>
+<li>MyInfo: Homepage, AuthorsTips, MyProfilePage, Saved Tips</li>
+<li>MySpinner: Wherever content is being loaded (eg Author info, tip feeds, edit forms)</li>
+<li>NavBar: All pages</li>
+<li>NoResultsFound: On pages with Tip Feeds</li>
+<li>ProfilePic: AuthorInfo, MyInfo, CommentForm, PreviousComments</li>
+<li>ScrollToTop: all pages</li>
+<li>Star: used five times on both TipCards and TipDetail</li>
 </ul>
 
 ## Testing
@@ -465,11 +501,13 @@ I kept getting errors in the terminal related to the Babel plugin. I ran " npm i
 I had an issue with Heroku not deploying due to issues with memory ( with thanks to 
 https://bismobaruno.medium.com/fixing-memory-heap-reactjs-on-heroku-16910e33e342 )
 
-<h3 id="known-bugs">Areas to Improve</h3>
+<h3 id="known-bugs">Ideas for Future Development</h3>
 
 Add infinite scroll to Tip Feed if it proves to be popular.
 
 Add the facility for people to get a password reminder if needed.
+
+Send alerts to people if someone comments on a tip that they have written.
 
 <h2 id="deploy"> Deployment & Local Development</h2>
 

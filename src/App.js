@@ -16,7 +16,7 @@ import Homepage from "./pages/Homepage";
 import EditProfileForm from "./pages/author/EditProfileForm";
 import HeroComponent from "./components/HeroComponent";
 import SavedTips from "./pages/tips/SavedTips";
-import PageNotFound from "./components/PageNotFound";
+import PageNotFound from "./pages/PageNotFound";
 import AuthorsTips from "./pages/author/AuthorsTips";
 
 function App() {

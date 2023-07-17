@@ -26,6 +26,7 @@ function HeroBoxComponent(props) {
   } = props;
 
   return (
+    <header>
     <div className={`${styles.BoxBackground} ${additional_class}`}>
       <Container>
         <Row>
@@ -65,7 +66,7 @@ function HeroBoxComponent(props) {
           </Col>
         </Row>
       </Container>
-    </div>
+    </div></header>
   );
 }
 

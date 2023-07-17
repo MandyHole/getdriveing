@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Col from "react-bootstrap/Col";
-import styles from "../styles/AuthorInfo.module.css";
+import styles from "../styles/MyInfo.module.css";
 import { axiosReq } from "../api/axiosDefaults";
 import { Link } from "react-router-dom/cjs/react-router-dom";
 import MySpinner from "./MySpinner";
@@ -29,7 +29,7 @@ const MyInfo = (props) => {
   }, [filter]);
 
   return (
-    <>
+    <><aside>
       <Col md={{ span: 3 }} className={styles.AuthorContent}>
         {hasLoaded ? (
           <>
@@ -67,7 +67,7 @@ const MyInfo = (props) => {
         ) : (
           <MySpinner />
         )}
-      </Col>{" "}
+      </Col></aside>
     </>
   );
 };

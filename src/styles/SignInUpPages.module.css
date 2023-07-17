@@ -30,3 +30,27 @@
   margin-bottom: 10px;
 }
 
+.BoxBackground {
+  background: rgb(255, 255, 245);
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 245, 1) 0%,
+    rgba(66, 133, 244, 1) 100%
+  );
+  padding: 150px 0 75px 0;
+  box-shadow: 0 5px 5px #575755;
+}
+
+.BoxBackground h1 {
+  text-align: center;
+  font-weight: 700;
+  font-size: 4rem;
+}
+
+.FullHeight {
+  height: 100vh;
+}
+
+.BottomMargin {
+  margin-bottom: 50px;
+}

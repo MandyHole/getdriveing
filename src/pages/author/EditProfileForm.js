@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
-import styles from "../../styles/CreateUpdateTipForms.module.css";
+import styles from "../../styles/EditProfileForm.module.css";
 import Form from "react-bootstrap/Form";
-import { Image } from "react-bootstrap";
+import Image from "react-bootstrap/Image";
 import Alert from "react-bootstrap/Alert";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
@@ -11,7 +11,7 @@ import { useHistory } from "react-router-dom";
 import { axiosReq } from "../../api/axiosDefaults";
 import { useParams } from "react-router-dom/cjs/react-router-dom";
 import HeroComponent from "../../components/HeroComponent";
-import PageNotFound from "../../components/PageNotFound";
+import PageNotFound from "../PageNotFound";
 import MySpinner from "../../components/MySpinner";
 import MyButtons from "../../components/MyButtons";
 
@@ -165,7 +165,7 @@ const EditProfileForm = () => {
                           {message}
                         </Alert>
                       ))}
-                      <div className={styles.CenterButtons}>
+                      <div className={styles.Center}>
                       <MyButtons text="Save Changes" submit/>{" "}
                       <MyButtons grey text="Cancel" on_click={() => history.goBack()}/>
                       </div>

@@ -8,8 +8,6 @@ import InputGroup from "react-bootstrap/InputGroup";
 import NoResultsFound from "../../components/NoResultsFound";
 import TipCards from "./TipCards";
 
-
-
 const TipsFeed = ({ filter = "" }) => {
   const [tips, setTips] = useState({ results: "" });
   const [hasLoaded, setHasLoaded] = useState(false);
@@ -36,7 +34,7 @@ const TipsFeed = ({ filter = "" }) => {
   }, [filter, query, pathname]);
 
   return (
-    <>
+    <div className={styles.MainContainer}>
       {" "}
       <Form onSubmit={(event) => event.preventDefault()}>
         <InputGroup size="lg">
@@ -66,7 +64,7 @@ const TipsFeed = ({ filter = "" }) => {
       ) : (
         <MySpinner />
       )}
-    </>
+    </div>
   );
 };
 

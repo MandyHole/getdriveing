@@ -33,7 +33,7 @@ const AuthorInfo = (props) => {
   }, [filter, setTips, id]);
 
   return (
-    <>
+    <><aside>
       <Col md={{ span: 3 }} className={styles.AuthorContent}>
         {hasLoaded ? (
           <>
@@ -68,7 +68,7 @@ const AuthorInfo = (props) => {
         ) : (
           <MySpinner full_page />
         )}
-      </Col>{" "}
+      </Col></aside>
     </>
   );
 };

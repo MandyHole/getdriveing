@@ -1,0 +1,53 @@
+.FormMargin {
+  margin-bottom: 50px;
+}
+
+.Labels {
+  display: block;
+  font-size: 1.3rem;
+  font-weight: 600;
+  text-align: center;
+  margin-top: 35px;
+}
+
+.Input {
+  text-align: center;
+  font-weight: 500;
+  border: solid 1px #34a853;
+  font-size: 1.3rem;
+}
+
+.Center {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.Radio {
+  margin-left: 2rem;
+}
+.Radio input {
+  border: solid 2px #34a853;
+  font-size: 1.3rem;
+}
+.Radio input:checked {
+  background-color: #34a853;
+  border-color: #34a853;
+}
+
+.Radio label {
+  font-size: 1.3rem;
+}
+
+.FileUpload {
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+}
+
+.Image {
+  width: 300px;
+}
+
+.FullHeight {
+  height: 100vh;
+}

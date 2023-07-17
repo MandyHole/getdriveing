@@ -1,8 +1,7 @@
 import React from "react";
-import styles from "../../styles/Comments.module.css";
+import styles from "../../styles/PreviousComments.module.css";
 import ProfilePic from "../../components/ProfilePic";
 import AuthorImage from "../../assets/blank-profile-picture-gb6ded336d_640.png";
-import profileStyles from "../../styles/ProfilePic.module.css";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { useState } from "react";
@@ -39,7 +38,7 @@ const PreviousComments = (props) => {
           src={AuthorImage}
           size="50px"
           author={owner}
-          additional_class={profileStyles.MarginRight}
+          margin_right
         />
         {content}
       </p>

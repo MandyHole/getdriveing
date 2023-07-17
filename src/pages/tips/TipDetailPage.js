@@ -10,7 +10,7 @@ import CommentForm from "../comments/CommentForm";
 import PreviousComments from "../comments/PreviousComments";
 import appStyles from "../../App.module.css";
 import AuthorInfo from "../../components/AuthorInfo";
-import PageNotFound from "../../components/PageNotFound";
+import PageNotFound from "../PageNotFound";
 import MySpinner from "../../components/MySpinner";
 import HeroComponent from "../../components/HeroComponent";
 import Star from "../../components/Star";
@@ -202,7 +202,7 @@ function TipDetailPage() {
                 <Col md={{ span: 8, offset: 1 }} className={styles.TipContent}>
                   <>
                     <Row>
-                      <Col lg={{ span: 4 }}>
+                      <Col lg={{ span: 4 }}><aside>
                         <Figure className={styles.ImageArea}>
                           <Figure.Image  className={styles.Image}
                             alt={tips.results[0].title}
@@ -245,28 +245,19 @@ function TipDetailPage() {
                           !tips.results[0].saved_tips_id && (
                             <>
                             <MyButtons text="Save this tip" grey on_click={handleSaveRequest} additional_style={styles.FullWidth} />
-                              {/* <Button
-                                className={`${btnStyles.Buttons} ${btnStyles.RightFloat}`}
-                                onClick={handleSaveRequest}
-                              >
-                                Save this tip
-                              </Button>{" "} */}
+  
                             </>
                           )}
                         {!tips.results[0].is_owner &&
                           tips.results[0].saved_tips_id && (
                             <>
                             <MyButtons text="Un-save this tip" grey on_click={handleUnsave} additional_style={styles.FullWidth}/>
-                              {/* <Button
-                                className={`${btnStyles.Buttons} ${btnStyles.RightFloat}`}
-                                onClick={handleUnsave}
-                              >
-                                Un-save this tip
-                              </Button>{" "} */}
+   
                             </>
-                          )}
+                          )}</aside>
                       </Col>
                       <Col lg={{ span: 8 }}>
+                        <section>
                         {tips.results[0].is_owner && (
                           <>
                             <div className={styles.RightButtons}>
@@ -280,10 +271,11 @@ function TipDetailPage() {
                         </p>
                         <p className={styles.UpdatedDate}>
                           Last updated on: {tips.results[0].updated_on}
-                        </p>
+                        </p></section>
                       </Col>
                     </Row>
                   </>
+                  <section>
                   {currentUser ? (
                     <>
                       <hr className={styles.HR} />
@@ -308,8 +300,9 @@ function TipDetailPage() {
                         <MyButtons sign_in_btns />
                       </div>
                     </>
-                  )}
+                  )}</section>
                   <hr className={styles.HR} />{" "}
+                  <section>
                   <h3 className={appStyles.ContentHeader}>Previous Comments</h3>
                   <p className={appStyles.Center}>
                     {comments.results.length
@@ -322,7 +315,7 @@ function TipDetailPage() {
                     ? comments.results.map((comment) => (
                         <PreviousComments key={comment.id} {...comment} />
                       ))
-                    : null}{" "}
+                    : null}{" "}</section>
                 </Col>
                 <AuthorInfo
                   {...tips.results[0]}
@@ -330,6 +323,7 @@ function TipDetailPage() {
                   {...authors.results[0]}
                   setAuthors={setAuthors}
                   filter={tips.results[0].owner_id}
+                  key={authors.results[0].id}
                 />{" "}
               </Row>
             </>

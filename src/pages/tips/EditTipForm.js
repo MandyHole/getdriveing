@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
-import styles from "../../styles/CreateUpdateTipForms.module.css";
+import styles from "../../styles/CreateEditTipForms.module.css";
 import Form from "react-bootstrap/Form";
 import Image from "react-bootstrap/Image";
 import Alert from "react-bootstrap/Alert";
@@ -13,7 +13,7 @@ import { axiosReq, axiosRes } from "../../api/axiosDefaults";
 import { useParams } from "react-router-dom/cjs/react-router-dom";
 import HeroComponent from "../../components/HeroComponent";
 import DeleteModal from "../../components/DeleteModal";
-import PageNotFound from "../../components/PageNotFound";
+import PageNotFound from "../PageNotFound";
 import MySpinner from "../../components/MySpinner";
 
 const EditTipForm = () => {

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import styles from "../../styles/CreateUpdateTipForms.module.css";
+import styles from "../../styles/CommentForm.module.css";
 import Form from "react-bootstrap/Form";
 import Alert from "react-bootstrap/Alert";
 import Col from "react-bootstrap/Col";
@@ -10,7 +10,7 @@ import { useHistory } from "react-router-dom";
 import { axiosReq } from "../../api/axiosDefaults";
 import { useParams } from "react-router-dom/cjs/react-router-dom";
 import HeroComponent from "../../components/HeroComponent";
-import PageNotFound from "../../components/PageNotFound";
+import PageNotFound from "../PageNotFound";
 import MySpinner from "../../components/MySpinner";
 import MyButtons from "../../components/MyButtons";
 
@@ -100,8 +100,10 @@ const EditCommentForm = () => {
                             {message}
                           </Alert>
                         ))}
+                        <div className={styles.Center}>
                               <MyButtons text="Save Changes" submit/>{" "}
                       <MyButtons grey text="Cancel" on_click={() => history.goBack()}/>
+                      </div>
                         {errors.non_field_errors?.map((message, idx) => (
                           <Alert variant="warning" key={idx} className="mt-3">
                             {message}

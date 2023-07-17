@@ -1,0 +1,20 @@
+.FormMargin {
+  margin-bottom: 50px;
+}
+
+.Input {
+  text-align: center;
+  font-weight: 500;
+  border: solid 1px #34a853;
+  font-size: 1.3rem;
+}
+
+.Center {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.FormMarginTop {
+  margin-top: 50px;
+}

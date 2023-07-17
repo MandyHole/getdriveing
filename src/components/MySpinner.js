@@ -1,5 +1,5 @@
 import React from "react";
-import { Spinner } from "react-bootstrap";
+import Spinner from "react-bootstrap/Spinner";
 import styles from "../styles/Spinner.module.css";
 
 const MySpinner = (full_page) => {
