@@ -10,10 +10,11 @@ import Form from "react-bootstrap/Form";
 import styles from "../../styles/SignInUpPages.module.css";
 import { Link, useHistory } from "react-router-dom";
 import axios from "axios";
-import { useSetCurrentUser } from "../../contexts/CurrentUserContext";
+import { useSetCurrentUser, useCurrentUser } from "../../contexts/CurrentUserContext";
 
 const SignInPage = () => {
   const setCurrentUser = useSetCurrentUser();
+  const currentUser = useCurrentUser();
 
   const [signInData, setSignInData] = useState({
     username: "",
@@ -43,7 +44,9 @@ const SignInPage = () => {
   };
 
   return (
-    <div className={`${heroStyles.BoxBackground} ${heroStyles.FullHeight}`}>
+<>
+    {currentUser ? (<>{history.push("/")}</>) : (<>
+      <div className={`${heroStyles.BoxBackground} ${heroStyles.FullHeight}`}>
       <Container>
         <Row>
           <Col md={{ span: 8, offset: 2 }}>
@@ -112,7 +115,10 @@ const SignInPage = () => {
           </Col>
         </Row>
       </Container>
-    </div>
+    </div></>
+    )}
+
+    </>
   );
 };
 

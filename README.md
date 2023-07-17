@@ -270,3 +270,44 @@ and the <a href="https://res.cloudinary.com/dd4cchm7g/image/upload/v1689453091/S
 | Home Link in Navbar | Reloads Home page | Clicked link | Home page reloads | Pass |
 | Sign In Link in Navbar | Go to /sign-in | Clicked link | Went to sign in page | Pass |
 | Sign Up Link in Navbar | Go to /sign-up | Clicked link | Went to sign up page | Pass |
+
+`NavBar- logged in`
+
+| Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
+| --- | --- | --- | --- | --- |
+| Logo Image | Reloads Home page | Clicked logo image | Home page reloads | Pass |
+| Home Link in Navbar | Reloads Home page | Clicked link | Home page reloads | Pass |
+| Saved Tips Link in Navbar | Go to /saved | Clicked link | Went to /saved | Pass |
+| Add a Tip Link in Navbar | Go to /tips/create | Clicked link | Went to /tips/create | Pass |
+| My Info Link in Navbar | Go to /my-info | Clicked link | Went to /my-info | Pass |
+| Logout Link in Navbar | logout and redirect to home | Clicked link | logged out and at / | Pass |
+
+`Footer`
+
+| Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
+| --- | --- | --- | --- | --- |
+| Footer text | Stuck at bottom of all pages | visited all pages | footer present | Pass |
+
+
+`Sign in page`
+
+| Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
+| --- | --- | --- | --- | --- |
+| Need correct username  | incorrect username produces error | Used incorrect username | saw error | Pass |
+| Need correct password | incorrect password produces error | Used incorrect password | saw error | Pass |
+| Sign in | correct credentials signs in user | Used correct credentials | was signed in | Pass |
+| Redirect to /my-info | correct credentials automatically redirects user to /my-info | Used correct credentials | automatically went to /my-info | Pass |
+| Link to Sign Up | Got to /sign-up | Clicked link | went to /sign-up | Pass |
+| Redirects to home | Visiting /sign-in when logged in redirects user to homepage  | Visited /sign-in when logged in | went to / | Pass |
+
+`Sign up page`
+
+| Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
+| --- | --- | --- | --- | --- |
+| Unique credentials required | Using a pre-existing username produces error | Used pre-existing username | saw error | Pass |
+| Passwords must match | using different passwords produces error | Used two different passwords | saw error | Pass |
+| Passwords must have at least 8 characters | using short password produces error | Used a short password | saw error | Pass |
+| Redirect to /sign-in | correct credentials automatically redirects user to /sign-in | Used correct credentials | automatically went to /sign-in | Pass |
+| New credentials work | supplied credentials work on /sign-in page | Used supplied credentials | logged in successfully | Pass |
+| Link to Sign In | Got to /sign-in | Clicked link | went to /sign-in | Pass |
+| Redirects to home | Visiting /sign-up when logged in redirects user to homepage  | Visited /sign-up when logged in | went to / | Pass |
