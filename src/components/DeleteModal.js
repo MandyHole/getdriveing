@@ -17,9 +17,7 @@ function DeleteModal(props) {
         </Modal.Body>
 
         <Modal.Footer>
-          {
-            <MyButtons grey text="Cancel" on_click={handleClose}/>
-          }
+          {<MyButtons grey text="Cancel" on_click={handleClose} />}
           {
             <Button className={styles.DeleteButtons} onClick={button_onclick}>
               {" "}

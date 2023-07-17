@@ -6,9 +6,7 @@ import Col from "react-bootstrap/Col";
 import { useCurrentUser } from "../contexts/CurrentUserContext";
 import { Link } from "react-router-dom";
 import MyInfo from "../components/MyInfo";
-import appStyles from "../App.module.css";
 import styles from "../styles/Homepage.module.css";
-import authorStyles from "../styles/AuthorInfo.module.css";
 import { axiosReq } from "../api/axiosDefaults";
 import MyButtons from "../components/MyButtons";
 
@@ -54,7 +52,7 @@ const Homepage = () => {
       )}
 
       <Row>
-        <Col md={{ span: 8, offset: 1 }} className={appStyles.MainContent}>
+        <Col md={{ span: 8, offset: 1 }} className={styles.MainContent}>
           <TipsFeed />
         </Col>
 
@@ -70,7 +68,7 @@ const Homepage = () => {
 
         {!currentUser && (
           <>
-            <Col md={{ span: 3 }} className={authorStyles.AuthorContent}>
+            <Col md={{ span: 3 }} className={styles.AuthorContent}>
               <h4 className={styles.Heading}>Benefits to having an account</h4>
               <div className={styles.Text}>
                 You can:

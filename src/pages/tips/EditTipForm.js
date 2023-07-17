@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import styles from "../../styles/CreateUpdateTipForms.module.css";
 import Form from "react-bootstrap/Form";
-import { Image } from "react-bootstrap";
+import Image from "react-bootstrap/Image";
 import Alert from "react-bootstrap/Alert";
 import MyButtons from "../../components/MyButtons";
 import Col from "react-bootstrap/Col";
@@ -13,7 +13,6 @@ import { axiosReq, axiosRes } from "../../api/axiosDefaults";
 import { useParams } from "react-router-dom/cjs/react-router-dom";
 import HeroComponent from "../../components/HeroComponent";
 import DeleteModal from "../../components/DeleteModal";
-import appStyles from "../../App.module.css";
 import PageNotFound from "../../components/PageNotFound";
 import MySpinner from "../../components/MySpinner";
 
@@ -180,7 +179,7 @@ const EditTipForm = () => {
                           <Form.Label className={styles.Labels}>
                             Select a Category
                           </Form.Label>
-                          <div className={appStyles.Center}>
+                          <div className={styles.Center}>
                             {category === "drive_pdf" && (
                               <Form.Check
                                 defaultChecked
@@ -231,8 +230,9 @@ const EditTipForm = () => {
                                 ref={categoryInput}
                                 aria-label="Sheets"
                               />
-                            )}</div> <div className={appStyles.Center}>
-
+                            )}
+                          </div>{" "}
+                          <div className={styles.Center}>
                             {category === "docs" && (
                               <Form.Check
                                 defaultChecked
@@ -323,7 +323,7 @@ const EditTipForm = () => {
                           <Form.Label className={styles.Labels}>
                             Select a Recommended Ability
                           </Form.Label>
-                          <div className={appStyles.Center}>
+                          <div className={styles.Center}>
                             {ability === "beginner" && (
                               <Form.Check
                                 defaultChecked
@@ -349,8 +349,9 @@ const EditTipForm = () => {
                                 ref={abilityInput}
                                 aria-label="Beginner+"
                               />
-                            )}</div>
- <div className={appStyles.Center}>
+                            )}
+                          </div>
+                          <div className={styles.Center}>
                             {ability === "intermediate" && (
                               <Form.Check
                                 defaultChecked
@@ -377,7 +378,8 @@ const EditTipForm = () => {
                                 aria-label="Intermediate+"
                               />
                             )}
-</div> <div className={appStyles.Center}>
+                          </div>{" "}
+                          <div className={styles.Center}>
                             {ability === "advanced" && (
                               <Form.Check
                                 defaultChecked
@@ -429,7 +431,6 @@ const EditTipForm = () => {
                             {message}
                           </Alert>
                         ))}
-
                         <Form.Group
                           controlId="screenshot_upload"
                           className="mb-3"
@@ -457,17 +458,22 @@ const EditTipForm = () => {
                             <></>
                           )}
                         </Form.Group>
-
                         {errors.screenshot?.map((message, idx) => (
                           <Alert variant="warning" key={idx}>
                             {message}
                           </Alert>
                         ))}
-
-<MyButtons text="Save Changes" submit/>{" "}
-                      <MyButtons grey text="Cancel" on_click={() => history.goBack()}/>
-                      <MyButtons grey text="Delete Tip" on_click={handleShow}/>
-                      
+                        <MyButtons text="Save Changes" submit />{" "}
+                        <MyButtons
+                          grey
+                          text="Cancel"
+                          on_click={() => history.goBack()}
+                        />
+                        <MyButtons
+                          grey
+                          text="Delete Tip"
+                          on_click={handleShow}
+                        />
                         {errors.non_field_errors?.map((message, idx) => (
                           <Alert variant="warning" key={idx} className="mt-3">
                             {message}

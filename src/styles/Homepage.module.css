@@ -17,8 +17,17 @@
 }
 
 .Center {
-  /* display: flex;
-    justify-content: center; */
   text-align: center;
   margin: 20px 0;
+}
+
+.MainContainer {
+  padding-top: 75px;
+}
+
+.AuthorContent {
+  padding: 3%;
+  background-color: #575755;
+  text-align: center;
+  color: #fff;
 }

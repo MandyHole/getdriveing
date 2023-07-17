@@ -5,9 +5,8 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { useCurrentUser } from '../../contexts/CurrentUserContext';
 import MyInfo from '../../components/MyInfo';
-import appStyles from '../../App.module.css'
 import { axiosReq } from "../../api/axiosDefaults";
-import boxStyles from "../../styles/HeroComponent.module.css";
+import styles from "../../styles/SavedTips.module.css";
 import MySpinner from "../../components/MySpinner";
 
 
@@ -43,7 +42,7 @@ const SavedTips = () => {
     {!currentUser && <HeroComponent signinbuttons
         h1="Make the most of Google Drive Workplace"
         h2="You need to sign in or sign up in order to access saved tips"
-        additional_class={boxStyles.FullHeight}
+        additional_class={styles.FullHeight}
         />}
 
 
@@ -53,7 +52,7 @@ const SavedTips = () => {
 
         /> </> } 
           {hasLoaded ? (<><Row>
-        <Col md={{ span: 8, offset: 1 }} className={appStyles.MainContent}>
+        <Col md={{ span: 8, offset: 1 }} className={styles.MainContent}>
         {currentUser ? (
           <TipsFeed filter={`author_saved_tip=4__owner__author=4&`}/>) : (null)}
         </Col>

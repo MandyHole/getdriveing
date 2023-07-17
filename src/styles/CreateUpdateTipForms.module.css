@@ -64,7 +64,17 @@
   margin-top: 50px;
 }
 
-.CenterButtons {
+/* .CenterButtons {
   display: flex;
   justify-content: center;
+} */
+
+.FullHeight {
+  height: 100vh;
+}
+
+.Center {
+  display:flex;
+  justify-content:center;
+  text-align: center;
 }

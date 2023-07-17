@@ -10,8 +10,6 @@ import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { useHistory } from "react-router-dom";
 import { axiosReq } from "../../api/axiosDefaults";
 import HeroComponent from "../../components/HeroComponent";
-import boxStyles from "../../styles/HeroComponent.module.css";
-import appStyles from "../../App.module.css";
 import MyButtons from "../../components/MyButtons";
 
 const CreateTipForm = () => {
@@ -116,7 +114,7 @@ const CreateTipForm = () => {
                 <Form.Label className={styles.Labels}>
                   Select a Category
                 </Form.Label>
-                <div className={appStyles.Center}>
+                <div className={styles.Center}>
                   <Form.Check
                     type="radio"
                     label="Drive/PDFs"
@@ -139,7 +137,7 @@ const CreateTipForm = () => {
                     aria-label="Google Sheets"
                   />
                 </div>
-                <div className={appStyles.Center}>
+                <div className={styles.Center}>
                   <Form.Check
                     type="radio"
                     label="Docs"
@@ -181,7 +179,7 @@ const CreateTipForm = () => {
                 <Form.Label className={styles.Labels}>
                   Select a Recommended Ability
                 </Form.Label>
-                <div className={appStyles.Center}>
+                <div className={styles.Center}>
                   <Form.Check
                     className={styles.Radio}
                     type="radio"
@@ -193,7 +191,7 @@ const CreateTipForm = () => {
                     aria-label="Beginner+"
                   />
                 </div>{" "}
-                <div className={appStyles.Center}>
+                <div className={styles.Center}>
                   <Form.Check
                     type="radio"
                     label="Intermediate+"
@@ -205,7 +203,7 @@ const CreateTipForm = () => {
                     aria-label="Intermediate+"
                   />
                 </div>{" "}
-                <div className={appStyles.Center}>
+                <div className={styles.Center}>
                   <Form.Check
                     type="radio"
                     label="Advanced"
@@ -270,8 +268,9 @@ const CreateTipForm = () => {
                   {message}
                 </Alert>
               ))}
+              <div className={styles.Center}>
               <MyButtons text="Create" submit />
-              <MyButtons grey text="Cancel" on_click={() => history.goBack()} />
+              <MyButtons grey text="Cancel" on_click={() => history.goBack()} /></div>
               {errors.non_field_errors?.map((message, idx) => (
                 <Alert variant="warning" key={idx} className="mt-3">
                   {message}
@@ -294,7 +293,7 @@ const CreateTipForm = () => {
       ) : (
         <HeroComponent
           h1="You need to sign in before you can create a tip"
-          additional_class={boxStyles.FullHeight}
+          additional_class={styles.FullHeight}
           h2="Create a free account to create, save and rate content!"
           signinbuttons
         />
