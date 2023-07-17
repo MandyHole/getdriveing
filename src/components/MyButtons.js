@@ -69,22 +69,22 @@ const MyButtons = ({
 
       {my_info_btns && (
         <div md={{ span: 8, offset: 2 }} className={styles.CenterButtons}>
-          <Link to="/sign-up">
+          <Link to="/my-info">
             <Button
               size="lg"
               variant="dark"
               className={`${styles.HeroButtons} ${styles.Buttons}`}
             >
-              Sign Up
+              My Info
             </Button>
           </Link>
-          <Link to="/sign-in">
+          <Link to="/tips/create">
             <Button
               size="lg"
               variant="dark"
               className={`${styles.HeroButtons} ${styles.Buttons}`}
             >
-              Sign In
+              Add a Tip
             </Button>
           </Link>
         </div>
