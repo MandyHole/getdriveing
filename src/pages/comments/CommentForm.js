@@ -26,7 +26,7 @@ function CommentForm(props) {
       }));
       setContent("");
     } catch (err) {
-      console.log(err);
+      // console.log(err);
     }
   };
 

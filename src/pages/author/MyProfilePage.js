@@ -32,7 +32,7 @@ const MyProfilePage = () => {
         setAuthors(authors)
 
       } catch (err) {
-        console.log(err);
+        // console.log(err);
       }
     };
     handleMount();

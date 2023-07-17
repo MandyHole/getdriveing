@@ -7,12 +7,16 @@ import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
 import NoResultsFound from "../../components/NoResultsFound";
 import TipCards from "./TipCards";
+import { useCurrentUser } from "../../contexts/CurrentUserContext";
+
 
 const TipsFeed = ({ filter = "" }) => {
   const [tips, setTips] = useState({ results: "" });
   const [hasLoaded, setHasLoaded] = useState(false);
   const { pathname } = useLocation();
   const [query, setQuery] = useState("");
+  const currentUser = useCurrentUser();
+
 
   useEffect(() => {
     const fetchTips = async () => {
@@ -21,7 +25,7 @@ const TipsFeed = ({ filter = "" }) => {
         setTips(data);
         setHasLoaded(true);
       } catch (err) {
-        console.log(err);
+        // console.log(err);
       }
     };
     setHasLoaded(false);
@@ -31,7 +35,7 @@ const TipsFeed = ({ filter = "" }) => {
     return () => {
       clearTimeout(timer);
     };
-  }, [filter, query, pathname]);
+  }, [filter, query, pathname, currentUser]);
 
   return (
     <div className={styles.MainContainer}>

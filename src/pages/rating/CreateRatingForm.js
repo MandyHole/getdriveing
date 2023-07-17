@@ -23,12 +23,11 @@ export default function StarRating(props) {
     formData.append("tip_rating", value);
     formData.append("tip", tip);
     formData.append("owner", currentUser.username);
-    console.log(formData)
     try {
       await axiosReq.post("/rating/", formData);
       history.go(0);
     } catch (err) {
-      console.log(err);
+      // console.log(err);
       if (err.response?.status !== 401) {
         setErrors(err.response?.data);
       }

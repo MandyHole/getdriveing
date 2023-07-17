@@ -27,7 +27,7 @@ const PreviousComments = (props) => {
       await axiosRes.delete(`/comments/${id}/`);
       history.go(0);
     } catch (err) {
-      console.log(err);
+      // console.log(err);
     }
   };
 

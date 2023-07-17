@@ -30,7 +30,7 @@ const EditCommentForm = () => {
         is_owner ? setCreateCommentData({ content }) : history.goBack();
         setHasLoaded(true);
       } catch (err) {
-        console.log(err);
+        // console.log(err);
       }
     };
     setHasLoaded(false);
@@ -58,7 +58,7 @@ const EditCommentForm = () => {
       await axiosReq.put(`/comments/${id}/`, formData);
       history.goBack();
     } catch (err) {
-      console.log(err);
+      // console.log(err);
       if (err.response?.status !== 401) {
         setErrors(err.response?.data);
       }

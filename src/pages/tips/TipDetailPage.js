@@ -45,7 +45,7 @@ function TipDetailPage() {
         setAuthors(authors);
         setHasLoaded(true);
       } catch (err) {
-        console.log(err);
+        // console.log(err);
       }
     };
     setHasLoaded(false);
@@ -68,7 +68,7 @@ function TipDetailPage() {
         }),
       }));
     } catch (err) {
-      console.log(err);
+      // console.log(err);
     }
     history.go(0);
   };
@@ -89,7 +89,7 @@ function TipDetailPage() {
         }),
       }));
     } catch (err) {
-      console.log(err);
+      // console.log(err);
     }
     history.go(0);
   };
@@ -107,7 +107,7 @@ function TipDetailPage() {
       await axiosRes.delete(`/tips/${id}/`);
       history.goBack();
     } catch (err) {
-      console.log(err);
+      // console.log(err);
     }
   };
 

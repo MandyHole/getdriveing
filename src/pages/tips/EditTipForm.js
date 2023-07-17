@@ -44,7 +44,7 @@ const EditTipForm = () => {
           : history.push("/");
         setHasLoaded(true);
       } catch (err) {
-        console.log(err);
+        // console.log(err);
       }
     };
     setHasLoaded(false);
@@ -99,7 +99,7 @@ const EditTipForm = () => {
       await axiosRes.delete(`/tips/${id}/`);
       history.push("/");
     } catch (err) {
-      console.log(err);
+      // console.log(err);
     }
   };
 
@@ -119,7 +119,7 @@ const EditTipForm = () => {
       await axiosReq.put(`/tips/${id}/`, formData);
       history.push(`/tips/${id}`);
     } catch (err) {
-      console.log(err);
+      // console.log(err);
       if (err.response?.status !== 401) {
         setErrors(err.response?.data);
       }

@@ -41,7 +41,7 @@ const EditProfileForm = () => {
         setAuthors({ results: [data] });
         setHasLoaded(true);
       } catch (err) {
-        console.log(err);
+        // console.log(err);
       }
     };
     setHasLoaded(false);
@@ -78,7 +78,7 @@ const EditProfileForm = () => {
       await axiosReq.put(`/authors/${id}/`, formData);
       history.push("/");
     } catch (err) {
-      console.log(err);
+      // console.log(err);
       if (err.response?.status !== 401) {
         setErrors(err.response?.data);
       }
