@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from "react";
 import Col from "react-bootstrap/Col";
-import Button from "react-bootstrap/Button";
 import styles from "../styles/AuthorInfo.module.css";
 import { axiosReq } from "../api/axiosDefaults";
 import { Link } from "react-router-dom/cjs/react-router-dom";
-import btnStyles from "../styles/Buttons.module.css";
 import MySpinner from "./MySpinner";
 import ProfilePic from "./ProfilePic";
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
+import MyButtons from "./MyButtons";
 
 const AuthorInfo = (props) => {
   const { filter, setTips } = props;
@@ -55,17 +54,13 @@ const AuthorInfo = (props) => {
             {authors.is_owner ? (
               <>
                 <Link to={`/authors/${filter}/edit`}>
-                  <Button className={btnStyles.GreenButtons}>
-                    Edit profile
-                  </Button>
+                  <MyButtons green text="Edit profile" />
                 </Link>
               </>
             ) : (
               <>
                 <Link to={`/authors/${filter}`}>
-                  <Button className={btnStyles.GreenButtons}>
-                    Author's Tips
-                  </Button>
+                  <MyButtons green text="Author's Tips" />
                 </Link>
               </>
             )}

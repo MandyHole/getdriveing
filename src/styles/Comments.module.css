@@ -6,7 +6,6 @@
 .AuthorComment {
   width: 50px;
   display: inline-block;
-  /* float: left; */
 }
 
 .Input {
@@ -30,4 +29,9 @@
 .HrThin {
   border-top: 2px solid #4285f4;
   margin-top: 20px;
+}
+
+.CenterButtons {
+  display: flex;
+  justify-content: center;
 }

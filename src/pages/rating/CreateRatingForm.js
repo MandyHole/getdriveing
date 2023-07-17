@@ -4,10 +4,9 @@ import Rating from "@mui/material/Rating";
 import { useHistory } from "react-router-dom";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { axiosReq } from "../../api/axiosDefaults";
-import Button from "react-bootstrap/Button";
-import btnStyles from "../../styles/Buttons.module.css";
-import appStyles from "../../App.module.css";
+import styles from "../../styles/CreateEditRatingForms.module.css"
 import Alert from "react-bootstrap/Alert";
+import MyButtons from "../../components/MyButtons";
 
 
 export default function StarRating(props) {
@@ -40,7 +39,7 @@ export default function StarRating(props) {
     <>
       {" "}
       <Box
-        className={appStyles.Center}
+        className={styles.Center}
         sx={{
           "& > legend": { mt: 2 },
         }}
@@ -54,12 +53,7 @@ export default function StarRating(props) {
           }}
         />
       </Box>
-      <Button
-        className={`${btnStyles.Buttons} ${btnStyles.LeftFloat}`}
-        onClick={handleRating}
-      >
-        Rate this tip
-      </Button>
+      <MyButtons text="Rate this tip" grey on_click={handleRating} additional_style={styles.FullWidth} />
       {errors.title?.map((message, idx) => (
                 <Alert variant="warning" key={idx}>
                   {message}

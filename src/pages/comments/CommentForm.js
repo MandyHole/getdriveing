@@ -49,7 +49,7 @@ function CommentForm(props) {
 
         <div className={btnStyles.CenterButtons}>
           <button
-            className={`${btnStyles.Buttons} ${btnStyles.RightFloat}`}
+            className={`${btnStyles.Buttons}`}
             disabled={!content.trim()}
             type="submit"
           >

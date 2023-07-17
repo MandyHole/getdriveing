@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from "react";
 import Col from "react-bootstrap/Col";
-import Button from "react-bootstrap/Button";
 import styles from "../styles/AuthorInfo.module.css";
 import { axiosReq } from "../api/axiosDefaults";
 import { Link } from "react-router-dom/cjs/react-router-dom";
-import btnStyles from "../styles/Buttons.module.css";
 import MySpinner from "./MySpinner";
 import ProfilePic from "./ProfilePic";
+import MyButtons from "./MyButtons";
 
 const MyInfo = (props) => {
   const { filter, author_tip_page } = props;
@@ -17,10 +16,8 @@ const MyInfo = (props) => {
     const fetchAuthors = async () => {
       try {
         const [{ data: authors }] = await Promise.all([
-          // axiosReq.get(`/tips/`),
           axiosReq.get(`/authors/${filter}`),
         ]);
-        // setTips({ results: [tips] });
         setAuthors(authors);
         setHasLoaded(true);
       } catch (err) {
@@ -42,16 +39,11 @@ const MyInfo = (props) => {
               {authors.is_owner ? "My Profile:" : null}{" "}
               {authors.name.length ? `${authors.name}` : `${authors.owner}`}
             </p>
-           
 
             <p className={styles.AuthorBody}>
               Member since: {authors.created_on}
             </p>
-            <p className={styles.AuthorBody}>
-              {" "}
-              {authors.bio}
-              
-            </p>
+            <p className={styles.AuthorBody}> {authors.bio}</p>
             <p className={styles.AuthorBody}>
               Tips created: {authors.number_tips_created}
             </p>
@@ -59,18 +51,14 @@ const MyInfo = (props) => {
             {authors.is_owner ? (
               <>
                 <Link to={`/authors/${filter}/edit`}>
-                  <Button className={btnStyles.GreenButtons}>
-                    Edit profile
-                  </Button>
+                  <MyButtons green text="Edit profile" />
                 </Link>
               </>
             ) : (
               <>
                 {!author_tip_page && (
                   <Link to={`/authors/${filter}`}>
-                    <Button className={btnStyles.GreenButtons}>
-                      Author's Tips
-                    </Button>
+                    <MyButtons green text="Author's Tips" />
                   </Link>
                 )}
               </>

@@ -6,11 +6,10 @@ import MySpinner from "../../components/MySpinner";
 import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
 import NoResultsFound from "../../components/NoResultsFound";
-import Button from "react-bootstrap/Button";
-import btnStyles from "../../styles/Buttons.module.css";
 import Card from "react-bootstrap/Card";
 import { Link } from "react-router-dom/cjs/react-router-dom";
 import Star from "../../components/Star";
+import MyButtons from "../../components/MyButtons";
 
 
 const TipsFeed = ({ filter = "" }) => {
@@ -65,11 +64,9 @@ const TipsFeed = ({ filter = "" }) => {
                 <Card.Title className={styles.CardTitle}>
                   {tip.is_owner ? (
                     <>
-                      <div className={btnStyles.RightButtons}>
+                      <div className={styles.RightButtons}>
                         <Link to={`/tips/${tip.id}/edit`}>
-                          <Button className={btnStyles.SmallGrey}>
-                            <i className="fa-solid fa-pen-to-square"></i>
-                          </Button>
+<MyButtons edit_btn/>
                         </Link>
                       </div>
                     </>
@@ -127,9 +124,7 @@ const TipsFeed = ({ filter = "" }) => {
                 </Card.Subtitle>
                 <Card.Text>{`${tip.tip_content.slice(0, 300)}...`}</Card.Text>
                 <Link to={`/tips/${tip.id}`}>
-                  <Button className={`${btnStyles.Buttons} ${btnStyles.Width}`}>
-                    Read tip
-                  </Button>
+              <MyButtons grey text="Read tip" additional_style={styles.Width}/>
                 </Link>
               </Card.Body>
             </Card>              

@@ -3,14 +3,13 @@ import heroStyles from "../../styles/HeroComponent.module.css";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import Button from "react-bootstrap/Button";
-import btnStyles from "../../styles/Buttons.module.css";
 import Alert from "react-bootstrap/Alert";
 import Form from "react-bootstrap/Form";
 import styles from "../../styles/SignInUpPages.module.css";
 import { Link, useHistory } from "react-router-dom";
 import axios from "axios";
 import { useSetCurrentUser, useCurrentUser } from "../../contexts/CurrentUserContext";
+import MyButtons from "../../components/MyButtons";
 
 const SignInPage = () => {
   const setCurrentUser = useSetCurrentUser();
@@ -89,12 +88,7 @@ const SignInPage = () => {
                   {message}
                 </Alert>
               ))}
-              <Button
-                className={`${btnStyles.Buttons} ${btnStyles.Width}`}
-                type="submit"
-              >
-                Sign in
-              </Button>
+              <MyButtons text="Sign In" additional_style={styles.FullWidth}  submit/>
               {errors.non_field_errors?.map((message, idx) => (
                 <Alert variant="warning" key={idx} className="mt-3">
                   {message}

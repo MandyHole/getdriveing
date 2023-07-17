@@ -2,16 +2,15 @@ import React, { useEffect, useState } from "react";
 import HeroComponent from "../components/HeroComponent";
 import TipsFeed from "../pages/tips/TipsFeed";
 import Row from "react-bootstrap/Row";
-import Button from "react-bootstrap/Button";
 import Col from "react-bootstrap/Col";
 import { useCurrentUser } from "../contexts/CurrentUserContext";
-import btnStyles from "../styles/Buttons.module.css";
 import { Link } from "react-router-dom";
 import MyInfo from "../components/MyInfo";
 import appStyles from "../App.module.css";
 import styles from "../styles/Homepage.module.css";
 import authorStyles from "../styles/AuthorInfo.module.css";
 import { axiosReq } from "../api/axiosDefaults";
+import MyButtons from "../components/MyButtons";
 
 const Homepage = () => {
   const currentUser = useCurrentUser();
@@ -87,18 +86,10 @@ const Homepage = () => {
               </div>
 
               <Link to="/sign-up">
-                <Button
-                  className={`${btnStyles.GreenButtons} ${btnStyles.Block}`}
-                >
-                  Sign Up
-                </Button>
+                <MyButtons green text="Sign Up" />
               </Link>
               <Link to="/sign-in">
-                <Button
-                  className={`${btnStyles.GreenButtons} ${btnStyles.Block}`}
-                >
-                  Sign In
-                </Button>
+                <MyButtons green text="Sign In" />
               </Link>
             </Col>
           </>

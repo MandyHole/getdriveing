@@ -1,7 +1,5 @@
 import React, { useEffect } from "react";
 import Row from "react-bootstrap/Row";
-import Button from "react-bootstrap/Button";
-import { Link } from "react-router-dom/cjs/react-router-dom";
 import Col from "react-bootstrap/Col";
 import styles from "../../styles/TipDetailPage.module.css";
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
@@ -12,7 +10,6 @@ import CommentForm from "../comments/CommentForm";
 import PreviousComments from "../comments/PreviousComments";
 import appStyles from "../../App.module.css";
 import AuthorInfo from "../../components/AuthorInfo";
-import btnStyles from "../../styles/Buttons.module.css";
 import PageNotFound from "../../components/PageNotFound";
 import MySpinner from "../../components/MySpinner";
 import HeroComponent from "../../components/HeroComponent";
@@ -22,6 +19,7 @@ import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import Figure from "react-bootstrap/Figure";
 import DeleteModal from "../../components/DeleteModal";
 import CreateRating from "../rating/CreateRatingForm";
+import MyButtons from "../../components/MyButtons";
 
 function TipDetailPage() {
   const currentUser = useCurrentUser();
@@ -202,16 +200,16 @@ function TipDetailPage() {
 
               <Row>
                 <Col md={{ span: 8, offset: 1 }} className={styles.TipContent}>
-                  {/* <Tips {...tips.results[0]} setTips={setTips} tipDetail /> */}
                   <>
                     <Row>
                       <Col lg={{ span: 4 }}>
-                        <Figure>
-                          <Figure.Image
+                        <Figure className={styles.ImageArea}>
+                          <Figure.Image  className={styles.Image}
                             alt={tips.results[0].title}
                             src={tips.results[0].screenshot}
+                            
                           />
-                          <div className={`${appStyles.Center}`}>
+                          <div className={styles.ImageCaption}>
                             <Figure.Caption>
                               <a
                                 href={tips.results[0].screenshot}
@@ -223,23 +221,6 @@ function TipDetailPage() {
                             </Figure.Caption>
                           </div>
                         </Figure>
-
-                        {tips.results[0].is_owner && (
-                          <>
-                            <Button
-                              className={`${btnStyles.Buttons} ${btnStyles.RightFloat}`}
-                              onClick={handleEditTip}
-                            >
-                              Edit this tip
-                            </Button>
-                            <Button
-                              className={`${btnStyles.Buttons} ${btnStyles.RightFloat}`}
-                              onClick={handleShow}
-                            >
-                              Delete this tip
-                            </Button>
-                          </>
-                        )}
 
                         <DeleteModal
                           title="Warning"
@@ -263,28 +244,37 @@ function TipDetailPage() {
                           currentUser &&
                           !tips.results[0].saved_tips_id && (
                             <>
-                              <Button
+                            <MyButtons text="Save this tip" grey on_click={handleSaveRequest} additional_style={styles.FullWidth} />
+                              {/* <Button
                                 className={`${btnStyles.Buttons} ${btnStyles.RightFloat}`}
                                 onClick={handleSaveRequest}
                               >
                                 Save this tip
-                              </Button>{" "}
+                              </Button>{" "} */}
                             </>
                           )}
                         {!tips.results[0].is_owner &&
                           tips.results[0].saved_tips_id && (
                             <>
-                              <Button
+                            <MyButtons text="Un-save this tip" grey on_click={handleUnsave} additional_style={styles.FullWidth}/>
+                              {/* <Button
                                 className={`${btnStyles.Buttons} ${btnStyles.RightFloat}`}
                                 onClick={handleUnsave}
                               >
                                 Un-save this tip
-                              </Button>{" "}
+                              </Button>{" "} */}
                             </>
                           )}
                       </Col>
                       <Col lg={{ span: 8 }}>
-                        {" "}
+                        {tips.results[0].is_owner && (
+                          <>
+                            <div className={styles.RightButtons}>
+                              <MyButtons edit_btn on_click={handleEditTip} />
+                              <MyButtons delete_btn on_click={handleShow} />
+                            </div>
+                          </>
+                        )}{" "}
                         <p className={styles.TipContent}>
                           {tips.results[0].tip_content}
                         </p>
@@ -314,26 +304,8 @@ function TipDetailPage() {
                       </h3>
                       <div
                         md={{ span: 8, offset: 2 }}
-                        className={btnStyles.CenterButtons}
                       >
-                        <Link to="/sign-up">
-                          <Button
-                            size="lg"
-                            variant="dark"
-                            className={`${btnStyles.HeroButtons} ${btnStyles.Buttons}`}
-                          >
-                            Sign Up
-                          </Button>
-                        </Link>
-                        <Link to="/sign-in">
-                          <Button
-                            size="lg"
-                            variant="dark"
-                            className={`${btnStyles.HeroButtons} ${btnStyles.Buttons}`}
-                          >
-                            Sign In
-                          </Button>
-                        </Link>
+                        <MyButtons sign_in_btns />
                       </div>
                     </>
                   )}

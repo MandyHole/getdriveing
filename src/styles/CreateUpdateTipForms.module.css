@@ -63,3 +63,8 @@
 .FormMarginTop {
   margin-top: 50px;
 }
+
+.CenterButtons {
+  display: flex;
+  justify-content: center;
+}

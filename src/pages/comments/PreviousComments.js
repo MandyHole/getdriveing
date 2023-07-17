@@ -4,12 +4,11 @@ import ProfilePic from "../../components/ProfilePic";
 import AuthorImage from "../../assets/blank-profile-picture-gb6ded336d_640.png";
 import profileStyles from "../../styles/ProfilePic.module.css";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
-import Button from "react-bootstrap/Button";
-import btnStyles from "../../styles/Buttons.module.css";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { useState } from "react";
 import DeleteModal from "../../components/DeleteModal";
 import { axiosRes } from "../../api/axiosDefaults";
+import MyButtons from "../../components/MyButtons";
 
 const PreviousComments = (props) => {
   const { owner, content, updated_at, id } = props;
@@ -56,16 +55,9 @@ const PreviousComments = (props) => {
           <p className={styles.CommentDate}>
             <em>I updated this comment {updated_at}</em>
           </p>
-          <div className={btnStyles.CenterButtons}>
-            <Button
-              className={`${btnStyles.SmallGrey}`}
-              onClick={handleEditComment}
-            >
-              <i className="fa-solid fa-pen-to-square"></i>
-            </Button>{" "}
-            <Button className={`${btnStyles.SmallGrey}`} onClick={handleShow}>
-              <i className="fa-solid fa-trash"></i>
-            </Button>
+          <div className={styles.CenterButtons}>
+            <MyButtons edit_btn on_click={handleEditComment} />
+            <MyButtons delete_btn on_click={handleShow} />
           </div>
         </>
       )}

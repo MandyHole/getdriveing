@@ -1,7 +1,7 @@
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
-import btnStyles from "../styles/Buttons.module.css";
 import styles from "../styles/DeleteModal.module.css";
+import MyButtons from "./MyButtons";
 
 function DeleteModal(props) {
   const { title, text, button_onclick, button_text, show, handleClose } = props;
@@ -18,10 +18,7 @@ function DeleteModal(props) {
 
         <Modal.Footer>
           {
-            <Button className={btnStyles.Buttons} onClick={handleClose}>
-              {" "}
-              Cancel{" "}
-            </Button>
+            <MyButtons grey text="Cancel" on_click={handleClose}/>
           }
           {
             <Button className={styles.DeleteButtons} onClick={button_onclick}>

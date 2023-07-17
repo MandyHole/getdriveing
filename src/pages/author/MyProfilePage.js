@@ -49,7 +49,7 @@ const MyProfilePage = () => {
         <Col md={{ span: 8, offset: 1 }} className={appStyles.MainContent}>
           <h3 className={appStyles.ContentHeader}>Tips I Have Added</h3>
           <div className={appStyles.Center}>
-            <Dropdown as={ButtonGroup} className={btnStyles.DropdownButton}>
+            {/* <Dropdown as={ButtonGroup} className={btnStyles.DropdownButton}>
               <Button className={btnStyles.DropdownText}>Sort the tips</Button>
 
               <Dropdown.Toggle
@@ -78,7 +78,7 @@ const MyProfilePage = () => {
                 <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
                 <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
               </Dropdown.Menu>
-            </Dropdown>
+            </Dropdown> */}
           </div>
           {currentUser ? (
           <TipsFeed filter={`owner__author=${currentUser.pk}&`}/>) : (null)}

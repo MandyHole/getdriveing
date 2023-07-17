@@ -3,19 +3,16 @@ import styles from "../../styles/CreateUpdateTipForms.module.css";
 import Form from "react-bootstrap/Form";
 import Image from "react-bootstrap/Image";
 import Alert from "react-bootstrap/Alert";
-import Button from "react-bootstrap/Button";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
-import {
-  useCurrentUser,
-} from "../../contexts/CurrentUserContext";
+import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { useHistory } from "react-router-dom";
-import btnStyles from "../../styles/Buttons.module.css";
 import { axiosReq } from "../../api/axiosDefaults";
 import HeroComponent from "../../components/HeroComponent";
 import boxStyles from "../../styles/HeroComponent.module.css";
 import appStyles from "../../App.module.css";
+import MyButtons from "../../components/MyButtons";
 
 const CreateTipForm = () => {
   const currentUser = useCurrentUser();
@@ -130,7 +127,7 @@ const CreateTipForm = () => {
                     ref={categoryInput}
                     aria-label="Drive and PDF"
                   />
-                  
+
                   <Form.Check
                     type="radio"
                     label="Sheets"
@@ -140,8 +137,9 @@ const CreateTipForm = () => {
                     onChange={handleChangeCategory}
                     ref={categoryInput}
                     aria-label="Google Sheets"
-                  /></div>
-                  <div className={appStyles.Center}>
+                  />
+                </div>
+                <div className={appStyles.Center}>
                   <Form.Check
                     type="radio"
                     label="Docs"
@@ -193,7 +191,9 @@ const CreateTipForm = () => {
                     onChange={handleChangeAbility}
                     ref={abilityInput}
                     aria-label="Beginner+"
-                  /></div> <div className={appStyles.Center}>
+                  />
+                </div>{" "}
+                <div className={appStyles.Center}>
                   <Form.Check
                     type="radio"
                     label="Intermediate+"
@@ -203,7 +203,9 @@ const CreateTipForm = () => {
                     onChange={handleChangeAbility}
                     ref={abilityInput}
                     aria-label="Intermediate+"
-                  /></div> <div className={appStyles.Center}>
+                  />
+                </div>{" "}
+                <div className={appStyles.Center}>
                   <Form.Check
                     type="radio"
                     label="Advanced"
@@ -248,7 +250,6 @@ const CreateTipForm = () => {
                   className={`${styles.FileUpload} mx-auto d-block `}
                   type="file"
                   accept="image/*"
-                  // id="screenshot_upload"
                   onChange={handleChangeScreenshot}
                   ref={screenshotInput}
                 />
@@ -269,20 +270,8 @@ const CreateTipForm = () => {
                   {message}
                 </Alert>
               ))}
-              <div className={btnStyles.CenterButtons}>
-                <Button
-                  className={`${btnStyles.Buttons} ${btnStyles.HeroButtons}`}
-                  type="submit"
-                >
-                  Create
-                </Button>
-                <Button
-                  className={`${btnStyles.Buttons} ${btnStyles.HeroButtons}`}
-                  onClick={() => history.goBack()}
-                >
-                  Cancel
-                </Button>
-              </div>
+              <MyButtons text="Create" submit />
+              <MyButtons grey text="Cancel" on_click={() => history.goBack()} />
               {errors.non_field_errors?.map((message, idx) => (
                 <Alert variant="warning" key={idx} className="mt-3">
                   {message}
