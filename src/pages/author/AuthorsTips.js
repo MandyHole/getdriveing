@@ -1,13 +1,13 @@
 import React, { useEffect } from "react";
-import TipsFeed from '../../components/TipsFeed'
-import HeroComponent from '../../components/HeroComponent'
-import { useParams } from 'react-router-dom/cjs/react-router-dom'
+import TipsFeed from '../tips/TipsFeed';
+import HeroComponent from '../../components/HeroComponent';
+import { useParams } from 'react-router-dom/cjs/react-router-dom';
 import { useState } from "react";
 import { axiosReq } from "../../api/axiosDefaults";
 import MyInfo from "../../components/MyInfo";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import appStyles from '../../App.module.css'
+import appStyles from '../../App.module.css';
 import MySpinner from "../../components/MySpinner";
 // import { useCurrentUser } from "../../contexts/CurrentUserContext";
 

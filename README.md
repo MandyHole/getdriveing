@@ -270,6 +270,8 @@ and the <a href="https://res.cloudinary.com/dd4cchm7g/image/upload/v1689453091/S
 | Home Link in Navbar | Reloads Home page | Clicked link | Home page reloads | Pass |
 | Sign In Link in Navbar | Go to /sign-in | Clicked link | Went to sign in page | Pass |
 | Sign Up Link in Navbar | Go to /sign-up | Clicked link | Went to sign up page | Pass |
+| Collapsible Hamburger Menu | Appears on narrow screens | Reduced width | Collapsible Hamburger menu present | Pass |
+
 
 `NavBar- logged in`
 
@@ -281,6 +283,8 @@ and the <a href="https://res.cloudinary.com/dd4cchm7g/image/upload/v1689453091/S
 | Add a Tip Link in Navbar | Go to /tips/create | Clicked link | Went to /tips/create | Pass |
 | My Info Link in Navbar | Go to /my-info | Clicked link | Went to /my-info | Pass |
 | Logout Link in Navbar | logout and redirect to home | Clicked link | logged out and at / | Pass |
+| Collapsible Hamburger Menu | Appears on narrow screens | Reduced width | Collapsible Hamburger menu present | Pass |
+
 
 `Footer`
 
@@ -311,3 +315,204 @@ and the <a href="https://res.cloudinary.com/dd4cchm7g/image/upload/v1689453091/S
 | New credentials work | supplied credentials work on /sign-in page | Used supplied credentials | logged in successfully | Pass |
 | Link to Sign In | Got to /sign-in | Clicked link | went to /sign-in | Pass |
 | Redirects to home | Visiting /sign-up when logged in redirects user to homepage  | Visited /sign-up when logged in | went to / | Pass |
+
+`My Info page`
+
+| Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
+| --- | --- | --- | --- | --- |
+| Logged in user name appears in header | When logged in, username appears | Visited page when logged in | saw username | Pass |
+| Tips created appear  | When logged in, any tips a user has added appears in feed| Visited page when logged in with a user who had added tips | saw just tips that user added | Pass |
+| No results found error  | When logged in, user sees a No results message if they haven't written any tips | Visited page when logged in with a user who had not added tips | saw no results found | Pass |
+| Edit profile button  | When logged in, link to edit profile takes you to /authors/{currentUser.id}/edit| Clicked link | went to /authors/{currentUser.id}/edit | Pass |
+| Prompts user to login | Visiting /my-info when not logged in gives message with buttons to sign in / sign up  | Visited /my-info when not logged in | saw message with sign in / sign up buttons | Pass |
+
+`Homepage: not logged in`
+
+| Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
+| --- | --- | --- | --- | --- |
+| Sign Up button: hero | When clicked, go to /sign-up | Clicked button | went to /sign-up | Pass |
+| Sign In button:hero | When clicked, go to /sign-in | Clicked button | went to /sign-in | Pass |
+| Tips Feed | Displays all tips from newest to oldest | Reviewed tips vs database | Showed all tips from newest to oldest | Pass |
+| Sign Up button: sidebar | When clicked, go to /sign-up | Clicked button | went to /sign-up | Pass |
+| Sign In button: sidebar | When clicked, go to /sign-in | Clicked button | went to /sign-in | Pass |
+
+
+`Homepage: logged in`
+
+| Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
+| --- | --- | --- | --- | --- |
+| Logged in user name appears in header | When logged in, username appears | Visited page when logged in | saw username | Pass |
+| Add a tip button | When clicked, go to /tips/create | Clicked button | went to /tips/create | Pass |
+| My Info button | When clicked, go to /my-info | Clicked button | went to /my-info | Pass |
+| Tips Feed | Displays all tips from newest to oldest | Reviewed tips vs database | Showed all tips from newest to oldest | Pass |
+| CurrentUser profile | Current user info shows up in grey sidebar | Visited when logged in | saw current user's profile info | Pass |
+| Edit profile button: sidebar | When clicked, go to  /authors/{currentUser.id}/edit | Clicked button | went to  /authors/{currentUser.id}/edit | Pass |
+
+`Add a tip page`
+
+| Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
+| --- | --- | --- | --- | --- |
+| Logged in user name appears in header | When logged in, username appears | Visited page when logged in | saw username | Pass |
+| Prompts user to login | Visiting /tips/create when not logged in gives message with buttons to sign in / sign up  | Visited /tips/create when not logged in | saw message with sign in / sign up buttons | Pass |
+| Title mandatory | If not completed, get form error | Submitted without title | worked | FAIL |
+| Category mandatory | If not completed, get form error | Submitted without category | set default category | FAIL |
+| Ability mandatory | If not completed, get form error | Submitted without ability | set default ability | FAIL |
+| Tip Content | If not completed, get form error | Submitted without content | worked | FAIL |
+| Screenshot | Can submit without a screenshot | Submitted without content | failed | FAIL |
+
+`Saved Tips page`
+
+| Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
+| --- | --- | --- | --- | --- |
+| Logged in user name appears in header | When logged in, username appears | Visited page when logged in | saw username | Pass |
+| Only saved tips appear  | When logged in, only tips a user has saved appears in feed| Visited page when logged in with a user who had saved tips | XXX | FAIL |
+| No results found error  | When logged in, user sees a No results message if they haven't saved any tips | Visited page when logged in with a user who had not saved tips | XXX | Fail |
+| Edit profile button  | When logged in, link to edit profile takes you to /authors/{currentUser.id}/edit| Clicked link | went to /authors/{currentUser.id}/edit | Pass |
+| Prompts user to login | Visiting /saved when not logged in gives message with buttons to sign in / sign up  | Visited /saved when not logged in | saw message with sign in / sign up buttons | Pass |
+
+`Tip Details Page`
+
+| Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
+| --- | --- | --- | --- | --- |
+| See Tip Details | Regardless of logged in / owner status, see tip info | Visited page when logged in/out & owner/not | saw Tip name, category, ability, average ratings, times saved, screenshot and content | Pass |
+| See Tip Details - logged out | Only screenshot appears in left menu | Visited page when logged out | only saw screenshot in left menu | Pass |
+| See Tip Details - logged in (not owner) | Rating and Saved Buttons appear in left menu | Visited a tip I didn't own when logged in | saw rating / saved buttons | Pass |
+| See Tip Details - logged in and owner | Edit and delete tip options appear in left menu | Visited a tip I owned when logged in | saw edit/delete buttons | Pass |
+| Rating Button (current users, not owner) | Rating takes effect if I select stars and click 'Rate this tip' | Rated a tip I hadn't rated before | Average rating updated | Pass |
+| Edit Rating Button (current users, not owner) | Edit Rating appears if I already rated this tip | Visited a tip I had already rated | xxx | FAIL |
+| Saved Button (current users, not owner) | Number of times saved increases by 1 and tip appears on saved tips page | Saved a tip | Number of times saved increased by one, but filter not correct on saved tips page | FAIL |
+| Unsave Button (current users, not owner) | Un-save button appears if I already saved this tip | Visited a tip I had already saved | unsave button present | pass |
+| Unsave Button (current users, not owner) | Un-save button reduces times saved by 1 and removes it from the saved tips page| Clicked upsave button | Number of times saved reduced by 1, but the button still appears on the saved tips page | FAIL |
+| Edit Tip Button (current users, owner) | Sends user to /tips/{tip.id}/edit | Clicked edit tip button | went to /tips/{tip.id}/edit | pass |
+| Delete Tip Button (current users, owner) | Opens Delete Tip Modal | Clicked delete tip button | modal with delete options appeared | pass |
+| Delete Tip: delete modal - cancel | The delete modal cancel button closes modal without action | Click cancel on modal | delete modal disappears, nothing changed | pass |
+| Delete Tip: delete modal - delete | The delete modal delete comment button deletes tip and sends user to /my-info | Click delete comment button on modal | tip is gone and redirected to /my-info | pass |
+| Comment Form: logged in | form appears to allow logged in users to make a comment | Visited page when logged in | saw form to make comment | Pass |
+| Comment Form: content mandatory | comment form (logged in users only) requires content to submit | Submitted form without content | Didn't work | Pass |
+| Comment Form: submits successfully | successfully submitted comment form (logged in users only) puts comment in Previous Comment section  | Submitted form successfully | Content appeared in Previous Comment section | Pass |
+| Previous Comments | Regardless of logged in / owner status, see any previous comments | Visited page when logged in/out & owner/not | saw comments that had been made | Pass |
+| Other user's Previous Comments: content | Previous comments written by other users show comment, username, avatar and when created | Inspect previous comment by another user on a page | saw comment, username, when created but not correct avatar | FAIL |
+| Current user's Previous Comments: content | My comments show my comment, avatar, when I created it and edit/delete buttons | Inspect my previous comment | saw comment, when I created it, edit/delete buttons but not correct avatar | FAIL |
+| Current user's Previous Comments: edit | The edit button on the previous comment goes to /comments/{comment_id}/edit | Click edit button | went to /comments/24/edit | pass |
+| Current user's Previous Comments: delete | The delete button on the previous comment goes to a modal | Click delete button | delete modal appeared | pass |
+| Previous Comments: delete modal - cancel | The delete modal cancel button closes modal without action | Click cancel on modal | delete modal disappears, nothing changed | pass |
+| Previous Comments: delete modal - delete | The delete modal delete comment button closes modal and deletes tip | Click delete comment button on modal | delete modal disappears, comment is gone | pass |
+| Previous Comments - make the first | If no comments have been made, logged in users are invited to make the first | Visited page without any comments when logged in | saw message to write the first comment | Pass |
+| Previous Comments - no comments | If no comments have been made, logged out users are told no comments have been made | Visited page without any comments when logged out | saw message that there were no comments | Pass |
+| Author details | The tip's author information is in the grey sidebar | Visited tips with different authors | author info updated to be that of the author | Pass |
+| Author details (user not author): author's tips | If tip author isn't current user, a 'Author's tips' button appears to send users to /authors/{author.id} | Visited tip I didn't own and clicked on Author's Tips button | went to /authors/{author.id} | Pass |
+| Author details (user is author) | If author is current user, a 'Edit profile' button appears to send users to /authors/{author.id}/edit | Visited tip I owned and clicked on 'Edit Profile' button | went to /authors/{author.id}/edit | Pass |
+
+
+`Edit Comment page`
+
+| Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
+| --- | --- | --- | --- | --- |
+| Comment owner's username appears in header | Comment ower's name appears | Edited comment I owned | saw username | Pass |
+| Pre-populated form | Text from original comment appears | Visited page | saw original comment | Pass |
+| Edit content | Content can be edited | Tried to edit content | worked | Pass |
+| Save changes button | Updates content to new text and sends people back to previous page | Clicked saved changes | went back to associated tip and saw updated text | Pass |
+| Cancel button | Go back to previous page without making changes to content | Clicked cancel button | went back to associated tip and saw original text | Pass |
+| Visit page (not owner) | Visiting a comment edit tip of a comment you didn't make sends you back to previous page | Tried to edit comment I didn't own | was sent back to previous page | Pass |
+
+`Author's Tips page`
+
+| Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
+| --- | --- | --- | --- | --- |
+| Author's username  | username appears in header | Visited page for particular author | saw that author's username | Pass |
+| Only author's tips appear  | only tips that author has created appears in feed | checked feed | only author's tips were there | pass |
+
+`Edit Profile page`
+
+| Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
+| --- | --- | --- | --- | --- |
+| Visit page (not owner) | Visiting a edit profile page that you don't own sends you back to previous page | Tried to edit profile I didn't own | was sent back to previous page | Pass |
+| Author's username  | username appears in header | Visited edit profile page for current user | saw my username | Pass |
+| Pre-populated form | Any text already provided is present | Visited edit page for a profile I had already edited | saw existing content | Pass |
+| Name field | Not mandatory | Submitted without a name | successfully submitted | Pass |
+| Bio field | Not mandatory | Submitted without a bio | successfully submitted | Pass |
+| Image field | Mandatory | Existing default or chose image must be used | image has to be chosen | Pass |
+| Save changes button | Updates content and sends people to / | Clicked saved changes button | New text appears; redirected to / | Pass |
+| Cancel button | Sends people to previous page | Clicked cancel button | no change to content; back on previous page | Pass |
+
+
+`Tip Feeds`
+| Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
+| --- | --- | --- | --- | --- |
+| Search field | Searches only results in current field for title/content | Searched content in My Info page | Was only shown results for that feed | Pass |
+| Search - no results | Searches without a result yield a no results message | Searched non-existent content | Was shown no results message | Pass |
+| Tip Overview | Each tip shows basic info | Examined tip overview | Saw title, category, ability, times saved, average rating, and start of tip content | Pass |
+| Tip - edit | Edit button only appears on tips owned by current user | checked tips owned by current user for button and tips owned by others to see it wasn't there | Edit only appeared on owned tips; clicked button and went to /tips{id}/edit | Pass |
+| Read Tip button | Read tip button takes to that tips detail page | Clicked button | went to /tips{id} | Pass |
+| Filters |  |  |  | FAIL |
+| Sort |  |  |  | FAIL |
+
+
+<h3 id="further-testing">Further Testing</h3>
+The Website was tested on Google Chrome and Safari browsers.
+
+The website was viewed on a variety of devices including Laptop, iPhone, android phone and iPad tablet.
+
+Testing was done to ensure that all database additions/updates were working correctly.
+
+Testing was done to ensure that the site deployed by Heroku matched the local version on Gitpod.
+
+Friends and family members were asked to review the site and documentation to point out any bugs and/or user experience issues.
+
+<h3 id="fixed-bugs">Key Fixed Bugs</h3>
+I kept getting errors in the terminal related to the Babel plugin. I ran " npm install --save-dev @babel/plugin-proposal-private-property-in-object --legacy-peer-deps " in the terminal which sorted the issue (with thanks to https://stackoverflow.com/questions/76435306/babel-preset-react-app-is-importing-the-babel-plugin-proposal-private-propert ) 
+
+I had an issue with Heroku not deploying due to issues with memory ( with thanks to 
+https://bismobaruno.medium.com/fixing-memory-heap-reactjs-on-heroku-16910e33e342 )
+
+<h3 id="known-bugs">Areas to Improve</h3>
+
+Add infinite scroll to Tip Feed if it proves to be popular.
+
+Add the facility for people to get a password reminder if needed.
+
+<h2 id="deploy"> Deployment & Local Development</h2>
+
+<h3 id="deployment">Deployment</h3>
+This project was deployed through Heroku (live link found here: <a href="https://get-drive-ing-36f2443ac236.herokuapp.com/" target="new" aria-label="Deployed site">https://get-drive-ing-36f2443ac236.herokuapp.com/)</a> using the following steps:
+<ol>
+<li>Login / Sign up to Heroku</li>
+<li>Click New -- Create New App</li>
+<li>Name your app (must be unique), select your nearest revious and click “Create app” to confirm.</li>
+<li>Click Deploy in the Heroku App dashboard - then deploy via Github - connect to the repository, scroll down and click on deploy branch</li>
+</ol>
+
+<h3 id="fork">How to fork this repo</h3>
+
+Visit the repo (https://github.com/MandyHole/getdriveing) and click the 'Fork' button in the top right part of the screen. You may need to sign in to Github.
+
+<h3 id="clone">How to clone this repo</h3>
+
+Visit the repo (https://github.com/MandyHole/getdriveing) and click the green 'Code' button above the list of files. Click on the 'local' and select from the following options: HTTPS, SSH and GitHub CLI. Copy the link. Open the terminal in your code editor, ensuring the current working directory is where you want the files, and type git clone and paste in the copied URL before clicking enter.
+
+<h2 id="credits"> Credits</h2>
+
+<h3 id="code"> Code</h3>
+
+React Bootstrap: To complement custom css for layout, navigation, forms, buttons, etc.
+React: To build the User Interface
+Django: To build the database
+Inspiration for the project, in particular with using Django Rest Frameworks and React: Code Institute
+https://www.w3schools.com/howto/howto_css_animate_buttons.asp
+https://cssgradient.io/: to get the blue gradient used in headers
+https://www.positronx.io/react-material-ui-star-rating-component-example-tutorial/: star rating
+https://stackoverflow.com/questions/46820682/how-do-i-reload-a-page-with-react-router: force pages to reload when updated
+https://www.kindacode.com/article/react-router-dom-scroll-to-top-on-route-change/?utm_content=cmp-true: force pages to go to start of pages
+
+
+<h3 id="content"> Content</h3>
+All content was written by the developer and any author contributors.
+
+Colour scheme: Inspired by Google
+
+<h3 id="media"> Media</h3>
+Default Profile Image: Image by Stephanie Edwards from Pixabay
+https://pixabay.com/vectors/blank-profile-picture-mystery-man-973460/
+
+https://favicon.io/favicon-converter/ for converting my image to a favicon
+

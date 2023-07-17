@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import HeroComponent from "../components/HeroComponent";
-import TipsFeed from "../components/TipsFeed";
+import TipsFeed from "../pages/tips/TipsFeed";
 import Row from "react-bootstrap/Row";
 import Button from "react-bootstrap/Button";
 import Col from "react-bootstrap/Col";

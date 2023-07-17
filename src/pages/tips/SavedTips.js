@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import HeroComponent from '../../components/HeroComponent'
-import TipsFeed from '../../components/TipsFeed'
+import TipsFeed from './TipsFeed'
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { useCurrentUser } from '../../contexts/CurrentUserContext';
@@ -59,11 +59,11 @@ const SavedTips = () => {
         </Col>
 
 
-        
-        <MyInfo  
+        {currentUser && <>    <MyInfo  
         {...tips.results[0]} setTips = {setTips}
         {...authors.results[0]} setAuthors = {setAuthors}
-        filter={currentUser?.pk} />
+        filter={currentUser?.pk} /></>}
+    
 
 
 </Row></>) : (<MySpinner/>)}

@@ -8,7 +8,7 @@ import heroStyles from "../../styles/HeroComponent.module.css";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
 import Dropdown from "react-bootstrap/Dropdown";
 import HeroComponent from "../../components/HeroComponent";
-import TipsFeed from "../../components/TipsFeed";
+import TipsFeed from "../tips/TipsFeed";
 import MyInfo from "../../components/MyInfo";
 import appStyles from "../../App.module.css"
 import { useState } from "react";
@@ -47,7 +47,7 @@ const MyProfilePage = () => {
       />
       <Row>
         <Col md={{ span: 8, offset: 1 }} className={appStyles.MainContent}>
-          <h3 className={appStyles.ContentHeader}>My Tips</h3>
+          <h3 className={appStyles.ContentHeader}>Tips I Have Added</h3>
           <div className={appStyles.Center}>
             <Dropdown as={ButtonGroup} className={btnStyles.DropdownButton}>
               <Button className={btnStyles.DropdownText}>Sort the tips</Button>
