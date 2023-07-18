@@ -16,10 +16,6 @@ const PreviousComments = (props) => {
   const owns_comment = currentUser?.username === owner;
   const history = useHistory();
   const [showEditForm, setShowEditForm] = useState(false);
-  const handleEditComment = () => {
-    history.push(`/comments/${id}/edit`);
-  };
-
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);

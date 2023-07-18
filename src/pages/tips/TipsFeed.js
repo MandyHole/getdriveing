@@ -8,6 +8,8 @@ import InputGroup from "react-bootstrap/InputGroup";
 import NoResultsFound from "../../components/NoResultsFound";
 import TipCards from "./TipCards";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
+import InfiniteScroll from "react-infinite-scroll-component";
+import { fetchMoreData } from "../../utils/utils";
 
 
 const TipsFeed = ({ filter = "" }) => {
@@ -58,9 +60,19 @@ const TipsFeed = ({ filter = "" }) => {
       {hasLoaded ? (
         <>
           {tips.results.length ? (
-            tips.results.map((tip) => (
-                         <TipCards key={tip.id} {...tip}/>
-            ))
+            <InfiniteScroll 
+            children ={tips.results.map((tip) => (
+              <TipCards key={tip.id} {...tip}     /> )) }
+              dataLength={tips.results.length}
+              loader={MySpinner}
+              hasMore={!!tips.next}
+              next={() => fetchMoreData(tips, setTips)}
+             
+
+           
+            />
+            
+       
           ) : (
             <NoResultsFound />
           )}

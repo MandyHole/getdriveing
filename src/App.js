@@ -66,15 +66,7 @@ function App() {
               </>
             )}
           />
-          <Route
-            exact
-            path="/comments/:id/edit"
-            render={() => (
-              <>
-                <EditCommentForm />
-              </>
-            )}
-          />
+        
           <Route
             exact
             path="/tips/:id"

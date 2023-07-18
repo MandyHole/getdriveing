@@ -21,6 +21,9 @@ import CreateRating from "../rating/CreateRatingForm";
 import MyButtons from "../../components/MyButtons";
 import EditRatingForm from "../rating/EditRatingForm";
 import CurrentRating from "../rating/CurrentRating";
+import InfiniteScroll from "react-infinite-scroll-component";
+import { fetchMoreData } from "../../utils/utils";
+
 
 function TipDetailPage() {
   const currentUser = useCurrentUser();
@@ -346,9 +349,15 @@ function TipDetailPage() {
                         : "No comments have been made yet"}
                     </p>
                     {comments.results.length
-                      ? comments.results.map((comment) => (
+                      ? (<InfiniteScroll 
+                        children={comments.results.map((comment) => (
                           <PreviousComments key={comment.id} {...comment} />
-                        ))
+                        ))}
+                        dataLength={comments.results.length}
+                        loader={MySpinner}
+                        hasMore={!!comments.next}
+                        next={() => fetchMoreData(comments, setComments)} />)
+
                       : null}{" "}
                   </section>
                 </Col>
