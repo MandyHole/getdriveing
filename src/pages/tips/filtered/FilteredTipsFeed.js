@@ -1,20 +1,21 @@
 import React, { useEffect, useState } from "react";
-import styles from "../../styles/TipsFeedCards.module.css";
+import styles from "../../../styles/TipsFeedCards.module.css";
 import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
-import { axiosReq } from "../../api/axiosDefaults";
-import MySpinner from "../../components/MySpinner";
+import { axiosReq } from "../../../api/axiosDefaults";
+import MySpinner from "../../../components/MySpinner";
 import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
-import NoResultsFound from "../../components/NoResultsFound";
-import TipCards from "./TipCards";
-import { useCurrentUser } from "../../contexts/CurrentUserContext";
+import NoResultsFound from "../../../components/NoResultsFound";
+import TipCards from "../TipCards";
+import { useCurrentUser } from "../../../contexts/CurrentUserContext";
 import InfiniteScroll from "react-infinite-scroll-component";
-import { fetchMoreData } from "../../utils/utils";
+import { fetchMoreData } from "../../../utils/utils";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
 import Dropdown from "react-bootstrap/Dropdown";
 import DropdownButton from 'react-bootstrap/DropdownButton';
 
-const TipsFeed = ({ filter = "" }) => {
+const FilteredTipsFeed = (props) => {
+  const { filter = "", category_value="" } = props
   const [tips, setTips] = useState({ results: "" });
   const [hasLoaded, setHasLoaded] = useState(false);
   const { pathname } = useLocation();
@@ -42,8 +43,7 @@ const TipsFeed = ({ filter = "" }) => {
 
   return (
     <div className={styles.MainContainer}>
-      {" "}
-      <div className={styles.FilterBtn}>
+     <div className={styles.FilterBtn}>
       <DropdownButton
             as={ButtonGroup}
             key="sort"
@@ -79,17 +79,22 @@ const TipsFeed = ({ filter = "" }) => {
       </Form>
       {hasLoaded ? (
         <>
-          {tips.results.length ? (
+           {tips.results.length ? (
             <InfiniteScroll
-              children={tips.results.map((tip) => (
+              children={tips.results.map((tip) => (<>
+{`${tip.category}`===category_value &&
                 <TipCards key={tip.id} {...tip} />
-              ))}
+               }</>   )
+            
+              )
+                               
+                               }
               dataLength={tips.results.length}
               loader={MySpinner}
               hasMore={!!tips.next}
               next={() => fetchMoreData(tips, setTips)}
-            />
-          ) : (
+            />)
+           : (
             <NoResultsFound />
           )}
         </>
@@ -100,4 +105,4 @@ const TipsFeed = ({ filter = "" }) => {
   );
 };
 
-export default TipsFeed;
+export default FilteredTipsFeed;

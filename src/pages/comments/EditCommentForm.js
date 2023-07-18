@@ -2,21 +2,13 @@ import React, { useState, useEffect } from "react";
 import styles from "../../styles/CommentForm.module.css";
 import Form from "react-bootstrap/Form";
 import Alert from "react-bootstrap/Alert";
-import Col from "react-bootstrap/Col";
-import Row from "react-bootstrap/Row";
-import Container from "react-bootstrap/Container";
-import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { useHistory } from "react-router-dom";
 import { axiosReq } from "../../api/axiosDefaults";
-import { useParams } from "react-router-dom/cjs/react-router-dom";
-import HeroComponent from "../../components/HeroComponent";
 import PageNotFound from "../PageNotFound";
 import MySpinner from "../../components/MySpinner";
 import MyButtons from "../../components/MyButtons";
 
-const EditCommentForm = ({id, setShowEditForm}) => {
-  const currentUser = useCurrentUser();
-  // const { id } = useParams();
+const EditCommentForm = ({ id, setShowEditForm }) => {
   const history = useHistory();
   const [comments, setComments] = useState({ results: [] });
   const [hasLoaded, setHasLoaded] = useState(false);
@@ -70,37 +62,37 @@ const EditCommentForm = ({id, setShowEditForm}) => {
       {hasLoaded ? (
         <>
           {comments.results.length ? (
-                      <Form
-                        onSubmit={handleSubmit}
-                        className={styles.FormMarginTop}
-                      >
-                        <Form.Group className="mb-3" controlId="content">
-                          <Form.Label className="d-none">Comment</Form.Label>
-                          <Form.Control
-                            className={styles.Input}
-                            type="text"
-                            placeholder="Write a comment"
-                            name="content"
-                            value={content}
-                            onChange={handleChange}
-                          />
-                        </Form.Group>
-                        {errors.content?.map((message, idx) => (
-                          <Alert variant="warning" key={idx}>
-                            {message}
-                          </Alert>
-                        ))}
-                        <div className={styles.Center}>
-                              <MyButtons text="Save Changes" submit/>{" "}
-                      <MyButtons grey text="Cancel" on_click={() => setShowEditForm(false)}/>
-                      </div>
-                        {errors.non_field_errors?.map((message, idx) => (
-                          <Alert variant="warning" key={idx} className="mt-3">
-                            {message}
-                          </Alert>
-                        ))}
-                      </Form>
-
+            <Form onSubmit={handleSubmit} className={styles.FormMarginTop}>
+              <Form.Group className="mb-3" controlId="content">
+                <Form.Label className="d-none">Comment</Form.Label>
+                <Form.Control
+                  className={styles.Input}
+                  type="text"
+                  placeholder="Write a comment"
+                  name="content"
+                  value={content}
+                  onChange={handleChange}
+                />
+              </Form.Group>
+              {errors.content?.map((message, idx) => (
+                <Alert variant="warning" key={idx}>
+                  {message}
+                </Alert>
+              ))}
+              <div className={styles.Center}>
+                <MyButtons text="Save Changes" submit />{" "}
+                <MyButtons
+                  grey
+                  text="Cancel"
+                  on_click={() => setShowEditForm(false)}
+                />
+              </div>
+              {errors.non_field_errors?.map((message, idx) => (
+                <Alert variant="warning" key={idx} className="mt-3">
+                  {message}
+                </Alert>
+              ))}
+            </Form>
           ) : (
             <div>
               <PageNotFound />

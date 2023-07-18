@@ -38,7 +38,7 @@ const TipCards = (props) => {
               {category === "docs" && "Google Docs:"}
               {category === "sheets" && "Google Sheets:"}
               {category === "forms" && "Google Forms:"}
-              {category === "slides" && "Google Slide:"}
+              {category === "slides" && "Google Slides:"}
 
               {ability === "beginner" && " Beginner+"}
               {ability === "intermediate" && " Intermediate+"}

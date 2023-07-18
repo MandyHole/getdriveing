@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
-import HeroComponent from '../../components/HeroComponent'
-import TipsFeed from './TipsFeed'
+import HeroComponent from '../../../components/HeroComponent'
+import TipsFeed from '../TipsFeed'
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import { useCurrentUser } from '../../contexts/CurrentUserContext';
-import MyInfo from '../../components/MyInfo';
-import { axiosReq } from "../../api/axiosDefaults";
-import styles from "../../styles/SavedTips.module.css";
-import MySpinner from "../../components/MySpinner";
+import { useCurrentUser } from '../../../contexts/CurrentUserContext';
+import MyInfo from '../../../components/MyInfo';
+import { axiosReq } from "../../../api/axiosDefaults";
+import styles from "../../../styles/FilteredTips.module.css";
+import MySpinner from "../../../components/MySpinner";
 
 
 const SavedTips = () => {

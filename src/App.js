@@ -10,15 +10,19 @@ import CreateTipForm from "./pages/tips/CreateTipForm";
 import TipDetailPage from "./pages/tips/TipDetailPage";
 import Footer from "./components/Footer";
 import EditTipForm from "./pages/tips/EditTipForm";
-import EditCommentForm from "./pages/comments/EditCommentForm";
 import ScrollToTop from "./components/ScrollToTop";
 import Homepage from "./pages/Homepage";
 import EditProfileForm from "./pages/author/EditProfileForm";
 import HeroComponent from "./components/HeroComponent";
-import SavedTips from "./pages/tips/SavedTips";
+import SavedTips from "./pages/tips/filtered/SavedTips";
 import PageNotFound from "./pages/PageNotFound";
 import AuthorsTips from "./pages/author/AuthorsTips";
 import EditRating from "./pages/rating/EditRatingForm";
+import GoogleSlidesPage from "./pages/tips/filtered/GoogleSlidesPage";
+import GoogleDocs from "./pages/tips/filtered/GoogleDocsPage";
+import GoogleForms from "./pages/tips/filtered/GoogleFormsPage";
+import GoogleSheets from "./pages/tips/filtered/GoogleSheetsPage";
+import GoogleDrive from "./pages/tips/filtered/GoogleDrivePage";
 
 function App() {
   return (
@@ -118,6 +122,51 @@ function App() {
             render={() => (
               <>
                 <EditProfileForm />
+              </>
+            )}
+          />
+          <Route
+            exact
+            path="/docs"
+            render={() => (
+              <>
+                <GoogleDocs />
+              </>
+            )}
+          />
+                    <Route
+            exact
+            path="/slides"
+            render={() => (
+              <>
+                <GoogleSlidesPage />
+              </>
+            )}
+          />
+          <Route
+            exact
+            path="/forms"
+            render={() => (
+              <>
+                <GoogleForms />
+              </>
+            )}
+          />
+                    <Route
+            exact
+            path="/sheets"
+            render={() => (
+              <>
+                <GoogleSheets />
+              </>
+            )}
+          />
+                              <Route
+            exact
+            path="/drive"
+            render={() => (
+              <>
+                <GoogleDrive />
               </>
             )}
           />
