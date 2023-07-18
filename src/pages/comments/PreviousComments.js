@@ -8,12 +8,14 @@ import { useState } from "react";
 import DeleteModal from "../../components/DeleteModal";
 import { axiosRes } from "../../api/axiosDefaults";
 import MyButtons from "../../components/MyButtons";
+import EditCommentForm from "./EditCommentForm";
 
 const PreviousComments = (props) => {
   const { owner, content, updated_at, id } = props;
   const currentUser = useCurrentUser();
   const owns_comment = currentUser?.username === owner;
   const history = useHistory();
+  const [showEditForm, setShowEditForm] = useState(false);
   const handleEditComment = () => {
     history.push(`/comments/${id}/edit`);
   };
@@ -52,12 +54,14 @@ const PreviousComments = (props) => {
       {owns_comment && (
         <>
           <p className={styles.CommentDate}>
+          {showEditForm ? (<EditCommentForm id={id} setShowEditForm={setShowEditForm} />) :null}
             <em>I updated this comment {updated_at}</em>
           </p>
           <div className={styles.CenterButtons}>
-            <MyButtons edit_btn on_click={handleEditComment} />
+            <MyButtons edit_btn on_click={() => setShowEditForm(true)} />
             <MyButtons delete_btn on_click={handleShow} />
           </div>
+
         </>
       )}
       <DeleteModal

@@ -14,9 +14,9 @@ import PageNotFound from "../PageNotFound";
 import MySpinner from "../../components/MySpinner";
 import MyButtons from "../../components/MyButtons";
 
-const EditCommentForm = () => {
+const EditCommentForm = ({id, setShowEditForm}) => {
   const currentUser = useCurrentUser();
-  const { id } = useParams();
+  // const { id } = useParams();
   const history = useHistory();
   const [comments, setComments] = useState({ results: [] });
   const [hasLoaded, setHasLoaded] = useState(false);
@@ -56,13 +56,13 @@ const EditCommentForm = () => {
     formData.append("content", content);
     try {
       await axiosReq.put(`/comments/${id}/`, formData);
-      history.goBack();
     } catch (err) {
       // console.log(err);
       if (err.response?.status !== 401) {
         setErrors(err.response?.data);
       }
     }
+    history.go(0);
   };
 
   return (
@@ -70,16 +70,6 @@ const EditCommentForm = () => {
       {hasLoaded ? (
         <>
           {comments.results.length ? (
-            <>
-              <HeroComponent
-                h1={`Edit your Comment, ${currentUser?.username
-                  .charAt(0)
-                  .toUpperCase()}${currentUser?.username.slice(1)}`}
-              />
-              <>
-                <Container fluid="lg">
-                  <Row>
-                    <Col lg={{ span: 8, offset: 2 }}>
                       <Form
                         onSubmit={handleSubmit}
                         className={styles.FormMarginTop}
@@ -102,7 +92,7 @@ const EditCommentForm = () => {
                         ))}
                         <div className={styles.Center}>
                               <MyButtons text="Save Changes" submit/>{" "}
-                      <MyButtons grey text="Cancel" on_click={() => history.goBack()}/>
+                      <MyButtons grey text="Cancel" on_click={() => setShowEditForm(false)}/>
                       </div>
                         {errors.non_field_errors?.map((message, idx) => (
                           <Alert variant="warning" key={idx} className="mt-3">
@@ -110,11 +100,7 @@ const EditCommentForm = () => {
                           </Alert>
                         ))}
                       </Form>
-                    </Col>
-                  </Row>
-                </Container>{" "}
-              </>
-            </>
+
           ) : (
             <div>
               <PageNotFound />
