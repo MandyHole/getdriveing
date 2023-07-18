@@ -8,7 +8,6 @@ import { axiosReq } from "../../api/axiosDefaults";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import CommentForm from "../comments/CommentForm";
 import PreviousComments from "../comments/PreviousComments";
-import appStyles from "../../App.module.css";
 import AuthorInfo from "../../components/AuthorInfo";
 import PageNotFound from "../PageNotFound";
 import MySpinner from "../../components/MySpinner";
@@ -20,6 +19,8 @@ import Figure from "react-bootstrap/Figure";
 import DeleteModal from "../../components/DeleteModal";
 import CreateRating from "../rating/CreateRatingForm";
 import MyButtons from "../../components/MyButtons";
+import EditRatingForm from "../rating/EditRatingForm";
+import CurrentRating from "../rating/CurrentRating";
 
 function TipDetailPage() {
   const currentUser = useCurrentUser();
@@ -30,6 +31,7 @@ function TipDetailPage() {
   const [authors, setAuthors] = useState({ results: [] });
   const [hasLoaded, setHasLoaded] = useState(false);
   const history = useHistory();
+  const [showEditForm, setShowEditForm] = useState(false);
 
   useEffect(() => {
     const handleMount = async () => {
@@ -43,6 +45,7 @@ function TipDetailPage() {
         setTips({ results: [tips] });
         setComments(comments);
         setAuthors(authors);
+        // setRatings(ratings);
         setHasLoaded(true);
       } catch (err) {
         // console.log(err);
@@ -202,120 +205,152 @@ function TipDetailPage() {
                 <Col md={{ span: 8, offset: 1 }} className={styles.TipContent}>
                   <>
                     <Row>
-                      <Col lg={{ span: 4 }}><aside>
-                        <Figure className={styles.ImageArea}>
-                          <Figure.Image  className={styles.Image}
-                            alt={tips.results[0].title}
-                            src={tips.results[0].screenshot}
-                            
+                      <Col lg={{ span: 4 }}>
+                        <aside>
+                          <Figure className={styles.ImageArea}>
+                            <Figure.Image
+                              className={styles.Image}
+                              alt={tips.results[0].title}
+                              src={tips.results[0].screenshot}
+                            />
+                            <div className={styles.ImageCaption}>
+                              <Figure.Caption>
+                                <a
+                                  href={tips.results[0].screenshot}
+                                  className={styles.Link}
+                                  target="new"
+                                >
+                                  See a larger screenshot
+                                </a>
+                              </Figure.Caption>
+                            </div>
+                          </Figure>
+                          {!tips.results[0].is_owner &&
+                            currentUser &&
+                            !tips.results[0].saved_tips_id && (
+                              <>
+                                <MyButtons
+                                  text="Save this tip"
+                                  grey
+                                  on_click={handleSaveRequest}
+                                  additional_style={styles.FullWidth}
+                                />
+                              </>
+                            )}
+                          {!tips.results[0].is_owner &&
+                            tips.results[0].saved_tips_id && (
+                              <>
+                                <MyButtons
+                                  text="Un-save this tip"
+                                  grey
+                                  on_click={handleUnsave}
+                                  additional_style={styles.FullWidth}
+                                />
+                              </>
+                            )}
+                          <DeleteModal
+                            title="Warning"
+                            text="Please note that this cannot be undone...are you sure you want to delete this tip? "
+                            button_onclick={handleDeleteTip}
+                            button_text="Delete Tip"
+                            show={show}
+                            handleClose={handleClose}
                           />
-                          <div className={styles.ImageCaption}>
-                            <Figure.Caption>
-                              <a
-                                href={tips.results[0].screenshot}
-                                className={styles.Link}
-                                target="new"
-                              >
-                                See a larger screenshot
-                              </a>
-                            </Figure.Caption>
-                          </div>
-                        </Figure>
-
-                        <DeleteModal
-                          title="Warning"
-                          text="Please note that this cannot be undone...are you sure you want to delete this tip? "
-                          button_onclick={handleDeleteTip}
-                          button_text="Delete Tip"
-                          show={show}
-                          handleClose={handleClose}
-                        />
-
-                        <div>
                           {!tips.results[0].is_owner && currentUser && (
-                            <CreateRating tip={id} />
+                            <>
+                              <p className={styles.RatingText}>
+                                My Current Rating
+                                <MyButtons
+                                  edit_btn
+                                  on_click={() => setShowEditForm(true)}
+                                />
+                              </p>
+                              <CurrentRating id="19" />
+                            </>
+                          )}
+                          {!tips.results[0].is_owner && currentUser && (
+                            <>
+                              <p className={styles.RatingText}>Rate this Tip</p>
+                              <CreateRating tip={id} />
+                            </>
                           )}
                           .{" "}
+                          {showEditForm ? (
+                            <>
+                              <p className={styles.RatingText}>
+                                Your Updated Rating
+                              </p>{" "}
+                              <EditRatingForm
+                                id="19"
+                                setShowEditForm={setShowEditForm}
+                              />
+                            </>
+                          ) : null}
                           {/* Add rating_tip_id to database and put below !rating_tips_id */}
                           {/* {!ownsTip && currentUser &&  <EditRating tip={id}/>}.{" "} */}
-                        </div>
-
-                        {!tips.results[0].is_owner &&
-                          currentUser &&
-                          !tips.results[0].saved_tips_id && (
-                            <>
-                            <MyButtons text="Save this tip" grey on_click={handleSaveRequest} additional_style={styles.FullWidth} />
-  
-                            </>
-                          )}
-                        {!tips.results[0].is_owner &&
-                          tips.results[0].saved_tips_id && (
-                            <>
-                            <MyButtons text="Un-save this tip" grey on_click={handleUnsave} additional_style={styles.FullWidth}/>
-   
-                            </>
-                          )}</aside>
+                        </aside>
                       </Col>
                       <Col lg={{ span: 8 }}>
                         <section>
-                        {tips.results[0].is_owner && (
-                          <>
-                            <div className={styles.RightButtons}>
-                              <MyButtons edit_btn on_click={handleEditTip} />
-                              <MyButtons delete_btn on_click={handleShow} />
-                            </div>
-                          </>
-                        )}{" "}
-                        <p className={styles.TipContent}>
-                          {tips.results[0].tip_content}
-                        </p>
-                        <p className={styles.UpdatedDate}>
-                          Last updated on: {tips.results[0].updated_on}
-                        </p></section>
+                          {tips.results[0].is_owner && (
+                            <>
+                              <div className={styles.RightButtons}>
+                                <MyButtons edit_btn on_click={handleEditTip} />
+                                <MyButtons delete_btn on_click={handleShow} />
+                              </div>
+                            </>
+                          )}{" "}
+                          <p className={styles.TipContent}>
+                            {tips.results[0].tip_content}
+                          </p>
+                          <p className={styles.UpdatedDate}>
+                            Last updated on: {tips.results[0].updated_on}
+                          </p>
+                        </section>
                       </Col>
                     </Row>
                   </>
                   <section>
-                  {currentUser ? (
-                    <>
-                      <hr className={styles.HR} />
-                      <h3 className={appStyles.ContentHeader}>Add a Comment</h3>
-                      <CommentForm
-                        author_id={currentUser.author_id}
-                        authorImage={author_image}
-                        tip={id}
-                        setTips={setTips}
-                        setComments={setComments}
-                      />
-                    </>
-                  ) : (
-                    <>
-                      <h3 className={appStyles.ContentHeader}>
-                        Want to add a comment? Please create an account or sign
-                        in...
-                      </h3>
-                      <div
-                        md={{ span: 8, offset: 2 }}
-                      >
-                        <MyButtons sign_in_btns />
-                      </div>
-                    </>
-                  )}</section>
+                    {currentUser ? (
+                      <>
+                        <hr className={styles.HR} />
+                        <h3 className={styles.ContentHeader}>Add a Comment</h3>
+                        <CommentForm
+                          author_id={currentUser.author_id}
+                          authorImage={author_image}
+                          tip={id}
+                          setTips={setTips}
+                          setComments={setComments}
+                        />
+                      </>
+                    ) : (
+                      <>
+                        <h3 className={styles.ContentHeader}>
+                          Want to add a comment? Please create an account or
+                          sign in...
+                        </h3>
+                        <div md={{ span: 8, offset: 2 }}>
+                          <MyButtons sign_in_btns />
+                        </div>
+                      </>
+                    )}
+                  </section>
                   <hr className={styles.HR} />{" "}
                   <section>
-                  <h3 className={appStyles.ContentHeader}>Previous Comments</h3>
-                  <p className={appStyles.Center}>
+                    <h3 className={styles.ContentHeader}>Previous Comments</h3>
+                    <p className={styles.Center}>
+                      {comments.results.length
+                        ? null
+                        : currentUser
+                        ? "Make the first comment using the form above"
+                        : "No comments have been made yet"}
+                    </p>
                     {comments.results.length
-                      ? null
-                      : currentUser
-                      ? "Make the first comment using the form above"
-                      : "No comments have been made yet"}
-                  </p>
-                  {comments.results.length
-                    ? comments.results.map((comment) => (
-                        <PreviousComments key={comment.id} {...comment} />
-                      ))
-                    : null}{" "}</section>
+                      ? comments.results.map((comment) => (
+                          <PreviousComments key={comment.id} {...comment} />
+                        ))
+                      : null}{" "}
+                  </section>
                 </Col>
                 <AuthorInfo
                   {...tips.results[0]}

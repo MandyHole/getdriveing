@@ -18,6 +18,7 @@ import HeroComponent from "./components/HeroComponent";
 import SavedTips from "./pages/tips/SavedTips";
 import PageNotFound from "./pages/PageNotFound";
 import AuthorsTips from "./pages/author/AuthorsTips";
+import EditRating from "./pages/rating/EditRatingForm";
 
 function App() {
   return (
@@ -125,6 +126,15 @@ function App() {
             render={() => (
               <>
                 <EditProfileForm />
+              </>
+            )}
+          />
+                    <Route
+            exact
+            path="/rating/:id/"
+            render={() => (
+              <>
+                <EditRating />
               </>
             )}
           />
