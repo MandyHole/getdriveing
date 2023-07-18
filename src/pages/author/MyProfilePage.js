@@ -20,11 +20,13 @@ const MyProfilePage = () => {
   const [authors, setAuthors] = useState({ results: [] });
 
   useEffect(() => {
+    const controller = new AbortController();
     const handleMount = async () => {
       try {
         const [{ data: tips }, {data : authors}] = await Promise.all([
           axiosReq.get(`/tips/`),
-          axiosReq.get(`/authors`)
+          axiosReq.get(`/authors`),{        signal: controller.signal
+          }
         ]);
         setTips({ results: [tips] });
         setAuthors(authors)
@@ -34,6 +36,8 @@ const MyProfilePage = () => {
       }
     };
     handleMount();
+    return () => controller?.abort();
+
   }, );
 
   const loggedInContent = (

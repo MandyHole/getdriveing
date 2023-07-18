@@ -12,10 +12,10 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import { fetchMoreData } from "../../../utils/utils";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
 import Dropdown from "react-bootstrap/Dropdown";
-import DropdownButton from 'react-bootstrap/DropdownButton';
+import DropdownButton from "react-bootstrap/DropdownButton";
 
-const FilteredTipsFeed = (props) => {
-  const { filter = "", category_value="" } = props
+const FilteredCategoryTipsFeed = (props) => {
+  const { filter = "", category_value = "" } = props;
   const [tips, setTips] = useState({ results: "" });
   const [hasLoaded, setHasLoaded] = useState(false);
   const { pathname } = useLocation();
@@ -43,25 +43,42 @@ const FilteredTipsFeed = (props) => {
 
   return (
     <div className={styles.MainContainer}>
-     <div className={styles.FilterBtn}>
-      <DropdownButton
-            as={ButtonGroup}
-            key="sort"
-            id="sort_btn"
-            title="Filter All Tips by Category or Ability"
-            variant="secondary"       
-            large   
-          >
-            <Dropdown.Item eventKey="1" href="/docs">Google Docs</Dropdown.Item>
-            <Dropdown.Item eventKey="2" href="/slides">Google Slides</Dropdown.Item>
-            <Dropdown.Item eventKey="3" href="/sheets">Google Sheets</Dropdown.Item>
-            <Dropdown.Item eventKey="4" href="/forms"> Google Forms</Dropdown.Item>
-            <Dropdown.Item eventKey="5" href="/drive">Google Drive / PDFs</Dropdown.Item>
-            <Dropdown.Divider />
-            <Dropdown.Item eventKey="6" href="/beginner">Beginners+</Dropdown.Item>
-            <Dropdown.Item eventKey="7" href="/intermediate">Intermediate+</Dropdown.Item>
-            <Dropdown.Item eventKey="8" href="/advanced">Advanced</Dropdown.Item>
-          </DropdownButton></div>
+      <div className={styles.FilterBtn}>
+        <DropdownButton
+          as={ButtonGroup}
+          key="sort"
+          id="sort_btn"
+          title="Filter All Tips by Category or Ability"
+          variant="secondary"
+        >
+          <Dropdown.Item eventKey="1" href="/docs">
+            Google Docs
+          </Dropdown.Item>
+          <Dropdown.Item eventKey="2" href="/slides">
+            Google Slides
+          </Dropdown.Item>
+          <Dropdown.Item eventKey="3" href="/sheets">
+            Google Sheets
+          </Dropdown.Item>
+          <Dropdown.Item eventKey="4" href="/forms">
+            {" "}
+            Google Forms
+          </Dropdown.Item>
+          <Dropdown.Item eventKey="5" href="/drive">
+            Google Drive / PDFs
+          </Dropdown.Item>
+          <Dropdown.Divider />
+          <Dropdown.Item eventKey="6" href="/beginner">
+            Beginners+
+          </Dropdown.Item>
+          <Dropdown.Item eventKey="7" href="/intermediate">
+            Intermediate+
+          </Dropdown.Item>
+          <Dropdown.Item eventKey="8" href="/advanced">
+            Advanced
+          </Dropdown.Item>
+        </DropdownButton>
+      </div>
       <Form onSubmit={(event) => event.preventDefault()}>
         <InputGroup size="lg">
           <InputGroup.Text className={styles.Search} id="search">
@@ -79,22 +96,21 @@ const FilteredTipsFeed = (props) => {
       </Form>
       {hasLoaded ? (
         <>
-           {tips.results.length ? (
+          {tips.results.length ? (
             <InfiniteScroll
-              children={tips.results.map((tip) => (<>
-{`${tip.category}`===category_value &&
-                <TipCards key={tip.id} {...tip} />
-               }</>   )
-            
-              )
-                               
-                               }
+              children={tips.results.map((tip) => (
+                <>
+                  {`${tip.category}` === category_value && (
+                    <TipCards key={tip.id} {...tip} />
+                  )}
+                </>
+              ))}
               dataLength={tips.results.length}
               loader={MySpinner}
               hasMore={!!tips.next}
               next={() => fetchMoreData(tips, setTips)}
-            />)
-           : (
+            />
+          ) : (
             <NoResultsFound />
           )}
         </>
@@ -105,4 +121,4 @@ const FilteredTipsFeed = (props) => {
   );
 };
 
-export default FilteredTipsFeed;
+export default FilteredCategoryTipsFeed;

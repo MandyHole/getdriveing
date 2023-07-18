@@ -39,9 +39,13 @@
   padding-top: 25px;
 }
 
-.FilterBtn {
+.FilterBtnBox {
   justify-content: center;
   display: flex;
   text-align: center;
   margin-bottom: 10px;
+}
+
+.FilterBtn {
+  margin: 0 10px;
 }

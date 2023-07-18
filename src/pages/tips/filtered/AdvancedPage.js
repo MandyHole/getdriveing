@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import HeroComponent from '../../../components/HeroComponent';
-import FilteredTipsFeed from './FilteredCategoryTipsFeed';
+import FilteredAbilityTipsFeed from './FilteredAbilityTipsFeed';
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { useCurrentUser } from '../../../contexts/CurrentUserContext';
@@ -12,7 +12,7 @@ import { Link } from "react-router-dom/cjs/react-router-dom";
 import MyButtons from "../../../components/MyButtons";
 
 
-const GoogleForms = () => {
+const Advanced = () => {
   const currentUser = useCurrentUser();
   const [tips, setTips] = useState({ results: [] });
   const [authors, setAuthors] = useState({ results: [] });
@@ -42,13 +42,13 @@ const GoogleForms = () => {
     <>
 
   <HeroComponent 
-        h1={`Tips about Google Forms`} />
+        h1={`Tips at an Advanced Level`} />
          
          
           {hasLoaded ? (<><Row>
         <Col md={{ span: 8, offset: 1 }} className={styles.MainContent}><section>
 
-          <FilteredTipsFeed category_value="forms" /></section>
+          <FilteredAbilityTipsFeed ability_value="advanced" /></section>
         </Col>
 
 
@@ -91,4 +91,4 @@ const GoogleForms = () => {
   )
 }
 
-export default GoogleForms
+export default Advanced

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import HeroComponent from '../../../components/HeroComponent';
-import FilteredTipsFeed from './FilteredTipsFeed';
+import FilteredTipsFeed from './FilteredCategoryTipsFeed';
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { useCurrentUser } from '../../../contexts/CurrentUserContext';

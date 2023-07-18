@@ -1,28 +1,26 @@
 import React, { useEffect, useState } from "react";
-import HeroComponent from "../components/HeroComponent";
-import TipsFeed from "../pages/tips/TipsFeed";
+import HeroComponent from "../../../components/HeroComponent";
+import TipsFeed from "../../../pages/tips/TipsFeed";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import { useCurrentUser } from "../contexts/CurrentUserContext";
+import { useCurrentUser } from "../../../contexts/CurrentUserContext";
 import { Link } from "react-router-dom";
-import MyInfo from "../components/MyInfo";
-import styles from "../styles/Homepage.module.css";
-import { axiosReq } from "../api/axiosDefaults";
-import MyButtons from "../components/MyButtons";
+import MyInfo from "../../../components/MyInfo";
+import styles from "../../../styles/Homepage.module.css";
+import { axiosReq } from "../../../api/axiosDefaults";
+import MyButtons from "../../../components/MyButtons";
 
-const Homepage = () => {
+const HighestRatedTips = () => {
   const currentUser = useCurrentUser();
   const [tips, setTips] = useState({ results: [] });
   const [authors, setAuthors] = useState({ results: [] });
 
   useEffect(() => {
-    const controller = new AbortController();
     const handleMount = async () => {
       try {
         const [{ data: tips }, { data: authors }] = await Promise.all([
-          axiosReq.get(`/tips/`),
-          axiosReq.get(`/authors`),{        signal: controller.signal
-}
+          axiosReq.get("/tips/?ordering=-average_rating"),
+          axiosReq.get(`/authors`),
         ]);
         setTips({ results: [tips] });
         setAuthors(authors);
@@ -31,7 +29,6 @@ const Homepage = () => {
       }
     };
     handleMount();
-    return () => controller?.abort();
   });
 
   return (
@@ -100,4 +97,4 @@ const Homepage = () => {
   );
 };
 
-export default Homepage;
+export default HighestRatedTips;

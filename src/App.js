@@ -23,6 +23,10 @@ import GoogleDocs from "./pages/tips/filtered/GoogleDocsPage";
 import GoogleForms from "./pages/tips/filtered/GoogleFormsPage";
 import GoogleSheets from "./pages/tips/filtered/GoogleSheetsPage";
 import GoogleDrive from "./pages/tips/filtered/GoogleDrivePage";
+import HighestRatedTips from "./pages/tips/filtered/HighestRatedTips";
+import BeginnerPage from "./pages/tips/filtered/BeginnerPage";
+import Intermediate from "./pages/tips/filtered/IntermediatePage";
+import Advanced from "./pages/tips/filtered/AdvancedPage";
 
 function App() {
   return (
@@ -70,7 +74,6 @@ function App() {
               </>
             )}
           />
-        
           <Route
             exact
             path="/tips/:id"
@@ -127,6 +130,24 @@ function App() {
           />
           <Route
             exact
+            path="/highest"
+            render={() => (
+              <>
+                <HighestRatedTips />
+              </>
+            )}
+          />
+          <Route
+            exact
+            path="/intermediate"
+            render={() => (
+              <>
+                <Intermediate />
+              </>
+            )}
+          />
+          <Route
+            exact
             path="/docs"
             render={() => (
               <>
@@ -134,7 +155,7 @@ function App() {
               </>
             )}
           />
-                    <Route
+          <Route
             exact
             path="/slides"
             render={() => (
@@ -152,7 +173,16 @@ function App() {
               </>
             )}
           />
-                    <Route
+          <Route
+            exact
+            path="/beginner"
+            render={() => (
+              <>
+                <BeginnerPage />
+              </>
+            )}
+          />
+          <Route
             exact
             path="/sheets"
             render={() => (
@@ -161,7 +191,7 @@ function App() {
               </>
             )}
           />
-                              <Route
+          <Route
             exact
             path="/drive"
             render={() => (
@@ -170,7 +200,16 @@ function App() {
               </>
             )}
           />
-                    <Route
+          <Route
+            exact
+            path="/advanced"
+            render={() => (
+              <>
+                <Advanced />
+              </>
+            )}
+          />
+          <Route
             exact
             path="/rating/:id/"
             render={() => (
