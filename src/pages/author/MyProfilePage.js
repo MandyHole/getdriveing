@@ -10,6 +10,7 @@ import MyInfo from "../../components/MyInfo";
 import appStyles from "../../App.module.css"
 import { useState } from "react";
 import { axiosReq } from "../../api/axiosDefaults";
+import MyButtons from "../../components/MyButtons";
 
 
 
@@ -49,7 +50,7 @@ const MyProfilePage = () => {
       />
       <Row>
         <Col md={{ span: 8, offset: 1 }} className={appStyles.MainContent}>
-          <h3 className={appStyles.ContentHeader}>Tips I Have Added</h3>
+          <h3 className={appStyles.ContentHeader}>Tips I Have Added <MyButtons add_btn/></h3> 
           <div className={appStyles.Center}>
 
 

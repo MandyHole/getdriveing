@@ -40,8 +40,8 @@ const TipCards = (props) => {
               {category === "forms" && "Google Forms:"}
               {category === "slides" && "Google Slides:"}
 
-              {ability === "beginner" && " Beginner+"}
-              {ability === "intermediate" && " Intermediate+"}
+              {ability === "beginner" && " Beginner"}
+              {ability === "intermediate" && " Intermediate"}
               {ability === "advanced" && " Advanced"}
               <div className={styles.NewLine}>
                 Number of times saved: {number_times_saved}

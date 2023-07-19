@@ -501,6 +501,8 @@ I kept getting errors in the terminal related to the Babel plugin. I ran " npm i
 I had an issue with Heroku not deploying due to issues with memory ( with thanks to 
 https://bismobaruno.medium.com/fixing-memory-heap-reactjs-on-heroku-16910e33e342 )
 
+The site seemed really quite slow at times, but React Memo seemed to make a difference: https://blog.devops.dev/5-items-to-investigate-when-your-react-app-is-slow-6e291abcc76c
+
 <h3 id="known-bugs">Ideas for Future Development</h3>
 
 Add infinite scroll to Tip Feed if it proves to be popular.

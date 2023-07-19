@@ -183,24 +183,24 @@ const CreateTipForm = () => {
                   <Form.Check
                     className={styles.Radio}
                     type="radio"
-                    label="Beginner+"
+                    label="Beginner"
                     name="ability"
                     value="beginner"
                     onChange={handleChangeAbility}
                     ref={abilityInput}
-                    aria-label="Beginner+"
+                    aria-label="Beginner"
                   />
                 </div>{" "}
                 <div className={styles.Center}>
                   <Form.Check
                     type="radio"
-                    label="Intermediate+"
+                    label="Intermediate"
                     name="ability"
                     className={styles.Radio}
                     value="intermediate"
                     onChange={handleChangeAbility}
                     ref={abilityInput}
-                    aria-label="Intermediate+"
+                    aria-label="Intermediate"
                   />
                 </div>{" "}
                 <div className={styles.Center}>

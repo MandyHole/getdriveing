@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, memo } from "react";
 import styles from "../../../styles/TipsFeedCards.module.css";
 import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
 import { axiosReq } from "../../../api/axiosDefaults";
@@ -57,8 +57,8 @@ const FilteredAbilityTipsFeed = (props) => {
             <Dropdown.Item eventKey="4" href="/forms"> Google Forms</Dropdown.Item>
             <Dropdown.Item eventKey="5" href="/drive">Google Drive / PDFs</Dropdown.Item>
             <Dropdown.Divider />
-            <Dropdown.Item eventKey="6" href="/beginner">Beginners+</Dropdown.Item>
-            <Dropdown.Item eventKey="7" href="/intermediate">Intermediate+</Dropdown.Item>
+            <Dropdown.Item eventKey="6" href="/beginner">Beginner</Dropdown.Item>
+            <Dropdown.Item eventKey="7" href="/intermediate">Intermediate</Dropdown.Item>
             <Dropdown.Item eventKey="8" href="/advanced">Advanced</Dropdown.Item>
           </DropdownButton></div>
       <Form onSubmit={(event) => event.preventDefault()}>
@@ -104,4 +104,4 @@ const FilteredAbilityTipsFeed = (props) => {
   );
 };
 
-export default FilteredAbilityTipsFeed;
+export default memo(FilteredAbilityTipsFeed);

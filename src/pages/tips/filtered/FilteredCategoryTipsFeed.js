@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, memo } from "react";
 import styles from "../../../styles/TipsFeedCards.module.css";
 import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
 import { axiosReq } from "../../../api/axiosDefaults";
@@ -69,10 +69,10 @@ const FilteredCategoryTipsFeed = (props) => {
           </Dropdown.Item>
           <Dropdown.Divider />
           <Dropdown.Item eventKey="6" href="/beginner">
-            Beginners+
+            Beginner
           </Dropdown.Item>
           <Dropdown.Item eventKey="7" href="/intermediate">
-            Intermediate+
+            Intermediate
           </Dropdown.Item>
           <Dropdown.Item eventKey="8" href="/advanced">
             Advanced
@@ -121,4 +121,4 @@ const FilteredCategoryTipsFeed = (props) => {
   );
 };
 
-export default FilteredCategoryTipsFeed;
+export default memo(FilteredCategoryTipsFeed);

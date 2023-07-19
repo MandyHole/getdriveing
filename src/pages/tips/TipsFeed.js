@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, memo } from "react";
 import styles from "../../styles/TipsFeedCards.module.css";
 import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
 import { axiosReq } from "../../api/axiosDefaults";
@@ -50,7 +50,7 @@ const TipsFeed = ({ filter = "" }) => {
             key="sort"
             id="sort_btn"
             title="Filter All Tips by Category or Ability"
-            variant="secondary"       
+            variant="dark"       
           >
             <Dropdown.Item eventKey="1" href="/docs">Google Docs</Dropdown.Item>
             <Dropdown.Item eventKey="2" href="/slides">Google Slides</Dropdown.Item>
@@ -58,8 +58,8 @@ const TipsFeed = ({ filter = "" }) => {
             <Dropdown.Item eventKey="4" href="/forms"> Google Forms</Dropdown.Item>
             <Dropdown.Item eventKey="5" href="/drive">Google Drive / PDFs</Dropdown.Item>
             <Dropdown.Divider />
-            <Dropdown.Item eventKey="6" href="/beginner">Beginners+</Dropdown.Item>
-            <Dropdown.Item eventKey="7" href="/intermediate">Intermediate+</Dropdown.Item>
+            <Dropdown.Item eventKey="6" href="/beginner">Beginners</Dropdown.Item>
+            <Dropdown.Item eventKey="7" href="/intermediate">Intermediate</Dropdown.Item>
             <Dropdown.Item eventKey="8" href="/advanced">Advanced</Dropdown.Item>
           </DropdownButton></div>
           <div className={styles.FilterBtn}>
@@ -67,18 +67,12 @@ const TipsFeed = ({ filter = "" }) => {
             as={ButtonGroup}
             key="sort"
             id="sort_btn"
-            title="Sort All Tips by Likes and Rating"
-            variant="secondary"       
+            title="Sort All Tips"
+            variant="dark"       
           >
-            <Dropdown.Item eventKey="1" href="/docs">Google Docs</Dropdown.Item>
-            <Dropdown.Item eventKey="2" href="/slides">Google Slides</Dropdown.Item>
-            <Dropdown.Item eventKey="3" href="/sheets">Google Sheets</Dropdown.Item>
-            <Dropdown.Item eventKey="4" href="/forms"> Google Forms</Dropdown.Item>
-            <Dropdown.Item eventKey="5" href="/drive">Google Drive / PDFs</Dropdown.Item>
-            <Dropdown.Divider />
-            <Dropdown.Item eventKey="6" href="/beginner">Beginners+</Dropdown.Item>
-            <Dropdown.Item eventKey="7" href="/intermediate">Intermediate+</Dropdown.Item>
-            <Dropdown.Item eventKey="8" href="/advanced">Advanced</Dropdown.Item>
+            <Dropdown.Item eventKey="1" href="/">By date added</Dropdown.Item>
+            <Dropdown.Item eventKey="2" href="/slides">By number of saves</Dropdown.Item>
+            <Dropdown.Item eventKey="3" href="/sheets">By rating</Dropdown.Item>
           </DropdownButton></div>
           </div>
       <Form onSubmit={(event) => event.preventDefault()}>
@@ -119,4 +113,4 @@ const TipsFeed = ({ filter = "" }) => {
   );
 };
 
-export default TipsFeed;
+export default memo(TipsFeed);

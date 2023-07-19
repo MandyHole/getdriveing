@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, memo } from "react";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import styles from "../../styles/TipDetailPage.module.css";
@@ -384,4 +384,4 @@ function TipDetailPage() {
   );
 }
 
-export default TipDetailPage;
+export default memo(TipDetailPage);

@@ -13,7 +13,8 @@ const MyButtons = ({
   sign_in_btns,
   my_info_btns,
   grey,
-  submit
+  submit,
+  add_btn
 }) => {
   return (
     <>
@@ -25,6 +26,15 @@ const MyButtons = ({
           >
             {text}
           </Button>
+        </>
+      )}
+      {add_btn && (
+        <>
+          {" "}
+          <Link exact to="/tips/create"><Button className={`${styles.SmallGrey} ${styles.Add}`} onClick={on_click}>
+            <i className="fa-solid fa-circle-plus"></i>
+            <span className={styles.AddText}>Add a New Tip</span>
+          </Button></Link>
         </>
       )}
 

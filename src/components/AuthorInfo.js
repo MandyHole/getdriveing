@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, memo } from "react";
 import Col from "react-bootstrap/Col";
 import styles from "../styles/AuthorInfo.module.css";
 import { axiosReq } from "../api/axiosDefaults";
@@ -7,6 +7,8 @@ import MySpinner from "./MySpinner";
 import ProfilePic from "./ProfilePic";
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 import MyButtons from "./MyButtons";
+import dayjs from "dayjs";
+
 
 const AuthorInfo = (props) => {
   const { filter, setTips } = props;
@@ -44,7 +46,7 @@ const AuthorInfo = (props) => {
               <p className={styles.Name}>{authors.owner}'s Profile</p>
             )}
             <p className={styles.AuthorBody}>
-              Member since: {authors.created_on}
+              Member since: {authors.created_on}.format(DD/MM/YYYY)
             </p>
             <p className={styles.AuthorBody}>{authors.bio}</p>
             <p className={styles.AuthorBody}>
@@ -73,4 +75,4 @@ const AuthorInfo = (props) => {
   );
 };
 
-export default AuthorInfo;
+export default memo(AuthorInfo);
