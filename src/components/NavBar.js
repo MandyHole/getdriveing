@@ -73,7 +73,7 @@ const NavBar = () => {
         className={styles.NavBarBackground}
       >
         <Container>
-          <NavLink to="/">
+          <NavLink to="/" aria-label="Go to homepage">
             <Navbar.Brand>
               <img src={logo} alt="logo" height="50" />
             </Navbar.Brand>

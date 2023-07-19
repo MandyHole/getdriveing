@@ -213,7 +213,7 @@ function TipDetailPage() {
                           <Figure className={styles.ImageArea}>
                             <Figure.Image
                               className={styles.Image}
-                              alt={tips.results[0].title}
+                              alt={`Screenshot for ${tips.results[0].title}`}
                               src={tips.results[0].screenshot}
                             />
                             <div className={styles.ImageCaption}>
@@ -222,6 +222,7 @@ function TipDetailPage() {
                                   href={tips.results[0].screenshot}
                                   className={styles.Link}
                                   target="new"
+                                  aria-label="Larger version of screenshot; opens in new window"
                                 >
                                   See a larger screenshot
                                 </a>

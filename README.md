@@ -275,7 +275,7 @@ I utilised React components for various parts of the website that were used acro
 | Filter/sort tips: As a user, I can access the full list of tips which I can sort and filter so I can easily find what I need.| XXX | XXX |
 | Search tips: As a user, I can search the tip title and content so that I can find a topic of particular interest to me.| There is a search bar at the top of each Tips Feed that searches Titles and Content. | <img src="https://res.cloudinary.com/dd4cchm7g/image/upload/v1689511502/Screenshot_2023-07-16_at_13.44.15_qgoqvq.png" alt="Screenshot of search bar">  |
 | Create a tip: As a logged in user, I can create a tip so that I can share my insights with the wider community.| Once logged in, there is page accessible from the menu with a form to add a tip. | <img src="https://res.cloudinary.com/dd4cchm7g/image/upload/v1689511722/Screenshot_2023-07-16_at_13.48.31_nergdc.png" alt="Screenshot of Add a Tip page">  |
-| Infinite scroll: As a user I can keep scrolling through the tips on the site, that are loaded for me automatically so that I don’t have to click to get more tips.| XXX | XXX |
+| Infinite scroll: As a user I can keep scrolling through the tips on the site, that are loaded for me automatically so that I don’t have to click to get more tips.| Infinite scroll added to both tips and comments |  |
 | Tip Overview: As a user, I can see key tip information (Title Category, Ability, rating and number of times saved) so I know whether I want to access the detailed content.| In the tip feed, you can see the title, category, ability, times saved and average rating along with the first few lines of the tip and a link to Read the Tip. | <img src="https://res.cloudinary.com/dd4cchm7g/image/upload/v1689539373/Screenshot_2023-07-16_at_21.29.16_emidlo.png" alt="Screenshot of a sample overview in the tip feed.">  |
 | `Tip Details` |
 |  |  |  |
@@ -482,6 +482,7 @@ I utilised React components for various parts of the website that were used acro
 | Read Tip button | Read tip button takes to that tips detail page | Clicked button | went to /tips{id} | Pass |
 | Filters |  |  |  | FAIL |
 | Sort |  |  |  | FAIL |
+| Infinite Scroll | First 10 tips load initially, but then more keep loading as users scroll | Added 11 tips | First ten then the llth showed up in feed | Pass
 
 
 <h3 id="further-testing">Further Testing</h3>
@@ -504,8 +505,6 @@ https://bismobaruno.medium.com/fixing-memory-heap-reactjs-on-heroku-16910e33e342
 The site seemed really quite slow at times, but React Memo seemed to make a difference: https://blog.devops.dev/5-items-to-investigate-when-your-react-app-is-slow-6e291abcc76c
 
 <h3 id="known-bugs">Ideas for Future Development</h3>
-
-Add infinite scroll to Tip Feed if it proves to be popular.
 
 Add the facility for people to get a password reminder if needed.
 
