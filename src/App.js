@@ -13,11 +13,9 @@ import EditTipForm from "./pages/tips/EditTipForm";
 import ScrollToTop from "./components/ScrollToTop";
 import Homepage from "./pages/Homepage";
 import EditProfileForm from "./pages/author/EditProfileForm";
-import HeroComponent from "./components/HeroComponent";
 import SavedTips from "./pages/tips/filtered/SavedTips";
 import PageNotFound from "./pages/PageNotFound";
 import AuthorsTips from "./pages/author/AuthorsTips";
-import EditRating from "./pages/rating/EditRatingForm";
 import GoogleSlidesPage from "./pages/tips/filtered/GoogleSlidesPage";
 import GoogleDocs from "./pages/tips/filtered/GoogleDocsPage";
 import GoogleForms from "./pages/tips/filtered/GoogleFormsPage";
@@ -42,16 +40,6 @@ function App() {
               <>
                 {" "}
                 <Homepage />
-              </>
-            )}
-          />
-          <Route
-            exact
-            path="/tips"
-            render={() => (
-              <>
-                <HeroComponent />
-                <h1>Tips</h1>
               </>
             )}
           />
@@ -206,15 +194,6 @@ function App() {
             render={() => (
               <>
                 <Advanced />
-              </>
-            )}
-          />
-          <Route
-            exact
-            path="/rating/:id/"
-            render={() => (
-              <>
-                <EditRating />
               </>
             )}
           />

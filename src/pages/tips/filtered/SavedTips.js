@@ -54,7 +54,7 @@ const SavedTips = () => {
           {hasLoaded ? (<><Row>
         <Col md={{ span: 8, offset: 1 }} className={styles.MainContent}><section>
         {currentUser ? (
-          <TipsFeed filter={`author_saved_tip=4__owner__author=4&`}/>) : (null)}</section>
+          <TipsFeed filter={`author_saved_tip__owner__author=${currentUser?.pk}&`}/>) : (null)}</section>
         </Col>
 
 

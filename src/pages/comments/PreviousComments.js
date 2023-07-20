@@ -1,7 +1,6 @@
 import React from "react";
 import styles from "../../styles/PreviousComments.module.css";
 import ProfilePic from "../../components/ProfilePic";
-import AuthorImage from "../../assets/blank-profile-picture-gb6ded336d_640.png";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { useState } from "react";
@@ -11,7 +10,7 @@ import MyButtons from "../../components/MyButtons";
 import EditCommentForm from "./EditCommentForm";
 
 const PreviousComments = (props) => {
-  const { owner, content, updated_at, id } = props;
+  const { owner, content, updated_at, id, owner_image } = props;
   const currentUser = useCurrentUser();
   const owns_comment = currentUser?.username === owner;
   const history = useHistory();
@@ -33,7 +32,7 @@ const PreviousComments = (props) => {
     <>
       <p>
         <ProfilePic
-          src={AuthorImage}
+          src={owner_image}
           size="50px"
           author={owner}
           margin_right

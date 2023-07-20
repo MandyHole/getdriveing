@@ -11,28 +11,21 @@ import styles from "../../styles/CreateEditRatingForms.module.css"
 
 export default function EditRating( {id} ) {
   const [value, setValue] = useState(0);
-  const [rating, setRating] = useState({ results: [] });
-//   const [owner, setOwner] = useState({ results: [] });
   const [tip, setTip] = useState({ results: [] });
   const currentUser = useCurrentUser();
   const history = useHistory();
   const [errors, setErrors] = useState({});
   const [hasLoaded, setHasLoaded] = useState(false);
-//   const { id } = useParams();
 
-  // need to set rating_id in database
   useEffect(() => {
     const handleMount = async () => {
       try {
         const { data } = await axiosReq.get(`/rating/${id}`);
-        // Change below to is_owner
-        const { tip_rating, tip, is_owner } = data;
-        setRating(tip_rating);
+        const {tip} = data;
         setTip(tip)
-        // setOwner(is_owner)
         setHasLoaded(true);
       } catch (err) {
-        console.log(err);
+        // console.log(err);
       }
     };
     setHasLoaded(false);
@@ -64,7 +57,6 @@ export default function EditRating( {id} ) {
   return (
     <>
       {hasLoaded ? 
-    //   (is_owner?
       (
         <>
           <Box className={styles.Center}
@@ -95,7 +87,6 @@ export default function EditRating( {id} ) {
           ))}
 
         </>
-        // ):(null)
       ) : null}
   </>
   );

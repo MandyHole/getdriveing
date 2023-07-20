@@ -35,6 +35,11 @@ function TipDetailPage() {
   const [hasLoaded, setHasLoaded] = useState(false);
   const history = useHistory();
   const [showEditForm, setShowEditForm] = useState(false);
+  const [showCurrentRating, setShowCurrentRating] = useState(true);
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
 
   useEffect(() => {
     const handleMount = async () => {
@@ -103,10 +108,6 @@ function TipDetailPage() {
   const handleEditTip = () => {
     history.push(`/tips/${id}/edit`);
   };
-
-  const [show, setShow] = useState(false);
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
 
   const handleDeleteTip = async () => {
     try {
@@ -260,24 +261,24 @@ function TipDetailPage() {
                             show={show}
                             handleClose={handleClose}
                           />
-                          {!tips.results[0].is_owner && currentUser && (
+                          {!tips.results[0].is_owner && currentUser && tips.results[0].rating_id && showCurrentRating && 
                             <>
                               <p className={styles.RatingText}>
                                 My Current Rating
                                 <MyButtons
                                   edit_btn
-                                  on_click={() => setShowEditForm(true)}
+                                  on_click={() => {setShowEditForm(true); setShowCurrentRating(false)}}
                                 />
                               </p>
-                              <CurrentRating id="19" />
+                              <CurrentRating id={tips.results[0].rating_id} />
                             </>
-                          )}
-                          {!tips.results[0].is_owner && currentUser && (
+                          }
+                          {!tips.results[0].is_owner && currentUser && tips.results[0].rating_id === null &&
                             <>
                               <p className={styles.RatingText}>Rate this Tip</p>
                               <CreateRating tip={id} />
                             </>
-                          )}
+                          }
                           .{" "}
                           {showEditForm ? (
                             <>
@@ -285,9 +286,15 @@ function TipDetailPage() {
                                 Your Updated Rating
                               </p>{" "}
                               <EditRatingForm
-                                id="19"
+                                id={tips.results[0].rating_id}
                                 setShowEditForm={setShowEditForm}
                               />
+                              <MyButtons
+            text="Cancel"
+            grey
+            on_click={() => setShowEditForm(false)}
+            additional_style={styles.FullWidth}
+          />
                             </>
                           ) : null}
                           {/* Add rating_tip_id to database and put below !rating_tips_id */}

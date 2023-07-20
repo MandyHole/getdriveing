@@ -7,7 +7,6 @@ import MySpinner from "./MySpinner";
 import ProfilePic from "./ProfilePic";
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 import MyButtons from "./MyButtons";
-import dayjs from "dayjs";
 
 
 const AuthorInfo = (props) => {
@@ -46,7 +45,7 @@ const AuthorInfo = (props) => {
               <p className={styles.Name}>{authors.owner}'s Profile</p>
             )}
             <p className={styles.AuthorBody}>
-              Member since: {authors.created_on}.format(DD/MM/YYYY)
+              Member since: {authors.created_on}
             </p>
             <p className={styles.AuthorBody}>{authors.bio}</p>
             <p className={styles.AuthorBody}>

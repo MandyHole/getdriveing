@@ -414,7 +414,7 @@ const EditTipForm = () => {
                         ))}
                         <Form.Group className="mb-3" controlId="tip_content">
                           <Form.Label className={styles.Labels}>
-                            Your tip
+                            Your Tip
                           </Form.Label>
                           <Form.Control
                             className={styles.Input}

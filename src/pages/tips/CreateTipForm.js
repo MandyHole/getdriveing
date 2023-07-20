@@ -222,7 +222,7 @@ const CreateTipForm = () => {
                 </Alert>
               ))}
               <Form.Group className="mb-3" controlId="tip_content">
-                <Form.Label className={styles.Labels}>Your tip</Form.Label>
+                <Form.Label className={styles.Labels}>Your Tip</Form.Label>
                 <Form.Control
                   className={styles.Input}
                   as="textarea"
@@ -241,8 +241,7 @@ const CreateTipForm = () => {
 
               <Form.Group controlId="screenshot_upload" className="mb-3">
                 <Form.Label className={styles.Labels}>
-                  Upload a screenshot to help demonstrate your tip (if
-                  applicable)
+                  Upload a screenshot to help demonstrate your tip
                 </Form.Label>
                 <Form.Control
                   className={`${styles.FileUpload} mx-auto d-block `}

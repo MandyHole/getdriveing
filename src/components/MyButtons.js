@@ -41,8 +41,9 @@ const MyButtons = ({
       {edit_btn && (
         <>
           {" "}
-          <Button className={styles.SmallGrey} onClick={on_click} aria-label="Go to edit page">
+          <Button className={`${styles.SmallGrey} ${styles.Add}`} onClick={on_click} aria-label="Go to edit page">
             <i className="fa-solid fa-pen-to-square"></i>
+            <span className={styles.AddText}>Edit</span>
           </Button>
         </>
       )}
