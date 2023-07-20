@@ -12,19 +12,16 @@ import MyButtons from "../components/MyButtons";
 
 const Homepage = () => {
   const currentUser = useCurrentUser();
-  const [tips, setTips] = useState({ results: [] });
   const [authors, setAuthors] = useState({ results: [] });
 
   useEffect(() => {
     const controller = new AbortController();
     const handleMount = async () => {
       try {
-        const [{ data: tips }, { data: authors }] = await Promise.all([
-          axiosReq.get(`/tips/`),
+        const [{ data: authors }] = await Promise.all([
           axiosReq.get(`/authors`),{        signal: controller.signal
 }
         ]);
-        setTips({ results: [tips] });
         setAuthors(authors);
       } catch (err) {
         // console.log(err);
@@ -61,8 +58,6 @@ const Homepage = () => {
 
         {currentUser ? (
           <MyInfo
-            {...tips.results[0]}
-            setTips={setTips}
             {...authors.results[0]}
             setAuthors={setAuthors}
             filter={currentUser?.pk}

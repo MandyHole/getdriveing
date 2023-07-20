@@ -79,7 +79,7 @@ Link to deployed database: <a href="https://getdriveing-6933e088a46d.herokuapp.c
 </li>
 </ul></ul>
 
-<ul><li>Viewing Content (Project goals: Fully responsive/user friendly)</li><ul><li>Menu Access: As a user, I can access the menu from all pages so that I can easily make my way through the site.
+<ul><li>Viewing Content (Project Goals: Fully responsive/user friendly)</li><ul><li>Menu Access: As a user, I can access the menu from all pages so that I can easily make my way through the site.
 </li>
 <li>Responsiveness: As a user, I can read and use the content / features on all screensizes so that I can access the content from various devices.
 </li>
@@ -100,7 +100,7 @@ Link to deployed database: <a href="https://getdriveing-6933e088a46d.herokuapp.c
 <li>Tip Overview: As a user, I can see key tip information (Title Category, Ability, rating and number of times saved) so I know whether I want to access the detailed content.</li>
 </ul></ul>
 
-<ul><li>Tip Details (Project goals: Engage community, access tips)</li><ul><li>Tip Detail: As a user, I can open a specific tip so that I can access the content and any comments.
+<ul><li>Tip Details (Project Goals: Engage community, access tips)</li><ul><li>Tip Detail: As a user, I can open a specific tip so that I can access the content and any comments.
 </li>
 <li>Comment View: As a user, I  can read comments made about a specific tip so that I can connect with the community.
 </li>
@@ -155,16 +155,13 @@ User profile image: This is a fairly standard style photo for people who have ye
 <ul><li id="wireframes"><strong>Wireframes</strong></li>
 ## ADD ACTUAL sCREEnsHOT - homepage
 <ul><li><a href="https://res.cloudinary.com/dd4cchm7g/image/upload/v1689450844/GetDriveIngHomepage_mi6cwc.png" aria-label="a wireframe of the desktop homepage(logged out)" target="new">Mockup of the Homepage (desktop view; logged out)</a> and the <a href="#" aria-label="screenshot of the desktop version of the homepage" target="new">actual screenshot.</a></li>
-
 <li><a href="https://res.cloudinary.com/dd4cchm7g/image/upload/v1689450924/GetDriveIng6_w6cplf.png" aria-label="a wireframe mockup of the Tip Detail page (desktop view; logged in" target="new">Mockup of the Tip Detail page (desktop view; logged in)</a> and the <a href="https://res.cloudinary.com/dd4cchm7g/image/upload/v1689451794/Screenshot_2023-07-15_at_21.09.35_robd7a.png" aria-label="screenshot of the desktop version of the Tip Detail page" target="new">actual screenshot.</a></li>
-
 <li><a href="https://res.cloudinary.com/dd4cchm7g/image/upload/v1689450924/GetDriveIng11_rqlbf8.png" aria-label="a wireframe mockup of the Sign up page (mobile view" target="new">Mockup of the Sign up page (mobile view)</a> and the <a href="https://res.cloudinary.com/dd4cchm7g/image/upload/v1689456115/Screenshot_2023-07-15_at_22.19.34_raqt36.png" aria-label="screenshot of the Sign up page" target="new">actual screenshot.</a></li>
 <li><a href="https://res.cloudinary.com/dd4cchm7g/image/upload/v1689451909/GetDriveIng4_iffphc.png" aria-label="a wireframe mockup of the My Info up page (desktop view)" target="new">Mockup of the My Info page (desktop view)</a> and the <a href="https://res.cloudinary.com/dd4cchm7g/image/upload/v1689453092/Screenshot_2023-07-15_at_21.22.22_pz1sbc.png" aria-label="screenshot of the My Info page (logged out)" target="new">actual screenshot (logged out)</a>
 and the <a href="https://res.cloudinary.com/dd4cchm7g/image/upload/v1689453091/Screenshot_2023-07-15_at_21.23.22_ohkh3q.png" aria-label="screenshot of the My Info page (logged in)" target="new">actual screenshot (logged in).</a></li>
 <li><a href="https://res.cloudinary.com/dd4cchm7g/image/upload/v1689634279/Models_stt0lf.png" aria-label="a mockup of the Database models relationship" target="new">Mockup of database models relationship</a> </li>
 <li><a href="https://res.cloudinary.com/dd4cchm7g/image/upload/v1689634288/crud_sfem7l.png" aria-label="a mockup of CRUD functionality" target="new">Mockup of CRUD functionality</a> </li>
 </ul>
-
 
 
 <h2 id="features">Key Features</h2>

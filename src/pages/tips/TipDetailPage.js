@@ -24,7 +24,6 @@ import CurrentRating from "../rating/CurrentRating";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { fetchMoreData } from "../../utils/utils";
 
-
 function TipDetailPage() {
   const currentUser = useCurrentUser();
   const author_image = currentUser?.author_image;
@@ -40,7 +39,6 @@ function TipDetailPage() {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-
   useEffect(() => {
     const handleMount = async () => {
       try {
@@ -53,7 +51,6 @@ function TipDetailPage() {
         setTips({ results: [tips] });
         setComments(comments);
         setAuthors(authors);
-        // setRatings(ratings);
         setHasLoaded(true);
       } catch (err) {
         // console.log(err);
@@ -211,6 +208,7 @@ function TipDetailPage() {
                     <Row>
                       <Col lg={{ span: 4 }}>
                         <aside>
+                          <p className={styles.RatingText}>Screenshot</p>
                           <Figure className={styles.ImageArea}>
                             <Figure.Image
                               className={styles.Image}
@@ -230,6 +228,7 @@ function TipDetailPage() {
                               </Figure.Caption>
                             </div>
                           </Figure>
+                          <hr className={styles.HR} />{" "}
                           {!tips.results[0].is_owner &&
                             currentUser &&
                             !tips.results[0].saved_tips_id && (
@@ -261,25 +260,35 @@ function TipDetailPage() {
                             show={show}
                             handleClose={handleClose}
                           />
-                          {!tips.results[0].is_owner && currentUser && tips.results[0].rating_id && showCurrentRating && 
-                            <>
-                              <p className={styles.RatingText}>
-                                My Current Rating
-                                <MyButtons
-                                  edit_btn
-                                  on_click={() => {setShowEditForm(true); setShowCurrentRating(false)}}
-                                />
-                              </p>
-                              <CurrentRating id={tips.results[0].rating_id} />
-                            </>
-                          }
-                          {!tips.results[0].is_owner && currentUser && tips.results[0].rating_id === null &&
-                            <>
-                              <p className={styles.RatingText}>Rate this Tip</p>
-                              <CreateRating tip={id} />
-                            </>
-                          }
-                          .{" "}
+                          <hr className={styles.HR} />{" "}
+                          {!tips.results[0].is_owner &&
+                            currentUser &&
+                            tips.results[0].rating_id &&
+                            showCurrentRating && (
+                              <>
+                                <p className={styles.RatingText}>
+                                  My Current Rating
+                                  <MyButtons
+                                    edit_btn
+                                    on_click={() => {
+                                      setShowEditForm(true);
+                                      setShowCurrentRating(false);
+                                    }}
+                                  />
+                                </p>
+                                <CurrentRating id={tips.results[0].rating_id} />
+                              </>
+                            )}
+                          {!tips.results[0].is_owner &&
+                            currentUser &&
+                            tips.results[0].rating_id === null && (
+                              <>
+                                <p className={styles.RatingText}>
+                                  Rate this Tip
+                                </p>
+                                <CreateRating tip={id} />
+                              </>
+                            )}
                           {showEditForm ? (
                             <>
                               <p className={styles.RatingText}>
@@ -290,18 +299,19 @@ function TipDetailPage() {
                                 setShowEditForm={setShowEditForm}
                               />
                               <MyButtons
-            text="Cancel"
-            grey
-            on_click={() => setShowEditForm(false)}
-            additional_style={styles.FullWidth}
-          />
+                                text="Cancel"
+                                grey
+                                on_click={() => setShowEditForm(false)}
+                                additional_style={styles.FullWidth}
+                              />
                             </>
                           ) : null}
-                          {/* Add rating_tip_id to database and put below !rating_tips_id */}
-                          {/* {!ownsTip && currentUser &&  <EditRating tip={id}/>}.{" "} */}
                         </aside>
                       </Col>
-                      <Col lg={{ span: 8 }}>
+                      <Col
+                        xs={{ order: "first" }}
+                        lg={{ span: 8, order: "last" }}
+                      >
                         <section>
                           {tips.results[0].is_owner && (
                             <>
@@ -356,17 +366,17 @@ function TipDetailPage() {
                         ? "Make the first comment using the form above"
                         : "No comments have been made yet"}
                     </p>
-                    {comments.results.length
-                      ? (<InfiniteScroll 
+                    {comments.results.length ? (
+                      <InfiniteScroll
                         children={comments.results.map((comment) => (
                           <PreviousComments key={comment.id} {...comment} />
                         ))}
                         dataLength={comments.results.length}
                         loader={MySpinner}
                         hasMore={!!comments.next}
-                        next={() => fetchMoreData(comments, setComments)} />)
-
-                      : null}{" "}
+                        next={() => fetchMoreData(comments, setComments)}
+                      />
+                    ) : null}{" "}
                   </section>
                 </Col>
                 <AuthorInfo

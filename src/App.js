@@ -25,6 +25,7 @@ import HighestRatedTips from "./pages/tips/filtered/HighestRatedTips";
 import BeginnerPage from "./pages/tips/filtered/BeginnerPage";
 import Intermediate from "./pages/tips/filtered/IntermediatePage";
 import Advanced from "./pages/tips/filtered/AdvancedPage";
+import MostSavedPage from "./pages/tips/filtered/MostSavedPage";
 
 function App() {
   return (
@@ -197,6 +198,16 @@ function App() {
               </>
             )}
           />
+          <Route
+            exact
+            path="/most_saved"
+            render={() => (
+              <>
+                <MostSavedPage />
+              </>
+            )}
+          />
+
           <Route
             render={() => (
               <>

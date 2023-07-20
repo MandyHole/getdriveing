@@ -23,7 +23,7 @@ export default function EditRating( {id} ) {
     const handleMount = async () => {
       try {
         const { data } = await axiosReq.get(`/rating/${id}`);
-        const { tip_rating, is_owner } = data;
+        const { tip_rating } = data;
         setRating(tip_rating);
         // setOwner(is_owner)
         setHasLoaded(true);

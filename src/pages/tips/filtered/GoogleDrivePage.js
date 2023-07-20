@@ -14,18 +14,15 @@ import MyButtons from "../../../components/MyButtons";
 
 const GoogleDrive = () => {
   const currentUser = useCurrentUser();
-  const [tips, setTips] = useState({ results: [] });
   const [authors, setAuthors] = useState({ results: [] });
   const [hasLoaded, setHasLoaded] = useState(false)
 
   useEffect(() => {
     const handleMount = async () => {
       try {
-        const [{ data: tips }, {data : authors}] = await Promise.all([
-          axiosReq.get(`/tips/`),
+        const [{data : authors}] = await Promise.all([
           axiosReq.get(`/authors`)
         ]);
-        setTips({ results: [tips] });
         setAuthors(authors)
         setHasLoaded(true)
 
@@ -53,8 +50,7 @@ const GoogleDrive = () => {
 
 
         {currentUser && <>    <MyInfo  
-        {...tips.results[0]} setTips = {setTips}
-        {...authors.results[0]} setAuthors = {setAuthors}
+{...authors.results[0]} setAuthors = {setAuthors}
         filter={currentUser?.pk} /></>}
     
     {!currentUser && (

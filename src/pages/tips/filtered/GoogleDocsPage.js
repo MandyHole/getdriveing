@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import HeroComponent from '../../../components/HeroComponent';
-import FilteredTipsFeed from './FilteredCategoryTipsFeed';
+import FilteredCategoryTipsFeed from './FilteredCategoryTipsFeed';
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { useCurrentUser } from '../../../contexts/CurrentUserContext';
@@ -8,24 +8,21 @@ import MyInfo from '../../../components/MyInfo';
 import { axiosReq } from "../../../api/axiosDefaults";
 import styles from "../../../styles/FilteredTips.module.css";
 import MySpinner from "../../../components/MySpinner";
-import { Link } from "react-router-dom/cjs/react-router-dom";
+import { Link } from "react-router-dom";
 import MyButtons from "../../../components/MyButtons";
 
 
 const GoogleDocs = () => {
   const currentUser = useCurrentUser();
-  const [tips, setTips] = useState({ results: [] });
   const [authors, setAuthors] = useState({ results: [] });
   const [hasLoaded, setHasLoaded] = useState(false)
 
   useEffect(() => {
     const handleMount = async () => {
       try {
-        const [{ data: tips }, {data : authors}] = await Promise.all([
-          axiosReq.get(`/tips/`),
+        const [{data : authors}] = await Promise.all([
           axiosReq.get(`/authors`)
         ]);
-        setTips({ results: [tips] });
         setAuthors(authors)
         setHasLoaded(true)
 
@@ -48,12 +45,11 @@ const GoogleDocs = () => {
           {hasLoaded ? (<><Row>
         <Col md={{ span: 8, offset: 1 }} className={styles.MainContent}><section>
 
-          <FilteredTipsFeed category_value="docs" /></section>
+          <FilteredCategoryTipsFeed category_value="docs" /></section>
         </Col>
 
 
         {currentUser && <>    <MyInfo  
-        {...tips.results[0]} setTips = {setTips}
         {...authors.results[0]} setAuthors = {setAuthors}
         filter={currentUser?.pk} /></>}
     
