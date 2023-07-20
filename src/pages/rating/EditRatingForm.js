@@ -6,10 +6,9 @@ import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { axiosReq } from "../../api/axiosDefaults";
 import Alert from "react-bootstrap/Alert";
 import MyButtons from "../../components/MyButtons";
-import styles from "../../styles/CreateEditRatingForms.module.css"
+import styles from "../../styles/CreateEditRatingForms.module.css";
 
-
-export default function EditRating( {id} ) {
+export default function EditRating({ id }) {
   const [value, setValue] = useState(0);
   const [tip, setTip] = useState({ results: [] });
   const currentUser = useCurrentUser();
@@ -21,8 +20,8 @@ export default function EditRating( {id} ) {
     const handleMount = async () => {
       try {
         const { data } = await axiosReq.get(`/rating/${id}`);
-        const {tip} = data;
-        setTip(tip)
+        const { tip } = data;
+        setTip(tip);
         setHasLoaded(true);
       } catch (err) {
         // console.log(err);
@@ -30,9 +29,7 @@ export default function EditRating( {id} ) {
     };
     setHasLoaded(false);
     handleMount();
-    
   }, [history, id, currentUser, value]);
-
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -43,9 +40,8 @@ export default function EditRating( {id} ) {
     formData.append("owner", currentUser.username);
     try {
       await axiosReq.put(`/rating/${id}`, formData);
-
     } catch (err) {
-    //   console.log(err);
+      //   console.log(err);
       if (err.response?.status !== 401) {
         setErrors(err.response?.data);
       }
@@ -53,13 +49,12 @@ export default function EditRating( {id} ) {
     history.go(0);
   };
 
-
   return (
     <>
-      {hasLoaded ? 
-      (
+      {hasLoaded ? (
         <>
-          <Box className={styles.Center}
+          <Box
+            className={styles.Center}
             sx={{
               "& > legend": { mt: 2 },
             }}
@@ -85,9 +80,8 @@ export default function EditRating( {id} ) {
               {message}
             </Alert>
           ))}
-
         </>
       ) : null}
-  </>
+    </>
   );
 }

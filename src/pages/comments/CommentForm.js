@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
-import styles from "../../styles/CommentForm.module.css"
+import styles from "../../styles/CommentForm.module.css";
 import ProfilePic from "../../components/ProfilePic";
 import { axiosRes } from "../../api/axiosDefaults";
 import MyButtons from "../../components/MyButtons";
 
 function CommentForm(props) {
-  const { tip, setComments, authorImage, } = props;
+  const { tip, setComments, authorImage } = props;
   const [content, setContent] = useState("");
 
   const handleChange = (event) => {
@@ -48,9 +48,7 @@ function CommentForm(props) {
         </Form.Group>
 
         <div className={styles.Center}>
-
           <MyButtons submit text="Post your comment" />
-
         </div>
       </Form>
     </>

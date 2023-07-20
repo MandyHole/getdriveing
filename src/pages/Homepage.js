@@ -9,7 +9,6 @@ import styles from "../styles/Homepage.module.css";
 import { axiosReq } from "../api/axiosDefaults";
 import Benefits from "../components/Benefits";
 
-
 const Homepage = () => {
   const currentUser = useCurrentUser();
   const [authors, setAuthors] = useState({ results: [] });
@@ -19,8 +18,8 @@ const Homepage = () => {
     const handleMount = async () => {
       try {
         const [{ data: authors }] = await Promise.all([
-          axiosReq.get(`/authors`),{        signal: controller.signal
-}
+          axiosReq.get(`/authors`),
+          { signal: controller.signal },
         ]);
         setAuthors(authors);
       } catch (err) {
@@ -64,9 +63,7 @@ const Homepage = () => {
           />
         ) : null}
 
-        {!currentUser && (
-          <Benefits />
-        )}
+        {!currentUser && <Benefits />}
       </Row>
     </>
   );

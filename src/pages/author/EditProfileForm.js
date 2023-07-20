@@ -166,8 +166,12 @@ const EditProfileForm = () => {
                         </Alert>
                       ))}
                       <div className={styles.Center}>
-                      <MyButtons text="Save Changes" submit/>{" "}
-                      <MyButtons grey text="Cancel" on_click={() => history.goBack()}/>
+                        <MyButtons text="Save Changes" submit />{" "}
+                        <MyButtons
+                          grey
+                          text="Cancel"
+                          on_click={() => history.goBack()}
+                        />
                       </div>
                       {errors.non_field_errors?.map((message, idx) => (
                         <Alert variant="warning" key={idx} className="mt-3">

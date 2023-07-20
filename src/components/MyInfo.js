@@ -31,44 +31,45 @@ const MyInfo = (props) => {
   return (
     <>
       <Col md={{ span: 3 }} className={styles.AuthorContent}>
-      <aside>
-        {hasLoaded ? (
-          <>
-            <ProfilePic src={authors.image} size="150px" />
+        <aside>
+          {hasLoaded ? (
+            <>
+              <ProfilePic src={authors.image} size="150px" />
 
-            <p className={styles.Name}>
-              {authors.is_owner ? "My Profile:" : null}{" "}
-              {authors.name.length ? `${authors.name}` : `${authors.owner}`}
-            </p>
+              <p className={styles.Name}>
+                {authors.is_owner ? "My Profile:" : null}{" "}
+                {authors.name.length ? `${authors.name}` : `${authors.owner}`}
+              </p>
 
-            <p className={styles.AuthorBody}>
-              Member since: {authors.created_on}
-            </p>
-            <p className={styles.AuthorBody}> {authors.bio}</p>
-            <p className={styles.AuthorBody}>
-              Tips created: {authors.number_tips_created}
-            </p>
+              <p className={styles.AuthorBody}>
+                Member since: {authors.created_on}
+              </p>
+              <p className={styles.AuthorBody}> {authors.bio}</p>
+              <p className={styles.AuthorBody}>
+                Tips created: {authors.number_tips_created}
+              </p>
 
-            {authors.is_owner ? (
-              <>
-                <Link to={`/authors/${filter}/edit`}>
-                  <MyButtons green text="Edit profile" />
-                </Link>
-              </>
-            ) : (
-              <>
-                {!author_tip_page && (
-                  <Link to={`/authors/${filter}`}>
-                    <MyButtons green text="Author's Tips" />
+              {authors.is_owner ? (
+                <>
+                  <Link to={`/authors/${filter}/edit`}>
+                    <MyButtons green text="Edit profile" />
                   </Link>
-                )}
-              </>
-            )}
-          </>
-        ) : (
-          <MySpinner />
-        )}
-      </aside></Col>
+                </>
+              ) : (
+                <>
+                  {!author_tip_page && (
+                    <Link to={`/authors/${filter}`}>
+                      <MyButtons green text="Author's Tips" />
+                    </Link>
+                  )}
+                </>
+              )}
+            </>
+          ) : (
+            <MySpinner />
+          )}
+        </aside>
+      </Col>
     </>
   );
 };

@@ -31,12 +31,7 @@ const PreviousComments = (props) => {
   return (
     <>
       <p>
-        <ProfilePic
-          src={owner_image}
-          size="50px"
-          author={owner}
-          margin_right
-        />
+        <ProfilePic src={owner_image} size="50px" author={owner} margin_right />
         {content}
       </p>
       {!owns_comment && (
@@ -49,14 +44,15 @@ const PreviousComments = (props) => {
       {owns_comment && (
         <>
           <p className={styles.CommentDate}>
-          {showEditForm ? (<EditCommentForm id={id} setShowEditForm={setShowEditForm} />) :null}
+            {showEditForm ? (
+              <EditCommentForm id={id} setShowEditForm={setShowEditForm} />
+            ) : null}
             <em>I updated this comment {updated_at}</em>
           </p>
           <div className={styles.CenterButtons}>
             <MyButtons edit_btn on_click={() => setShowEditForm(true)} />
             <MyButtons delete_btn on_click={handleShow} />
           </div>
-
         </>
       )}
       <DeleteModal

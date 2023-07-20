@@ -46,8 +46,10 @@ const AuthorsTips = () => {
           ) : null}
           <Row>
             <Col md={{ span: 8, offset: 1 }} className={styles.MainContent}>
-            <section> <TipsFeed filter={`owner__author=${id}&`} /></section>
-
+              <section>
+                {" "}
+                <TipsFeed filter={`owner__author=${id}&`} />
+              </section>
             </Col>
 
             {author.results.length ? (

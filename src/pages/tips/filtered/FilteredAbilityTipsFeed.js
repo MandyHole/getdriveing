@@ -10,10 +10,10 @@ import TipCards from "../TipCards";
 import { useCurrentUser } from "../../../contexts/CurrentUserContext";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { fetchMoreData } from "../../../utils/utils";
-import FilterArea from "../../../components/FilterArea"
+import FilterArea from "../../../components/FilterArea";
 
 const FilteredAbilityTipsFeed = (props) => {
-  const { filter = "", ability_value="" } = props
+  const { filter = "", ability_value = "" } = props;
   const [tips, setTips] = useState({ results: "" });
   const [hasLoaded, setHasLoaded] = useState(false);
   const { pathname } = useLocation();
@@ -41,8 +41,8 @@ const FilteredAbilityTipsFeed = (props) => {
 
   return (
     <div className={styles.MainContainer}>
-     <FilterArea />
-      
+      <FilterArea />
+
       <Form onSubmit={(event) => event.preventDefault()}>
         <InputGroup size="lg">
           <InputGroup.Text className={styles.Search} id="search">
@@ -60,22 +60,21 @@ const FilteredAbilityTipsFeed = (props) => {
       </Form>
       {hasLoaded ? (
         <>
-           {tips.results.length ? (
+          {tips.results.length ? (
             <InfiniteScroll
-              children={tips.results.map((tip) => (<>
-{`${tip.ability}`===ability_value &&
-                <TipCards key={tip.id} {...tip} />
-               }</>   )
-            
-              )
-                               
-                               }
+              children={tips.results.map((tip) => (
+                <>
+                  {`${tip.ability}` === ability_value && (
+                    <TipCards key={tip.id} {...tip} />
+                  )}
+                </>
+              ))}
               dataLength={tips.results.length}
               loader={MySpinner}
               hasMore={!!tips.next}
               next={() => fetchMoreData(tips, setTips)}
-            />)
-           : (
+            />
+          ) : (
             <NoResultsFound />
           )}
         </>

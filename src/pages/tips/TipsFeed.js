@@ -41,7 +41,7 @@ const TipsFeed = ({ filter = "" }) => {
   return (
     <div className={styles.MainContainer}>
       <FilterArea />
-      
+
       <Form onSubmit={(event) => event.preventDefault()}>
         <InputGroup size="lg">
           <InputGroup.Text className={styles.Search} id="search">

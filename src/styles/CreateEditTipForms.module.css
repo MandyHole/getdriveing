@@ -26,10 +26,12 @@
 .Radio {
   margin-left: 2rem;
 }
+
 .Radio input {
   border: solid 2px #34a853;
   font-size: 1.3rem;
 }
+
 .Radio input:checked {
   background-color: #34a853;
   border-color: #34a853;

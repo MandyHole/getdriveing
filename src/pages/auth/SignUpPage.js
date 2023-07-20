@@ -45,9 +45,7 @@ const SignUpPage = () => {
       {currentUser ? (
         <>{history.push("/")}</>
       ) : (
-        <div
-          className={`${styles.BoxBackground} ${styles.BottomMargin}`}
-        >
+        <div className={`${styles.BoxBackground} ${styles.BottomMargin}`}>
           <Container>
             <Row>
               <Col md={{ span: 8, offset: 2 }}>

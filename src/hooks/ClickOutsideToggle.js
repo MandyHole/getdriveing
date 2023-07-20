@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 
 const ClickOutsideToggle = () => {
-    const [expanded, setExpanded] = useState(false);
+  const [expanded, setExpanded] = useState(false);
   const ref = useRef(null);
   useEffect(() => {
     const handleOutsideClick = (event) => {
@@ -15,9 +15,7 @@ const ClickOutsideToggle = () => {
     };
   }, [ref]);
 
-  return (
-    {expanded, setExpanded, ref}
-  )
-}
+  return { expanded, setExpanded, ref };
+};
 
-export default ClickOutsideToggle
+export default ClickOutsideToggle;

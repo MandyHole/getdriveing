@@ -10,7 +10,7 @@ import TipCards from "../TipCards";
 import { useCurrentUser } from "../../../contexts/CurrentUserContext";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { fetchMoreData } from "../../../utils/utils";
-import FilterArea from "../../../components/FilterArea"
+import FilterArea from "../../../components/FilterArea";
 
 const FilteredCategoryTipsFeed = (props) => {
   const { filter = "", category_value = "" } = props;
@@ -42,7 +42,7 @@ const FilteredCategoryTipsFeed = (props) => {
   return (
     <div className={styles.MainContainer}>
       <FilterArea />
-      
+
       <Form onSubmit={(event) => event.preventDefault()}>
         <InputGroup size="lg">
           <InputGroup.Text className={styles.Search} id="search">
@@ -58,7 +58,7 @@ const FilteredCategoryTipsFeed = (props) => {
           />
         </InputGroup>
       </Form>
-      
+
       {hasLoaded ? (
         <>
           {tips.results.length ? (

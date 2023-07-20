@@ -14,7 +14,7 @@ const MyButtons = ({
   my_info_btns,
   grey,
   submit,
-  add_btn
+  add_btn,
 }) => {
   return (
     <>
@@ -31,17 +31,26 @@ const MyButtons = ({
       {add_btn && (
         <>
           {" "}
-          <Link exact to="/tips/create" aria-label="Go to add a new tip page"><Button className={`${styles.SmallGrey} ${styles.Add}`} onClick={on_click}>
-            <i className="fa-solid fa-circle-plus"></i>
-            <span className={styles.AddText}>Add a New Tip</span>
-          </Button></Link>
+          <Link exact to="/tips/create" aria-label="Go to add a new tip page">
+            <Button
+              className={`${styles.SmallGrey} ${styles.Add}`}
+              onClick={on_click}
+            >
+              <i className="fa-solid fa-circle-plus"></i>
+              <span className={styles.AddText}>Add a New Tip</span>
+            </Button>
+          </Link>
         </>
       )}
 
       {edit_btn && (
         <>
           {" "}
-          <Button className={`${styles.SmallGrey} ${styles.Add}`} onClick={on_click} aria-label="Go to edit page">
+          <Button
+            className={`${styles.SmallGrey} ${styles.Add}`}
+            onClick={on_click}
+            aria-label="Go to edit page"
+          >
             <i className="fa-solid fa-pen-to-square"></i>
             <span className={styles.AddText}>Edit</span>
           </Button>
@@ -50,8 +59,13 @@ const MyButtons = ({
       {delete_btn && (
         <>
           {" "}
-          <Button className={styles.SmallGrey} onClick={on_click} aria-label="Delete button">
+          <Button
+            className={`${styles.SmallGrey} ${styles.Add}`}
+            onClick={on_click}
+            aria-label="Delete button"
+          >
             <i className="fa-solid fa-trash"></i>
+            <span className={styles.AddText}>Delete</span>
           </Button>
         </>
       )}
@@ -108,8 +122,11 @@ const MyButtons = ({
       )}
 
       {submit && (
-        <Button className={`${styles.Buttons} ${additional_style}`} type="submit">
-         {text}
+        <Button
+          className={`${styles.Buttons} ${additional_style}`}
+          type="submit"
+        >
+          {text}
         </Button>
       )}
     </>

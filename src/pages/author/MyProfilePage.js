@@ -19,7 +19,7 @@ const MyProfilePage = () => {
     const controller = new AbortController();
     const handleMount = async () => {
       try {
-        const [ { data: authors }] = await Promise.all([
+        const [{ data: authors }] = await Promise.all([
           axiosReq.get(`/authors`),
           { signal: controller.signal },
         ]);

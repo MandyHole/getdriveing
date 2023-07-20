@@ -1,66 +1,68 @@
 import React, { useEffect, useState } from "react";
-import HeroComponent from '../../../components/HeroComponent';
-import FilteredTipsFeed from './FilteredCategoryTipsFeed';
+import HeroComponent from "../../../components/HeroComponent";
+import FilteredTipsFeed from "./FilteredCategoryTipsFeed";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import { useCurrentUser } from '../../../contexts/CurrentUserContext';
-import MyInfo from '../../../components/MyInfo';
+import { useCurrentUser } from "../../../contexts/CurrentUserContext";
+import MyInfo from "../../../components/MyInfo";
 import { axiosReq } from "../../../api/axiosDefaults";
 import styles from "../../../styles/FilteredTips.module.css";
 import MySpinner from "../../../components/MySpinner";
 import Benefits from "../../../components/Benefits";
 
-
 const GoogleForms = () => {
   const currentUser = useCurrentUser();
   const [authors, setAuthors] = useState({ results: [] });
-  const [hasLoaded, setHasLoaded] = useState(false)
+  const [hasLoaded, setHasLoaded] = useState(false);
 
   useEffect(() => {
     const handleMount = async () => {
       try {
-        const [{data : authors}] = await Promise.all([
-          axiosReq.get(`/authors`)
+        const [{ data: authors }] = await Promise.all([
+          axiosReq.get(`/authors`),
         ]);
-        setAuthors(authors)
-        setHasLoaded(true)
-
+        setAuthors(authors);
+        setHasLoaded(true);
       } catch (err) {
         // console.log(err);
       }
     };
-    setHasLoaded(false)
+    setHasLoaded(false);
     handleMount();
   }, []);
 
   return (
-    
     <>
+      <HeroComponent h1={`Tips about Google Forms`} />
 
-  <HeroComponent 
-        h1={`Tips about Google Forms`} />
-         
-         
-          {hasLoaded ? (<><Row>
-        <Col md={{ span: 8, offset: 1 }} className={styles.MainContent}><section>
+      {hasLoaded ? (
+        <>
+          <Row>
+            <Col md={{ span: 8, offset: 1 }} className={styles.MainContent}>
+              <section>
+                <FilteredTipsFeed category_value="forms" />
+              </section>
+            </Col>
 
-          <FilteredTipsFeed category_value="forms" /></section>
-        </Col>
+            {currentUser && (
+              <>
+                {" "}
+                <MyInfo
+                  {...authors.results[0]}
+                  setAuthors={setAuthors}
+                  filter={currentUser?.pk}
+                />
+              </>
+            )}
 
-
-        {currentUser && <>    <MyInfo  
-        {...authors.results[0]} setAuthors = {setAuthors}
-        filter={currentUser?.pk} /></>}
-    
-    {!currentUser && (
-         <Benefits />
-        )}
-
-</Row></>) : (<MySpinner/>)}
-
-
+            {!currentUser && <Benefits />}
+          </Row>
+        </>
+      ) : (
+        <MySpinner />
+      )}
     </>
-  )
-}
+  );
+};
 
-export default GoogleForms
+export default GoogleForms;

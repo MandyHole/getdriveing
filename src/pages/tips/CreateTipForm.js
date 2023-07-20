@@ -268,8 +268,13 @@ const CreateTipForm = () => {
                 </Alert>
               ))}
               <div className={styles.Center}>
-              <MyButtons text="Create" submit />
-              <MyButtons grey text="Cancel" on_click={() => history.goBack()} /></div>
+                <MyButtons text="Create" submit />
+                <MyButtons
+                  grey
+                  text="Cancel"
+                  on_click={() => history.goBack()}
+                />
+              </div>
               {errors.non_field_errors?.map((message, idx) => (
                 <Alert variant="warning" key={idx} className="mt-3">
                   {message}

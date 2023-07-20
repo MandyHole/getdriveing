@@ -3,17 +3,18 @@
 
 This is a responsive community website for people to share tips about how to make the most out of Google Drive Workplace, which recently grew to more than 3 billion users globally. Googe Drive Workplace  has a host of features and add-ons. At my work where Google Drive is the main system for making and sharing files, I’ve often heard things like ‘Oh, I didn’t know you could do that - that’s helpful!’ when I have showed someone a feature on Drive. Similarly,  I  have randomly learned from others about add ons that I hadn’t previously heard of that offered extra useful functionality. There are also some features I have used that I can’t quite remember the exact text required (like forcing a pdf export of a live document) that I also find I am constantly searching the internet to find again.  I presume that the many employees at my workplace who only use Google Drive’s basic features are fairly representative of Google Drive Workplace users as a whole, and this website offers a chance to help people like them tap into more of the functionality that Google Drive has to offer, make it easier to access information they already found helpful and make their work more efficient as a result.
 
-There are several features that make this community website become a useful resource. The rating feature can help users find what others have viewed the most helpful tips. If there is a tip that a user finds particularly helpful, they can find all the tips by the author of that particular tip so see if they like their other tips as well. Users can also ‘save’ a tip so they can easily find it again and refer back to it if needed. The main homepage feed sorts tips by when they were created so users can find what has been recently added so as to not miss anything.
+There are several features that make this community website a useful resource. The rating feature can help users find what others have viewed the most helpful tips. If there is a tip that a user finds particularly helpful, they can find all the tips by the author of that particular tip so see if they like their other tips as well. Users can also ‘save’ a tip so they can easily find it again and refer back to it if needed. The main homepage feed sorts tips by when they were created so users can find what has been recently added so as to not miss anything, but there are options to sort by rating and number of times saved as well. The search feature can be used to search a title, content, category or ability.
 
 
 Link to deployed site: <a href="https://get-drive-ing-36f2443ac236.herokuapp.com/" target="new" aria-label="Deployed GetDriveing website">https://get-drive-ing-36f2443ac236.herokuapp.com/</a>
 
 Link to deployed database: <a href="https://getdriveing-6933e088a46d.herokuapp.com/" target="new" aria-label="Deployed GetDriveing website">https://getdriveing-6933e088a46d.herokuapp.com/</a> 
 
-<img src="https://res.cloudinary.com/dd4cchm7g/image/upload/v1682343969/Screenshot_2023-04-24_at_14.21.09_lze2u8.png" width = 95% alt="Sample views of GetDriveing website"></a>
+<img src="https://res.cloudinary.com/dd4cchm7g/image/upload/v1689887554/Screenshot_2023-07-20_at_22.12.20_slwv6q.png" width = 95% alt="Sample views of GetDriveing website"></a>
 
 ## Contents
 <a href="#goals" aria-label="Jump to Project Goals">Project Goals</a>
+
 <a href="#UX" aria-label="Jump to User Experience">User Experience</a>
 <ul>
 <li><a href="#stories" aria-label="Jump to User Exeperience: User Stories">User Stories</a></li>
@@ -39,7 +40,7 @@ Link to deployed database: <a href="https://getdriveing-6933e088a46d.herokuapp.c
 <li><a href="#feature-test" aria-label="Jump to Testing: Feature Testing">Feature Testing</a></li>
 <li><a href="#further-testing" aria-label="Jump to Testing: Feature Testing">Further Testing</a></li>
 <li><a href="#fixed-bugs" aria-label="Jump to Testing: Fixed bugs">Fixed bugs</a></li>
-<li><a href="#known-bugs" aria-label="Jump to Testing: Known bugs">Known bugs</a></li>
+<li><a href="#future" aria-label="Jump to Testing: Known bugs">Future Improvement Ideas</a></li>
 </ul>
 <p><a href="#deploy" aria-label="Jump to Deployment and Local Development">Deployment and Local Development</a></p>
 <ul>
@@ -153,8 +154,7 @@ User profile image: This is a fairly standard style photo for people who have ye
 <img src="https://res.cloudinary.com/dd4cchm7g/image/upload/v1689450559/Screenshot_2023-07-15_at_20.49.07_ed26s2.png" width = 95% alt="Core images used in GetDriveing website"></a>
 
 <ul><li id="wireframes"><strong>Wireframes</strong></li>
-## ADD ACTUAL sCREEnsHOT - homepage
-<ul><li><a href="https://res.cloudinary.com/dd4cchm7g/image/upload/v1689450844/GetDriveIngHomepage_mi6cwc.png" aria-label="a wireframe of the desktop homepage(logged out)" target="new">Mockup of the Homepage (desktop view; logged out)</a> and the <a href="#" aria-label="screenshot of the desktop version of the homepage" target="new">actual screenshot.</a></li>
+<ul><li><a href="https://res.cloudinary.com/dd4cchm7g/image/upload/v1689450844/GetDriveIngHomepage_mi6cwc.png" aria-label="a wireframe of the desktop homepage(logged out)" target="new">Mockup of the Homepage (desktop view; logged out)</a> and the <a href="https://res.cloudinary.com/dd4cchm7g/image/upload/v1689887554/Screenshot_2023-07-20_at_22.12.20_slwv6q.png" aria-label="screenshot of the desktop version of the homepage" target="new">actual screenshot.</a></li>
 <li><a href="https://res.cloudinary.com/dd4cchm7g/image/upload/v1689450924/GetDriveIng6_w6cplf.png" aria-label="a wireframe mockup of the Tip Detail page (desktop view; logged in" target="new">Mockup of the Tip Detail page (desktop view; logged in)</a> and the <a href="https://res.cloudinary.com/dd4cchm7g/image/upload/v1689451794/Screenshot_2023-07-15_at_21.09.35_robd7a.png" aria-label="screenshot of the desktop version of the Tip Detail page" target="new">actual screenshot.</a></li>
 <li><a href="https://res.cloudinary.com/dd4cchm7g/image/upload/v1689450924/GetDriveIng11_rqlbf8.png" aria-label="a wireframe mockup of the Sign up page (mobile view" target="new">Mockup of the Sign up page (mobile view)</a> and the <a href="https://res.cloudinary.com/dd4cchm7g/image/upload/v1689456115/Screenshot_2023-07-15_at_22.19.34_raqt36.png" aria-label="screenshot of the Sign up page" target="new">actual screenshot.</a></li>
 <li><a href="https://res.cloudinary.com/dd4cchm7g/image/upload/v1689451909/GetDriveIng4_iffphc.png" aria-label="a wireframe mockup of the My Info up page (desktop view)" target="new">Mockup of the My Info page (desktop view)</a> and the <a href="https://res.cloudinary.com/dd4cchm7g/image/upload/v1689453092/Screenshot_2023-07-15_at_21.22.22_pz1sbc.png" aria-label="screenshot of the My Info page (logged out)" target="new">actual screenshot (logged out)</a>
@@ -177,10 +177,8 @@ and the <a href="https://res.cloudinary.com/dd4cchm7g/image/upload/v1689453091/S
 
 <h3 id="languages">Languages Used</h3>
 <ul>
-<li>HTML5</li>
 <li>CSS</li>
-<li>Javascript</li>
-<li>JSX</li>
+<li>JSX (JavaScript Extension)</li>
 <li>Python (for the linked database not this frontend)</li>
 </ul>
 
@@ -212,11 +210,13 @@ and the <a href="https://res.cloudinary.com/dd4cchm7g/image/upload/v1689453091/S
 I utilised React components for various parts of the website that were used across pages. Each had a distinct accompanying css file. This kept the code in the pages itself cleaner and shorter and the related css easier to find. Below is a list of the components and where they are used:
 <ul>
 <li>Author Info: Tip Detail page</li>
+<li>Benefits: Homepage and filtered/sort pages</li>
 <li>Delete Modal: Previous Comments, Edit Tips, Tip Details</li>
+<li>Filter Area: on all pages with a feed of tips</li>
 <li>Footer: All pages</li>
-<li>HeroComponent: All pages</li>
+<li>HeroComponent: Practically all pages</li>
 <li>MyButtons: Practically all pages</li>
-<li>MyInfo: Homepage, AuthorsTips, MyProfilePage, Saved Tips</li>
+<li>MyInfo: Homepage, AuthorsTips, MyProfilePage, Saved Tips, Filtered/Sorted pages</li>
 <li>MySpinner: Wherever content is being loaded (eg Author info, tip feeds, edit forms)</li>
 <li>NavBar: All pages</li>
 <li>NoResultsFound: On pages with Tip Feeds</li>
@@ -227,21 +227,11 @@ I utilised React components for various parts of the website that were used acro
 
 ## Testing
 
-<p id="html"><strong>HTML:</strong> Tested the following pages with <a href="https://validator.w3.org/" target="new" aria-label="W3C Markup Validator website">W3C Markup Validator</a></p>
-<ul>
-<li>account/login.html: #### https://school-clubs.herokuapp.com/accounts/login/</li>
-</ul>
-
 <p id="css"><strong>CSS:</strong> Tested style pages with <a href="https://jigsaw.w3.org/css-validator/" aria-label="W3C CSS Validator" target="new"> W3C CSS Validator</a> using the direct input method (no errors found) </p>
 
-<p id="java"><strong>Javascript:</strong> Tested with eslint in terminal by running 'npx eslint src'<a href="https://eslint.org/" target="new" aria-label="eslint website">eslint website</a> (no errors found)</p>
-</ul>
+<p id="java"><strong>Javascript/JSX:</strong> Tested with eslint in terminal by running 'npx eslint src'; see <a href="https://eslint.org/" target="new" aria-label="eslint website">the eslint website</a> for details (no errors found)</p>
 
-<p id="lighthouse"><strong>Lighthouse:</strong></p>
-<img 
-              src="#" width = 25% alt="Lighthouse report"></a>
-
-<p id="contrast"><strong>Colour contrast:</strong> Tested using <a href="https://webaim.org/resources/contrastchecker/" target="new" aria-label="Webaim Contrast Checker Website">Webaim Contrast Checker Website</a></p>
+<p id="contrast"><strong>Colour contrast:</strong> Tested colours using <a href="https://webaim.org/resources/contrastchecker/" target="new" aria-label="Webaim Contrast Checker Website">Webaim Contrast Checker Website</a></p>
 <ul><li>#4285f4 (blue); pass AA on white background - large text only; pass AA on black background/vice versa</li>
 <li>#ea4335 (red) pass AA on white background - large text; pass AA on black background/vice versa</li>
 <li>#34a853 (green); pass AA on white background - large text; pass AA on black background/vice versa</li>
@@ -249,7 +239,7 @@ I utilised React components for various parts of the website that were used acro
 <li>#575756 (grey); pass all on white background; fail all on black background/vice versa</li>
 <li>#000 (black); pass all on white background; fail all on black background/vice versa</li>
 
-<p>Sadly, because I wanted to use the Google colours, I had to sacrifice AAA standards. I aimed for AA by only using the colour for large fonts and keeping the above restraints into consideration.</p>
+<p>Sadly, because I wanted to use the Google colours, I had to sacrifice AAA standards. I aimed for AA by only using the colour for large fonts and keeping the above restraints into consideration.</p></ul>
 
 <h3 id="UX-test"> User Story: Experience Testing</h3>
 
@@ -260,16 +250,16 @@ I utilised React components for various parts of the website that were used acro
 | Sign up: As a user, I can create an account so that I can add, save, and rate tips. | If a user isn't currently signed in, they are given very limited options as to what they are able to do when they get to the homepage (either sign in or sign up) so that they are aware that they can create an account. | <img src="https://res.cloudinary.com/dd4cchm7g/image/upload/v1689456115/Screenshot_2023-07-15_at_22.19.34_raqt36.png" alt="Screenshot of sign up page"> |
 | Sign in: As a user, I can easily log into my account once created so that I can access the additional features. | The Sign in buttons are clearly visible on the homepage and in the NavBar if a user isn't already signed in. If they try to access content that requires an account, they are given a button to sign in| <img src="https://res.cloudinary.com/dd4cchm7g/image/upload/v1689453092/Screenshot_2023-07-15_at_21.22.22_pz1sbc.png" alt="Screenshot of sign in message"> |
 | Status: As a user, I can easily see if I’m logged in or not so I can login if required. | The NavBar changes once logged in to clearly show this. Also, the user's name appears throughout the site| <img src="https://res.cloudinary.com/dd4cchm7g/image/upload/v1689456386/Screenshot_2023-07-15_at_22.26.14_vdhgwz.png" alt="Image showing both versions of the NavBar"> |
-| Logout: As a user, I can stayed logged in until I choose to log out so that way I don’t have to keep logging in to access the additional features. | This is configured in the CurrentUsesrContext.js file| xxx |
+| Logout: As a user, I can stayed logged in until I choose to log out so that way I don’t have to keep logging in to access the additional features. | This is configured in the CurrentUsesrContext.js file|  |
 | `Viewing Content` |
 |  |  |  |
 | Menu Access: As a user, I can access the menu from all pages so that I can easily make my way through the site. | The relevant menu (either for logged out / logged in user) is accessible on all pages; example page shown in image. | <img src="https://res.cloudinary.com/dd4cchm7g/image/upload/v1689453091/Screenshot_2023-07-15_at_21.23.22_ohkh3q.png" alt="Screenshot of sample page with menu"> |
 | Responsiveness: As a user, I can read and use the content / features on all screensizes so that I can access the content from various devices. | The site is designed with Bootstrap, and certain font elements (like the nav bar and the stars in the header of the Tip Ability page) are designed to go smaller at certain widths to fit neatly. | <img src="https://res.cloudinary.com/dd4cchm7g/image/upload/v1689451794/Screenshot_2023-07-15_at_21.09.35_robd7a.png" alt="Screenshot of Tip Detail page"> |
-| >Menu options: As a user, I will only see menu options relevant to me based on my login status so that the appropriate content is easily accessible. | The navbar changes once logged in so instead of just seeing options for Home, Sign up/Sign in, they see options for Home, Saved Tips, Add a Tip, My Info and Logout instead. | <img src="https://res.cloudinary.com/dd4cchm7g/image/upload/v1689456386/Screenshot_2023-07-15_at_22.26.14_vdhgwz.png" alt="Image showing both versions of the NavBar"> |
+| Menu options: As a user, I will only see menu options relevant to me based on my login status so that the appropriate content is easily accessible. | The navbar changes once logged in so instead of just seeing options for Home, Sign up/Sign in, they see options for Home, Saved Tips, Add a Tip, My Info and Logout instead. | <img src="https://res.cloudinary.com/dd4cchm7g/image/upload/v1689456386/Screenshot_2023-07-15_at_22.26.14_vdhgwz.png" alt="Image showing both versions of the NavBar"> |
 | `Tip Feed` |
 |  |  |  |
 | New info: As a user, I can find the most recently added content on the homepage so I don’t miss new content.| The feed on the homepage defaults to showing all tips in a newest to oldest order. | <img src="https://res.cloudinary.com/dd4cchm7g/image/upload/v1689453091/Screenshot_2023-07-15_at_21.23.22_ohkh3q.png" alt="Screenshot of sample page with menu"> |
-| Filter/sort tips: As a user, I can access the full list of tips which I can sort and filter so I can easily find what I need.| XXX | XXX |
+| Filter/sort tips: As a user, I can access the full list of tips which I can sort and filter so I can easily find what I need.| Users can filter by category or ability. They can sort by date added, highest rating, most saved | <img src="https://res.cloudinary.com/dd4cchm7g/image/upload/v1689888699/Screenshot_2023-07-20_at_22.31.30_spng2n.png" alt="Screenshot of filter/sort dropdown"> |
 | Search tips: As a user, I can search the tip title and content so that I can find a topic of particular interest to me.| There is a search bar at the top of each Tips Feed that searches Titles and Content. | <img src="https://res.cloudinary.com/dd4cchm7g/image/upload/v1689511502/Screenshot_2023-07-16_at_13.44.15_qgoqvq.png" alt="Screenshot of search bar">  |
 | Create a tip: As a logged in user, I can create a tip so that I can share my insights with the wider community.| Once logged in, there is page accessible from the menu with a form to add a tip. | <img src="https://res.cloudinary.com/dd4cchm7g/image/upload/v1689511722/Screenshot_2023-07-16_at_13.48.31_nergdc.png" alt="Screenshot of Add a Tip page">  |
 | Infinite scroll: As a user I can keep scrolling through the tips on the site, that are loaded for me automatically so that I don’t have to click to get more tips.| Infinite scroll added to both tips and comments |  |
@@ -287,10 +277,10 @@ I utilised React components for various parts of the website that were used acro
 | `Personal Profile Info` |
 |  |  |  |
 | Edit tip: As a logged in user, I can edit a tip that I had previously created so that I can keep it up to date.  | In the tip detail page, you can see a button to edit the tip if you are logged in and own the tip. You can also see an edit button the tip feeds (if logged in and the owner). | <img src="https://res.cloudinary.com/dd4cchm7g/image/upload/v1689540842/Screenshot_2023-07-16_at_21.53.42_rxupvn.png" alt="Screenshot of the tip feed with the grey edit button"> |
-| Delete tip: As a logged in user, I can delete a tip that I had previously created so that only relevant information stays on the site.  | On the tip detail page, you can see a button to delete the tip if you are logged in and own the tip. This prompts a modal so that tips are less likely to be deleted accidentally | <img src="https://res.cloudinary.com/dd4cchm7g/image/upload/v1689540989/Screenshot_2023-07-16_at_21.55.49_jxxjbu.png" alt="Screenshot of the edit and delete button"> |
+| Delete tip: As a logged in user, I can delete a tip that I had previously created so that only relevant information stays on the site.  | On the tip detail page, you can see a button to delete the tip if you are logged in and own the tip. This prompts a modal so that tips are less likely to be deleted accidentally | <img src="https://res.cloudinary.com/dd4cchm7g/image/upload/v1689889006/Screenshot_2023-07-20_at_22.36.30_rszea1.png" alt="Screenshot of the edit and delete button"> |
 | See saved tips: As a logged in user, I can access my saved tips easily so that I can easily find what I need.  | Saved tips can be found on /saved | <img src="https://res.cloudinary.com/dd4cchm7g/image/upload/v1689541148/Screenshot_2023-07-16_at_21.58.56_mr88hg.png" alt="Screenshot of saved tips page"> |
 | Unsave tip: As a logged in user, I can ‘unsave’ a tip so that only information I want saved appears.  | If a logged in user has already saved a tip, an 'unsave this tip button' appears instead | <img src="https://res.cloudinary.com/dd4cchm7g/image/upload/v1689541286/Screenshot_2023-07-16_at_22.01.17_mzkxop.png" alt="Screenshot of unsave this tip button"> |
-| As a logged in user, I can update my profile image so other users can see an avatar of my choosing by my content.  | A logged in user can access the option to edit their profile, including image, on /saved, /my-info and on the tip detail page of any tips that they own. | <img src="https://res.cloudinary.com/dd4cchm7g/image/upload/v1689541489/Screenshot_2023-07-16_at_22.04.33_cxchfg.png" alt="Screenshot of unsave this tip button"> |
+| As a logged in user, I can update my profile image so other users can see an avatar of my choosing by my content.  | A logged in user can access the option to edit their profile, including image, on a variety of pages including the homepage /saved, /my-info. | <img src="https://res.cloudinary.com/dd4cchm7g/image/upload/v1689541489/Screenshot_2023-07-16_at_22.04.33_cxchfg.png" alt="Screenshot of edit profile button"> |
 
 <h3 id="feature-test">Feature Testing</h3>
 
@@ -412,7 +402,8 @@ I utilised React components for various parts of the website that were used acro
 | See Tip Details - logged in (not owner) | Rating and Saved Buttons appear in left menu | Visited a tip I didn't own when logged in | saw rating / saved buttons | Pass |
 | See Tip Details - logged in and owner | Edit and delete tip options appear in left menu | Visited a tip I owned when logged in | saw edit/delete buttons | Pass |
 | Rating Button (current users, not owner) | Rating takes effect if I select stars and click 'Rate this tip' | Rated a tip I hadn't rated before | Average rating updated | Pass |
-| Edit Rating Button (current users, not owner) | Edit Rating appears if I already rated this tip | Visited a tip I had already rated | Current rating and edit button appeared | pass |
+| Edit Rating Button (current users, not owner) | Edit Rating appears if I already rated this tip and updates the rating | Visited a tip I had already rated | Current rating and edit button appeared that effectively updated rating | pass |
+| Edit Rating Cancel Button (current users, not owner) | Edit Rating disappears and current rating shows up | Visited a tip I had already rated, clicked edit, then cancel | Current rating and edit button disappeared and current rating came back | pass |
 | Saved Button (current users, not owner) | Number of times saved increases by 1 and tip appears on saved tips page | Saved a tip | Number of times saved increased by one, and filter on saved tips page | pass |
 | Unsave Button (current users, not owner) | Un-save button appears if I already saved this tip | Visited a tip I had already saved | unsave button present | pass |
 | Unsave Button (current users, not owner) | Un-save button reduces times saved by 1 and removes it from the saved tips page| Clicked unsave button | Number of times saved reduced by 1, and the tip was no longer on the saved tips page | pass |
@@ -490,9 +481,12 @@ I utilised React components for various parts of the website that were used acro
 | Filters: Beginner link | Take to a page with only Beginner ability tips | clicked link | only Beginner ability | pass |
 | Filters: Intermediate link | Take to a page with only Intermediate ability tips | clicked link | only intermediate ability  | pass |
 | Filters: Advanced link | Take to a page with only Advanced ability tips | clicked link | only advanced ability  | pass |
-| Sort |  |  |  | FAIL |
+| Sort: By date added link | go to homepage, which sorts by date | clicked link  | went to homepage | pass |
+| Sort: By most saved | go to page with tips with most tips appearing first | clicked link  | appeared in right order | pass |
+| Sort: By highest average rating | go to page with tips with highest rating appearing first | clicked link  | appeared in right order | pass |
 
 <h3 id="further-testing">Further Testing</h3>
+
 The Website was tested on Google Chrome and Safari browsers.
 
 The website was viewed on a variety of devices including Laptop, iPhone, android phone and iPad tablet.
@@ -511,7 +505,7 @@ https://bismobaruno.medium.com/fixing-memory-heap-reactjs-on-heroku-16910e33e342
 
 The site seemed really quite slow at times, but React Memo seemed to make a difference: https://blog.devops.dev/5-items-to-investigate-when-your-react-app-is-slow-6e291abcc76c
 
-<h3 id="known-bugs">Ideas for Future Development</h3>
+<h3 id="future">Ideas for Future Development</h3>
 
 Add the facility for people to get a password reminder if needed.
 
@@ -525,7 +519,7 @@ This project was deployed through Heroku (live link found here: <a href="https:/
 <li>Add a Procfile to the root directory with 'web: serve -s build'</li>
 <li>Login / Sign up to Heroku</li>
 <li>Click New -- Create New App</li>
-<li>Name your app (must be unique), select your nearest revious and click “Create app” to confirm.</li>
+<li>Name your app (must be unique), select your nearest region and click “Create app” to confirm.</li>
 <li>Click Deploy in the Heroku App dashboard - then deploy via Github - connect to the repository, scroll down and click on deploy branch</li>
 </ol>
 
@@ -542,13 +536,21 @@ Visit the repo (https://github.com/MandyHole/getdriveing) and click the green 'C
 <h3 id="code"> Code</h3>
 
 React Bootstrap: To complement custom css for layout, navigation, forms, buttons, etc.
+
 React: To build the User Interface
+
 Django: To build the database
-Inspiration for the project, in particular with using Django Rest Frameworks and React: Code Institute
+
+Inspiration for the project, in particular with using Django Rest Frameworks and React, and support for when things didn't work as expected: Code Institute
+
 https://www.w3schools.com/howto/howto_css_animate_buttons.asp
+
 https://cssgradient.io/: to get the blue gradient used in headers
+
 https://www.positronx.io/react-material-ui-star-rating-component-example-tutorial/: star rating
+
 https://stackoverflow.com/questions/46820682/how-do-i-reload-a-page-with-react-router: force pages to reload when updated
+
 https://www.kindacode.com/article/react-router-dom-scroll-to-top-on-route-change/?utm_content=cmp-true: force pages to go to start of pages
 
 

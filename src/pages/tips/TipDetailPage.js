@@ -301,7 +301,10 @@ function TipDetailPage() {
                               <MyButtons
                                 text="Cancel"
                                 grey
-                                on_click={() => setShowEditForm(false)}
+                                on_click={() => {
+                                  setShowEditForm(false);
+                                  setShowCurrentRating(true);
+                                }}
                                 additional_style={styles.FullWidth}
                               />
                             </>

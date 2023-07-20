@@ -29,12 +29,11 @@ const HighestRatedTips = () => {
 
   return (
     <>
-       <HeroComponent 
-        h1={`Tips sorted by rating`} />
+      <HeroComponent h1={`Tips sorted by rating`} />
 
       <Row>
         <Col md={{ span: 8, offset: 1 }} className={styles.MainContent}>
-          <TipsFeed filter={`ordering=-average_rating&`}/>
+          <TipsFeed filter={`ordering=-average_rating&`} />
         </Col>
 
         {currentUser ? (
@@ -45,9 +44,7 @@ const HighestRatedTips = () => {
           />
         ) : null}
 
-        {!currentUser && (
-          <Benefits />
-        )}
+        {!currentUser && <Benefits />}
       </Row>
     </>
   );

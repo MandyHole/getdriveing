@@ -8,7 +8,6 @@ import ProfilePic from "./ProfilePic";
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 import MyButtons from "./MyButtons";
 
-
 const AuthorInfo = (props) => {
   const { filter, setTips } = props;
   const [authors, setAuthors] = useState({ results: "" });
@@ -36,40 +35,42 @@ const AuthorInfo = (props) => {
   return (
     <>
       <Col md={{ span: 3 }} className={styles.AuthorContent}>
-      <aside>{hasLoaded ? (
-          <>
-            <ProfilePic src={authors.image} size="150px" />
-            {authors.name.length ? (
-              <p className={styles.Name}>{authors.name}'s Profile</p>
-            ) : (
-              <p className={styles.Name}>{authors.owner}'s Profile</p>
-            )}
-            <p className={styles.AuthorBody}>
-              Member since: {authors.created_on}
-            </p>
-            <p className={styles.AuthorBody}>{authors.bio}</p>
-            <p className={styles.AuthorBody}>
-              Tips created: {authors.number_tips_created}
-            </p>
+        <aside>
+          {hasLoaded ? (
+            <>
+              <ProfilePic src={authors.image} size="150px" />
+              {authors.name.length ? (
+                <p className={styles.Name}>{authors.name}'s Profile</p>
+              ) : (
+                <p className={styles.Name}>{authors.owner}'s Profile</p>
+              )}
+              <p className={styles.AuthorBody}>
+                Member since: {authors.created_on}
+              </p>
+              <p className={styles.AuthorBody}>{authors.bio}</p>
+              <p className={styles.AuthorBody}>
+                Tips created: {authors.number_tips_created}
+              </p>
 
-            {authors.is_owner ? (
-              <>
-                <Link to={`/authors/${filter}/edit`}>
-                  <MyButtons green text="Edit profile" />
-                </Link>
-              </>
-            ) : (
-              <>
-                <Link to={`/authors/${filter}`}>
-                  <MyButtons green text="Author's Tips" />
-                </Link>
-              </>
-            )}
-          </>
-        ) : (
-          <MySpinner full_page />
-        )}
-      </aside></Col>
+              {authors.is_owner ? (
+                <>
+                  <Link to={`/authors/${filter}/edit`}>
+                    <MyButtons green text="Edit profile" />
+                  </Link>
+                </>
+              ) : (
+                <>
+                  <Link to={`/authors/${filter}`}>
+                    <MyButtons green text="Author's Tips" />
+                  </Link>
+                </>
+              )}
+            </>
+          ) : (
+            <MySpinner full_page />
+          )}
+        </aside>
+      </Col>
     </>
   );
 };
