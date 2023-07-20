@@ -44,11 +44,11 @@ const AuthorsTips = () => {
               h1={`Tips by ${author.results[0].owner}`}
             />
           ) : null}
-          <Row><section>
+          <Row>
             <Col md={{ span: 8, offset: 1 }} className={styles.MainContent}>
-              <TipsFeed filter={`owner__author=${id}&`} />
+            <section> <TipsFeed filter={`owner__author=${id}&`} /></section>
 
-            </Col></section>
+            </Col>
 
             {author.results.length ? (
               <MyInfo

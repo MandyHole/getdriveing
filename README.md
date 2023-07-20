@@ -387,19 +387,19 @@ I utilised React components for various parts of the website that were used acro
 | --- | --- | --- | --- | --- |
 | Logged in user name appears in header | When logged in, username appears | Visited page when logged in | saw username | Pass |
 | Prompts user to login | Visiting /tips/create when not logged in gives message with buttons to sign in / sign up  | Visited /tips/create when not logged in | saw message with sign in / sign up buttons | Pass |
-| Title mandatory | If not completed, get form error | Submitted without title | worked | FAIL |
-| Category mandatory | If not completed, get form error | Submitted without category | set default category | FAIL |
-| Ability mandatory | If not completed, get form error | Submitted without ability | set default ability | FAIL |
-| Tip Content | If not completed, get form error | Submitted without content | worked | FAIL |
-| Screenshot | Can submit without a screenshot | Submitted without content | failed | FAIL |
+| Title mandatory | If not completed, get form error | Submitted without title | error | pass |
+| Category mandatory | If not completed, get form error | Submitted without category | error | pass |
+| Ability mandatory | If not completed, get form error | Submitted without ability | error | pass |
+| Tip Content | If not completed, get form error | Submitted without content | error | pass |
+| Screenshot | Can't submit without a screenshot | Submitted without content | error | pass |
 
 `Saved Tips page`
 
 | Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
 | --- | --- | --- | --- | --- |
 | Logged in user name appears in header | When logged in, username appears | Visited page when logged in | saw username | Pass |
-| Only saved tips appear  | When logged in, only tips a user has saved appears in feed| Visited page when logged in with a user who had saved tips | XXX | FAIL |
-| No results found error  | When logged in, user sees a No results message if they haven't saved any tips | Visited page when logged in with a user who had not saved tips | XXX | Fail |
+| Only saved tips appear  | When logged in, only tips a user has saved appears in feed| Visited page when logged in with a user who had saved tips | only saved tips there | pass |
+| No results found error  | When logged in, user sees a No results message if they haven't saved any tips | Visited page when logged in with a user who had not saved tips | none showed up | Pass |
 | Edit profile button  | When logged in, link to edit profile takes you to /authors/{currentUser.id}/edit| Clicked link | went to /authors/{currentUser.id}/edit | Pass |
 | Prompts user to login | Visiting /saved when not logged in gives message with buttons to sign in / sign up  | Visited /saved when not logged in | saw message with sign in / sign up buttons | Pass |
 
@@ -412,10 +412,10 @@ I utilised React components for various parts of the website that were used acro
 | See Tip Details - logged in (not owner) | Rating and Saved Buttons appear in left menu | Visited a tip I didn't own when logged in | saw rating / saved buttons | Pass |
 | See Tip Details - logged in and owner | Edit and delete tip options appear in left menu | Visited a tip I owned when logged in | saw edit/delete buttons | Pass |
 | Rating Button (current users, not owner) | Rating takes effect if I select stars and click 'Rate this tip' | Rated a tip I hadn't rated before | Average rating updated | Pass |
-| Edit Rating Button (current users, not owner) | Edit Rating appears if I already rated this tip | Visited a tip I had already rated | xxx | FAIL |
-| Saved Button (current users, not owner) | Number of times saved increases by 1 and tip appears on saved tips page | Saved a tip | Number of times saved increased by one, but filter not correct on saved tips page | FAIL |
+| Edit Rating Button (current users, not owner) | Edit Rating appears if I already rated this tip | Visited a tip I had already rated | Current rating and edit button appeared | pass |
+| Saved Button (current users, not owner) | Number of times saved increases by 1 and tip appears on saved tips page | Saved a tip | Number of times saved increased by one, and filter on saved tips page | pass |
 | Unsave Button (current users, not owner) | Un-save button appears if I already saved this tip | Visited a tip I had already saved | unsave button present | pass |
-| Unsave Button (current users, not owner) | Un-save button reduces times saved by 1 and removes it from the saved tips page| Clicked upsave button | Number of times saved reduced by 1, but the button still appears on the saved tips page | FAIL |
+| Unsave Button (current users, not owner) | Un-save button reduces times saved by 1 and removes it from the saved tips page| Clicked unsave button | Number of times saved reduced by 1, and the tip was no longer on the saved tips page | pass |
 | Edit Tip Button (current users, owner) | Sends user to /tips/{tip.id}/edit | Clicked edit tip button | went to /tips/{tip.id}/edit | pass |
 | Delete Tip Button (current users, owner) | Opens Delete Tip Modal | Clicked delete tip button | modal with delete options appeared | pass |
 | Delete Tip: delete modal - cancel | The delete modal cancel button closes modal without action | Click cancel on modal | delete modal disappears, nothing changed | pass |
@@ -424,8 +424,8 @@ I utilised React components for various parts of the website that were used acro
 | Comment Form: content mandatory | comment form (logged in users only) requires content to submit | Submitted form without content | Didn't work | Pass |
 | Comment Form: submits successfully | successfully submitted comment form (logged in users only) puts comment in Previous Comment section  | Submitted form successfully | Content appeared in Previous Comment section | Pass |
 | Previous Comments | Regardless of logged in / owner status, see any previous comments | Visited page when logged in/out & owner/not | saw comments that had been made | Pass |
-| Other user's Previous Comments: content | Previous comments written by other users show comment, username, avatar and when created | Inspect previous comment by another user on a page | saw comment, username, when created but not correct avatar | FAIL |
-| Current user's Previous Comments: content | My comments show my comment, avatar, when I created it and edit/delete buttons | Inspect my previous comment | saw comment, when I created it, edit/delete buttons but not correct avatar | FAIL |
+| Other user's Previous Comments: content | Previous comments written by other users show comment, username, avatar and when created | Inspect previous comment by another user on a page | saw comment, username, when created and correct avatar | pass |
+| Current user's Previous Comments: content | My comments show my comment, avatar, when I created it and edit/delete buttons | Inspect my previous comment | saw comment, when I created it, edit/delete buttons and my correct avatar | pass |
 | Current user's Previous Comments: edit | The edit button on the previous comment goes to /comments/{comment_id}/edit | Click edit button | went to /comments/24/edit | pass |
 | Current user's Previous Comments: delete | The delete button on the previous comment goes to a modal | Click delete button | delete modal appeared | pass |
 | Previous Comments: delete modal - cancel | The delete modal cancel button closes modal without action | Click cancel on modal | delete modal disappears, nothing changed | pass |
@@ -477,10 +477,20 @@ I utilised React components for various parts of the website that were used acro
 | Tip Overview | Each tip shows basic info | Examined tip overview | Saw title, category, ability, times saved, average rating, and start of tip content | Pass |
 | Tip - edit | Edit button only appears on tips owned by current user | checked tips owned by current user for button and tips owned by others to see it wasn't there | Edit only appeared on owned tips; clicked button and went to /tips{id}/edit | Pass |
 | Read Tip button | Read tip button takes to that tips detail page | Clicked button | went to /tips{id} | Pass |
-| Filters |  |  |  | FAIL |
-| Sort |  |  |  | FAIL |
 | Infinite Scroll | First 10 tips load initially, but then more keep loading as users scroll | Added 11 tips | First ten then the llth showed up in feed | Pass
 
+`Filter/Search Area`
+| Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
+| --- | --- | --- | --- | --- |
+| Filters: Google Docs link | Take to a page with only Google Docs info | clicked link | only Google Doc info  | pass |
+| Filters: Google Slides link | Take to a page with only Google Slides info | clicked link | only Google Slides info  | pass |
+| Filters: Google Sheets link | Take to a page with only Google Sheets info | clicked link | only Google Sheets info  | pass |
+| Filters: Google Form link | Take to a page with only Google Form info | clicked link | only Google Forms info  | pass |
+| Filters: Google Drive/PDF link | Take to a page with only Google Drive/PDF info | clicked link | only Google Drive/PDF info  | pass |
+| Filters: Beginner link | Take to a page with only Beginner ability tips | clicked link | only Beginner ability | pass |
+| Filters: Intermediate link | Take to a page with only Intermediate ability tips | clicked link | only intermediate ability  | pass |
+| Filters: Advanced link | Take to a page with only Advanced ability tips | clicked link | only advanced ability  | pass |
+| Sort |  |  |  | FAIL |
 
 <h3 id="further-testing">Further Testing</h3>
 The Website was tested on Google Chrome and Safari browsers.

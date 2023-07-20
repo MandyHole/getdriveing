@@ -43,11 +43,11 @@ const SavedTips = () => {
         />}
 
 
-        {currentUser && <><HeroComponent 
+        {currentUser && <HeroComponent 
         h1={`${currentUser?.username.charAt(0).toUpperCase()}${currentUser?.username.slice(1)}'s Saved Tips`}
         h2={`Below are any tips that you have saved...`}
 
-        /> </> } 
+        /> } 
           {hasLoaded ? (<><Row>
         <Col md={{ span: 8, offset: 1 }} className={styles.MainContent}><section>
         {currentUser ? (

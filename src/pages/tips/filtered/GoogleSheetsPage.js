@@ -8,8 +8,7 @@ import MyInfo from '../../../components/MyInfo';
 import { axiosReq } from "../../../api/axiosDefaults";
 import styles from "../../../styles/FilteredTips.module.css";
 import MySpinner from "../../../components/MySpinner";
-import { Link } from "react-router-dom/cjs/react-router-dom";
-import MyButtons from "../../../components/MyButtons";
+import Benefits from "../../../components/Benefits";
 
 
 const GoogleSheets = () => {
@@ -55,30 +54,8 @@ const GoogleSheets = () => {
         filter={currentUser?.pk} /></>}
     
     {!currentUser && (
-          <>
-            <Col md={{ span: 3 }} className={styles.AuthorContent}>
-              <h4 className={styles.Heading}>Benefits to having an account</h4>
-              <div className={styles.Text}>
-                You can:
-                <ul>
-                  <li>
-                    Save useful tips so you can easily refer to them again
-                  </li>
-                  <li>Share your own tips to help others</li>
-                  <li>
-                    Rate tips to help others find the most useful information
-                  </li>
-                </ul>
-              </div>
-
-              <Link to="/sign-up">
-                <MyButtons green text="Sign Up" />
-              </Link>
-              <Link to="/sign-in">
-                <MyButtons green text="Sign In" />
-              </Link>
-            </Col>
-          </>
+          <Benefits />
+            
         )}
 
 </Row></>) : (<MySpinner/>)}
