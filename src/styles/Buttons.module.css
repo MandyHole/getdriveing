@@ -169,12 +169,12 @@
   font-size: 3rem;
 }
 
-.Add {
+.ToolTip {
   position: relative;
   display: inline-block;
 }
 
-.Add .AddText {
+.ToolTip .ToolTipText {
   visibility: hidden;
   width: 120px;
   background-color: #555;
@@ -184,25 +184,25 @@
   padding: 5px 0;
   position: absolute;
   z-index: 1;
-  bottom: 125%;
+  top: 125%;
   left: 50%;
   margin-left: -60px;
   opacity: 0;
   transition: opacity 0.3s;
 }
 
-.Add .AddText::after {
+.ToolTip .ToolTipText::after {
   content: "";
   position: absolute;
-  top: 100%;
+  bottom: 100%;
   left: 50%;
   margin-left: -5px;
   border-width: 5px;
   border-style: solid;
-  border-color: #555 transparent transparent transparent;
+  border-color: transparent transparent #575755 transparent;
 }
 
-.Add:hover .AddText {
+.ToolTip:hover .ToolTipText {
   visibility: visible;
   opacity: 1;
 }

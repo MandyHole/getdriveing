@@ -1,5 +1,5 @@
 import React, { useEffect, useState, memo } from "react";
-import styles from "../../styles/TipsFeedCards.module.css";
+import styles from "../../styles/TipsFeed.module.css";
 import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
 import { axiosReq } from "../../api/axiosDefaults";
 import MySpinner from "../../components/MySpinner";

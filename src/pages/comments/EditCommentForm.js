@@ -49,13 +49,14 @@ const EditCommentForm = ({ id, setShowEditForm }) => {
     formData.append("content", content);
     try {
       await axiosReq.put(`/comments/${id}/`, formData);
+      history.go(0);
     } catch (err) {
       // console.log(err);
       if (err.response?.status !== 401) {
         setErrors(err.response?.data);
       }
     }
-    history.go(0);
+
   };
 
   return (

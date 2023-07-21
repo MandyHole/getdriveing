@@ -3,7 +3,7 @@ import Card from "react-bootstrap/Card";
 import { Link } from "react-router-dom/cjs/react-router-dom";
 import Star from "../../components/Star";
 import MyButtons from "../../components/MyButtons";
-import styles from "../../styles/TipsFeedCards.module.css";
+import styles from "../../styles/TipCards.module.css";
 
 const TipCards = (props) => {
   // formats tips into cards: this gets displayed in the tip feeds

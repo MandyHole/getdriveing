@@ -24,17 +24,3 @@
   text-align: right;
   width: 100%;
 }
-
-.Width {
-  width: 100%;
-  font-size: 1.3rem;
-}
-
-.MainContainer {
-  padding-top: 25px;
-}
-
-.Search {
-  border: 2px solid #34a853;
-  margin-bottom: 20px;
-}

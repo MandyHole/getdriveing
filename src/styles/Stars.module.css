@@ -1,20 +1,19 @@
 .OverviewStar {
-    color: #f9ab00;
-    margin: 2px;
-    font-size: 1.5rem;
-  }
-  
+  color: #f9ab00;
+  margin: 2px;
+  font-size: 1.5rem;
+}
 
+.HeroStar {
+  color: #f9ab00;
+  margin: 2px;
+  font-size: 3rem;
+}
+
+@media screen and (max-width: 1200px) {
   .HeroStar {
     color: #f9ab00;
     margin: 2px;
-    font-size: 3rem;
+    font-size: 2rem;
   }
-  
-  @media screen and (max-width: 1200px) {
-    .HeroStar {
-      color: #f9ab00;
-      margin: 2px;
-      font-size: 2rem;
-    }
-  }
+}

@@ -464,17 +464,18 @@ const EditTipForm = () => {
                             {message}
                           </Alert>
                         ))}
-                        <MyButtons text="Save Changes" submit />{" "}
+                        <Row>
+                        <Col lg={{ span: 8, offset: 2 }}><MyButtons text="Save Changes" submit />{" "}
                         <MyButtons
                           grey
                           text="Cancel"
                           on_click={() => history.goBack()}
-                        />
+                        /></Col>
                         <MyButtons
                           grey
                           text="Delete Tip"
                           on_click={handleShow}
-                        />
+                        /></Row>
                         {errors.non_field_errors?.map((message, idx) => (
                           <Alert variant="warning" key={idx} className="mt-3">
                             {message}

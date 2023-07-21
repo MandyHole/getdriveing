@@ -1,0 +1,40 @@
+/* .CardTitle {
+  font-size: 2rem;
+  color: #4285f4;
+}
+
+.Card {
+  border: solid 2px #4285f4;
+  margin: 5px 0;
+}
+
+.CardCategory {
+  font-size: 1.4rem;
+  color: #34a853;
+}
+
+.NewLine {
+  display: block;
+  margin-top: 3px;
+}
+
+.RightButtons {
+  display: table;
+  justify-content: right;
+  text-align: right;
+  width: 100%;
+}
+
+.Width {
+  width: 100%;
+  font-size: 1.3rem;
+} */
+
+.MainContainer {
+  padding-top: 25px;
+}
+
+.Search {
+  border: 2px solid #34a853;
+  margin-bottom: 20px;
+}

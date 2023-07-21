@@ -4,11 +4,13 @@ import styles from "../../styles/CommentForm.module.css";
 import ProfilePic from "../../components/ProfilePic";
 import { axiosRes } from "../../api/axiosDefaults";
 import MyButtons from "../../components/MyButtons";
+import Alert from "react-bootstrap/Alert";
 
 function CommentForm(props) {
   // add a comment to a tip
   const { tip, setComments, authorImage } = props;
   const [content, setContent] = useState("");
+  const [errors, setErrors] = useState({});
 
   const handleChange = (event) => {
     setContent(event.target.value);
@@ -28,6 +30,9 @@ function CommentForm(props) {
       setContent("");
     } catch (err) {
       // console.log(err);
+      if (err.response?.status !== 401) {
+        setErrors(err.response?.data);
+      }
     }
   };
 
@@ -51,6 +56,11 @@ function CommentForm(props) {
         <div className={styles.Center}>
           <MyButtons submit text="Post your comment" />
         </div>
+        {errors.content?.map((message, idx) => (
+                          <Alert variant="warning" key={idx}>
+                            {message}
+                          </Alert>
+                        ))}
       </Form>
     </>
   );

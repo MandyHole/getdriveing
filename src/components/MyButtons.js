@@ -33,11 +33,11 @@ const MyButtons = ({
           {" "}
           <Link exact to="/tips/create" aria-label="Go to add a new tip page">
             <Button
-              className={`${styles.SmallGrey} ${styles.Add}`}
+              className={`${styles.SmallGrey} ${styles.ToolTip}`}
               onClick={on_click}
             >
               <i className="fa-solid fa-circle-plus"></i>
-              <span className={styles.AddText}>Add a New Tip</span>
+              <span className={styles.ToolTipText}>Add a New Tip</span>
             </Button>
           </Link>
         </>
@@ -47,12 +47,12 @@ const MyButtons = ({
         <>
           {" "}
           <Button
-            className={`${styles.SmallGrey} ${styles.Add}`}
+            className={`${styles.SmallGrey} ${styles.ToolTip}`}
             onClick={on_click}
             aria-label="Go to edit page"
           >
             <i className="fa-solid fa-pen-to-square"></i>
-            <span className={styles.AddText}>Edit</span>
+            <span className={styles.ToolTipText}>Edit</span>
           </Button>
         </>
       )}
@@ -60,12 +60,12 @@ const MyButtons = ({
         <>
           {" "}
           <Button
-            className={`${styles.SmallGrey} ${styles.Add}`}
+            className={`${styles.SmallGrey} ${styles.ToolTiplTiplTiplTip}`}
             onClick={on_click}
             aria-label="Delete button"
           >
             <i className="fa-solid fa-trash"></i>
-            <span className={styles.AddText}>Delete</span>
+            <span className={styles.ToolTipText}>Delete</span>
           </Button>
         </>
       )}
