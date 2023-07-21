@@ -40,8 +40,9 @@ const TipsFeed = ({ filter = "" }) => {
 
   return (
     <div className={styles.MainContainer}>
+      {/* sets filter/sort dropdown menu */}
       <FilterArea />
-
+      {/* search area */}
       <Form onSubmit={(event) => event.preventDefault()}>
         <InputGroup size="lg">
           <InputGroup.Text className={styles.Search} id="search">
@@ -59,6 +60,7 @@ const TipsFeed = ({ filter = "" }) => {
       </Form>
       {hasLoaded ? (
         <>
+          {/* displays overview of tips */}
           {tips.results.length ? (
             <InfiniteScroll
               children={tips.results.map((tip) => (

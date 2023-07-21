@@ -9,6 +9,7 @@ import Alert from "react-bootstrap/Alert";
 import MyButtons from "../../components/MyButtons";
 
 export default function StarRating(props) {
+  // enables users to set a 5 star rating for tip
   const [value, setValue] = React.useState(0);
   const { tip } = props;
   const currentUser = useCurrentUser();

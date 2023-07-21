@@ -25,6 +25,7 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import { fetchMoreData } from "../../utils/utils";
 
 function TipDetailPage() {
+  // shows all info for a specific tip
   const currentUser = useCurrentUser();
   const author_image = currentUser?.author_image;
   const [comments, setComments] = useState({ results: [] });
@@ -121,6 +122,7 @@ function TipDetailPage() {
         <>
           {tips.results.length ? (
             <>
+              {/* Hero displays category with better formatting */}
               <HeroComponent
                 tipDetail
                 h1={tips.results[0].title}
@@ -162,6 +164,7 @@ function TipDetailPage() {
                     ? "No ratings yet..."
                     : "Average Rating: "
                 }
+                // shows average star rating
                 star1={
                   tips.results[0].average_rating === null ? (
                     <Star hero_outline />
@@ -208,6 +211,7 @@ function TipDetailPage() {
                     <Row>
                       <Col lg={{ span: 4 }}>
                         <aside>
+                          {/* tip screenshot */}
                           <p className={styles.RatingText}>Screenshot</p>
                           <Figure className={styles.ImageArea}>
                             <Figure.Image
@@ -228,11 +232,12 @@ function TipDetailPage() {
                               </Figure.Caption>
                             </div>
                           </Figure>
-                          <hr className={styles.HR} />{" "}
+                          {/* save tip facility (logged in/ didn't write tip) */}
                           {!tips.results[0].is_owner &&
                             currentUser &&
                             !tips.results[0].saved_tips_id && (
                               <>
+                                <hr className={styles.HR} />{" "}
                                 <MyButtons
                                   text="Save this tip"
                                   grey
@@ -252,6 +257,8 @@ function TipDetailPage() {
                                 />
                               </>
                             )}
+
+                          {/* modal to confirm deletion */}
                           <DeleteModal
                             title="Warning"
                             text="Please note that this cannot be undone...are you sure you want to delete this tip? "
@@ -260,12 +267,14 @@ function TipDetailPage() {
                             show={show}
                             handleClose={handleClose}
                           />
-                          <hr className={styles.HR} />{" "}
+
+                          {/* current rating if already rated this tip (logged in/didn't write tip) */}
                           {!tips.results[0].is_owner &&
                             currentUser &&
                             tips.results[0].rating_id &&
                             showCurrentRating && (
                               <>
+                                <hr className={styles.HR} />
                                 <p className={styles.RatingText}>
                                   My Current Rating
                                   <MyButtons
@@ -279,18 +288,24 @@ function TipDetailPage() {
                                 <CurrentRating id={tips.results[0].rating_id} />
                               </>
                             )}
+                          {/* add a rating if haven't already rated this tip (logged in/didn't write tip) */}
+
                           {!tips.results[0].is_owner &&
                             currentUser &&
                             tips.results[0].rating_id === null && (
                               <>
+                                <hr className={styles.HR} />
                                 <p className={styles.RatingText}>
                                   Rate this Tip
                                 </p>
                                 <CreateRating tip={id} />
                               </>
                             )}
+                          {/* edit rating area if already rated this tip (logged in/didn't write tip). appears if edit is clicked */}
+
                           {showEditForm ? (
                             <>
+                              <hr className={styles.HR} />
                               <p className={styles.RatingText}>
                                 Your Updated Rating
                               </p>{" "}
@@ -316,6 +331,7 @@ function TipDetailPage() {
                         lg={{ span: 8, order: "last" }}
                       >
                         <section>
+                          {/* tip content */}
                           {tips.results[0].is_owner && (
                             <>
                               <div className={styles.RightButtons}>
@@ -335,6 +351,7 @@ function TipDetailPage() {
                     </Row>
                   </>
                   <section>
+                    {/* allows logged in users to write a comment or prompts un-logged in to create account */}
                     {currentUser ? (
                       <>
                         <hr className={styles.HR} />
@@ -361,6 +378,7 @@ function TipDetailPage() {
                   </section>
                   <hr className={styles.HR} />{" "}
                   <section>
+                    {/* Previous comment area */}
                     <h3 className={styles.ContentHeader}>Previous Comments</h3>
                     <p className={styles.Center}>
                       {comments.results.length
@@ -382,6 +400,7 @@ function TipDetailPage() {
                     ) : null}{" "}
                   </section>
                 </Col>
+                {/* grey sidebar with info about author of tip */}
                 <AuthorInfo
                   {...tips.results[0]}
                   setTips={setTips}

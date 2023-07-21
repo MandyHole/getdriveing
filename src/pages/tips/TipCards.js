@@ -6,6 +6,7 @@ import MyButtons from "../../components/MyButtons";
 import styles from "../../styles/TipsFeedCards.module.css";
 
 const TipCards = (props) => {
+  // formats tips into cards: this gets displayed in the tip feeds
   const {
     id,
     title,

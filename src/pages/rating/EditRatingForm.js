@@ -9,6 +9,7 @@ import MyButtons from "../../components/MyButtons";
 import styles from "../../styles/CreateEditRatingForms.module.css";
 
 export default function EditRating({ id }) {
+  // enables user to edit their rating of a particular tip
   const [value, setValue] = useState(0);
   const [tip, setTip] = useState({ results: [] });
   const currentUser = useCurrentUser();

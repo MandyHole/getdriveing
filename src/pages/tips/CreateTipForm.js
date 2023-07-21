@@ -13,6 +13,7 @@ import HeroComponent from "../../components/HeroComponent";
 import MyButtons from "../../components/MyButtons";
 
 const CreateTipForm = () => {
+  // enables logged in user to add a new tip; logged out gets prompt to sign in/sign up
   const currentUser = useCurrentUser();
 
   const [createTipData, setCreateTipData] = useState({

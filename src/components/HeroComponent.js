@@ -8,6 +8,7 @@ import appStyles from "../App.module.css";
 import MyButtons from "./MyButtons";
 
 function HeroBoxComponent(props) {
+  // Blue hero box on top of most pages
   const {
     h1,
     h2,
@@ -47,11 +48,10 @@ function HeroBoxComponent(props) {
                 {tipDetail ? (
                   <>
                     <div className={appStyles.Center}>
-                      {star1} {star2} {star3} {star4} {star5}{" "}
+                      {star1} {star2} {star3} {star4} {star5}
                     </div>
                   </>
                 ) : null}
-
                 {not_found ? (
                   <>
                     <Link to="/">

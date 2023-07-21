@@ -3,6 +3,7 @@ import HeroComponent from "../components/HeroComponent";
 import heroStyles from "../styles/HeroComponent.module.css";
 
 const PageNotFound = () => {
+  // for urls that have 404 error
   return (
     <div>
       <HeroComponent

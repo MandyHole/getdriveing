@@ -12,6 +12,7 @@ import { axiosReq } from "../../api/axiosDefaults";
 import MyButtons from "../../components/MyButtons";
 
 const MyProfilePage = () => {
+  // shows current user's tips they created and info with edit profile button
   const currentUser = useCurrentUser();
   const [authors, setAuthors] = useState({ results: [] });
 
@@ -66,7 +67,6 @@ const MyProfilePage = () => {
         h1="You need to sign in before you can see your information"
         additional_class={heroStyles.FullHeight}
         h2="Create a free account to create, save and rate content!"
-        link1="/sign-up"
         signinbuttons
       />
     </>

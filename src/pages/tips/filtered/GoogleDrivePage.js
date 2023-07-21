@@ -11,6 +11,7 @@ import MySpinner from "../../../components/MySpinner";
 import Benefits from "../../../components/Benefits";
 
 const GoogleDrive = () => {
+  // shows tips about google drive
   const currentUser = useCurrentUser();
   const [authors, setAuthors] = useState({ results: [] });
   const [hasLoaded, setHasLoaded] = useState(false);

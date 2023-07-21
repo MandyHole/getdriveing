@@ -2,6 +2,7 @@ import React from "react";
 import styles from "../styles/NoResultsFound.module.css";
 
 const NoResultsFound = () => {
+  // Icon /text that is displayed when no tips/info found
   return (
     <div className={styles.NoResultsContainer}>
       <div className={styles.Icon}>

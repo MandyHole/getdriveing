@@ -17,6 +17,7 @@ import PageNotFound from "../PageNotFound";
 import MySpinner from "../../components/MySpinner";
 
 const EditTipForm = () => {
+  // enables users to edit a tip that they had already created
   const currentUser = useCurrentUser();
   const { id } = useParams();
   const history = useHistory();
@@ -443,7 +444,7 @@ const EditTipForm = () => {
                             className={`${styles.FileUpload} mx-auto d-block `}
                             type="file"
                             accept="image/*"
-                            // id="screenshot_upload"
+                            id="screenshot_upload"
                             onChange={handleChangeScreenshot}
                             ref={screenshotInput}
                           />

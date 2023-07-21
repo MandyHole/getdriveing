@@ -6,6 +6,7 @@ import { axiosRes } from "../../api/axiosDefaults";
 import MyButtons from "../../components/MyButtons";
 
 function CommentForm(props) {
+  // add a comment to a tip
   const { tip, setComments, authorImage } = props;
   const [content, setContent] = useState("");
 

@@ -11,6 +11,7 @@ import MySpinner from "../../../components/MySpinner";
 import Benefits from "../../../components/Benefits";
 
 const GoogleDocs = () => {
+  // shows tips about google docs
   const currentUser = useCurrentUser();
   const [authors, setAuthors] = useState({ results: [] });
   const [hasLoaded, setHasLoaded] = useState(false);

@@ -11,6 +11,7 @@ import MySpinner from "../../../components/MySpinner";
 import Benefits from "../../../components/Benefits";
 
 const GoogleSlides = () => {
+  // shows tips about google slides
   const currentUser = useCurrentUser();
   const [authors, setAuthors] = useState({ results: [] });
   const [hasLoaded, setHasLoaded] = useState(false);

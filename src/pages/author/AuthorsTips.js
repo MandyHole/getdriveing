@@ -11,20 +11,18 @@ import styles from "../../styles/AuthorsTips.module.css";
 import MySpinner from "../../components/MySpinner";
 
 const AuthorsTips = () => {
+  // shows all tips by a particular author with details about the author in sidebar
   const { id } = useParams();
   const [author, setAuthor] = useState({ results: [] });
-  const [tips, setTips] = useState({ results: [] });
   const [hasLoaded, setHasLoaded] = useState(false);
 
   useEffect(() => {
     const handleMount = async () => {
       try {
-        const [{ data: tips }, { data: author }] = await Promise.all([
-          axiosReq.get(`/tips/`),
+        const [{ data: author }] = await Promise.all([
           axiosReq.get(`/authors/${id}`),
         ]);
         setAuthor({ results: [author] });
-        setTips(tips);
         setHasLoaded(true);
       } catch (err) {
         // console.log(err);
@@ -56,8 +54,6 @@ const AuthorsTips = () => {
               <MyInfo
                 {...author.results[0]}
                 setAuthors={setAuthor}
-                {...tips}
-                setTips={setTips}
                 filter={id}
                 author_tip_page
               />

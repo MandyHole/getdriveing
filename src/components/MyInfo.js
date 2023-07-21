@@ -8,6 +8,7 @@ import ProfilePic from "./ProfilePic";
 import MyButtons from "./MyButtons";
 
 const MyInfo = (props) => {
+  // Information about authors/personal in grey sidebars
   const { filter, author_tip_page } = props;
   const [authors, setAuthors] = useState({ results: "" });
   const [hasLoaded, setHasLoaded] = useState(false);

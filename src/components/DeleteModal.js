@@ -4,6 +4,7 @@ import styles from "../styles/DeleteModal.module.css";
 import MyButtons from "./MyButtons";
 
 function DeleteModal(props) {
+  // to confirm deletion of database items
   const { title, text, button_onclick, button_text, show, handleClose } = props;
   return (
     <div>

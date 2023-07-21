@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import Col from "react-bootstrap/Col";
 
 const Benefits = () => {
+  // Grey sidebar text with benefits for having an account
   return (
     <Col md={{ span: 3 }} className={styles.Background}>
       <h4 className={styles.Heading}>Benefits to having an account</h4>

@@ -42,6 +42,8 @@ const SignUpPage = () => {
 
   return (
     <>
+      {/* Signed in users get redirected home */}
+
       {currentUser ? (
         <>{history.push("/")}</>
       ) : (

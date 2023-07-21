@@ -10,6 +10,8 @@ import MyButtons from "../../components/MyButtons";
 import EditCommentForm from "./EditCommentForm";
 
 const PreviousComments = (props) => {
+  // displays previous comments with comment author info
+  // edit / delete appears to comment owner
   const { owner, content, updated_at, id, owner_image } = props;
   const currentUser = useCurrentUser();
   const owns_comment = currentUser?.username === owner;

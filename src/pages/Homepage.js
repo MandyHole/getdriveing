@@ -52,17 +52,19 @@ const Homepage = () => {
 
       <Row>
         <Col md={{ span: 8, offset: 1 }} className={styles.MainContent}>
+          {/* shows tips by when added (newest first) */}
           <TipsFeed />
         </Col>
 
         {currentUser ? (
+          // shows info on user if logged in
           <MyInfo
             {...authors.results[0]}
             setAuthors={setAuthors}
             filter={currentUser?.pk}
           />
         ) : null}
-
+        {/* shows benefits of having an account if not signed in */}
         {!currentUser && <Benefits />}
       </Row>
     </>

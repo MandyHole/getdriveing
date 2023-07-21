@@ -16,6 +16,7 @@ import MySpinner from "../../components/MySpinner";
 import MyButtons from "../../components/MyButtons";
 
 const EditProfileForm = () => {
+  // enables user to update display name, bio and avatar
   const currentUser = useCurrentUser();
   const { id } = useParams();
   const history = useHistory();

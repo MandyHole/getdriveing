@@ -11,6 +11,7 @@ import Benefits from "../../../components/Benefits";
 import TipsFeed from "../TipsFeed";
 
 const GoogleSheets = () => {
+  // shows tips about google sheets
   const currentUser = useCurrentUser();
   const [authors, setAuthors] = useState({ results: [] });
   const [hasLoaded, setHasLoaded] = useState(false);

@@ -9,6 +9,7 @@ import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 import MyButtons from "./MyButtons";
 
 const AuthorInfo = (props) => {
+  // Grey sidebar on TipDetail page with author's info
   const { filter, setTips } = props;
   const [authors, setAuthors] = useState({ results: "" });
   const [hasLoaded, setHasLoaded] = useState(false);

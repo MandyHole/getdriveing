@@ -3,6 +3,7 @@ import Spinner from "react-bootstrap/Spinner";
 import styles from "../styles/Spinner.module.css";
 
 const MySpinner = (full_page) => {
+  // spinner for when content is loading
   return (
     <>
       {full_page && (

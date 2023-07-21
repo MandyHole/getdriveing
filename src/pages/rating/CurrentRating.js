@@ -7,13 +7,12 @@ import { axiosReq } from "../../api/axiosDefaults";
 import styles from "../../styles/CreateEditRatingForms.module.css";
 import MySpinner from "../../components/MySpinner";
 
-export default function EditRating({ id }) {
-  // const [value, setValue] = useState(0);
+export default function CurrentRating({ id }) {
+  // displays the owner's current rating for a particular tip
   const [rating, setRating] = useState({ results: [] });
   const currentUser = useCurrentUser();
   const history = useHistory();
   const [hasLoaded, setHasLoaded] = useState(false);
-  //   const [owner, setOwner] = useState({ results: [] });
 
   useEffect(() => {
     const handleMount = async () => {
@@ -21,7 +20,6 @@ export default function EditRating({ id }) {
         const { data } = await axiosReq.get(`/rating/${id}`);
         const { tip_rating } = data;
         setRating(tip_rating);
-        // setOwner(is_owner)
         setHasLoaded(true);
       } catch (err) {
         console.log(err);

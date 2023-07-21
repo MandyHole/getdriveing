@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useLocation } from "react-router";
 
 const ScrollToTop = (props) => {
+  // Brings links to top of page 
   const location = useLocation();
   useEffect(() => {
     window.scrollTo(0, 0);

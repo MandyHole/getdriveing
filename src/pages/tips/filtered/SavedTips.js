@@ -10,6 +10,7 @@ import styles from "../../../styles/FilteredTips.module.css";
 import MySpinner from "../../../components/MySpinner";
 
 const SavedTips = () => {
+  // shows tips that signed in user has saved
   const currentUser = useCurrentUser();
   const [authors, setAuthors] = useState({ results: [] });
   const [hasLoaded, setHasLoaded] = useState(false);

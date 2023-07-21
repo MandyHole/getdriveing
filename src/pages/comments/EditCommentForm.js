@@ -9,6 +9,7 @@ import MySpinner from "../../components/MySpinner";
 import MyButtons from "../../components/MyButtons";
 
 const EditCommentForm = ({ id, setShowEditForm }) => {
+  // edit existing comment (must own comment)
   const history = useHistory();
   const [comments, setComments] = useState({ results: [] });
   const [hasLoaded, setHasLoaded] = useState(false);

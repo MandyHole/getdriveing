@@ -10,6 +10,7 @@ import { axiosReq } from "../../../api/axiosDefaults";
 import Benefits from "../../../components/Benefits";
 
 const HighestRatedTips = () => {
+  // sorts tips by average rating
   const currentUser = useCurrentUser();
   const [authors, setAuthors] = useState({ results: [] });
 

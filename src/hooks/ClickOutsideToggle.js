@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 
 const ClickOutsideToggle = () => {
+  // improves UX for navbar toggle
   const [expanded, setExpanded] = useState(false);
   const ref = useRef(null);
   useEffect(() => {

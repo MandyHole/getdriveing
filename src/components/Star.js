@@ -2,6 +2,7 @@ import React from "react";
 import styles from "../styles/Stars.module.css";
 
 const Star = ({
+  // star icon to display current rating
   hero_solid,
   hero_outline,
   overview_solid,

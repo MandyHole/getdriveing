@@ -10,6 +10,7 @@ import { axiosReq } from "../../../api/axiosDefaults";
 import Benefits from "../../../components/Benefits";
 
 const MostSavedPage = () => {
+  // sorts tips by number of times saved
   const currentUser = useCurrentUser();
   const [authors, setAuthors] = useState({ results: [] });
 

@@ -5,6 +5,7 @@ import DropdownButton from "react-bootstrap/DropdownButton";
 import styles from "../styles/FilterArea.module.css";
 
 const FilterArea = () => {
+  // dropdown to filtered/sorted tips
   return (
     <>
       <div className={styles.FilterBtnBox}>
