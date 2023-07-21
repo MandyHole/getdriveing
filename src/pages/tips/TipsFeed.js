@@ -51,8 +51,8 @@ const TipsFeed = ({ filter = "" }) => {
             className={styles.Search}
             value={query}
             onChange={(event) => setQuery(event.target.value)}
-            placeholder="Search tips"
-            aria-label="Search tips"
+            placeholder="Search these tips"
+            aria-label="Search these tips"
             aria-describedby="tip-search"
           />
         </InputGroup>

@@ -54,6 +54,7 @@
   padding-left: 10%;
   padding-right: 10%;
   margin: 15px;
+  width: 90%
 }
 
 .GreenButtons:hover {
@@ -204,10 +205,4 @@
 .Add:hover .AddText {
   visibility: visible;
   opacity: 1;
-}
-
-@media screen and (max-width: 767px) {
-  .GreenButtons {
-    width: 100%;
-  }
 }
