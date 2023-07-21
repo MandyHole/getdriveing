@@ -208,7 +208,6 @@
 
 @media screen and (max-width: 767px) {
   .GreenButtons {
-    padding-left: 2%;
-    padding-right: 2%;
+    width: 100%;
   }
 }
