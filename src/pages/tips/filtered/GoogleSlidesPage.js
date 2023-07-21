@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import HeroComponent from "../../../components/HeroComponent";
-import FilteredTipsFeed from "./FilteredCategoryTipsFeed";
+import TipsFeed from "../TipsFeed";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { useCurrentUser } from "../../../contexts/CurrentUserContext";
@@ -40,7 +40,7 @@ const GoogleSlides = () => {
           <Row>
             <Col md={{ span: 8, offset: 1 }} className={styles.MainContent}>
               <section>
-                <FilteredTipsFeed category_value="slides" />
+                <TipsFeed filter={`category=slides&`} />{" "}
               </section>
             </Col>
 

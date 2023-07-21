@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import HeroComponent from "../../../components/HeroComponent";
-import FilteredTipsFeed from "./FilteredCategoryTipsFeed";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { useCurrentUser } from "../../../contexts/CurrentUserContext";
@@ -9,6 +8,7 @@ import { axiosReq } from "../../../api/axiosDefaults";
 import styles from "../../../styles/FilteredTips.module.css";
 import MySpinner from "../../../components/MySpinner";
 import Benefits from "../../../components/Benefits";
+import TipsFeed from "../TipsFeed";
 
 const GoogleSheets = () => {
   const currentUser = useCurrentUser();
@@ -41,7 +41,7 @@ const GoogleSheets = () => {
           <Row>
             <Col md={{ span: 8, offset: 1 }} className={styles.MainContent}>
               <section>
-                <FilteredTipsFeed category_value="sheets" />
+                <TipsFeed filter={`category=sheets&`} />
               </section>
             </Col>
 
