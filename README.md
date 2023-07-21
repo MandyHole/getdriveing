@@ -39,6 +39,7 @@ Link to deployed database: <a href="https://getdriveing-6933e088a46d.herokuapp.c
 <li><a href="#UX-test" aria-label="Jump to Testing: User Experience">User Story: Experience Testing</a></li>
 <li><a href="#feature-test" aria-label="Jump to Testing: Feature Testing">Feature Testing</a></li>
 <li><a href="#further-testing" aria-label="Jump to Testing: Feature Testing">Further Testing</a></li>
+<li><a href="#known-bugs" aria-label="Jump to Testing: Known bugs">Known bugs</a></li>
 <li><a href="#fixed-bugs" aria-label="Jump to Testing: Fixed bugs">Fixed bugs</a></li>
 <li><a href="#future" aria-label="Jump to Testing: Known bugs">Future Improvement Ideas</a></li>
 </ul>
@@ -207,7 +208,9 @@ and the <a href="https://res.cloudinary.com/dd4cchm7g/image/upload/v1689453091/S
 
 <h3 id="components"> React Components</h3>
 
-I utilised React components for various parts of the website that were used across pages. Each had a distinct accompanying css file. This kept the code in the pages itself cleaner and shorter and the related css easier to find. Below is a list of the components and where they are used:
+I utilised React components for various parts of the website that were used across pages. Each had a distinct accompanying css file. This kept the code in the pages itself cleaner and shorter and the related css easier to find. It also made any subsequent updates to css / content much easier to manage. Finally, components made it much simpler to hide/show content without a lot of messy code in the page files. For example, the initial tip rating, current tip rating and edit tip rating all appear/disappear in the same location based on the user's actions so only the relevant information is shown.
+
+Below is a list of the components and where they are used:
 <ul>
 <li>Author Info: Tip Detail page</li>
 <li>Benefits: Homepage and filtered/sort pages</li>
@@ -222,8 +225,26 @@ I utilised React components for various parts of the website that were used acro
 <li>NoResultsFound: On pages with Tip Feeds</li>
 <li>ProfilePic: AuthorInfo, MyInfo, CommentForm, PreviousComments</li>
 <li>ScrollToTop: all pages</li>
-<li>Star: used five times on both TipCards and TipDetail</li>
+<li>Star: used five times on both TipCards and TipDetail; NB this component could be replaced by pages/rating/CurrentRating.js to use less code but I preferred the look of these star icons</li>
 </ul>
+How pages relate to user story
+<ul>
+<li>Sign in (User Story: see accounts milestone)</li>
+<li>Sign up (User Story: see accounts milestone)</li>
+<li>AuthorsTips (User Story: View tip by user)</li>
+<li>EditProfileForm (User Story: Edit Avatar/Bio)</li>
+<li>MyProfilePage (User Stories: Edit tip/Bio/Avatar)</li>
+<li>CommentForm/EditCommentForm (User Stories: Create/edit/delete comment)</li>
+<li>Previous Comments (User Story: Comment View)</li>
+<li>CreateRating/CurrentRating/EditRatingForm (User Story: Rate tip)</li>
+<li>Filtered Tips x 11  (User Stories: Filter/sort tips and search tips)</li>
+<li>CreateTipForm  (User Story: Create a tip)</li>
+<li>EditTipForm  (User Story: Edit tip)</li>
+<li>TipCards  (User Story: Tip Overview)</li>
+<li>TipFeed (User Stories: Infinite Scroll / Tip Overview / Search Tips)</li>
+<li>Homepage (User Story: New info)</li>
+</ul>
+
 
 ## Testing
 
@@ -546,7 +567,9 @@ Django: To build the database
 
 Inspiration for the project, in particular with using Django Rest Frameworks and React, and support for when things didn't work as expected: Code Institute
 
-https://www.w3schools.com/howto/howto_css_animate_buttons.asp
+https://www.w3schools.com/howto/howto_css_animate_buttons.asp: button styling
+
+https://www.w3schools.com/howto/howto_css_tooltip.asp: tooltips for button icons
 
 https://cssgradient.io/: to get the blue gradient used in headers
 
