@@ -465,17 +465,31 @@ const EditTipForm = () => {
                           </Alert>
                         ))}
                         <Row>
-                        <Col lg={{ span: 8, offset: 2 }}><MyButtons text="Save Changes" submit />{" "}
-                        <MyButtons
-                          grey
-                          text="Cancel"
-                          on_click={() => history.goBack()}
-                        /></Col>
-                        <MyButtons
-                          grey
-                          text="Delete Tip"
-                          on_click={handleShow}
-                        /></Row>
+                          <Col lg={{ span: 12 }}>
+                            <div className={`${styles.Center}`}>
+                            <MyButtons
+                              text="Save Changes"
+                              submit
+                            />{" "}
+                            </div>
+                          </Col>
+                          <Col lg={{ span: 12 }} className={styles.Center}>
+                            <MyButtons
+                              grey
+                              additional_style={styles.Center}
+                              text="Cancel"
+                              on_click={() => history.goBack()}
+                            />
+                          </Col>
+                          <Col lg={{ span: 12 }} className={styles.Center}>
+                            <MyButtons
+                              grey
+                              additional_style={styles.Center}
+                              text="Delete Tip"
+                              on_click={handleShow}
+                            />
+                          </Col>
+                        </Row>
                         {errors.non_field_errors?.map((message, idx) => (
                           <Alert variant="warning" key={idx} className="mt-3">
                             {message}

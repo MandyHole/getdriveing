@@ -53,3 +53,7 @@
 .FullHeight {
   height: 100vh;
 }
+
+.FullWidth {
+  width: 100%;
+}
