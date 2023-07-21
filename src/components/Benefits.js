@@ -6,7 +6,7 @@ import Col from "react-bootstrap/Col";
 
 const Benefits = () => {
   return (
-    <Col md={{ span: 3 }} className={styles.AuthorContent}>
+    <Col md={{ span: 3 }} className={styles.Background}>
       <h4 className={styles.Heading}>Benefits to having an account</h4>
       <div className={styles.Text}>
         You can:
@@ -19,7 +19,7 @@ const Benefits = () => {
 
       <Link to="/sign-up">
         <MyButtons green text="Sign Up" />
-      </Link>
+      </Link><br></br>
       <Link to="/sign-in">
         <MyButtons green text="Sign In" />
       </Link>

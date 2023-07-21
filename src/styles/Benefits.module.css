@@ -1,5 +1,5 @@
-.AuthorContent {
-  padding: 3%;
+.Background {
+  padding: 3% 3% 10% 3%;
   background-color: #575755;
   text-align: center;
   color: #fff;
@@ -15,4 +15,10 @@
 .Text {
   font-size: 1.2rem;
   text-align: left;
+}
+
+@media screen and (max-width: 767px) {
+  .AuthorContent {
+    padding: 3% 6% 10% 6%;
+  }
 }
