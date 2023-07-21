@@ -1,6 +1,6 @@
 import React, { useEffect, useState, memo } from "react";
 import Col from "react-bootstrap/Col";
-import styles from "../styles/AuthorInfo.module.css";
+import styles from "../styles/AuthorMyInfo.module.css";
 import { axiosReq } from "../api/axiosDefaults";
 import { Link } from "react-router-dom/cjs/react-router-dom";
 import MySpinner from "./MySpinner";

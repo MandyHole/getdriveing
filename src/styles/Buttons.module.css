@@ -205,3 +205,10 @@
   visibility: visible;
   opacity: 1;
 }
+
+@media screen and (max-width: 767px) {
+  .GreenButtons {
+    padding-left: 2%;
+    padding-right: 2%;
+  }
+}

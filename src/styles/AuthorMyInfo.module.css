@@ -9,8 +9,14 @@
 }
 
 .AuthorContent {
-  padding: 3%;
+  padding: 3% 3% 10% 3%;
   background-color: #575755;
   text-align: center;
   color: #fff;
+}
+
+@media screen and (max-width: 767px) {
+  .AuthorContent {
+    padding: 3% 6% 10% 6%
+  }
 }
