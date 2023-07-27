@@ -129,6 +129,8 @@ Link to deployed database: <a href="https://getdriveing-6933e088a46d.herokuapp.c
 </li>
 </ul></ul></ul>
 
+Link to Agile Planning Project Board: https://github.com/users/MandyHole/projects/5
+
 <ul id="accessibility"><li><strong>Accessibility</strong></li>
 
 <ul><li>Designed to assist users with screenreaders</li><ul>
@@ -519,7 +521,7 @@ Testing was done to ensure that the site deployed by Heroku matched the local ve
 Friends and family members were asked to review the site and documentation to point out any bugs and/or user experience issues.
 
 <h3 id="known-bugs">Bugs</h3>
-The Sign In functionality doesn't work on Safari unless the "Prevent Cross-Site tracking" option is turned off (Settings -- Safari -- Privacy and Security) due to the nature of how it was deployed.
+The Sign In functionality doesn't work on Safari unless the "Prevent Cross-Site tracking" option is turned off (Settings -- Safari -- Privacy and Security) due to the nature of how it was deployed from two repositories.
 
 <h3 id="fixed-bugs">Key Fixed Bugs</h3>
 I kept getting errors in the terminal related to the Babel plugin. I ran " npm install --save-dev @babel/plugin-proposal-private-property-in-object --legacy-peer-deps " in the terminal which sorted the issue (with thanks to https://stackoverflow.com/questions/76435306/babel-preset-react-app-is-importing-the-babel-plugin-proposal-private-propert ) 
