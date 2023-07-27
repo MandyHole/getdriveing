@@ -15,6 +15,11 @@
   color: #fff;
 }
 
+.DetailRow {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
 @media screen and (max-width: 767px) {
   .AuthorContent {
     padding: 3% 6% 10% 6%

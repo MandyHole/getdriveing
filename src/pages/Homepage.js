@@ -50,7 +50,7 @@ const Homepage = () => {
         />
       )}
 
-      <Row>
+      <Row className={styles.DetailRow}>
         <Col md={{ span: 8, offset: 1 }} className={styles.MainContent}>
           {/* shows tips by when added (newest first) */}
           <TipsFeed />

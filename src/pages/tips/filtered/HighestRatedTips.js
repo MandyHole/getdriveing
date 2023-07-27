@@ -32,7 +32,7 @@ const HighestRatedTips = () => {
     <>
       <HeroComponent h1={`Tips sorted by rating`} />
 
-      <Row>
+      <Row className={styles.DetailRow}>
         <Col md={{ span: 8, offset: 1 }} className={styles.MainContent}>
           <TipsFeed filter={`ordering=-average_rating&`} />
         </Col>

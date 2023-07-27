@@ -38,7 +38,7 @@ const Beginner = () => {
 
       {hasLoaded ? (
         <>
-          <Row>
+          <Row  className={styles.DetailRow}>
             <Col md={{ span: 8, offset: 1 }} className={styles.MainContent}>
               <section>
                 <TipsFeed filter={`ability=beginner&`} />{" "}

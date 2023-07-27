@@ -31,7 +31,7 @@ const MostSavedPage = () => {
   return (
     <>
       <HeroComponent h1={`Tips sorted by number of times saved`} />
-      <Row>
+      <Row className={styles.DetailRow}>
         <Col md={{ span: 8, offset: 1 }} className={styles.MainContent}>
           <TipsFeed filter={`ordering=-number_times_saved&`} />
         </Col>

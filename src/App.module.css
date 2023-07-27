@@ -32,3 +32,8 @@ a {
 .NotFoundContainer {
     margin-top: 50vh;
 }
+
+.DetailRow {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }

@@ -42,7 +42,7 @@ const AuthorsTips = () => {
               h1={`Tips by ${author.results[0].owner}`}
             />
           ) : null}
-          <Row>
+          <Row className={styles.DetailRow}>
             <Col md={{ span: 8, offset: 1 }} className={styles.MainContent}>
               <section>
                 {" "}

@@ -205,10 +205,10 @@ function TipDetailPage() {
                 }`}
               />
 
-              <Row>
+              <Row className={styles.DetailRow}>
                 <Col md={{ span: 8, offset: 1 }} className={styles.TipContent}>
                   <>
-                    <Row>
+                    <Row className={styles.DetailRow}>
                       <Col lg={{ span: 4 }}>
                         <aside>
                           {/* tip screenshot */}

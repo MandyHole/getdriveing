@@ -40,7 +40,7 @@ const MyProfilePage = () => {
           .charAt(0)
           .toUpperCase()}${currentUser?.username.slice(1)}'s Information`}
       />
-      <Row>
+      <Row className={appStyles.DetailRow}>
         <Col md={{ span: 8, offset: 1 }} className={appStyles.MainContent}>
           <h3 className={appStyles.ContentHeader}>
             Tips I Have Added <MyButtons add_btn />

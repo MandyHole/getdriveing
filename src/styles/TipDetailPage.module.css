@@ -65,3 +65,8 @@
   text-align: center;
   margin-top: 10px;
 }
+
+.DetailRow {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
